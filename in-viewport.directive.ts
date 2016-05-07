@@ -1,10 +1,16 @@
-import {Directive, OnInit, ElementRef, Output, EventEmitter, HostListener} from '@angular/core';
+import {Directive, OnInit, OnDestroy, ElementRef, Output, EventEmitter} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/debounceTime';
 
 @Directive({
   selector: '[in-viewport]'
 })
 
-export class InViewport implements OnInit {
+export class InViewport implements OnInit, OnDestroy {
+  private scroll:any;
+  private resize:any;
+
   @Output('inViewport') inViewport:EventEmitter<Object>;
 
   constructor(private _el:ElementRef) {
@@ -12,24 +18,25 @@ export class InViewport implements OnInit {
   }
 
   ngOnInit() {
-    this.isInViewport();
+    this.check();
+
+    this.scroll = Observable
+      .fromEvent(window, 'scroll').debounceTime(100).subscribe((event) => {
+        this.check();
+      });
+
+    this.resize = Observable
+      .fromEvent(window, 'resize').debounceTime(100).subscribe((event) => {
+        this.check();
+      });
   }
 
-  @HostListener('window:resize', ['$event'])
-  onViewportResize(event:Event) {
-    window.requestAnimationFrame(() => {
-      this.isInViewport();
-    });
+  ngOnDestroy() {
+    this.scroll.unsubscribe();
+    this.resize.unsubscribe();
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onViewportScroll(event:Event) {
-    window.requestAnimationFrame(() => {
-      this.isInViewport();
-    });
-  }
-
-  isInViewport(partial:boolean = true, direction:string = 'both') {
+  check(partial:boolean = true, direction:string = 'both') {
     const el = this._el.nativeElement;
 
     const elSize = (el.offsetWidth * el.offsetHeight);
