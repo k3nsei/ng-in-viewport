@@ -9,27 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var Observable_1 = require('rxjs/Observable');
+require('rxjs/add/observable/fromEvent');
+require('rxjs/add/operator/debounceTime');
 var InViewport = (function () {
     function InViewport(_el) {
         this._el = _el;
         this.inViewport = new core_1.EventEmitter();
     }
     InViewport.prototype.ngOnInit = function () {
-        this.isInViewport();
-    };
-    InViewport.prototype.onViewportResize = function (event) {
         var _this = this;
-        window.requestAnimationFrame(function () {
-            _this.isInViewport();
+        this.check();
+        this.scroll = Observable_1.Observable
+            .fromEvent(window, 'scroll').debounceTime(100).subscribe(function (event) {
+            _this.check();
+        });
+        this.resize = Observable_1.Observable
+            .fromEvent(window, 'resize').debounceTime(100).subscribe(function (event) {
+            _this.check();
         });
     };
-    InViewport.prototype.onViewportScroll = function (event) {
-        var _this = this;
-        window.requestAnimationFrame(function () {
-            _this.isInViewport();
-        });
+    InViewport.prototype.ngOnDestroy = function () {
+        this.scroll.unsubscribe();
+        this.resize.unsubscribe();
     };
-    InViewport.prototype.isInViewport = function (partial, direction) {
+    InViewport.prototype.check = function (partial, direction) {
         if (partial === void 0) { partial = true; }
         if (direction === void 0) { direction = 'both'; }
         var el = this._el.nativeElement;
@@ -64,18 +68,6 @@ var InViewport = (function () {
         core_1.Output('inViewport'), 
         __metadata('design:type', core_1.EventEmitter)
     ], InViewport.prototype, "inViewport", void 0);
-    __decorate([
-        core_1.HostListener('window:resize', ['$event']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Event]), 
-        __metadata('design:returntype', void 0)
-    ], InViewport.prototype, "onViewportResize", null);
-    __decorate([
-        core_1.HostListener('window:scroll', ['$event']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Event]), 
-        __metadata('design:returntype', void 0)
-    ], InViewport.prototype, "onViewportScroll", null);
     InViewport = __decorate([
         core_1.Directive({
             selector: '[in-viewport]'
