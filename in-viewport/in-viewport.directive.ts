@@ -4,7 +4,6 @@ import {InViewportService} from './in-viewport.service';
 @Directive({
     selector: '[in-viewport]'
 })
-
 export class InViewportDirective implements ngAfterViewInit, OnDestroy {
     @Output('inViewport') inViewport: EventEmitter<Object> = new EventEmitter();
 
