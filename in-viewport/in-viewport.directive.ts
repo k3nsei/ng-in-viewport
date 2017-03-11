@@ -1,10 +1,10 @@
-import {Directive, ngAfterViewInit, OnDestroy, ElementRef, Output, EventEmitter} from '@angular/core';
+import {Directive, AfterViewInit, OnDestroy, ElementRef, Output, EventEmitter} from '@angular/core';
 import {InViewportService} from './in-viewport.service';
 
 @Directive({
     selector: '[in-viewport]'
 })
-export class InViewportDirective implements ngAfterViewInit, OnDestroy {
+export class InViewportDirective implements AfterViewInit, OnDestroy {
     @Output('inViewport') inViewport: EventEmitter<Object> = new EventEmitter();
 
     private eventSub: any;
@@ -16,7 +16,7 @@ export class InViewportDirective implements ngAfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        this.check();
+        setTimeout(() => this.check());
     }
 
     ngOnDestroy() {
