@@ -2,7 +2,9 @@
 Allows us to check if an element is within the browsers visual viewport
 
 ## Installation
-`npm install --save ng-in-viewport`
+```sh
+npm install --save ng-in-viewport
+```
 
 ## Usage
 ``` angular2html
