@@ -65,5 +65,4 @@ export class InVpExampleComponent {
 ```
 
 # License
-
 [MIT](https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE)
