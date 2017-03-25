@@ -1,6 +1,9 @@
 # ng-in-viewport
 Allows us to check if an element is within the browsers visual viewport
 
+## Installation
+`npm install --save ng-in-viewport`
+
 ## Usage
 ``` angular2html
   <div in-viewport (inViewport)="action($event)">
