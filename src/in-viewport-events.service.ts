@@ -1,14 +1,18 @@
 import { EventEmitter, Injectable } from "@angular/core";
-import "rxjs/add/observable/fromEvent";
-import "rxjs/add/operator/debounceTime";
 import { Observable } from "rxjs/Observable";
+import { fromEvent } from "rxjs/observable/fromEvent";
+import { debounceTime } from "rxjs/operator/debounceTime";
+import { Subscription } from "rxjs/Subscription";
 import { InViewportService } from "./in-viewport.service";
 
 @Injectable()
 export class InViewportEventsService extends InViewportService {
-  private scrollListener: any;
-  private resizeListener: any;
-  private domListener: any;
+  private scroll$: Observable<any>;
+  private scrollSubscription: Subscription;
+  private resize$: Observable<any>;
+  private resizeSubscription: Subscription;
+  private dom$: any;
+  private domSubscription: any;
   private roots: Array<any>;
 
   public trigger$: EventEmitter<any>;
@@ -20,19 +24,17 @@ export class InViewportEventsService extends InViewportService {
 
     this.roots = [];
 
-    this.scrollListener = Observable
-      .fromEvent(window, 'scroll', { passive: true })
-      .debounceTime(50)
-      .subscribe((event) => this.onChanges());
+    this.scroll$ = fromEvent(window, 'scroll', { passive: true });
+    this.scrollSubscription = debounceTime.call(this.scroll$, 50)
+      .subscribe((event: Event) => this.onChanges());
 
-    this.resizeListener = Observable
-      .fromEvent(window, 'resize', { passive: true })
-      .debounceTime(50)
-      .subscribe((event) => this.onChanges());
+    this.resize$ = fromEvent(window, 'resize', { passive: true });
+    this.resizeSubscription = debounceTime.call(this.resize$, 50)
+      .subscribe((event: Event) => this.onChanges());
 
     if (window && 'MutationObserver' in window) {
-      this.domListener = new MutationObserver((mutations) => this.onChanges());
-      // this.domListener.observe(document, {
+      this.dom$ = new MutationObserver((mutations) => this.onChanges());
+      // this.domSubscription = this.dom$.observe(document, {
       //   attributes: true,
       //   childList: true,
       //   characterData: true,
