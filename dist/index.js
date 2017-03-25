@@ -17,8 +17,8 @@
     exports.InViewportDirective = in_viewport_directive_1.InViewportDirective;
     var in_viewport_module_1 = require("./in-viewport.module");
     exports.InViewportModule = in_viewport_module_1.InViewportModule;
-    exports.InViewportStrategy = in_viewport_module_1.InViewportStrategy;
     exports.InViewportStrategies = in_viewport_module_1.InViewportStrategies;
+    exports.InViewportStrategy = in_viewport_module_1.InViewportStrategy;
     var in_viewport_service_1 = require("./in-viewport.service");
     exports.InViewportService = in_viewport_service_1.InViewportService;
 });

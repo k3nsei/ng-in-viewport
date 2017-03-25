@@ -1,11 +1,12 @@
 import { EventEmitter } from "@angular/core";
-import "rxjs/add/observable/fromEvent";
-import "rxjs/add/operator/debounceTime";
 import { InViewportService } from "./in-viewport.service";
 export declare class InViewportEventsService extends InViewportService {
-    private scrollListener;
-    private resizeListener;
-    private domListener;
+    private scroll$;
+    private scrollSubscription;
+    private resize$;
+    private resizeSubscription;
+    private dom$;
+    private domSubscription;
     private roots;
     trigger$: EventEmitter<any>;
     constructor();

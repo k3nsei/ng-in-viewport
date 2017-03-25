@@ -4,7 +4,7 @@ npm install --save ng-in-viewport
 ```
 
 # Demo
-[Here](https://embed.plnkr.co/5An8PtvxchWkIs1j49Fc/) is example app
+[Here](https://embed.plnkr.co/SE5DdvrNzAKNWIyTCzDY/) is example app
 
 # Simple usage example
 ```typescript
