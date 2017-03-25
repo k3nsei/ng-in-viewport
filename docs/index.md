@@ -3,6 +3,9 @@
 npm install --save ng-in-viewport
 ```
 
+# Demo
+[Here](https://embed.plnkr.co/5An8PtvxchWkIs1j49Fc/) is example app
+
 # Simple usage example
 ```typescript
 import { Component, Renderer2 } from '@angular/core';
@@ -10,12 +13,16 @@ import { Component, Renderer2 } from '@angular/core';
 @Component({
   selector: 'in-vp-example',
   template: `
-    <div class="item inactive" *ngFor="let item of items" in-viewport (inViewport)="onInViewportChange($event)">
+    <div class="item inactive"
+         *ngFor="let item of items"
+         in-viewport
+         [inViewportOptions]="{ partial: false }"
+         (inViewport)="onInViewportChange($event)">
       {{ item }}
     </div>
   `,
   styles: [
-    `
+      `
       .item {
         width: 100px;
         height: 100px;
@@ -47,7 +54,7 @@ export class InVpExampleComponent {
       .map((item, i) => (i + 1));
   }
 
-  onInViewportChange(event) {
+  onInViewportChange(event: any) {
     if(event.value) {
       this.renderer.setProperty(event.target, 'className', 'item active');
     } else {
