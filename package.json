@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
+    "build:watch": "rimraf dist && tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
