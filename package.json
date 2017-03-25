@@ -1,0 +1,38 @@
+{
+  "name": "ng-in-viewport",
+  "version": "1.1.0",
+  "description": "Allows us to check if an element is within the browsers visual viewport",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k3nsei/angular2-in-viewport.git"
+  },
+  "authors": [
+    {
+      "name": "Piotr Stępniewski",
+      "email": "k3nsei.pl@gmail.com",
+      "url": "https://github.com/k3nsei"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k3nsei/angular2-in-viewport/issues"
+  },
+  "homepage": "https://github.com/k3nsei/angular2-in-viewport#readme",
+  "dependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.0.1",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "typescript": "^2.2.1"
+  }
+}
