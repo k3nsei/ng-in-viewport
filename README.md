@@ -1,7 +1,20 @@
-# angular2-in-viewport
+# ng-in-viewport
 Allows us to check if an element is within the browsers visual viewport
 
-<a href="https://embed.plnkr.co/ncODgBpLhP04Ak1VdUZY/" target="_blank">DEMO</a>
+## Usage
+``` angular2html
+  <div in-viewport (inViewport)="action($event)">
+    Lorem ipsum dolor sit amet augue. Sed quam et odio.
+  </div>
+```
+
+``` typescript
+export class ExampleComponent {
+  action(event) {
+    console.log(event);
+  }
+}
+```
 
 ## License
 MIT
