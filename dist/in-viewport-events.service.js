@@ -23,15 +23,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@angular/core", "rxjs/add/observable/fromEvent", "rxjs/add/operator/debounceTime", "rxjs/Observable", "./in-viewport.service"], factory);
+        define(["require", "exports", "@angular/core", "rxjs/observable/fromEvent", "rxjs/operator/debounceTime", "./in-viewport.service"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var core_1 = require("@angular/core");
-    require("rxjs/add/observable/fromEvent");
-    require("rxjs/add/operator/debounceTime");
-    var Observable_1 = require("rxjs/Observable");
+    var fromEvent_1 = require("rxjs/observable/fromEvent");
+    var debounceTime_1 = require("rxjs/operator/debounceTime");
     var in_viewport_service_1 = require("./in-viewport.service");
     var InViewportEventsService = (function (_super) {
         __extends(InViewportEventsService, _super);
@@ -39,17 +38,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
             var _this = _super.call(this) || this;
             _this.trigger$ = new core_1.EventEmitter();
             _this.roots = [];
-            _this.scrollListener = Observable_1.Observable
-                .fromEvent(window, 'scroll', { passive: true })
-                .debounceTime(50)
+            _this.scroll$ = fromEvent_1.fromEvent(window, 'scroll', { passive: true });
+            _this.scrollSubscription = debounceTime_1.debounceTime.call(_this.scroll$, 50)
                 .subscribe(function (event) { return _this.onChanges(); });
-            _this.resizeListener = Observable_1.Observable
-                .fromEvent(window, 'resize', { passive: true })
-                .debounceTime(50)
+            _this.resize$ = fromEvent_1.fromEvent(window, 'resize', { passive: true });
+            _this.resizeSubscription = debounceTime_1.debounceTime.call(_this.resize$, 50)
                 .subscribe(function (event) { return _this.onChanges(); });
             if (window && 'MutationObserver' in window) {
-                _this.domListener = new MutationObserver(function (mutations) { return _this.onChanges(); });
-                // this.domListener.observe(document, {
+                _this.dom$ = new MutationObserver(function (mutations) { return _this.onChanges(); });
+                // this.domSubscription = this.dom$.observe(document, {
                 //   attributes: true,
                 //   childList: true,
                 //   characterData: true,
