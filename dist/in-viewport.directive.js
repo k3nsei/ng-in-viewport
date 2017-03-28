@@ -41,10 +41,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
         });
         InViewportDirective.prototype.ngAfterViewInit = function () {
             var _this = this;
-            this.check(true);
             this.inViewportService.addTarget(this.elementRef.nativeElement);
             this.subscription = this.inViewportService.trigger$
                 .subscribe(function (entries) { return _this.check(); });
+            setTimeout(function () { return _this.check(true); }, 0);
         };
         InViewportDirective.prototype.ngOnDestroy = function () {
             this.inViewportService.removeTarget(this.elementRef.nativeElement);
