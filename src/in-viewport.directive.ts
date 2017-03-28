@@ -34,11 +34,11 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.check(true);
-
     this.inViewportService.addTarget(this.elementRef.nativeElement);
     this.subscription = this.inViewportService.trigger$
       .subscribe((entries: Array<any>) => this.check());
+
+    setTimeout(() => this.check(true), 0);
   }
 
   ngOnDestroy() {
