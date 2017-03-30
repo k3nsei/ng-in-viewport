@@ -9,5 +9,5 @@ export declare class InViewportDirective implements AfterViewInit, OnDestroy {
     updateConfig: any;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
-    check(entry: IntersectionObserverEntry): void;
+    check(entries: IntersectionObserverEntry[]): void;
 }
