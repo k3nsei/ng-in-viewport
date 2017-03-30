@@ -28,11 +28,9 @@ export class InViewportService {
     let registryEntry = this.findRegistryEntry(rootElement);
     if (!registryEntry) {
       const registryEntryObserverOptions: any = {
+        root: (rootElement instanceof Element) ? rootElement : null,
         threshold: Array(101).fill(void 0).map((item, i) => (i / 100))
       };
-      if (rootElement) {
-        registryEntryObserverOptions.root = rootElement;
-      }
       registryEntry = {
         targets: [target],
         rootElement,
