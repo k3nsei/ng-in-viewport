@@ -1,16 +1,12 @@
-import { InViewportEventsService } from "./in-viewport-events.service";
-import { InViewportIntersectionService } from "./in-viewport-intersection.service";
-import { InViewportConfig, InViewportDirective } from "./in-viewport.directive";
-import { InViewportModule, InViewportStrategies, InViewportStrategy } from "./in-viewport.module";
+import { InViewportModule } from "./in-viewport.module";
 import { InViewportService } from "./in-viewport.service";
+import { InViewportConfig, InViewportConfigDirection } from './in-viewport-config.class';
+import { InViewportDirective } from "./in-viewport.directive";
 
 export {
   InViewportModule,
-  InViewportDirective,
-  InViewportConfig,
-  InViewportStrategies,
-  InViewportStrategy,
   InViewportService,
-  InViewportEventsService,
-  InViewportIntersectionService
+  InViewportConfig,
+  InViewportConfigDirection,
+  InViewportDirective
 };
