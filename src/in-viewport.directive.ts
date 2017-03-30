@@ -33,7 +33,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.inViewportService.trigger$.subscribe((entry: IntersectionObserverEntry) => this.check(entry));
+    this.inViewportService.trigger$.subscribe((entries: IntersectionObserverEntry[]) => entries.forEach((entry) => this.check(entry)));
     this.inViewportService.addTarget(this.elementRef.nativeElement, this.config.rootElement);
   }
 
