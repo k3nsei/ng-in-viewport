@@ -20,4 +20,6 @@ export class InViewportModule {
       ]
     };
   }
+
+  constructor(private inViewportService: InViewportService) {}
 }
