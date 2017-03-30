@@ -7,64 +7,61 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+import { EventEmitter, Injectable } from "@angular/core";
+var InViewportService = (function () {
+    function InViewportService() {
+        this.registry = [];
+        this.trigger$ = new EventEmitter();
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@angular/core"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var core_1 = require("@angular/core");
-    var InViewportService = (function () {
-        function InViewportService() {
-            this.registry = [];
-            this.trigger$ = new core_1.EventEmitter();
+    InViewportService.prototype.onChanges = function (entries) {
+        this.trigger$.emit(entries);
+    };
+    InViewportService.prototype.findRegistryEntry = function (rootElement) {
+        return this.registry.find(function (item) { return item.rootElement === rootElement; });
+    };
+    InViewportService.prototype.addTarget = function (target, rootElement) {
+        var _this = this;
+        var registryEntry = this.findRegistryEntry(rootElement);
+        if (!registryEntry) {
+            var registryEntryObserverOptions = {
+                threshold: Array(101).fill(void 0).map(function (item, i) { return (i / 100); })
+            };
+            if (rootElement) {
+                registryEntryObserverOptions.root = rootElement;
+            }
+            registryEntry = {
+                targets: [target],
+                rootElement: rootElement,
+                observer: new IntersectionObserver(function (entries) { return _this.onChanges(entries); }, registryEntryObserverOptions)
+            };
+            registryEntry.observer.observe(target);
+            this.registry.push(registryEntry);
         }
-        InViewportService.prototype.onChanges = function (entries) {
-            this.trigger$.emit(entries[0]);
-        };
-        InViewportService.prototype.findTarget = function (target) {
-            return this.registry.find(function (item) { return item.target === target; });
-        };
-        InViewportService.prototype.addTarget = function (target, rootElement) {
-            var _this = this;
-            if (!this.findTarget(target)) {
-                // Create target observer options
-                var observerOptions = {
-                    threshold: Array(101).fill(void 0).map(function (item, i) { return (i / 100); })
-                };
-                if (rootElement) {
-                    observerOptions.root = rootElement;
-                }
-                // Create target object
-                var targetObj = {
-                    target: target,
-                    rootElement: rootElement,
-                    observer: new IntersectionObserver(function (entries) { return _this.onChanges(entries); }, observerOptions)
-                };
-                // Start to observe target
-                targetObj.observer.observe(target);
-                // Add target to registry
-                this.registry.push(targetObj);
+        else if (registryEntry.targets.indexOf(target) < 0) {
+            registryEntry.targets.push(target);
+            registryEntry.observer.observe(target);
+        }
+    };
+    InViewportService.prototype.removeTarget = function (target, rootElement) {
+        var registryEntry = this.findRegistryEntry(rootElement);
+        var registryEntryIdx = this.registry.indexOf(registryEntry);
+        if (registryEntry) {
+            var targetIdx = registryEntry.targets.indexOf(target);
+            if (targetIdx >= 0) {
+                registryEntry.observer.unobserve(target);
+                registryEntry.targets.splice(targetIdx, 1);
             }
-        };
-        InViewportService.prototype.removeTarget = function (target) {
-            var targetObj = this.findTarget(target);
-            if (targetObj) {
-                targetObj.observer.disconnect();
-                this.registry.splice(this.registry.indexOf(targetObj), 1);
+            if (registryEntry.targets.length === 0) {
+                registryEntry.observer.disconnect();
+                this.registry.splice(registryEntryIdx, 1);
             }
-        };
-        return InViewportService;
-    }());
-    InViewportService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [])
-    ], InViewportService);
-    exports.InViewportService = InViewportService;
-});
+        }
+    };
+    return InViewportService;
+}());
+InViewportService = __decorate([
+    Injectable(),
+    __metadata("design:paramtypes", [])
+], InViewportService);
+export { InViewportService };
 //# sourceMappingURL=in-viewport.service.js.map
