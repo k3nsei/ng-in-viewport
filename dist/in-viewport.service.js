@@ -7,27 +7,50 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+import { EventEmitter, Injectable } from "@angular/core";
+let InViewportService = class InViewportService {
+    constructor() {
+        this.registry = [];
+        this.trigger$ = new EventEmitter();
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@angular/core"], factory);
+    onChanges(entries) {
+        this.trigger$.emit(entries[0]);
     }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var core_1 = require("@angular/core");
-    var InViewportService = (function () {
-        function InViewportService() {
+    findTarget(target) {
+        return this.registry.find((item) => item.target === target);
+    }
+    addTarget(target, rootElement) {
+        if (!this.findTarget(target)) {
+            // Create target observer options
+            const observerOptions = {
+                threshold: Array(101).fill(void 0).map((item, i) => (i / 100))
+            };
+            if (rootElement) {
+                observerOptions.root = rootElement;
+            }
+            // Create target object
+            const targetObj = {
+                target,
+                rootElement,
+                observer: new IntersectionObserver((entries) => this.onChanges(entries), observerOptions)
+            };
+            // Start to observe target
+            targetObj.observer.observe(target);
+            // Add target to registry
+            this.registry.push(targetObj);
         }
-        return InViewportService;
-    }());
-    InViewportService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [])
-    ], InViewportService);
-    exports.InViewportService = InViewportService;
-});
+    }
+    removeTarget(target) {
+        const targetObj = this.findTarget(target);
+        if (targetObj) {
+            targetObj.observer.disconnect();
+            this.registry.splice(this.registry.indexOf(targetObj), 1);
+        }
+    }
+};
+InViewportService = __decorate([
+    Injectable(),
+    __metadata("design:paramtypes", [])
+], InViewportService);
+export { InViewportService };
 //# sourceMappingURL=in-viewport.service.js.map
