@@ -21,21 +21,19 @@ export class InViewportService {
   }
 
   protected findRegistryEntry(rootElement: Element) {
-    return this.registry.find((item) => item.rootElement === rootElement);
+    return this.registry.find((item) => item.rootElement === this.getRootElement(rootElement));
   }
 
   public addTarget(target: Element, rootElement?: Element): void {
     let registryEntry = this.findRegistryEntry(rootElement);
     if (!registryEntry) {
       const registryEntryObserverOptions: any = {
+        root: this.getRootElement(rootElement),
         threshold: Array(101).fill(void 0).map((item, i) => (i / 100))
       };
-      if (rootElement) {
-        registryEntryObserverOptions.root = rootElement;
-      }
       registryEntry = {
         targets: [target],
-        rootElement,
+        rootElement: this.getRootElement(rootElement),
         observer: new IntersectionObserver(
           (entries: IntersectionObserverEntry[]) => this.onChanges(entries),
           registryEntryObserverOptions
@@ -63,5 +61,9 @@ export class InViewportService {
         this.registry.splice(registryEntryIdx, 1);
       }
     }
+  }
+
+  protected getRootElement(element: any) {
+    return (element && element.nodeType === 1) ? element : null;
   }
 }
