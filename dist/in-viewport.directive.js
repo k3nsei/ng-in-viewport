@@ -36,14 +36,16 @@ var InViewportDirective = (function () {
     });
     InViewportDirective.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this.inViewportService.trigger$.subscribe(function (entries) { return entries.forEach(function (entry) { return _this.check(entry); }); });
+        this.inViewportService.trigger$.subscribe(function (entries) { return _this.check(entries); });
         this.inViewportService.addTarget(this.elementRef.nativeElement, this.config.rootElement);
     };
     InViewportDirective.prototype.ngOnDestroy = function () {
         this.inViewportService.removeTarget(this.elementRef.nativeElement);
     };
-    InViewportDirective.prototype.check = function (entry) {
-        if (entry.target === this.elementRef.nativeElement) {
+    InViewportDirective.prototype.check = function (entries) {
+        var _this = this;
+        var entry = entries.find(function (item) { return item.target === _this.elementRef.nativeElement; });
+        if (entry) {
             var value = this.config.partial ? (entry.intersectionRatio > 0) : (entry.intersectionRatio === 1);
             this.action$.emit({
                 target: entry.target,

@@ -33,7 +33,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.inViewportService.trigger$.subscribe((entries: IntersectionObserverEntry[]) => entries.forEach((entry) => this.check(entry)));
+    this.inViewportService.trigger$.subscribe((entries: IntersectionObserverEntry[]) => this.check(entries));
     this.inViewportService.addTarget(this.elementRef.nativeElement, this.config.rootElement);
   }
 
@@ -41,8 +41,9 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
     this.inViewportService.removeTarget(this.elementRef.nativeElement);
   }
 
-  check(entry: IntersectionObserverEntry) {
-    if (entry.target === this.elementRef.nativeElement) {
+  check(entries: IntersectionObserverEntry[]) {
+    const entry = entries.find((item) => item.target === this.elementRef.nativeElement);
+    if (entry) {
       const value = this.config.partial ? (entry.intersectionRatio > 0) : (entry.intersectionRatio === 1);
 
       this.action$.emit({
