@@ -1,31 +1,6 @@
-import { FactoryProvider, ModuleWithProviders, NgModule, OpaqueToken } from "@angular/core";
-import { InViewportEventsService } from "./in-viewport-events.service";
-import { InViewportIntersectionService } from "./in-viewport-intersection.service";
+import { ModuleWithProviders, NgModule } from "@angular/core";
 import { InViewportDirective } from "./in-viewport.directive";
 import { InViewportService } from "./in-viewport.service";
-
-export enum InViewportStrategies {
-  Events,
-  Intersection
-}
-
-export const InViewportStrategy = new OpaqueToken('InViewportStrategy');
-
-const strategy: InViewportStrategies = (window && 'IntersectionObserver' in window)
-  ? InViewportStrategies.Intersection
-  : InViewportStrategies.Events;
-
-const InViewportServiceFactory: FactoryProvider = {
-  provide: InViewportService,
-  useFactory: () => {
-    switch (strategy) {
-      case InViewportStrategies.Intersection:
-        return new InViewportIntersectionService();
-      default:
-        return new InViewportEventsService();
-    }
-  }
-};
 
 @NgModule({
   imports: [],
@@ -41,16 +16,8 @@ export class InViewportModule {
     return {
       ngModule: InViewportModule,
       providers: [
-        {
-          provide: InViewportStrategy,
-          useValue: strategy
-        },
-        InViewportServiceFactory,
-        InViewportEventsService,
-        InViewportIntersectionService
+        InViewportService
       ]
     };
   }
-
-  constructor(private inViewportService: InViewportService) {}
 }
