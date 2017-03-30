@@ -11,6 +11,9 @@ import { NgModule, Component, ViewEncapsulation, Renderer2 } from '@angular/core
 import { BrowserModule } from '@angular/platform-browser';
 import { InViewportModule } from 'ng-in-viewport';
 
+// Remember to import `intersection-observer` polyfill for fully browsers support
+import 'intersection-observer';
+
 @NgModule({
   declarations: [
     InVpExampleComponent
