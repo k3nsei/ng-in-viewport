@@ -17,21 +17,20 @@ var InViewportService = (function () {
         this.trigger$.emit(entries);
     };
     InViewportService.prototype.findRegistryEntry = function (rootElement) {
-        return this.registry.find(function (item) { return item.rootElement === rootElement; });
+        var _this = this;
+        return this.registry.find(function (item) { return item.rootElement === _this.getRootElement(rootElement); });
     };
     InViewportService.prototype.addTarget = function (target, rootElement) {
         var _this = this;
         var registryEntry = this.findRegistryEntry(rootElement);
         if (!registryEntry) {
             var registryEntryObserverOptions = {
+                root: this.getRootElement(rootElement),
                 threshold: Array(101).fill(void 0).map(function (item, i) { return (i / 100); })
             };
-            if (rootElement) {
-                registryEntryObserverOptions.root = rootElement;
-            }
             registryEntry = {
                 targets: [target],
-                rootElement: rootElement,
+                rootElement: this.getRootElement(rootElement),
                 observer: new IntersectionObserver(function (entries) { return _this.onChanges(entries); }, registryEntryObserverOptions)
             };
             registryEntry.observer.observe(target);
@@ -41,6 +40,7 @@ var InViewportService = (function () {
             registryEntry.targets.push(target);
             registryEntry.observer.observe(target);
         }
+        console.log(this.registry);
     };
     InViewportService.prototype.removeTarget = function (target, rootElement) {
         var registryEntry = this.findRegistryEntry(rootElement);
@@ -56,6 +56,9 @@ var InViewportService = (function () {
                 this.registry.splice(registryEntryIdx, 1);
             }
         }
+    };
+    InViewportService.prototype.getRootElement = function (element) {
+        return (element && element.nodeType === 1) ? element : null;
     };
     return InViewportService;
 }());
