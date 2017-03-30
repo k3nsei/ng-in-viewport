@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "./src/",
-    "outDir": "./dist/",
-    "module": "umd",
+    "rootDir": ".",
+    "outDir": "../dist/",
+    "module": "es2015",
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es2015",
     "declaration": true,
     "stripInternal": true,
     "emitDecoratorMetadata": true,
@@ -22,8 +22,6 @@
     ]
   },
   "exclude": [
-    "node_modules",
-    "demo",
-    "dist"
+    "node_modules"
   ]
 }

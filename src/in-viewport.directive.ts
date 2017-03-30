@@ -1,95 +1,54 @@
 import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, Output } from "@angular/core";
+import { InViewportConfig } from "./in-viewport-config.class";
 import { InViewportService } from "./in-viewport.service";
 
-export interface InViewportConfig {
-  partial?: boolean;
-  direction?: 'both' | 'vertical' | 'horizontal';
-}
-
-const DEFAULT_CONFIG: InViewportConfig = {
-  partial: true,
-  direction: 'both'
-};
-
 @Directive({
-  selector: '[in-viewport]'
+  selector: '[in-viewport], [inViewport]'
 })
 export class InViewportDirective implements AfterViewInit, OnDestroy {
-  private subscription: any;
   private config: InViewportConfig;
-  private invp: boolean;
 
-  @Output('inViewport') public action$: EventEmitter<any>;
+  @Output('inViewportAction')
+  public action$: EventEmitter<any>;
 
-  constructor(private elementRef: ElementRef,
+  constructor(public elementRef: ElementRef,
               private inViewportService: InViewportService) {
-    this.config = Object.assign({}, DEFAULT_CONFIG);
+    this.config = new InViewportConfig();
     this.action$ = new EventEmitter();
-    this.invp = false;
   }
 
   @Input('inViewportOptions')
-  set updateConfig(value: InViewportConfig) {
-    this.config = Object.assign(this.config, value);
+  set updateConfig(value: any) {
+    if (value && Object.prototype.toString.call(value) === '[object Object]') {
+      if (value.rootElement instanceof Element) {
+        this.config.rootElement = value.rootElement;
+      }
+      if ('partial' in value) {
+        this.config.partial = value.partial;
+      }
+      if ('direction' in value) {
+        this.config.rootElement = value.direction;
+      }
+    }
   }
 
   ngAfterViewInit() {
-    this.inViewportService.addTarget(this.elementRef.nativeElement);
-    this.subscription = this.inViewportService.trigger$
-      .subscribe((entries: Array<any>) => this.check());
-
-    setTimeout(() => this.check(true), 0);
+    this.inViewportService.trigger$.subscribe((entry: IntersectionObserverEntry) => this.check(entry));
+    this.inViewportService.addTarget(this.elementRef.nativeElement, this.config.rootElement);
   }
 
   ngOnDestroy() {
     this.inViewportService.removeTarget(this.elementRef.nativeElement);
-    this.subscription.unsubscribe();
   }
 
-  check(force?: boolean) {
-    const el = this.elementRef.nativeElement;
+  check(entry: IntersectionObserverEntry) {
+    if (entry.target === this.elementRef.nativeElement) {
+      const value = this.config.partial ? (entry.intersectionRatio > 0) : (entry.intersectionRatio === 1);
 
-    const elSize = (el.offsetWidth * el.offsetHeight);
-
-    const rec = el.getBoundingClientRect();
-
-    const vp = {
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
-
-    const tViz = rec.top >= 0 && rec.top < vp.height;
-    const bViz = rec.bottom > 0 && rec.bottom <= vp.height;
-
-    const lViz = rec.left >= 0 && rec.left < vp.width;
-    const rViz = rec.right > 0 && rec.right <= vp.width;
-
-    const vVisible = this.config.partial ? tViz || bViz : tViz && bViz;
-    const hVisible = this.config.partial ? lViz || rViz : lViz && rViz;
-
-    let invp = false;
-
-    switch (this.config.direction) {
-      case 'vertical':
-        invp = !!(elSize && vVisible);
-        break;
-      case 'horizontal':
-        invp = !!(elSize && hVisible);
-        break;
-      default:
-        invp = !!(elSize && vVisible && hVisible);
+      this.action$.emit({
+        target: entry.target,
+        value
+      })
     }
-
-    if (force || this.invp !== invp) {
-      this.invp = invp;
-      this.onChange();
-    }
-  }
-
-  onChange() {
-    this.action$.emit({
-      target: this.elementRef.nativeElement,
-      value: this.invp
-    });
   }
 }
