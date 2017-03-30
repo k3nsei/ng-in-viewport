@@ -40,7 +40,6 @@ var InViewportService = (function () {
             registryEntry.targets.push(target);
             registryEntry.observer.observe(target);
         }
-        console.log(this.registry);
     };
     InViewportService.prototype.removeTarget = function (target, rootElement) {
         var registryEntry = this.findRegistryEntry(rootElement);

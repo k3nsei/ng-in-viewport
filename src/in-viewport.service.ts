@@ -45,7 +45,6 @@ export class InViewportService {
       registryEntry.targets.push(target);
       registryEntry.observer.observe(target);
     }
-    console.log(this.registry)
   }
 
   public removeTarget(target: Element, rootElement?: Element): void {

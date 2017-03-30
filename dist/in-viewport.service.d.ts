@@ -12,4 +12,5 @@ export declare class InViewportService {
     protected findRegistryEntry(rootElement: Element): InViewportServiceRegistryObject;
     addTarget(target: Element, rootElement?: Element): void;
     removeTarget(target: Element, rootElement?: Element): void;
+    protected getRootElement(element: any): any;
 }
