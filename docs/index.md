@@ -1,6 +1,6 @@
 # Installation
 ```sh
-npm install --save ng-in-viewport
+npm install --save ng-in-viewport intersection-observer
 ```
 # Demo
 [Here](https://embed.plnkr.co/jJe2MTPKQ1avFxKhgBRb/) is example app
