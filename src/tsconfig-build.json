@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "stripInternal": true,
+    "experimentalDecorators": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "outDir": "../build",
+    "rootDir": ".",
+    "sourceMap": false,
+    "inlineSources": false,
+    "target": "es2015",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "types": []
+  },
+  "files": [
+    "public-api.ts"
+  ],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "flatModuleOutFile": "index.js",
+    "flatModuleId": "ng-in-viewport"
+  }
+}
