@@ -1,3 +1,16 @@
-node_modules/
-.idea/
+# compiled output
+/build
+/dist
+/tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# IDEs
+/.idea
+/.vscode
+
+# misc
+.DS_Store
 *.log
