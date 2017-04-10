@@ -3,7 +3,7 @@ Allows us to check if an element is within the browsers visual viewport
 
 ## Installation
 ```sh
-npm install --save ng-in-viewport
+npm install --save ng-in-viewport intersection-observer
 ```
 ## Demo
 [Here](https://embed.plnkr.co/jJe2MTPKQ1avFxKhgBRb/) is example app
