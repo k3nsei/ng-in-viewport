@@ -20,8 +20,7 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf dist && tsc -p src/",
-    "build:watch": "rimraf dist && tsc -p src// -w",
+    "build": "bash ./build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
