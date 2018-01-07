@@ -1,7 +1,6 @@
 import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, Output } from "@angular/core";
 import { InViewportConfig } from "./in-viewport-config.class";
 import { InViewportService } from "./in-viewport.service";
-import { Observable } from 'rxjs/Observable';
 
 
 @Directive({
