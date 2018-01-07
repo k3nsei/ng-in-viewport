@@ -7,12 +7,14 @@ export enum InViewportConfigDirection {
 export interface InViewportConfigOptions {
   rootElement?: any;
   partial?: boolean;
-  direction?: InViewportConfigDirection;
+  direction?: InViewportConfigDirection,
+  threshold?: number;
 }
 
 export class InViewportConfig {
   protected _rootElement: Element;
   protected _partial: boolean;
+  protected _threshold: number;
   protected _direction: InViewportConfigDirection;
 
   constructor(options?: InViewportConfigOptions) {
@@ -24,6 +26,10 @@ export class InViewportConfig {
       ? options.partial
       : true;
 
+	this.threshold = (options && 'threshold' in options)
+      ? options.threshold
+	  : 1000;
+	  
     this.direction = (options && 'direction' in options)
       ? options.direction
       : InViewportConfigDirection.Both;
@@ -45,6 +51,14 @@ export class InViewportConfig {
     this._partial = !!(value);
   }
 
+  get threshold(): number {
+    return this._threshold;
+  }
+
+  set threshold(value: number) {
+    this._threshold = value;
+  }
+  
   get direction(): InViewportConfigDirection {
     return this._direction;
   }

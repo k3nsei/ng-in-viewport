@@ -1,6 +1,8 @@
 import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, Output } from "@angular/core";
 import { InViewportConfig } from "./in-viewport-config.class";
 import { InViewportService } from "./in-viewport.service";
+import { Observable } from 'rxjs/Observable';
+
 
 @Directive({
   selector: '[in-viewport], [inViewport]'
@@ -28,17 +30,26 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
       }
       if ('direction' in value) {
         this.config.rootElement = value.direction;
+	  }
+      if ('threshold' in value) {
+        this.config.threshold = value.threshold;
       }
     }
   }
 
   ngAfterViewInit() {
-    this.inViewportService.trigger$.subscribe((entries: IntersectionObserverEntry[]) => this.check(entries));
+    this.inViewportService.trigger$.subscribe((entries: IntersectionObserverEntry[]) => this.debounceAndCheck(entries));
     this.inViewportService.addTarget(this.elementRef.nativeElement, this.config.rootElement);
   }
 
   ngOnDestroy() {
     this.inViewportService.removeTarget(this.elementRef.nativeElement);
+  }
+
+  debounceAndCheck = function(entries) {
+	setTimeout( () =>{
+		this.check(entries);
+	}, this.config.threshold);
   }
 
   check(entries: IntersectionObserverEntry[]) {
