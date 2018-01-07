@@ -35,7 +35,7 @@ export class InVpExampleModule {}
       <section>
         <div *ngFor="let item of items" class="item"
              in-viewport
-             [inViewportOptions]="{ partial: false }"
+             [inViewportOptions]="{ partial: false, debounce: 0}"
              (inViewportAction)="action($event)">
           {{ item }}
         </div>
@@ -43,7 +43,7 @@ export class InVpExampleModule {}
       <section #secondSection>
         <div *ngFor="let item of items" class="item"
              in-viewport
-             [inViewportOptions]="{ rootElement: secondSection, partial: false }"
+             [inViewportOptions]="{ rootElement: secondSection, partial: false, debounce: 0 }"
              (inViewportAction)="action($event)">
           {{ item }}
         </div>
@@ -127,6 +127,10 @@ export class InVpExampleComponent {
   }
 }
 ```
+## Options
+debounce - ms dealy for in-view check
+
+
 
 # License
 [MIT](https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE)

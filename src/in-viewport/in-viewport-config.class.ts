@@ -7,12 +7,14 @@ export enum InViewportConfigDirection {
 export interface InViewportConfigOptions {
   rootElement?: any;
   partial?: boolean;
-  direction?: InViewportConfigDirection;
+  direction?: InViewportConfigDirection,
+  debounce?: number;
 }
 
 export class InViewportConfig {
   protected _rootElement: Element;
   protected _partial: boolean;
+  protected _debounce: number;
   protected _direction: InViewportConfigDirection;
 
   constructor(options?: InViewportConfigOptions) {
@@ -24,6 +26,10 @@ export class InViewportConfig {
       ? options.partial
       : true;
 
+	this.debounce = (options && 'debounce' in options)
+      ? options.debounce
+	  : 1000;
+	  
     this.direction = (options && 'direction' in options)
       ? options.direction
       : InViewportConfigDirection.Both;
@@ -45,6 +51,14 @@ export class InViewportConfig {
     this._partial = !!(value);
   }
 
+  get debounce(): number {
+    return this._debounce;
+  }
+
+  set debounce(value: number) {
+    this._debounce = value;
+  }
+  
   get direction(): InViewportConfigDirection {
     return this._direction;
   }
