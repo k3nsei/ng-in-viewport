@@ -35,7 +35,7 @@ export class InVpExampleModule {}
       <section>
         <div *ngFor="let item of items" class="item"
              in-viewport
-             [inViewportOptions]="{ partial: false }"
+             [inViewportOptions]="{ partial: false, threshold: 0.5}"
              (inViewportAction)="action($event)">
           {{ item }}
         </div>
