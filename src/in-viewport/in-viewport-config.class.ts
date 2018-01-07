@@ -8,13 +8,13 @@ export interface InViewportConfigOptions {
   rootElement?: any;
   partial?: boolean;
   direction?: InViewportConfigDirection,
-  threshold?: number;
+  debounce?: number;
 }
 
 export class InViewportConfig {
   protected _rootElement: Element;
   protected _partial: boolean;
-  protected _threshold: number;
+  protected _debounce: number;
   protected _direction: InViewportConfigDirection;
 
   constructor(options?: InViewportConfigOptions) {
@@ -26,8 +26,8 @@ export class InViewportConfig {
       ? options.partial
       : true;
 
-	this.threshold = (options && 'threshold' in options)
-      ? options.threshold
+	this.debounce = (options && 'debounce' in options)
+      ? options.debounce
 	  : 1000;
 	  
     this.direction = (options && 'direction' in options)
@@ -51,12 +51,12 @@ export class InViewportConfig {
     this._partial = !!(value);
   }
 
-  get threshold(): number {
-    return this._threshold;
+  get debounce(): number {
+    return this._debounce;
   }
 
-  set threshold(value: number) {
-    this._threshold = value;
+  set debounce(value: number) {
+    this._debounce = value;
   }
   
   get direction(): InViewportConfigDirection {

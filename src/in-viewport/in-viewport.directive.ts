@@ -31,8 +31,8 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
       if ('direction' in value) {
         this.config.rootElement = value.direction;
 	  }
-      if ('threshold' in value) {
-        this.config.threshold = value.threshold;
+      if ('debounce' in value) {
+        this.config.debounce = value.debounce;
       }
     }
   }
@@ -49,7 +49,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   debounceAndCheck = function(entries) {
 	setTimeout( () =>{
 		this.check(entries);
-	}, this.config.threshold);
+	}, this.config.debounce);
   }
 
   check(entries: IntersectionObserverEntry[]) {
