@@ -29,7 +29,7 @@ export class InViewportService {
     if (!registryEntry) {
       const registryEntryObserverOptions: any = {
         root: this.getRootElement(rootElement),
-        debounce: Array(101).fill(void 0).map((item, i) => (i / 100))
+        threshold: Array(101).fill(void 0).map((item, i) => (i / 100))
       };
       registryEntry = {
         targets: [target],
