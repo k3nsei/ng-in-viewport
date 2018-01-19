@@ -48,7 +48,8 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
 
       this.action$.emit({
         target: entry.target,
-        value
+        intersectionRatio: entry.intersectionRatio,
+        value,
       })
     }
   }
