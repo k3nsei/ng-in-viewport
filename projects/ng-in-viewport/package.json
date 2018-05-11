@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "1.2.0",
+  "version": "6.0.0",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "license": "MIT",
   "authors": [
@@ -18,10 +18,11 @@
   "bugs": {
     "url": "https://github.com/k3nsei/ng-in-viewport/issues"
   },
-  "module": "index.es5.js",
-  "es2015": "index.js",
+  "dependencies": {
+    "intersection-observer": ">=0.5.0"
+  },
   "peerDependencies": {
-    "@angular/core": "~4.0.0",
-    "intersection-observer": "~0.2.1"
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0"
   }
 }

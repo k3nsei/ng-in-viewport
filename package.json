@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "1.2.0",
+  "version": "6.0.0",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "license": "MIT",
   "authors": [
@@ -18,22 +18,61 @@
   "bugs": {
     "url": "https://github.com/k3nsei/ng-in-viewport/issues"
   },
-  "main": "dist/index.js",
   "scripts": {
-    "build": "bash ./build.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ng": "ng",
+    "start": "ng serve --prod --aot",
+    "build": "ng build in-viewport --prod --aot",
+    "build:lib": "ng build ng-in-viewport --prod",
+    "test": "ng test in-viewport",
+    "test:lib": "ng test ng-in-viewport",
+    "lint": "ng lint in-viewport",
+    "lint:lib": "ng lint ng-in-viewport",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:lib": "prettier --write \"projects/ng-in-viewport/src/**/*.ts\"",
+    "e2e": "ng e2e in-viewport",
+    "e2e:lib": "ng e2e ng-in-viewport"
   },
   "dependencies": {
-    "intersection-observer": "~0.2.1"
+    "@angular/animations": "^6.0.1",
+    "@angular/common": "^6.0.1",
+    "@angular/compiler": "^6.0.1",
+    "@angular/core": "^6.0.1",
+    "@angular/forms": "^6.0.1",
+    "@angular/http": "^6.0.1",
+    "@angular/platform-browser": "^6.0.1",
+    "@angular/platform-browser-dynamic": "^6.0.1",
+    "@angular/router": "^6.0.1",
+    "classlist.js": "^1.1.20150312",
+    "core-js": "^2.5.4",
+    "intersection-observer": ">=0.5.0",
+    "rxjs": "^6.0.0",
+    "web-animations-js": "^2.3.1",
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/core": "^4.0.1",
-    "@angular/compiler": "^4.0.1",
-    "@angular/compiler-cli": "^4.0.1",
-    "rxjs": "^5.0.1",
-    "zone.js": "^0.8.4",
-    "rimraf": "^2.6.1",
-    "rollup": "^0.41.6",
-    "typescript": "^2.2.2"
+    "@angular-devkit/build-angular": "~0.6.0",
+    "@angular-devkit/build-ng-packagr": "~0.6.0",
+    "@angular/cli": "~6.0.1",
+    "@angular/compiler-cli": "^6.0.1",
+    "@angular/language-service": "^6.0.1",
+    "@types/jasmine": "~2.8.6",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.2.1",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~1.7.1",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~1.4.2",
+    "karma-jasmine": "~1.1.1",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^3.0.0-rc.2",
+    "prettier": "1.12.1",
+    "protractor": "~5.3.0",
+    "ts-node": "~5.0.1",
+    "tsickle": ">=0.25.5",
+    "tslib": "^1.7.1",
+    "tslint": "~5.9.1",
+    "typescript": "~2.7.2"
   }
 }
