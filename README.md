@@ -37,7 +37,7 @@ ToDo: Fill this with some example
 
 [MIT](https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE)
 
-[circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop.png?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
+[circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop.svg?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
 [circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop
 [david-badge]: https://david-dm.org/k3nsei/ng-in-viewport.svg
 [david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport
