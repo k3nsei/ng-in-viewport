@@ -5,31 +5,48 @@ general:
     only:
       - develop
 
+anchor_1: &defaults
+  working_directory: ~/ng-in-viewport
+  docker:
+    - image: circleci/node:10-browsers
+
+anchor_2: &restore_cache_defaults
+  keys:
+    - ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
+    - ng-in-viewport-
+
 jobs:
   build:
-    docker:
-      - image: circleci/node:10-browsers
-
-    working_directory: ~/ng-in-viewport
-
+    <<: *defaults
     steps:
       - checkout
-
       - restore_cache:
-          keys:
-          - ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
-          - ng-in-viewport-
-
+        <<: *restore_cache_defaults
+      - run: xvfb-run -a node --version
+      - run: xvfb-run -a yarn --version
       - run: yarn install
-
+      - run: xvfb-run -a yarn run build:lib
+      - run: xvfb-run -a yarn run build
       - save_cache:
+          key: ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - node_modules
-          key: ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
 
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+        <<: *restore_cache_defaults
       - run: xvfb-run -a yarn run lint:lib
-      - run: xvfb-run -a yarn run test:lib --progress=false --browsers=ChromeHeadlessNoSandbox
-
       - run: xvfb-run -a yarn run lint
-      # There are no tests yet
+
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+        <<: *restore_cache_defaults
+      - run: xvfb-run -a yarn run test:lib --progress=false --browsers=ChromeHeadlessNoSandbox
+      # There are no tests yet for example app
       # - run: xvfb-run -a yarn run test --progress=false --browsers=ChromeHeadlessNoSandbox
