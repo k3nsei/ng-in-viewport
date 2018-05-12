@@ -29,8 +29,7 @@
     "lint:lib": "ng lint ng-in-viewport",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:lib": "prettier --write \"projects/ng-in-viewport/src/**/*.ts\"",
-    "e2e": "ng e2e in-viewport",
-    "e2e:lib": "ng e2e ng-in-viewport"
+    "e2e": "ng e2e"
   },
   "dependencies": {
     "@angular/animations": "^6.0.1",
