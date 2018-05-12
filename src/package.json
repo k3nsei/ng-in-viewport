@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "license": "MIT",
   "authors": [

@@ -3,4 +3,4 @@ import { InViewportService } from './in-viewport.service';
 import { InViewportConfig, InViewportConfigDirection } from './in-viewport-config.class';
 import { InViewportDirective, InViewportMetadata } from './in-viewport.directive';
 
-export { InViewportModule, InViewportService, InViewportConfig, InViewportConfigDirection, InViewportDirective };
+export { InViewportModule, InViewportService, InViewportConfig, InViewportMetadata, InViewportConfigDirection, InViewportDirective };
