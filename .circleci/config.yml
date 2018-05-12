@@ -27,5 +27,9 @@ jobs:
             - node_modules
           key: ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
 
-      - run: xvfb-run -a yarn run test:lib --progress=false --browsers=ChromeNoSandbox
-      - run: xvfb-run -a yarn run test --progress=false --browsers=ChromeNoSandbox
+      - run: xvfb-run -a yarn run lint:lib
+      - run: xvfb-run -a yarn run test:lib --progress=false --browsers=ChromeHeadlessNoSandbox
+
+      - run: xvfb-run -a yarn run lint
+      # There are no tests yet
+      # - run: xvfb-run -a yarn run test --progress=false --browsers=ChromeHeadlessNoSandbox
