@@ -28,7 +28,4 @@ jobs:
           key: ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
 
       - run: xvfb-run -a yarn run test:lib -- --single-run --no-progress --browser=ChromeNoSandbox
-      - run: xvfb-run -a yarn run e2e:lib -- --no-progress --config=protractor-ci.conf.js
-
       - run: xvfb-run -a yarn run test -- --single-run --no-progress --browser=ChromeNoSandbox
-      - run: xvfb-run -a yarn run e2e -- --no-progress --config=protractor-ci.conf.js
