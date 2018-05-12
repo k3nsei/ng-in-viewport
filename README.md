@@ -1,7 +1,7 @@
 # ng-in-viewport
 
 <!-- Badges section here. -->
-[![CircleCI Status] [circle-ci-badge]][circle-ci-badge-url]
+[![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
 [![Dependency Status][david-badge]][david-badge-url]
 [![devDependency Status][david-dev-badge]][david-dev-badge-url]
 
