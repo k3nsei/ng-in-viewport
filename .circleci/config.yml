@@ -50,3 +50,15 @@ jobs:
       - run: xvfb-run -a yarn run test:lib --progress=false --browsers=ChromeHeadlessNoSandbox
       # There are no tests yet for example app
       # - run: xvfb-run -a yarn run test --progress=false --browsers=ChromeHeadlessNoSandbox
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - lint:
+        requires:
+          - build
+      - test:
+        requires:
+          - build
