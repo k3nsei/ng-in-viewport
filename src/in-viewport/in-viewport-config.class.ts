@@ -16,17 +16,11 @@ export class InViewportConfig {
   protected _direction: InViewportConfigDirection;
 
   constructor(options?: InViewportConfigOptions) {
-    this.rootElement = (options && options.rootElement)
-      ? options.rootElement
-      : void 0;
+    this.rootElement = options && options.rootElement instanceof Element ? options.rootElement : void 0;
 
-    this.partial = (options && 'partial' in options)
-      ? options.partial
-      : true;
+    this.partial = options && 'partial' in options ? options.partial : true;
 
-    this.direction = (options && 'direction' in options)
-      ? options.direction
-      : InViewportConfigDirection.Both;
+    this.direction = options && 'direction' in options ? options.direction : InViewportConfigDirection.Both;
   }
 
   get rootElement(): Element {
@@ -42,7 +36,7 @@ export class InViewportConfig {
   }
 
   set partial(value: boolean) {
-    this._partial = !!(value);
+    this._partial = !!value;
   }
 
   get direction(): InViewportConfigDirection {
