@@ -25,7 +25,7 @@ jobs:
       - run: xvfb-run -a node --version
       - run: xvfb-run -a yarn --version
       - run: yarn install
-      - run: xvfb-run -a yarn run build:lib --progress=false
+      - run: xvfb-run -a yarn run build:lib
       - run: xvfb-run -a yarn run build --progress=false
       - save_cache:
           key: ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
