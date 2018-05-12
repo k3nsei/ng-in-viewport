@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "license": "MIT",
   "authors": [
@@ -21,19 +21,21 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "bash ./build.sh",
+    "format": "prettier --write \"src/in-viewport/**/*.ts\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "intersection-observer": "~0.2.1"
+    "intersection-observer": ">=0.5.0",
+    "prettier": "^1.12.1"
   },
   "devDependencies": {
-    "@angular/core": "^4.0.1",
-    "@angular/compiler": "^4.0.1",
-    "@angular/compiler-cli": "^4.0.1",
+    "@angular/compiler": ">=4.0.0 < 6",
+    "@angular/compiler-cli": ">=4.0.0 < 6",
+    "@angular/core": ">=4.0.0 < 6",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.58.2",
     "rxjs": "^5.0.1",
-    "zone.js": "^0.8.4",
-    "rimraf": "^2.6.1",
-    "rollup": "^0.41.6",
-    "typescript": "^2.2.2"
+    "typescript": "^2.3.2",
+    "zone.js": "^0.8.4"
   }
 }
