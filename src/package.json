@@ -18,6 +18,7 @@
   "bugs": {
     "url": "https://github.com/k3nsei/ng-in-viewport/issues"
   },
+  "main": "index.umd.js",
   "module": "index.es5.js",
   "es2015": "index.js",
   "peerDependencies": {
