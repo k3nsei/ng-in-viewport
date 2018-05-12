@@ -6,9 +6,9 @@ anchor_1: &defaults
     - image: circleci/node:10-browsers
 
 anchor_2: &restore_cache_defaults
-        keys:
-          - ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
-          - ng-in-viewport-
+  keys:
+    - ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
+    - ng-in-viewport-
 
 general:
   branches:
@@ -21,7 +21,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        <<: *restore_cache_defaults
+          <<: *restore_cache_defaults
       - run: xvfb-run -a node --version
       - run: xvfb-run -a yarn --version
       - run: yarn install
@@ -37,7 +37,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        <<: *restore_cache_defaults
+          <<: *restore_cache_defaults
       - run: xvfb-run -a yarn run lint:lib
       - run: xvfb-run -a yarn run lint
 
@@ -46,7 +46,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        <<: *restore_cache_defaults
+          <<: *restore_cache_defaults
       - run: xvfb-run -a yarn run test:lib --progress=false --browsers=ChromeHeadlessNoSandbox
       # There are no tests yet for example app
       # - run: xvfb-run -a yarn run test --progress=false --browsers=ChromeHeadlessNoSandbox
@@ -57,8 +57,8 @@ workflows:
     jobs:
       - build
       - lint:
-        requires:
-          - build
+          requires:
+            - build
       - test:
-        requires:
-          - build
+          requires:
+            - build
