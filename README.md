@@ -1,5 +1,7 @@
 # ng-in-viewport
 
+[![CircleCI](https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop.png?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac)](https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop)
+
 Allows us to check if an element is within the browsers visual viewport
 
 ## Install
