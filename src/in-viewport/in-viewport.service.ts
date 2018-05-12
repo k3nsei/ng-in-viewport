@@ -1,23 +1,26 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export interface InViewportServiceRegistryObject {
-  targets: Element[],
-  rootElement: Element,
-  observer: IntersectionObserver
+  targets: Element[];
+  rootElement: Element;
+  observer: IntersectionObserver;
 }
 
 @Injectable()
 export class InViewportService {
   protected registry: InViewportServiceRegistryObject[];
-  public trigger$: EventEmitter<IntersectionObserverEntry[]>;
+  public trigger$: BehaviorSubject<IntersectionObserverEntry>;
 
   constructor() {
     this.registry = [];
-    this.trigger$ = new EventEmitter();
+    this.trigger$ = new BehaviorSubject<IntersectionObserverEntry>(null);
   }
 
   protected onChanges(entries: IntersectionObserverEntry[]): void {
-    this.trigger$.emit(entries);
+    if (Array.isArray(entries) && entries.length) {
+      entries.forEach((entry) => this.trigger$.next(entry));
+    }
   }
 
   protected findRegistryEntry(rootElement: Element) {
@@ -29,7 +32,9 @@ export class InViewportService {
     if (!registryEntry) {
       const registryEntryObserverOptions: any = {
         root: this.getRootElement(rootElement),
-        threshold: Array(101).fill(void 0).map((item, i) => (i / 100))
+        threshold: Array(101)
+          .fill(void 0)
+          .map((item, i) => i / 100)
       };
       registryEntry = {
         targets: [target],
@@ -64,6 +69,6 @@ export class InViewportService {
   }
 
   protected getRootElement(element: any) {
-    return (element && element.nodeType === 1) ? element : null;
+    return element && element.nodeType === 1 ? element : null;
   }
 }
