@@ -1,19 +1,19 @@
 version: 2
 
-general:
-  branches:
-    only:
-      - develop
-
 anchor_1: &defaults
   working_directory: ~/ng-in-viewport
   docker:
     - image: circleci/node:10-browsers
 
 anchor_2: &restore_cache_defaults
-  keys:
-    - ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
-    - ng-in-viewport-
+        keys:
+          - ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
+          - ng-in-viewport-
+
+general:
+  branches:
+    only:
+      - develop
 
 jobs:
   build:
