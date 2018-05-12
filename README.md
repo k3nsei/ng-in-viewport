@@ -40,9 +40,9 @@ ToDo: Fill this with some example
 [circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop.svg?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
 [circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop
 [david-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop.svg?path=projects/ng-in-viewport
-[david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop
+[david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?path=projects/ng-in-viewport
 [david-dev-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop/dev-status.svg?path=projects/ng-in-viewport
-[david-dev-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?type=dev
+[david-dev-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?type=dev&path=projects/ng-in-viewport
 [npm-badge-version]: https://img.shields.io/npm/v/ng-in-viewport.svg
 [npm-badge-license]: https://img.shields.io/npm/l/ng-in-viewport.svg
 [npm-badge-downloads]: https://img.shields.io/npm/dm/ng-in-viewport.svg
