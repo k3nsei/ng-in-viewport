@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
 title: ng-in-viewport
 
-collections:
+include:
   - api
