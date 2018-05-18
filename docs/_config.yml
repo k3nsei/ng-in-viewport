@@ -1,4 +1,0 @@
-theme: jekyll-theme-cayman
-title: ng-in-viewport
-
-include: ["api", "docs/api"]
