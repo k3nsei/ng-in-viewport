@@ -1,4 +1,5 @@
 theme: jekyll-theme-cayman
 title: ng-in-viewport
 
+include: ["api"]
 keep_files: ["api"]
