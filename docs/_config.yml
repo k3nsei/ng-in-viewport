@@ -1,7 +1,7 @@
 theme: jekyll-theme-cayman
 title: ng-in-viewport
 
-keep_files:
+include:
   - "api/classes/_in_viewport_config_class_.inviewportconfig.html"
   - "api/classes/_in_viewport_directive_.inviewportdirective.html"
   - "api/classes/_in_viewport_module_.inviewportmodule.html"
