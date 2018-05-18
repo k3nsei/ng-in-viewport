@@ -1,5 +1,16 @@
 theme: jekyll-theme-cayman
 title: ng-in-viewport
 
-include: ["api"]
-keep_files: ["api"]
+keep_files:
+  - "api/classes/_in_viewport_config_class_.inviewportconfig.html"
+  - "api/classes/_in_viewport_directive_.inviewportdirective.html"
+  - "api/classes/_in_viewport_module_.inviewportmodule.html"
+  - "api/classes/_in_viewport_service_.inviewportservice.html"
+  - "api/enums/_in_viewport_config_class_.inviewportconfigdirection.html"
+  - "api/interfaces/_in_viewport_config_class_.inviewportconfigoptions.html"
+  - "api/interfaces/_in_viewport_service_.inviewportserviceregistryobject.html"
+  - "api/modules/_in_viewport_.html"
+  - "api/modules/_in_viewport_config_class_.html"
+  - "api/modules/_in_viewport_directive_.html"
+  - "api/modules/_in_viewport_module_.html"
+  - "api/modules/_in_viewport_service_.html"
