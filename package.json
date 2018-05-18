@@ -22,7 +22,7 @@
   "scripts": {
     "build": "bash ./build.sh",
     "format": "prettier --write \"src/in-viewport/**/*.ts\"",
-    "gen-api-doc": "typedoc --out ./docs/api/ ./src/in-viewport/in-viewport.ts",
+    "gen-docs": "bash ./gen-docs.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
