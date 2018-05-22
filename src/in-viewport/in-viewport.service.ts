@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export interface InViewportServiceRegistryObject {
@@ -12,7 +12,7 @@ export class InViewportService {
   protected registry: InViewportServiceRegistryObject[];
   public trigger$: BehaviorSubject<IntersectionObserverEntry>;
 
-  constructor() {
+  constructor(private zone: NgZone) {
     this.registry = [];
     this.trigger$ = new BehaviorSubject<IntersectionObserverEntry>(null);
   }
@@ -28,6 +28,10 @@ export class InViewportService {
   }
 
   public addTarget(target: Element, rootElement?: Element): void {
+    this.zone.runOutsideAngular(() => this._addTarget(target, rootElement));
+  }
+
+  private _addTarget(target: Element, rootElement?: Element): void {
     let registryEntry = this.findRegistryEntry(rootElement);
     if (!registryEntry) {
       const registryEntryObserverOptions: any = {
@@ -40,7 +44,7 @@ export class InViewportService {
         targets: [target],
         rootElement: this.getRootElement(rootElement),
         observer: new IntersectionObserver(
-          (entries: IntersectionObserverEntry[]) => this.onChanges(entries),
+          (entries: IntersectionObserverEntry[]) => this.zone.run(() => this.onChanges(entries)),
           registryEntryObserverOptions
         )
       };
