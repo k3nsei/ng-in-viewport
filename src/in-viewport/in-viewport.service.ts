@@ -1,5 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Injectable, NgZone } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 export interface InViewportServiceRegistryObject {
   targets: Element[];
@@ -9,25 +9,34 @@ export interface InViewportServiceRegistryObject {
 
 @Injectable()
 export class InViewportService {
-  protected registry: InViewportServiceRegistryObject[];
-  public trigger$: BehaviorSubject<IntersectionObserverEntry>;
+  private registry: InViewportServiceRegistryObject[] = [];
+  public readonly trigger$: Subject<IntersectionObserverEntry> = new Subject<IntersectionObserverEntry>();
 
-  constructor() {
-    this.registry = [];
-    this.trigger$ = new BehaviorSubject<IntersectionObserverEntry>(null);
+  constructor(private ngZone: NgZone) {}
+
+  public addTarget(target: Element, rootElement?: Element): void {
+    this.ngZone.runOutsideAngular(() => this.register(target, rootElement));
   }
 
-  protected onChanges(entries: IntersectionObserverEntry[]): void {
+  public removeTarget(target: Element, rootElement?: Element): void {
+    this.ngZone.runOutsideAngular(() => this.unregister(target, rootElement));
+  }
+
+  private getRootElement(element: any) {
+    return element && element.nodeType === 1 ? element : null;
+  }
+
+  private findRegistryEntry(rootElement: Element) {
+    return this.registry.find((item) => item.rootElement === this.getRootElement(rootElement));
+  }
+
+  private onChanges(entries: IntersectionObserverEntry[]): void {
     if (Array.isArray(entries) && entries.length) {
       entries.forEach((entry) => this.trigger$.next(entry));
     }
   }
 
-  protected findRegistryEntry(rootElement: Element) {
-    return this.registry.find((item) => item.rootElement === this.getRootElement(rootElement));
-  }
-
-  public addTarget(target: Element, rootElement?: Element): void {
+  private register(target: Element, rootElement?: Element): void {
     let registryEntry = this.findRegistryEntry(rootElement);
     if (!registryEntry) {
       const registryEntryObserverOptions: any = {
@@ -40,7 +49,7 @@ export class InViewportService {
         targets: [target],
         rootElement: this.getRootElement(rootElement),
         observer: new IntersectionObserver(
-          (entries: IntersectionObserverEntry[]) => this.onChanges(entries),
+          (entries: IntersectionObserverEntry[]) => this.ngZone.run(() => this.onChanges(entries)),
           registryEntryObserverOptions
         )
       };
@@ -52,7 +61,7 @@ export class InViewportService {
     }
   }
 
-  public removeTarget(target: Element, rootElement?: Element): void {
+  private unregister(target: Element, rootElement?: Element): void {
     const registryEntry = this.findRegistryEntry(rootElement);
     const registryEntryIdx = this.registry.indexOf(registryEntry);
     if (registryEntry) {
@@ -66,9 +75,5 @@ export class InViewportService {
         this.registry.splice(registryEntryIdx, 1);
       }
     }
-  }
-
-  protected getRootElement(element: any) {
-    return element && element.nodeType === 1 ? element : null;
   }
 }

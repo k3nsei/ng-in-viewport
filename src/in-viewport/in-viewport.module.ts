@@ -14,6 +14,4 @@ export class InViewportModule {
       providers: [InViewportService]
     };
   }
-
-  constructor(private inViewportService: InViewportService) {}
 }

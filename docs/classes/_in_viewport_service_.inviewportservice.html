@@ -90,7 +90,8 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#registry" class="tsd-kind-icon">registry</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#ngzone" class="tsd-kind-icon">ng<wbr>Zone</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#registry" class="tsd-kind-icon">registry</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#trigger_" class="tsd-kind-icon">trigger$</a></li>
 							</ul>
 						</section>
@@ -98,10 +99,12 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#addtarget" class="tsd-kind-icon">add<wbr>Target</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#findregistryentry" class="tsd-kind-icon">find<wbr>Registry<wbr>Entry</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#getrootelement" class="tsd-kind-icon">get<wbr>Root<wbr>Element</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#onchanges" class="tsd-kind-icon">on<wbr>Changes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#findregistryentry" class="tsd-kind-icon">find<wbr>Registry<wbr>Entry</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#getrootelement" class="tsd-kind-icon">get<wbr>Root<wbr>Element</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#onchanges" class="tsd-kind-icon">on<wbr>Changes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#register" class="tsd-kind-icon">register</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#removetarget" class="tsd-kind-icon">remove<wbr>Target</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_service_.inviewportservice.html#unregister" class="tsd-kind-icon">unregister</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,15 +116,21 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>InViewport<wbr>Service<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_in_viewport_service_.inviewportservice.html" class="tsd-signature-type">InViewportService</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>InViewport<wbr>Service<span class="tsd-signature-symbol">(</span>ngZone<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NgZone</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_in_viewport_service_.inviewportservice.html" class="tsd-signature-type">InViewportService</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L13">in-viewport.service.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L13">in-viewport.service.ts:13</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ngZone: <span class="tsd-signature-type">NgZone</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_in_viewport_service_.inviewportservice.html" class="tsd-signature-type">InViewportService</a></h4>
 						</li>
 					</ul>
@@ -129,23 +138,33 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
-					<a name="registry" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> registry</h3>
-					<div class="tsd-signature tsd-kind-icon">registry<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_in_viewport_service_.inviewportserviceregistryobject.html" class="tsd-signature-type">InViewportServiceRegistryObject</a><span class="tsd-signature-symbol">[]</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="ngzone" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> ng<wbr>Zone</h3>
+					<div class="tsd-signature tsd-kind-icon">ng<wbr>Zone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NgZone</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L12">in-viewport.service.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L15">in-viewport.service.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="registry" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> registry</h3>
+					<div class="tsd-signature tsd-kind-icon">registry<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_in_viewport_service_.inviewportserviceregistryobject.html" class="tsd-signature-type">InViewportServiceRegistryObject</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L12">in-viewport.service.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
 					<a name="trigger_" class="tsd-anchor"></a>
 					<h3>trigger$</h3>
-					<div class="tsd-signature tsd-kind-icon">trigger$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BehaviorSubject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IntersectionObserverEntry</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">trigger$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Subject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IntersectionObserverEntry</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Subject&lt;IntersectionObserverEntry&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L13">in-viewport.service.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L13">in-viewport.service.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -162,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L30">in-viewport.service.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L17">in-viewport.service.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -178,17 +197,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="findregistryentry" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> find<wbr>Registry<wbr>Entry</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> find<wbr>Registry<wbr>Entry</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 						<li class="tsd-signature tsd-kind-icon">find<wbr>Registry<wbr>Entry<span class="tsd-signature-symbol">(</span>rootElement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_in_viewport_service_.inviewportserviceregistryobject.html" class="tsd-signature-type">InViewportServiceRegistryObject</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L26">in-viewport.service.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L29">in-viewport.service.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -201,17 +220,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="getrootelement" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Root<wbr>Element</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Root<wbr>Element</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Root<wbr>Element<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L71">in-viewport.service.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L25">in-viewport.service.ts:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -224,23 +243,49 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="onchanges" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Changes</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Changes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Changes<span class="tsd-signature-symbol">(</span>entries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IntersectionObserverEntry</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L20">in-viewport.service.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L33">in-viewport.service.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>entries: <span class="tsd-signature-type">IntersectionObserverEntry</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="register" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> register</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span>, rootElement<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L39">in-viewport.service.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <span class="tsd-signature-type">Element</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rootElement: <span class="tsd-signature-type">Element</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -257,7 +302,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/d66f708/src/in-viewport/in-viewport.service.ts#L55">in-viewport.service.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L21">in-viewport.service.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <span class="tsd-signature-type">Element</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rootElement: <span class="tsd-signature-type">Element</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="unregister" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> unregister</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">unregister<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span>, rootElement<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.service.ts#L64">in-viewport.service.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -314,7 +385,10 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
 								<a href="_in_viewport_service_.inviewportservice.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-external">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_in_viewport_service_.inviewportservice.html#ngzone" class="tsd-kind-icon">ng<wbr>Zone</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_in_viewport_service_.inviewportservice.html#registry" class="tsd-kind-icon">registry</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
@@ -323,17 +397,23 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_in_viewport_service_.inviewportservice.html#addtarget" class="tsd-kind-icon">add<wbr>Target</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_in_viewport_service_.inviewportservice.html#findregistryentry" class="tsd-kind-icon">find<wbr>Registry<wbr>Entry</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_in_viewport_service_.inviewportservice.html#getrootelement" class="tsd-kind-icon">get<wbr>Root<wbr>Element</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected tsd-is-external">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_in_viewport_service_.inviewportservice.html#onchanges" class="tsd-kind-icon">on<wbr>Changes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_in_viewport_service_.inviewportservice.html#register" class="tsd-kind-icon">register</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_in_viewport_service_.inviewportservice.html#removetarget" class="tsd-kind-icon">remove<wbr>Target</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_in_viewport_service_.inviewportservice.html#unregister" class="tsd-kind-icon">unregister</a>
 							</li>
 						</ul>
 					</li>
