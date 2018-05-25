@@ -99,8 +99,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_in_viewport_directive_.inviewportdirective.html#action_" class="tsd-kind-icon">action$</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_directive_.inviewportdirective.html#config" class="tsd-kind-icon">config</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_in_viewport_directive_.inviewportdirective.html#elementref" class="tsd-kind-icon">element<wbr>Ref</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_directive_.inviewportdirective.html#elementref" class="tsd-kind-icon">element<wbr>Ref</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_directive_.inviewportdirective.html#inviewportservice" class="tsd-kind-icon">in<wbr>Viewport<wbr>Service</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_directive_.inviewportdirective.html#platformid" class="tsd-kind-icon">platform<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_in_viewport_directive_.inviewportdirective.html#subscription" class="tsd-kind-icon">subscription</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-external">
@@ -126,17 +128,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>InViewport<wbr>Directive<span class="tsd-signature-symbol">(</span>elementRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, inViewportService<span class="tsd-signature-symbol">: </span><a href="_in_viewport_service_.inviewportservice.html" class="tsd-signature-type">InViewportService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_in_viewport_directive_.inviewportdirective.html" class="tsd-signature-type">InViewportDirective</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>InViewport<wbr>Directive<span class="tsd-signature-symbol">(</span>platformId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, elementRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, inViewportService<span class="tsd-signature-symbol">: </span><a href="_in_viewport_service_.inviewportservice.html" class="tsd-signature-type">InViewportService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_in_viewport_directive_.inviewportdirective.html" class="tsd-signature-type">InViewportDirective</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L13">in-viewport.directive.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L27">in-viewport.directive.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>platformId: <span class="tsd-signature-type">Object</span></h5>
+								</li>
 								<li>
 									<h5>elementRef: <span class="tsd-signature-type">ElementRef</span></h5>
 								</li>
@@ -157,7 +162,7 @@
 					<div class="tsd-signature tsd-kind-icon">action$<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L13">in-viewport.directive.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L27">in-viewport.directive.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,17 +172,17 @@
 					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <a href="_in_viewport_config_class_.inviewportconfig.html" class="tsd-signature-type">InViewportConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L11">in-viewport.directive.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L24">in-viewport.directive.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="elementref" class="tsd-anchor"></a>
-					<h3>element<wbr>Ref</h3>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> element<wbr>Ref</h3>
 					<div class="tsd-signature tsd-kind-icon">element<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ElementRef</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L15">in-viewport.directive.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L31">in-viewport.directive.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +192,27 @@
 					<div class="tsd-signature tsd-kind-icon">in<wbr>Viewport<wbr>Service<span class="tsd-signature-symbol">:</span> <a href="_in_viewport_service_.inviewportservice.html" class="tsd-signature-type">InViewportService</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L15">in-viewport.directive.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L32">in-viewport.directive.ts:32</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="platformid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> platform<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">platform<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L30">in-viewport.directive.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="subscription" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> subscription</h3>
+					<div class="tsd-signature tsd-kind-icon">subscription<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Subscription</span><span class="tsd-signature-symbol"> =&nbsp;new Subscription()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L25">in-viewport.directive.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L21">in-viewport.directive.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L39">in-viewport.directive.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -224,19 +249,22 @@
 					<a name="check" class="tsd-anchor"></a>
 					<h3>check</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">check<span class="tsd-signature-symbol">(</span>entry<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IntersectionObserverEntry</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">check<span class="tsd-signature-symbol">(</span>entry<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IntersectionObserverEntry</span>, force<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L44">in-viewport.directive.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L71">in-viewport.directive.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>entry: <span class="tsd-signature-type">IntersectionObserverEntry</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> force: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -253,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L35">in-viewport.directive.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L53">in-viewport.directive.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -270,7 +298,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/acf4f73/src/in-viewport/in-viewport.directive.ts#L40">in-viewport.directive.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/5241efb/src/in-viewport/in-viewport.directive.ts#L64">in-viewport.directive.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -324,11 +352,17 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_in_viewport_directive_.inviewportdirective.html#config" class="tsd-kind-icon">config</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_in_viewport_directive_.inviewportdirective.html#elementref" class="tsd-kind-icon">element<wbr>Ref</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_in_viewport_directive_.inviewportdirective.html#inviewportservice" class="tsd-kind-icon">in<wbr>Viewport<wbr>Service</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_in_viewport_directive_.inviewportdirective.html#platformid" class="tsd-kind-icon">platform<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_in_viewport_directive_.inviewportdirective.html#subscription" class="tsd-kind-icon">subscription</a>
 							</li>
 							<li class=" tsd-kind-set-signature tsd-parent-kind-class tsd-is-external">
 								<a href="_in_viewport_directive_.inviewportdirective.html#updateconfig" class="tsd-kind-icon">update<wbr>Config</a>
