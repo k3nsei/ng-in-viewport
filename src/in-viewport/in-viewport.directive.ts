@@ -51,7 +51,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser) {
+    if (isPlatformBrowser(this.platformId)) {
       this.subscription.add(
         this.inViewportService.trigger$.subscribe((entry: IntersectionObserverEntry) => this.check(entry))
       );
@@ -62,8 +62,8 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (isPlatformBrowser) {
-      this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
+    if (isPlatformBrowser(this.platformId)) {
       this.inViewportService.removeTarget(this.elementRef.nativeElement, this.config.rootElement);
     }
   }
