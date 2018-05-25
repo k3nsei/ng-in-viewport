@@ -32,3 +32,6 @@ $ROLLUP build/index.js -o dist/index.es5.js -f es
 
 # Copy package.json
 cp src/package.json dist/package.json
+
+# Copy README.md
+cp README.md dist/README.md
