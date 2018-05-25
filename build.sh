@@ -35,3 +35,6 @@ cp src/package.json dist/package.json
 
 # Copy README.md
 cp README.md dist/README.md
+
+# Copy LICENSE
+cp LICENSE dist/LICENSE
