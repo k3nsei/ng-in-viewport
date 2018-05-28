@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Subject } from 'rxjs';
 import { InViewportConfig } from './in-viewport-config';
 
@@ -18,6 +18,8 @@ export class InViewportService {
   public readonly trigger$: InViewportTrigger = new Subject<IntersectionObserverEntry>();
   private registry: InViewportRegistry = [];
 
+  constructor(private ngZone: NgZone) {}
+
   private emitTrigger(entries: IntersectionObserverEntry[]) {
     if (Array.isArray(entries) && entries.length) {
       entries.forEach((entry) => this.trigger$.next(entry));
@@ -33,39 +35,46 @@ export class InViewportService {
   }
 
   public register(target: Element, config: InViewportConfig): void {
-    const foundedEntry = this.findEntry(config.root);
-    if (foundedEntry && !foundedEntry.targets.has(target)) {
-      foundedEntry.targets.add(target);
-      foundedEntry.observer.observe(target);
-    } else {
-      const options: any = {
-        root: this.getRootElement(config.root),
-        threshold: Array(101)
-          .fill(null)
-          .map((__, i) => i / 100)
-      };
-      const entry: InViewportRegistryEntry = {
-        root: this.getRootElement(config.root),
-        targets: new Set([target]),
-        observer: new IntersectionObserver((entries) => this.emitTrigger(entries), options)
-      };
-      entry.observer.observe(target);
-      this.registry = [...this.registry, entry];
-    }
+    this.ngZone.runOutsideAngular(() => {
+      const foundedEntry = this.findEntry(config.root);
+      if (foundedEntry && !foundedEntry.targets.has(target)) {
+        foundedEntry.targets.add(target);
+        foundedEntry.observer.observe(target);
+      } else {
+        const options: any = {
+          root: this.getRootElement(config.root),
+          threshold: Array(101)
+            .fill(null)
+            .map((__, i) => i / 100)
+        };
+        const entry: InViewportRegistryEntry = {
+          root: this.getRootElement(config.root),
+          targets: new Set([target]),
+          observer: new IntersectionObserver(
+            (entries: IntersectionObserverEntry[]) => this.ngZone.run(() => this.emitTrigger(entries)),
+            options
+          )
+        };
+        entry.observer.observe(target);
+        this.registry = [...this.registry, entry];
+      }
+    });
   }
 
   public unregister(target: Element, config: InViewportConfig): void {
-    const foundedEntry = this.findEntry(config.root);
-    if (foundedEntry) {
-      const { observer, targets } = foundedEntry;
-      if (targets.has(target)) {
-        observer.unobserve(target);
-        targets.delete(target);
+    this.ngZone.runOutsideAngular(() => {
+      const foundedEntry = this.findEntry(config.root);
+      if (foundedEntry) {
+        const { observer, targets } = foundedEntry;
+        if (targets.has(target)) {
+          observer.unobserve(target);
+          targets.delete(target);
+        }
+        if (targets.size === 0) {
+          observer.disconnect();
+          this.registry = this.registry.filter((entry) => entry !== foundedEntry);
+        }
       }
-      if (targets.size === 0) {
-        observer.disconnect();
-        this.registry = this.registry.filter((entry) => entry !== foundedEntry);
-      }
-    }
+    });
   }
 }
