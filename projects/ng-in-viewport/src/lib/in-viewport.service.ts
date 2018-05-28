@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
+import { InViewportConfig } from './in-viewport-config';
 
 export interface InViewportRegistryEntry {
   root: Element;
@@ -7,14 +8,14 @@ export interface InViewportRegistryEntry {
   observer: IntersectionObserver;
 }
 
-export type InViewportTrigger = BehaviorSubject<IntersectionObserverEntry>;
+export type InViewportTrigger = Subject<IntersectionObserverEntry>;
 export type InViewportRegistry = InViewportRegistryEntry[];
 
 @Injectable({
   providedIn: 'root'
 })
 export class InViewportService {
-  public readonly trigger$: InViewportTrigger = new BehaviorSubject<IntersectionObserverEntry>(null);
+  public readonly trigger$: InViewportTrigger = new Subject<IntersectionObserverEntry>();
   private registry: InViewportRegistry = [];
 
   private emitTrigger(entries: IntersectionObserverEntry[]) {
@@ -24,27 +25,27 @@ export class InViewportService {
   }
 
   private getRootElement(element?: Element) {
-    return element && element.nodeType === Node.ELEMENT_NODE ? element : null;
+    return element && element.nodeType === Node.ELEMENT_NODE ? element : undefined;
   }
 
   private findEntry(root: Element) {
     return this.registry.find((entry) => entry.root === this.getRootElement(root));
   }
 
-  public register(target: Element, root?: Element): void {
-    const foundedEntry = this.findEntry(root);
+  public register(target: Element, config: InViewportConfig): void {
+    const foundedEntry = this.findEntry(config.root);
     if (foundedEntry && !foundedEntry.targets.has(target)) {
       foundedEntry.targets.add(target);
       foundedEntry.observer.observe(target);
     } else {
       const options: any = {
-        root: this.getRootElement(root),
+        root: this.getRootElement(config.root),
         threshold: Array(101)
           .fill(null)
           .map((__, i) => i / 100)
       };
       const entry: InViewportRegistryEntry = {
-        root: this.getRootElement(root),
+        root: this.getRootElement(config.root),
         targets: new Set([target]),
         observer: new IntersectionObserver((entries) => this.emitTrigger(entries), options)
       };
@@ -53,8 +54,8 @@ export class InViewportService {
     }
   }
 
-  public unregister(target: Element, root?: Element): void {
-    const foundedEntry = this.findEntry(root);
+  public unregister(target: Element, config: InViewportConfig): void {
+    const foundedEntry = this.findEntry(config.root);
     if (foundedEntry) {
       const { observer, targets } = foundedEntry;
       if (targets.has(target)) {
