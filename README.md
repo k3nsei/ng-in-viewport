@@ -27,8 +27,7 @@ npm install --save ng-in-viewport intersection-observer
 ```
 
 ## Demo
-
-[Here](https://embed.plnkr.co/jJe2MTPKQ1avFxKhgBRb/) is example app
+[Here][example-app] you can look at our example application
 
 ## Simple usage example
 
@@ -38,19 +37,21 @@ ToDo: Fill this with some example
 
 [MIT](https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE)
 
-[circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop.svg?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
-[circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/develop
+[circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master.svg?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
+[circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master
 
-[david-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop.svg?path=projects/ng-in-viewport
-[david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?path=projects/ng-in-viewport
+[david-badge]: https://david-dm.org/k3nsei/ng-in-viewport.svg
+[david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport
 
-[david-peer-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop/peer-status.svg?path=projects/ng-in-viewport
-[david-peer-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?type=peer&path=projects/ng-in-viewport
+[david-peer-badge]: https://david-dm.org/k3nsei/ng-in-viewport/peer-status.svg
+[david-peer-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport?type=peer
 
-[david-dev-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop/dev-status.svg?path=projects/ng-in-viewport
-[david-dev-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?type=dev&path=projects/ng-in-viewport
+[david-dev-badge]: https://david-dm.org/k3nsei/ng-in-viewport/dev-status.svg
+[david-dev-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport?type=dev
 
 [npm-badge-version]: https://img.shields.io/npm/v/ng-in-viewport.svg
 [npm-badge-license]: https://img.shields.io/npm/l/ng-in-viewport.svg
 [npm-badge-downloads]: https://img.shields.io/npm/dm/ng-in-viewport.svg
 [npm-badge-url]: https://www.npmjs.com/package/ng-in-viewport
+
+[example-app]: https://ng-in-viewport-example.stackblitz.io/

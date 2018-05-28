@@ -16,13 +16,11 @@ export class InvpExampleComponent implements OnInit {
       .map((__, idx) => idx + 1);
   }
 
-  handleAction(entry: IntersectionObserverEntry) {
-    if (entry.isIntersecting) {
-      this.renderer.addClass(entry.target, 'active');
-      this.renderer.removeClass(entry.target, 'inactive');
-    } else {
-      this.renderer.addClass(entry.target, 'inactive');
-      this.renderer.removeClass(entry.target, 'active');
-    }
+  handleAction({ target = null, visible = false }) {
+    const addClass = visible ? 'active' : 'inactive';
+    this.renderer.addClass(target, addClass);
+
+    const rmClass = visible ? 'inactive' : 'active';
+    this.renderer.removeClass(target, rmClass);
   }
 }
