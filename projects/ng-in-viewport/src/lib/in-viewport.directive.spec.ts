@@ -53,14 +53,12 @@ class TestInViewportComponent {
 
   constructor(private renderer: Renderer2) {}
 
-  handleAction(entry: IntersectionObserverEntry) {
-    if (entry.intersectionRatio > 0) {
-      this.renderer.addClass(entry.target, 'active');
-      this.renderer.removeClass(entry.target, 'inactive');
-    } else {
-      this.renderer.addClass(entry.target, 'inactive');
-      this.renderer.removeClass(entry.target, 'active');
-    }
+  handleAction({ target = null, visible = false }) {
+    const addClass = visible ? 'active' : 'inactive';
+    this.renderer.addClass(target, addClass);
+
+    const rmClass = visible ? 'inactive' : 'active';
+    this.renderer.removeClass(target, rmClass);
   }
 }
 
