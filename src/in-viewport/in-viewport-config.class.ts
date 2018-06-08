@@ -1,3 +1,6 @@
+import { InViewportUtils } from './in-viewport-utils';
+import isObjectLiteral = InViewportUtils.isObjectLiteral;
+
 export enum InViewportConfigDirection {
   Both,
   Vertical,
@@ -16,11 +19,10 @@ export class InViewportConfig {
   protected _direction: InViewportConfigDirection;
 
   constructor(options?: InViewportConfigOptions) {
-    this.rootElement = options && options.rootElement instanceof Element ? options.rootElement : void 0;
-
-    this.partial = options && 'partial' in options ? options.partial : true;
-
-    this.direction = options && 'direction' in options ? options.direction : InViewportConfigDirection.Both;
+    const exist = isObjectLiteral(options);
+    this.rootElement = exist && options.hasOwnProperty('rootElement') ? options.rootElement : void 0;
+    this.partial = exist && options.hasOwnProperty('partial') ? options.partial : true;
+    this.direction = exist && options.hasOwnProperty('direction') ? options.direction : void 0;
   }
 
   get rootElement(): Element {
@@ -28,7 +30,7 @@ export class InViewportConfig {
   }
 
   set rootElement(value: Element) {
-    this._rootElement = value;
+    this._rootElement = value && value.nodeType === 1 ? value : void 0;
   }
 
   get partial(): boolean {
@@ -44,6 +46,11 @@ export class InViewportConfig {
   }
 
   set direction(value: InViewportConfigDirection) {
-    this._direction = value;
+    const availableOptions = [
+      InViewportConfigDirection.Both,
+      InViewportConfigDirection.Vertical,
+      InViewportConfigDirection.Horizontal
+    ];
+    this._direction = availableOptions.indexOf(value) >= 0 ? value : InViewportConfigDirection.Both;
   }
 }
