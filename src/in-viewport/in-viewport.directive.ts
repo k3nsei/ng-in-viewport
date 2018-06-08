@@ -14,11 +14,13 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { InViewportConfig } from './in-viewport-config.class';
 import { InViewportService } from './in-viewport.service';
+import { InViewportUtils } from './in-viewport-utils';
+import isObjectLiteral = InViewportUtils.isObjectLiteral;
 
 export const InViewportMetadata = Symbol('InViewportMetadata');
 
 @Directive({
-  selector: '[in-viewport], [inViewport]'
+  selector: '[inViewport], [in-viewport]'
 })
 export class InViewportDirective implements AfterViewInit, OnDestroy {
   private config: InViewportConfig;
@@ -37,14 +39,14 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
 
   @Input('inViewportOptions')
   set updateConfig(value: any) {
-    if (value && Object.prototype.toString.call(value) === '[object Object]') {
-      if (value.rootElement instanceof Element) {
+    if (isObjectLiteral(value)) {
+      if (value.hasOwnProperty('rootElement')) {
         this.config.rootElement = value.rootElement;
       }
-      if ('partial' in value) {
+      if (value.hasOwnProperty('partial')) {
         this.config.partial = value.partial;
       }
-      if ('direction' in value) {
+      if (value.hasOwnProperty('direction')) {
         this.config.direction = value.direction;
       }
     }
