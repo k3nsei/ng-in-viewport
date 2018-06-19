@@ -47,9 +47,9 @@ jobs:
       - checkout
       - restore_cache:
           <<: *restore_cache_defaults
-      - run: xvfb-run -a yarn run test:lib --progress=false --browsers=ChromeHeadlessNoSandbox
+      - run: xvfb-run -a yarn run test:lib --watch=false --progress=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
       # There are no tests yet for example app
-      # - run: xvfb-run -a yarn run test --progress=false --browsers=ChromeHeadlessNoSandbox
+      # - run: xvfb-run -a yarn run test --watch=false --progress=false --browsers=ChromeHeadlessNoSandbox
 
 workflows:
   version: 2
