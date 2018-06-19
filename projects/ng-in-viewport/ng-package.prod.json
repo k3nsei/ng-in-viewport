@@ -4,6 +4,7 @@
   "whitelistedNonPeerDependencies": [
     "@angular/common",
     "@angular/core",
+    "rxjs",
     "intersection-observer"
   ],
   "lib": {
