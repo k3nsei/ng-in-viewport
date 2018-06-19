@@ -9,6 +9,7 @@
 [![npm][npm-badge-version]][npm-badge-url]
 [![npm][npm-badge-license]][npm-badge-url]
 [![npm][npm-badge-downloads]][npm-badge-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/k3nsei/ng-in-viewport.svg)](https://greenkeeper.io/)
 
 Allows us to check if an element is within the browsers visual viewport
 
@@ -27,6 +28,7 @@ npm install --save ng-in-viewport intersection-observer
 ```
 
 ## Demo
+
 [Here][example-app] you can look at our example application
 
 ## Simple usage example
