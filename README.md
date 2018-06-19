@@ -1,5 +1,7 @@
 # ng-in-viewport
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/k3nsei/ng-in-viewport.svg)](https://greenkeeper.io/)
+
 <!-- Badges section here. -->
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
 [![Dependency Status][david-badge]][david-badge-url]
