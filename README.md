@@ -2,6 +2,9 @@
 
 <!-- Badges section here. -->
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
+[![codebeat badge][codebeat-badge]][codebeat-badge-url]
+[![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
+
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
 [![devDependency Status][david-dev-badge]][david-dev-badge-url]
@@ -9,7 +12,6 @@
 [![npm][npm-badge-version]][npm-badge-url]
 [![npm][npm-badge-license]][npm-badge-url]
 [![npm][npm-badge-downloads]][npm-badge-url]
-[![Greenkeeper badge](https://badges.greenkeeper.io/k3nsei/ng-in-viewport.svg)](https://greenkeeper.io/)
 
 Allows us to check if an element is within the browsers visual viewport
 
@@ -41,6 +43,12 @@ ToDo: Fill this with some example
 
 [circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master.svg?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
 [circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master
+
+[codebeat-badge]: https://codebeat.co/badges/73e483ff-fb24-4ad1-9878-89aa1ed55192
+[codebeat-badge-url]: https://codebeat.co/projects/github-com-k3nsei-ng-in-viewport-develop
+
+[greenkeeper-badge]: https://badges.greenkeeper.io/k3nsei/ng-in-viewport.svg
+[greenkeeper-badge-url]: https://greenkeeper.io/
 
 [david-badge]: https://david-dm.org/k3nsei/ng-in-viewport.svg
 [david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport
