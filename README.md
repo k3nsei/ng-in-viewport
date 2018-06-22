@@ -15,9 +15,7 @@
 [![npm][npm-badge-license]][npm-badge-url]
 [![npm][npm-badge-downloads]][npm-badge-url]
 
-> *Allows us to check if an element is within the browsers visual viewport*
-
-<hr />
+Allows us to check if an element is within the browsers visual viewport
 
 - 🤓 Learn about it on the [docs site][lib-docs]
 - 🚀 See it in action on [Stackblitz][example-app]
