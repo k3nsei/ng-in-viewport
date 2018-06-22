@@ -15,29 +15,13 @@
 [![npm][npm-badge-license]][npm-badge-url]
 [![npm][npm-badge-downloads]][npm-badge-url]
 
-Allows us to check if an element is within the browsers visual viewport
+> *Allows us to check if an element is within the browsers visual viewport*
 
-## Install
+<hr />
 
-Install with yarn:
-
-```sh
-yarn add ng-in-viewport intersection-observer
-```
-
-I'm using yarn but you can use npm if you like:
-
-```sh
-npm install --save ng-in-viewport intersection-observer
-```
-
-## Demo
-
-[Here][example-app] you can look at our example application
-
-## Simple usage example
-
-[Example at StackBlitz][example-app-embed]
+- 🤓 Learn about it on the [docs site][lib-docs]
+- 🚀 See it in action on [Stackblitz][example-app]
+- 👉 Play with it on [Stackblitz][example-app-embed]
 
 ## License
 
@@ -71,6 +55,9 @@ npm install --save ng-in-viewport intersection-observer
 [npm-badge-license]: https://img.shields.io/npm/l/ng-in-viewport.svg
 [npm-badge-downloads]: https://img.shields.io/npm/dm/ng-in-viewport.svg
 [npm-badge-url]: https://www.npmjs.com/package/ng-in-viewport
+
+[lib-docs]: https://k3nsei.gitbook.io/ng-in-viewport/
+[api-docs]: https://k3nsei.github.io/ng-in-viewport/
 
 [example-app]: https://ng-in-viewport-example.stackblitz.io/
 [example-app-embed]: https://stackblitz.com/edit/ng-in-viewport-example?embed=1&file=src/main.ts
