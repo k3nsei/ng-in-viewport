@@ -2,6 +2,8 @@
 
 <!-- Badges section here. -->
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
+[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
+[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
 [![codebeat badge][codebeat-badge]][codebeat-badge-url]
 [![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 
@@ -43,6 +45,12 @@ ToDo: Fill this with some example
 
 [circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master.svg?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
 [circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master
+
+[codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/a9c4480075e536498c72/maintainability
+[codeclimate-maintainability-badge-url]: https://codeclimate.com/github/k3nsei/ng-in-viewport/maintainability
+
+[codeclimate-coverage-badge]: https://api.codeclimate.com/v1/badges/a9c4480075e536498c72/test_coverage
+[codeclimate-coverage-badge-url]: https://codeclimate.com/github/k3nsei/ng-in-viewport/test_coverage
 
 [codebeat-badge]: https://codebeat.co/badges/73e483ff-fb24-4ad1-9878-89aa1ed55192
 [codebeat-badge-url]: https://codebeat.co/projects/github-com-k3nsei-ng-in-viewport-develop
