@@ -50,14 +50,14 @@ ToDo: Fill this with some example
 [greenkeeper-badge]: https://badges.greenkeeper.io/k3nsei/ng-in-viewport.svg
 [greenkeeper-badge-url]: https://greenkeeper.io/
 
-[david-badge]: https://david-dm.org/k3nsei/ng-in-viewport.svg
-[david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport
+[david-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop.svg?path=projects/ng-in-viewport
+[david-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?path=projects/ng-in-viewport
 
-[david-peer-badge]: https://david-dm.org/k3nsei/ng-in-viewport/peer-status.svg
-[david-peer-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport?type=peer
+[david-peer-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop/peer-status.svg?path=projects/ng-in-viewport
+[david-peer-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?type=peer&path=projects/ng-in-viewport
 
-[david-dev-badge]: https://david-dm.org/k3nsei/ng-in-viewport/dev-status.svg
-[david-dev-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport?type=dev
+[david-dev-badge]: https://david-dm.org/k3nsei/ng-in-viewport/develop/dev-status.svg?path=projects/ng-in-viewport
+[david-dev-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?type=dev&path=projects/ng-in-viewport
 
 [npm-badge-version]: https://img.shields.io/npm/v/ng-in-viewport.svg
 [npm-badge-license]: https://img.shields.io/npm/l/ng-in-viewport.svg
