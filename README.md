@@ -37,7 +37,7 @@ npm install --save ng-in-viewport intersection-observer
 
 ## Simple usage example
 
-ToDo: Fill this with some example
+[Example at StackBlitz][example-app-embed]
 
 ## License
 
@@ -73,3 +73,4 @@ ToDo: Fill this with some example
 [npm-badge-url]: https://www.npmjs.com/package/ng-in-viewport
 
 [example-app]: https://ng-in-viewport-example.stackblitz.io/
+[example-app-embed]: https://stackblitz.com/edit/ng-in-viewport-example?embed=1&file=src/main.ts
