@@ -19,7 +19,7 @@ Allows us to check if an element is within the browsers visual viewport
 
 - 🤓 Learn about it on the [DOCS Site][lib-docs]
 - 🚀 See it in action on [Stackblitz][example-app]
-- 👉 Play with it on [Stackblitz][example-app-embed]
+- 🎮 Play with it on [Stackblitz][example-app-embed]
 
 ## License
 
