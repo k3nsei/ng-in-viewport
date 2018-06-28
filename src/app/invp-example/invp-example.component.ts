@@ -12,15 +12,12 @@ export class InvpExampleComponent implements OnInit {
 
   ngOnInit() {
     this.elements = Array(100)
-      .fill(undefined)
+      .fill(null)
       .map((__, idx) => idx + 1);
   }
 
   handleAction({ target = null, visible = false }) {
-    const addClass = visible ? 'active' : 'inactive';
-    this.renderer.addClass(target, addClass);
-
-    const rmClass = visible ? 'inactive' : 'active';
-    this.renderer.removeClass(target, rmClass);
+    this.renderer.addClass(target, visible ? 'active' : 'inactive');
+    this.renderer.removeClass(target, visible ? 'inactive' : 'active');
   }
 }

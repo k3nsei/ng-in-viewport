@@ -8,25 +8,28 @@ import { InViewportDirective } from './in-viewport.directive';
 @Component({
   template: `
     <div class="list" #listElement>
-      <div class="item inactive" inViewport [inViewportOptions]="{ root: listElement }" (inViewportAction)="handleAction($event)"></div>
-      <div class="item inactive" inViewport [inViewportOptions]="{ root: listElement }" (inViewportAction)="handleAction($event)"></div>
-      <div class="item inactive" inViewport [inViewportOptions]="{ root: listElement }" (inViewportAction)="handleAction($event)"></div>
+      <div class="item inactive" inViewport [inViewportOptions]="{ partial: true, root: listElement }" (inViewportAction)="handleAction($event)"></div>
+      <div class="item inactive" inViewport [inViewportOptions]="{ partial: true, root: listElement }" (inViewportAction)="handleAction($event)"></div>
+      <div class="item inactive" inViewport [inViewportOptions]="{ partial: true, root: listElement }" (inViewportAction)="handleAction($event)"></div>
     </div>
   `,
   styles: [
     `
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
-      :root, body {
+      :root,
+      body {
         margin: 0;
         padding: 0;
       }
 
       .list {
-        width: 10px;
-        height: 10px;
+        width: 5px;
+        height: 5px;
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -63,7 +66,7 @@ class TestInViewportComponent {
 }
 
 describe('InViewportDirective', () => {
-  const delay = Math.floor(1000 / 60) + 1;
+  const delay = Math.floor(1000 / 60);
   let component: TestInViewportComponent;
   let fixture: ComponentFixture<TestInViewportComponent>;
   let list: DebugElement;
@@ -82,13 +85,7 @@ describe('InViewportDirective', () => {
     fixture.detectChanges();
     list = fixture.debugElement.query(By.css('.list'));
     items = fixture.debugElement.queryAll(By.css('.item'));
-  });
-
-  afterEach((done) => {
-    setTimeout(() => {
-      list.nativeElement.scrollTo(0, 0);
-      done();
-    }, delay);
+    list.nativeElement.scrollTo(0, 0);
   });
 
   it('should render', () => {
@@ -98,31 +95,8 @@ describe('InViewportDirective', () => {
   it('should emit inViewportAction', (done) => {
     spyOn(component, 'handleAction');
 
-    list.nativeElement.scrollTo(0, 0);
-
     setTimeout(() => {
       expect(component.handleAction).toHaveBeenCalled();
-      done();
-    }, delay);
-  });
-
-  it('should mark second item as active', (done) => {
-    list.nativeElement.scrollTo(0, 10);
-
-    setTimeout(() => {
-      const [, secondItem] = items;
-      expect(secondItem.nativeElement.className).toEqual('item active');
-      done();
-    }, delay);
-  });
-
-  it('should mark first two items as inactive', (done) => {
-    list.nativeElement.scrollTo(0, 20);
-
-    setTimeout(() => {
-      const [firstItem, secondItem] = items;
-      expect(firstItem.nativeElement.className).toEqual('item inactive');
-      expect(secondItem.nativeElement.className).toEqual('item inactive');
       done();
     }, delay);
   });
