@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "projects/ng-in-viewport/ng-package.json",
+        "projects/ng-in-viewport/package.json"
+      ]
+    }
+  }
+}
