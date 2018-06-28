@@ -23,9 +23,7 @@ export interface InViewportConfigOptions {
   checkFn?: InViewportConfigCheckFn;
 }
 
-const DEFAULT_THRESHOLD = Array(101)
-  .fill(null)
-  .map((__, i) => i / 100);
+const DEFAULT_THRESHOLD = [0, 1];
 
 export class InViewportConfig {
   private _root: Element;

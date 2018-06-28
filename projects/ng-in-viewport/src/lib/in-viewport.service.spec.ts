@@ -8,10 +8,7 @@ describe('InViewportService', () => {
     });
   });
 
-  it(
-    'should be created',
-    inject([InViewportService], (service: InViewportService) => {
-      expect(service).toBeTruthy();
-    })
-  );
+  it('should be created', inject([InViewportService], (service: InViewportService) => {
+    expect(service).toBeTruthy();
+  }));
 });

@@ -43,9 +43,8 @@ export class InViewportService {
       } else {
         const options: any = {
           root: this.getRootElement(config.root),
-          threshold: Array(101)
-            .fill(null)
-            .map((__, i) => i / 100)
+          rootMargin: config.rootMargin,
+          threshold: config.threshold
         };
         const entry: InViewportRegistryEntry = {
           root: this.getRootElement(config.root),
