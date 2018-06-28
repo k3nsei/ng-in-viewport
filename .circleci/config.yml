@@ -13,7 +13,6 @@ anchor_2: &restore_cache_defaults
 general:
   branches:
     only:
-      - master
       - develop
 
 jobs:
@@ -26,9 +25,40 @@ jobs:
       - run: xvfb-run -a node --version
       - run: xvfb-run -a yarn --version
       - run: yarn install
+      - run: xvfb-run -a yarn run build:lib
+      - run: xvfb-run -a yarn run build --progress=false
       - save_cache:
           key: ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - node_modules
 
-      - run: xvfb-run -a yarn run build
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *restore_cache_defaults
+      - run: xvfb-run -a yarn run lint:lib
+      - run: xvfb-run -a yarn run lint
+
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *restore_cache_defaults
+      - run: xvfb-run -a yarn run test:lib --watch=false --progress=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+      # There are no tests yet for example app
+      # - run: xvfb-run -a yarn run test --watch=false --progress=false --browsers=ChromeHeadlessNoSandbox
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build
+      - test:
+          requires:
+            - build

@@ -1,0 +1,67 @@
+:host {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+section {
+  margin: 0;
+  padding: 10px;
+  display: block;
+  flex: 1 0 auto;
+  border: 4px dashed #f1fa8c;
+
+  &:nth-of-type(1) {
+    height: calc(100vh - 20px);
+    overflow: auto;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: 10px;
+  }
+}
+
+.item {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6272a4;
+  font-size: 2em;
+  font-weight: bold;
+  color: #f8f8f2;
+  text-shadow: 1px 1px 0 #3c4556, 0px 1px 0 #3c4556, -1px -1px 0 #3c4556,
+    -1px -1px 0 #3c4556, -1px 1px 0 #3c4556, 1px -1px 0 #3c4556,
+    0.3535533906px 0.3535533906px 0 rgba(#3c4556, 0.5),
+    0.7071067812px 0.7071067812px 0 rgba(#3c4556, 0.5),
+    1.0606601718px 1.0606601718px 0 rgba(#3c4556, 0.5),
+    1.4142135624px 1.4142135624px 0 rgba(#3c4556, 0.5),
+    1.767766953px 1.767766953px 0 rgba(#3c4556, 0.5),
+    2.1213203436px 2.1213203436px 0 rgba(#3c4556, 0.5),
+    2.4748737342px 2.4748737342px 0 rgba(#3c4556, 0.5),
+    2.8284271247px 2.8284271247px 0 rgba(#3c4556, 0.5);
+  transition: background-color 250ms linear;
+
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  &.active {
+    background-color: #50fa7b;
+    color: #f8f8f2;
+    text-shadow: 1px 1px 0 #6272a4, 0px 1px 0 #6272a4, -1px -1px 0 #6272a4,
+      -1px -1px 0 #6272a4, -1px 1px 0 #6272a4, 1px -1px 0 #6272a4,
+      0.3535533906px 0.3535533906px 0 rgba(#6272a4, 0.5),
+      0.7071067812px 0.7071067812px 0 rgba(#6272a4, 0.5),
+      1.0606601718px 1.0606601718px 0 rgba(#6272a4, 0.5),
+      1.4142135624px 1.4142135624px 0 rgba(#6272a4, 0.5),
+      1.767766953px 1.767766953px 0 rgba(#6272a4, 0.5),
+      2.1213203436px 2.1213203436px 0 rgba(#6272a4, 0.5),
+      2.4748737342px 2.4748737342px 0 rgba(#6272a4, 0.5),
+      2.8284271247px 2.8284271247px 0 rgba(#6272a4, 0.5);
+  }
+}
