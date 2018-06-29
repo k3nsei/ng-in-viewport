@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "license": "MIT",
   "authors": [
@@ -81,7 +81,7 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^1.1.0",
     "ng-packagr": "^3.0.0",
-    "prettier": "1.13.6",
+    "prettier": "1.13.7",
     "protractor": "~5.3.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
