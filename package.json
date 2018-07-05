@@ -70,7 +70,7 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.5.0",
-    "codelyzer": "~4.3.0",
+    "codelyzer": "~4.4.2",
     "express": "^4.16.3",
     "http-server": "^0.11.1",
     "jasmine-core": "~3.1.0",
@@ -86,13 +86,18 @@
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "ts-loader": "^4.3.0",
-    "ts-node": "~6.2.0",
+    "ts-node": "~7.0.0",
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "~5.10.0",
     "typedoc": "^0.11.1",
-    "typescript": ">=2.7.2 <2.8.0",
+    "typescript": "~2.7.2",
     "webpack-cli": "^3.0.8"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "typescript"
+    ]
   },
   "resolutions": {
     "typescript": "2.7.2"
