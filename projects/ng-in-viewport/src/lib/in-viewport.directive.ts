@@ -30,7 +30,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
     this.config = new InViewportConfig(value);
   }
 
-  @Output('inViewportAction') public readonly action$: EventEmitter<any> = new EventEmitter<any>();
+  @Output() public readonly inViewportAction: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -44,18 +44,10 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
       this.subscription.add(
         this.inViewport.trigger$
           .pipe(filter((entry: IntersectionObserverEntry) => entry && entry.target === this.elementRef.nativeElement))
-          .subscribe((entry: IntersectionObserverEntry) => {
-            const event = this.config.checkFn
-              ? this.config.checkFn(entry, { force: false, config: this.config })
-              : this.check(entry, false);
-            this.action$.emit(event);
-          })
+          .subscribe((entry: IntersectionObserverEntry) => this.emitAction(entry, false))
       );
     } else {
-      const event = this.config.checkFn
-        ? this.config.checkFn(undefined, { force: true, config: this.config })
-        : this.check(undefined, true);
-      this.action$.emit(event);
+      this.emitAction(undefined, true);
     }
   }
 
@@ -67,13 +59,19 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   }
 
   private check(entry: IntersectionObserverEntry, force: boolean) {
-    const visible =
-      force ||
-      (this.config.partial ? entry.isIntersecting || entry.intersectionRatio > 0 : entry.intersectionRatio === 1);
-    return {
-      [InViewportMetadata]: { entry },
-      target: this.elementRef.nativeElement,
-      visible
+    const isVisible = () => {
+      const partiallyVisible = entry.isIntersecting || entry.intersectionRatio > 0;
+      const completelyVisible = entry.intersectionRatio === 1;
+      return this.config.partial ? partiallyVisible : completelyVisible;
     };
+    const visible = force || !entry || isVisible();
+    return { [InViewportMetadata]: { entry }, target: this.elementRef.nativeElement, visible };
+  }
+
+  private emitAction(entry: IntersectionObserverEntry, force: boolean): void {
+    const event = this.config.checkFn
+      ? this.config.checkFn(entry, { force, config: this.config })
+      : this.check(entry, force);
+    this.inViewportAction.emit(event);
   }
 }
