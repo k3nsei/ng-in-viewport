@@ -7,5 +7,8 @@
         "projects/ng-in-viewport/package.json"
       ]
     }
-  }
+  },
+  "ignore": [
+    "typescript"
+  ]
 }

@@ -94,11 +94,6 @@
     "typescript": "~2.7.2",
     "webpack-cli": "^3.0.8"
   },
-  "greenkeeper": {
-    "ignore": [
-      "typescript"
-    ]
-  },
   "resolutions": {
     "typescript": "2.7.2"
   },
