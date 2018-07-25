@@ -143,7 +143,7 @@
       "root": "projects/ng-in-viewport",
       "sourceRoot": "projects/ng-in-viewport/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "inViewport",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
