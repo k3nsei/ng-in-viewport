@@ -110,7 +110,24 @@
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
-    ]
+    ],
+    "rules": {
+      "subject-case": [
+        2,
+        "always",
+        "sentence-case"
+      ],
+      "subject-min-length": [
+        1,
+        "always",
+        5
+      ],
+      "subject-max-length": [
+        1,
+        "always",
+        120
+      ]
+    }
   },
   "config": {
     "commitizen": {
