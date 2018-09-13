@@ -2,11 +2,13 @@
 
 <!-- Badges section here. -->
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
+[![Build Status][azure-devops-badge]][azure-devops-badge-url]
+
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
 [![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
 [![codebeat badge][codebeat-badge]][codebeat-badge-url]
-[![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 
+[![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
 [![devDependency Status][david-dev-badge]][david-dev-badge-url]
@@ -27,6 +29,9 @@ Allows us to check if an element is within the browsers visual viewport
 
 [circle-ci-badge]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master.svg?style=shield&circle-token=1c961beeff7d2e03a4203efd1858081b9901caac
 [circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master
+
+[azure-devops-badge]: https://k3nsei.visualstudio.com/ng-in-viewport/_apis/build/status/ng-in-viewport-remote
+[azure-devops-badge-url]: https://k3nsei.visualstudio.com/ng-in-viewport/_build/latest?definitionId=3
 
 [codeclimate-maintainability-badge]: https://api.codeclimate.com/v1/badges/a9c4480075e536498c72/maintainability
 [codeclimate-maintainability-badge-url]: https://codeclimate.com/github/k3nsei/ng-in-viewport/maintainability
