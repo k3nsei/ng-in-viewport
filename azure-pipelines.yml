@@ -1,6 +1,11 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
+trigger:
+- master
+- develop
+- releases/*
+
 steps:
 - task: NodeTool@0
   displayName: 'Use Node 8.x'
