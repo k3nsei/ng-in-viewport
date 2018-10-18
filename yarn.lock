@@ -16,13 +16,6 @@
     "@angular-devkit/core" "0.7.0-rc.0"
     rxjs "^6.0.0"
 
-"@angular-devkit/architect@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.8.2.tgz#3c0a088a8cf3b38f674aab2690111f081af4bd33"
-  dependencies:
-    "@angular-devkit/core" "0.8.2"
-    rxjs "~6.2.0"
-
 "@angular-devkit/build-angular@~0.10.1":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.10.1.tgz#6eccfd2eec4778c65e6b38b20304bfa5f134a4f1"
@@ -109,15 +102,6 @@
     ajv "~6.4.0"
     chokidar "^2.0.3"
     rxjs "^6.0.0"
-    source-map "^0.5.6"
-
-"@angular-devkit/core@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-0.8.2.tgz#ea3cc766d72786a1e299a556465d01a8f434c6cb"
-  dependencies:
-    ajv "~6.4.0"
-    chokidar "^2.0.3"
-    rxjs "~6.2.0"
     source-map "^0.5.6"
 
 "@angular-devkit/core@7.0.1":
@@ -371,9 +355,9 @@
     tree-kill "1.2.0"
     webpack-sources "1.2.0"
 
-"@nguniversal/common@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-6.0.0.tgz#50e4b80d08618064e3404306b24b97877db9007d"
+"@nguniversal/common@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-7.0.0.tgz#0058eae2ebf8f714348ad9fac33258dc7761b805"
 
 "@nguniversal/express-engine@^6.0.0":
   version "6.0.0"
@@ -6498,12 +6482,6 @@ rxjs@^6.1.0:
 rxjs@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.2.1.tgz#246cebec189a6cbc143a3ef9f62d6f4c91813ca1"
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@~6.2.0:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.2.2.tgz#eb75fa3c186ff5289907d06483a77884586e1cf9"
   dependencies:
     tslib "^1.9.0"
 
