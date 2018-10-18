@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.1",
-    "@angular-devkit/build-ng-packagr": "~0.8.0",
+    "@angular-devkit/build-ng-packagr": "~0.10.1",
     "@angular/cli": "~6.1.0-rc.0",
     "@angular/compiler-cli": "^6.0.5",
     "@angular/language-service": "^6.0.5",
@@ -73,7 +73,7 @@
     "@commitlint/config-conventional": "^7.0.1",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~10.11.2",
+    "@types/node": "~10.12.0",
     "codelyzer": "~4.4.2",
     "commitizen": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",

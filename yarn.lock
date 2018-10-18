@@ -76,14 +76,14 @@
   optionalDependencies:
     node-sass "4.9.3"
 
-"@angular-devkit/build-ng-packagr@~0.8.0":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.8.2.tgz#e660d22839a2ddf6ae1d917f12703cf0a482be68"
+"@angular-devkit/build-ng-packagr@~0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.10.1.tgz#5316982cd2e0b02203f1488cbde00aafcc309e19"
   dependencies:
-    "@angular-devkit/architect" "0.8.2"
-    "@angular-devkit/core" "0.8.2"
-    rxjs "~6.2.0"
-    semver "^5.3.0"
+    "@angular-devkit/architect" "0.10.1"
+    "@angular-devkit/core" "7.0.1"
+    rxjs "6.3.3"
+    semver "5.5.1"
 
 "@angular-devkit/build-optimizer@0.10.1":
   version "0.10.1"
@@ -462,9 +462,9 @@
   version "6.0.109"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.109.tgz#addc070c5b0a528c286ff4188d7dcafdafbfdcce"
 
-"@types/node@~10.11.2":
-  version "10.11.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.11.2.tgz#59508b88ce90fe2742f7b8414c6f5db3e359570d"
+"@types/node@~10.12.0":
+  version "10.12.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.0.tgz#ea6dcbddbc5b584c83f06c60e82736d8fbb0c235"
 
 "@types/q@^0.0.32":
   version "0.0.32"
