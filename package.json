@@ -54,7 +54,7 @@
     "@angular/platform-server": "^6.0.5",
     "@angular/router": "^6.0.5",
     "@nguniversal/common": "^7.0.0",
-    "@nguniversal/express-engine": "^6.0.0",
+    "@nguniversal/express-engine": "^7.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.7",
