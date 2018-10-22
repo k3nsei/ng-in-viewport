@@ -355,17 +355,17 @@
     tree-kill "1.2.0"
     webpack-sources "1.2.0"
 
-"@nguniversal/common@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-6.0.0.tgz#50e4b80d08618064e3404306b24b97877db9007d"
+"@nguniversal/common@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-7.0.0.tgz#0058eae2ebf8f714348ad9fac33258dc7761b805"
 
-"@nguniversal/express-engine@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-6.0.0.tgz#f8bc7b5e940afb1ffdbdcb1bb22665d440ea0b0b"
+"@nguniversal/express-engine@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-7.0.0.tgz#83789ef417a0bddda62124ebf8331dd931897a46"
 
-"@nguniversal/module-map-ngfactory-loader@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-6.0.0.tgz#0dd26c3f1c26d17bb21b8dfc0da53d82b7f11028"
+"@nguniversal/module-map-ngfactory-loader@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-7.0.0.tgz#b03edc2102b74c9c39881bdca4190a9c58508846"
 
 "@schematics/angular@0.7.0-rc.0":
   version "0.7.0-rc.0"
