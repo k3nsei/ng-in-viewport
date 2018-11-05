@@ -1,0 +1,7 @@
+node_modules/**
+dist/**
+tmp/**
+docs/**
+e2e/**
+projects/ng-in-viewport/karma.conf.js
+src/karma.conf.js
