@@ -1,4 +1,5 @@
 {
+  "extends": ["tslint-sonarts"],
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
