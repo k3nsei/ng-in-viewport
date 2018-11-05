@@ -61,7 +61,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   private check(entry: IntersectionObserverEntry, force: boolean) {
     const isVisible = () => {
       const partiallyVisible = entry.isIntersecting || entry.intersectionRatio > 0;
-      const completelyVisible = entry.intersectionRatio === 1;
+      const completelyVisible = entry.intersectionRatio >= 1;
       return this.config.partial ? partiallyVisible : completelyVisible;
     };
     const visible = force || !entry || isVisible();

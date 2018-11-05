@@ -14,6 +14,8 @@
  * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
  */
 
+/* tslint:disable */
+
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
@@ -75,3 +77,5 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 import 'intersection-observer';
+
+/* tslint:enable */
