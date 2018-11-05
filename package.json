@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "license": "MIT",
   "authors": [
@@ -98,12 +98,13 @@
     "tslib": "^1.7.1",
     "tslint": "~5.10.0",
     "tslint-sonarts": "^1.8.0",
-    "typedoc": "^0.13.0",
+    "typedoc": "~0.11.1",
     "typescript": "~2.7.2",
     "webpack-cli": "^3.0.8"
   },
   "resolutions": {
-    "typescript": "2.7.2"
+    "typescript": "2.7.2",
+    "typedoc": "0.11.1"
   },
   "engines": {
     "yarn": ">=1.7.0"
