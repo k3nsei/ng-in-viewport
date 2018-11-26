@@ -9,12 +9,12 @@
     "@angular-devkit/core" "7.0.5"
     rxjs "6.3.3"
 
-"@angular-devkit/architect@0.7.0-rc.0":
-  version "0.7.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.7.0-rc.0.tgz#2156ec0869cfb8d0d8e756278b98c29d0f9fdf1d"
+"@angular-devkit/architect@0.10.7":
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.10.7.tgz#c74b9f6b7f1b4261ada2d24c832328aa4c394464"
   dependencies:
-    "@angular-devkit/core" "0.7.0-rc.0"
-    rxjs "^6.0.0"
+    "@angular-devkit/core" "7.0.7"
+    rxjs "6.3.3"
 
 "@angular-devkit/build-angular@~0.10.5":
   version "0.10.5"
@@ -95,15 +95,6 @@
     "@angular-devkit/core" "7.0.5"
     rxjs "6.3.3"
 
-"@angular-devkit/core@0.7.0-rc.0":
-  version "0.7.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-0.7.0-rc.0.tgz#57f2f472f0f85eb8d8c251220a0bcad7b40c7a5c"
-  dependencies:
-    ajv "~6.4.0"
-    chokidar "^2.0.3"
-    rxjs "^6.0.0"
-    source-map "^0.5.6"
-
 "@angular-devkit/core@7.0.5":
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.0.5.tgz#60866c0a2367cea44b436a359ac9be99a138e180"
@@ -114,12 +105,22 @@
     rxjs "6.3.3"
     source-map "0.7.3"
 
-"@angular-devkit/schematics@0.7.0-rc.0":
-  version "0.7.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-0.7.0-rc.0.tgz#c3e1e1a416008c0a9fbc2f01339e115f429fb343"
+"@angular-devkit/core@7.0.7":
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.0.7.tgz#665176ad8421adfd5f3ea0b2c4a9a432a158b1bb"
   dependencies:
-    "@angular-devkit/core" "0.7.0-rc.0"
-    rxjs "^6.0.0"
+    ajv "6.5.3"
+    chokidar "2.0.4"
+    fast-json-stable-stringify "2.0.0"
+    rxjs "6.3.3"
+    source-map "0.7.3"
+
+"@angular-devkit/schematics@7.0.7":
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-7.0.7.tgz#593422584a4f12644b10073035f1760534b718cf"
+  dependencies:
+    "@angular-devkit/core" "7.0.7"
+    rxjs "6.3.3"
 
 "@angular/animations@^6.0.5":
   version "6.0.5"
@@ -127,20 +128,20 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cli@~6.1.0-rc.0":
-  version "6.1.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-6.1.0-rc.0.tgz#7ffb203ab429beca19003369647015aa707921b9"
+"@angular/cli@~7.0.7":
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-7.0.7.tgz#0f4500c5fcf22694c9c40f14d2a5b3dc90fbb4a3"
   dependencies:
-    "@angular-devkit/architect" "0.7.0-rc.0"
-    "@angular-devkit/core" "0.7.0-rc.0"
-    "@angular-devkit/schematics" "0.7.0-rc.0"
-    "@schematics/angular" "0.7.0-rc.0"
-    "@schematics/update" "0.7.0-rc.0"
-    opn "^5.3.0"
-    rxjs "^6.0.0"
-    semver "^5.1.0"
-    symbol-observable "^1.2.0"
-    yargs-parser "^10.0.0"
+    "@angular-devkit/architect" "0.10.7"
+    "@angular-devkit/core" "7.0.7"
+    "@angular-devkit/schematics" "7.0.7"
+    "@schematics/angular" "7.0.7"
+    "@schematics/update" "0.10.7"
+    inquirer "6.2.0"
+    opn "5.3.0"
+    rxjs "6.3.3"
+    semver "5.5.1"
+    symbol-observable "1.2.0"
 
 "@angular/common@^6.0.5":
   version "6.0.5"
@@ -367,24 +368,24 @@
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-7.0.2.tgz#2df0532f84d4f4e042adb294e3685fad28ed0622"
 
-"@schematics/angular@0.7.0-rc.0":
-  version "0.7.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.7.0-rc.0.tgz#b09b320666339f892feef58eae6047942fab2ba6"
+"@schematics/angular@7.0.7":
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-7.0.7.tgz#2aabf02779b1e5c6035135a652b5402f5785eae6"
   dependencies:
-    "@angular-devkit/core" "0.7.0-rc.0"
-    "@angular-devkit/schematics" "0.7.0-rc.0"
-    typescript ">=2.6.2 <2.8"
+    "@angular-devkit/core" "7.0.7"
+    "@angular-devkit/schematics" "7.0.7"
+    typescript "3.1.6"
 
-"@schematics/update@0.7.0-rc.0":
-  version "0.7.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@schematics/update/-/update-0.7.0-rc.0.tgz#7af11bc41ba1ac41eac3de4c19cf1fb438b9722c"
+"@schematics/update@0.10.7":
+  version "0.10.7"
+  resolved "https://registry.yarnpkg.com/@schematics/update/-/update-0.10.7.tgz#c74c65cb679003b035a25f4f354f48d1054d8eca"
   dependencies:
-    "@angular-devkit/core" "0.7.0-rc.0"
-    "@angular-devkit/schematics" "0.7.0-rc.0"
-    npm-registry-client "^8.5.1"
-    rxjs "^6.0.0"
-    semver "^5.3.0"
-    semver-intersect "^1.1.2"
+    "@angular-devkit/core" "7.0.7"
+    "@angular-devkit/schematics" "7.0.7"
+    npm-registry-client "8.6.0"
+    rxjs "6.3.3"
+    semver "5.5.1"
+    semver-intersect "1.4.0"
 
 "@types/estree@0.0.39":
   version "0.0.39"
@@ -682,7 +683,7 @@ ajv@^5.0.0, ajv@^5.1.0, ajv@^5.3.0:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.3.0"
 
-ajv@^6.1.0, ajv@~6.4.0:
+ajv@^6.1.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.4.0.tgz#d3aff78e9277549771daf0164cff48482b754fc6"
   dependencies:
@@ -5307,9 +5308,9 @@ npm-packlist@^1.1.6:
     ignore-walk "^3.0.1"
     npm-bundled "^1.0.1"
 
-npm-registry-client@^8.5.1:
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/npm-registry-client/-/npm-registry-client-8.5.1.tgz#8115809c0a4b40938b8a109b8ea74d26c6f5d7f1"
+npm-registry-client@8.6.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/npm-registry-client/-/npm-registry-client-8.6.0.tgz#7f1529f91450732e89f8518e0f21459deea3e4c4"
   dependencies:
     concat-stream "^1.5.2"
     graceful-fs "^4.1.6"
@@ -5425,7 +5426,7 @@ opener@~1.4.0:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.4.3.tgz#5c6da2c5d7e5831e8ffa3964950f8d6674ac90b8"
 
-opn@5.3.0, opn@^5.1.0, opn@^5.3.0:
+opn@5.3.0, opn@^5.1.0:
   version "5.3.0"
   resolved "http://registry.npmjs.org/opn/-/opn-5.3.0.tgz#64871565c863875f052cfdf53d3e3cb5adb53b1c"
   dependencies:
@@ -6652,9 +6653,9 @@ semver-dsl@^1.0.1:
   dependencies:
     semver "^5.3.0"
 
-semver-intersect@^1.1.2:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/semver-intersect/-/semver-intersect-1.3.1.tgz#8fa84a9e1028bd239e4530d1a3e181e698d884ba"
+semver-intersect@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/semver-intersect/-/semver-intersect-1.4.0.tgz#bdd9c06bedcdd2fedb8cd352c3c43ee8c61321f3"
   dependencies:
     semver "^5.0.0"
 
@@ -7294,7 +7295,7 @@ supports-color@^5.5.0:
   dependencies:
     has-flag "^3.0.0"
 
-symbol-observable@^1.2.0:
+symbol-observable@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
@@ -7606,7 +7607,7 @@ typedoc@0.11.1, typedoc@~0.11.1:
     typedoc-default-themes "^0.5.0"
     typescript "2.7.2"
 
-typescript@2.7.2, typescript@3.1.6, "typescript@>=2.6.2 <2.8", typescript@~2.7.2:
+typescript@2.7.2, typescript@3.1.6, typescript@~2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.2.tgz#2d615a1ef4aee4f574425cdff7026edf81919836"
 
