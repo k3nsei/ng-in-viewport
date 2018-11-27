@@ -3943,7 +3943,7 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-husky@^1.0.1:
+husky@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-1.2.0.tgz#d631dda1e4a9ee8ba69a10b0c51a0e2c66e711e5"
   integrity sha512-/ib3+iycykXC0tYIxsyqierikVa9DA2DrT32UEirqNEFVqOj1bFMTgP3jAz8HM7FgC/C8pc/BTUa9MV2GEkZaA==
