@@ -85,7 +85,7 @@
     "karma-jasmine": "~2.0.0",
     "karma-jasmine-html-reporter": "^1.1.0",
     "ng-packagr": "^4.0.0",
-    "prettier": "1.15.2",
+    "prettier": "1.15.3",
     "protractor": "~5.4.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
