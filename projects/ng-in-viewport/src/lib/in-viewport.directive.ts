@@ -1,3 +1,4 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   Directive,
@@ -9,7 +10,6 @@ import {
   Output,
   PLATFORM_ID
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -33,7 +33,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   @Output() public readonly inViewportAction: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: object,
     private elementRef: ElementRef,
     private inViewport: InViewportService
   ) {}
