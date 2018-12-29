@@ -1,0 +1,34 @@
+{
+  "version": "2",
+  "plugins": {
+    "fixme": {
+      "enabled": true
+    },
+    "markdownlint": {
+      "enabled": true
+    },
+    "scss-lint": {
+      "enabled": true
+    },
+    "tslint": {
+      "enabled": true,
+      "config": "tslint.codeclimate.json"
+    }
+  },
+  "exclude_patterns": [
+    "config/",
+    "db/",
+    "docs/",
+    "dist/",
+    "features/",
+    "**/node_modules/",
+    "script/",
+    "**/spec/",
+    "**/test/",
+    "**/tests/",
+    "Tests/",
+    "**/vendor/",
+    "**/*_test.go",
+    "**/*.d.ts"
+  ]
+}
