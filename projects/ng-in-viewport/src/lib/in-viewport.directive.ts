@@ -33,7 +33,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   @Output() public readonly inViewportAction: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
+    @Inject(PLATFORM_ID) private platformId: Object, // tslint:disable-line
     private elementRef: ElementRef,
     private inViewport: InViewportService
   ) {}
