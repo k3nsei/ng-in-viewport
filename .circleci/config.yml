@@ -23,6 +23,7 @@ jobs:
       - restore_cache:
           <<: *restore_cache_defaults
       - run: xvfb-run -a node --version
+      - run: xvfb-run -a npm install --global yarn@latest
       - run: xvfb-run -a yarn --version
       - run: yarn install
       - run: xvfb-run -a yarn run build:lib
