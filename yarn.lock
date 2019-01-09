@@ -2,14 +2,6 @@
 # yarn lockfile v1
 
 
-"@angular-devkit/architect@0.11.4":
-  version "0.11.4"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.11.4.tgz#f0cc3b4f1dd0128f6b41d3bb760bcf4c324cd063"
-  integrity sha512-2zi6S9tPlk52vyqN67IvFoeNgd0uxtrPlwl3TdvJ3wrH7sYGJnkQ+EzAE7cKUGWAV989BbNtx2YxhRDHnN21Fg==
-  dependencies:
-    "@angular-devkit/core" "7.1.4"
-    rxjs "6.3.3"
-
 "@angular-devkit/architect@0.12.1":
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.12.1.tgz#397768d1ccd0cef76db96d6b39db8aebad68c031"
@@ -72,13 +64,13 @@
   optionalDependencies:
     node-sass "4.10.0"
 
-"@angular-devkit/build-ng-packagr@~0.11.0":
-  version "0.11.4"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.11.4.tgz#f4f60bb1dec189bc72b4645579e0d028260187fd"
-  integrity sha512-mT6fvLW7oFTJNpfTcMuoqamrm+WDCC02DcT0S+XWRkUv4+lpRTInmz+ZLK+JvwG3PZoytjFKuhcU1uS78fMNsQ==
+"@angular-devkit/build-ng-packagr@~0.12.0":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.12.1.tgz#7b5734ae0bbf883b49b9663d85e971485093a5d3"
+  integrity sha512-3UyJh9lYhSiD77lqj6qpPOU9XuyGW/kti1Bk3SFtT4bFGvQLLC/meSvcHlpbS6RyLvi6djH+CbTzgApzlfPvbw==
   dependencies:
-    "@angular-devkit/architect" "0.11.4"
-    "@angular-devkit/core" "7.1.4"
+    "@angular-devkit/architect" "0.12.1"
+    "@angular-devkit/core" "7.2.1"
     rxjs "6.3.3"
     semver "5.5.1"
 
@@ -100,17 +92,6 @@
     "@angular-devkit/architect" "0.12.1"
     "@angular-devkit/core" "7.2.1"
     rxjs "6.3.3"
-
-"@angular-devkit/core@7.1.4":
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.1.4.tgz#4d903fd2ecc259b716ae76da19695d03993e583c"
-  integrity sha512-3cBVHjSQjMyE/mIyOX82ekdybNRQlN+kUfmdZS6oVW9aV48vdxcVbEGdl8t1H4enMf89u8kXiAAET9jFaqWopg==
-  dependencies:
-    ajv "6.5.3"
-    chokidar "2.0.4"
-    fast-json-stable-stringify "2.0.0"
-    rxjs "6.3.3"
-    source-map "0.7.3"
 
 "@angular-devkit/core@7.2.1":
   version "7.2.1"
@@ -892,16 +873,6 @@ ajv-keywords@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.2.0.tgz#e86b819c602cf8821ad637413698f1dec021847a"
   integrity sha1-6GuBnGAs+IIa1jdBNpjx3sAhhHo=
-
-ajv@6.5.3:
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.5.3.tgz#71a569d189ecf4f4f321224fecb166f071dd90f9"
-  integrity sha512-LqZ9wY+fx3UMiiPd741yB2pj3hhil+hQc8taf4o2QGRFpWgZ2V5C8HA165DY9sS3fJwsk7uT7ZlFEyC3Ig3lLg==
-  dependencies:
-    fast-deep-equal "^2.0.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
 
 ajv@6.6.2, ajv@^6.1.0, ajv@^6.5.5:
   version "6.6.2"
