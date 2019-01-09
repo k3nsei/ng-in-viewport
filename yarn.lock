@@ -64,7 +64,7 @@
   optionalDependencies:
     node-sass "4.10.0"
 
-"@angular-devkit/build-ng-packagr@~0.12.0":
+"@angular-devkit/build-ng-packagr@~0.12.1":
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.12.1.tgz#7b5734ae0bbf883b49b9663d85e971485093a5d3"
   integrity sha512-3UyJh9lYhSiD77lqj6qpPOU9XuyGW/kti1Bk3SFtT4bFGvQLLC/meSvcHlpbS6RyLvi6djH+CbTzgApzlfPvbw==
