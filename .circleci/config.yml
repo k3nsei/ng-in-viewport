@@ -52,7 +52,7 @@ jobs:
       - restore_cache:
           <<: *restore_cache_defaults
       - run: xvfb-run -a yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox
-      - run: xvfb-run -a cp ./coverage/lcov.info /tmp/lib-lcov.info
+      - run: xvfb-run -a cp ./coverage/lcov.info ./tmp/lib-lcov.info
       # There are no tests yet for example app
       # - run: xvfb-run -a yarn run test --watch=false --progress=false --browsers=ChromeHeadlessNoSandbox
       - persist_to_workspace:
@@ -69,11 +69,11 @@ jobs:
       - run:
           name:  Download cc-test-reporter
           command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /tmp/cc-test-reporter
-            chmod +x /tmp/cc-test-reporter
-      - run: xvfb-run -a yarn run codecov --file /tmp/lib-lcov.info
-      - run: xvfb-run -a /tmp/cc-test-reporter format-coverage -t lcov -o /tmp/codeclimate.lib.json /tmp/lib-lcov.info
-      - run: xvfb-run -a /tmp/cc-test-reporter upload-coverage -i /tmp/codeclimate.lib.json
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+      - run: xvfb-run -a yarn run codecov --file ./tmp/lib-lcov.info
+      - run: xvfb-run -a ./tmp/cc-test-reporter format-coverage -t lcov -o ./tmp/codeclimate.lib.json ./tmp/lib-lcov.info
+      - run: xvfb-run -a ./tmp/cc-test-reporter upload-coverage -i ./tmp/codeclimate.lib.json
 
 workflows:
   version: 2
