@@ -14,12 +14,6 @@ anchor_2: &restore_cache_defaults
     - ng-in-viewport-{{ .Branch }}-{{ checksum "package.json" }}
     - ng-in-viewport-
 
-anchor_3: &download_cc_test_reporter
-  name:  Download cc-test-reporter
-  command: |
-    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /tmp/cc-test-reporter
-    chmod +x /tmp/cc-test-reporter
-
 general:
   branches:
     only:
@@ -73,7 +67,10 @@ jobs:
       - restore_cache:
           <<: *restore_cache_defaults
       - run:
-          <<: *download_cc_test_reporter
+          name:  Download cc-test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /tmp/cc-test-reporter
+            chmod +x /tmp/cc-test-reporter
       - run: xvfb-run -a yarn run codecov --file /tmp/lib-lcov.info
       - run: xvfb-run -a /tmp/cc-test-reporter format-coverage -t lcov -o /tmp/codeclimate.lib.json /tmp/lib-lcov.info
       - run: xvfb-run -a /tmp/cc-test-reporter upload-coverage -i /tmp/codeclimate.lib.json
