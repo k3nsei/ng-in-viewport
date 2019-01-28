@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 anchor_1: &defaults
   working_directory: ~/ng-in-viewport
