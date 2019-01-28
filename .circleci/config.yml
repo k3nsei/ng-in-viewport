@@ -1,9 +1,13 @@
 version: 2.1
 
+executors:
+  node:
+    docker:
+      - image: circleci/node:11-browsers
+    working_directory: ~/ng-in-viewport
+
 anchor_1: &defaults
-  working_directory: ~/ng-in-viewport
-  docker:
-    - image: circleci/node:11-browsers
+  executor: node
 
 anchor_2: &restore_cache_defaults
   keys:
