@@ -67,6 +67,8 @@ jobs:
       - checkout
       - restore_cache:
           <<: *restore_cache_defaults
+      - attach_workspace:
+          at: ~/ng-in-viewport/tmp
       - run:
           name:  Download cc-test-reporter
           command: |
