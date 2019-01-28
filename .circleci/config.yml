@@ -47,7 +47,8 @@ jobs:
       - checkout
       - restore_cache:
           <<: *restore_cache_defaults
-      - run: xvfb-run -a yarn run test:lib --watch=false --progress=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+      - run: xvfb-run -a yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+      - run: xvfb-run -a yarn run codecov --file=coverage/coverage-summary.json
       # There are no tests yet for example app
       # - run: xvfb-run -a yarn run test --watch=false --progress=false --browsers=ChromeHeadlessNoSandbox
 
