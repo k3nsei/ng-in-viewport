@@ -86,7 +86,7 @@ workflows:
       - test:
           requires:
             - build
-      - upload_coverage
+      - upload_coverage:
           requires:
             - build
             - test
