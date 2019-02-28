@@ -8,6 +8,7 @@
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
 [![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
 [![codebeat badge][codebeat-badge]][codebeat-badge-url]
+[![codecov][codecov-badge]][codecov-badge-url]
 
 [![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 [![Dependency Status][david-badge]][david-badge-url]
@@ -42,6 +43,9 @@ Allows us to check if an element is within the browsers visual viewport
 
 [codebeat-badge]: https://codebeat.co/badges/73e483ff-fb24-4ad1-9878-89aa1ed55192
 [codebeat-badge-url]: https://codebeat.co/projects/github-com-k3nsei-ng-in-viewport-develop
+
+[codecov-badge]: https://codecov.io/gh/k3nsei/ng-in-viewport/branch/develop/graph/badge.svg
+[codecov-badge-url]: https://codecov.io/gh/k3nsei/ng-in-viewport
 
 [sonarcloud-badge]: https://sonarcloud.io/api/project_badges/measure?project=ng-in-viewport&metric=sqale_rating
 
