@@ -478,10 +478,10 @@
     tree-kill "1.2.1"
     webpack-sources "1.3.0"
 
-"@nguniversal/common@^7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-7.0.2.tgz#86ccd25da0f02f7bd3285bcdce16fd26a1213326"
-  integrity sha512-0iNP1Tb4cPM8jwXmcn9SEI7Hq4r1bteyesiLuDllp79vuBhBO0TJoOqN1yI0BXCrx95TAzyMhEVTgLgVqT7qBg==
+"@nguniversal/common@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-8.1.0.tgz#62d257b2b2dc58fab110824c31f54fa4682fe5a1"
+  integrity sha512-S9v193zKAHFJ9r8NhRqh9EWwL8qwZ+5eK1w8gsDN+AzwBpHMyRhqrly2ljY0NNiTh7h7POXTWGHcP7+KicFM8A==
 
 "@nguniversal/express-engine@^7.0.2":
   version "7.0.2"
