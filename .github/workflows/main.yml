@@ -18,6 +18,11 @@ jobs:
       with:
         version: 10.x
 
+    - name: Setup Chrome
+      run: |
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        apt install ./google-chrome-stable_current_amd64.deb
+
     - name: Install dependencies
       run: yarn install
 
@@ -30,3 +35,6 @@ jobs:
       run: |
         yarn run build:lib
         yarn run build --progress=false
+
+    - name: Test
+      run: yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox
