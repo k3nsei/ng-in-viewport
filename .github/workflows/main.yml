@@ -1,0 +1,32 @@
+name: Main
+
+on:
+  push:
+    branches:
+    - master
+    - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        version: 10.x
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Lint
+      run: |
+        npm run lint:lib
+        npm run lint
+
+    - name: Build
+      run: |
+        npm run build:lib
+        npm run build --progress=false
