@@ -15,6 +15,9 @@
     "type": "git",
     "url": "git+https://github.com/k3nsei/ng-in-viewport.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@k3nsei"
+  },
   "bugs": {
     "url": "https://github.com/k3nsei/ng-in-viewport/issues"
   },
