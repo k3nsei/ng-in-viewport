@@ -4,12 +4,11 @@
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
 [![Build Status][azure-devops-badge]][azure-devops-badge-url]
 
+[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
+[![codecov][codecov-badge]][codecov-badge-url]
 ![Maintainability][sonarcloud-badge]
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
 [![codebeat badge][codebeat-badge]][codebeat-badge-url]
-
-[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
-[![codecov][codecov-badge]][codecov-badge-url]
 
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
