@@ -23,7 +23,6 @@ Allows us to check if an element is within the browsers visual viewport
 -   🚀 See it in action on [Stackblitz][example-app]
 -   🎮 Play with it on [Stackblitz][example-app-embed]
 
-
 ## License
 
 [MIT](https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE)
