@@ -4,15 +4,18 @@
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
 [![Build Status][azure-devops-badge]][azure-devops-badge-url]
 
+
+![Maintainability][sonarcloud-badge]
+[![Codacy Badge][codacy-badge]][codacy-badge-url]
+[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
 [![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
 [![codecov][codecov-badge]][codecov-badge-url]
-![Maintainability][sonarcloud-badge]
-[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
-[![codebeat badge][codebeat-badge]][codebeat-badge-url]
+<!-- [![codebeat badge][codebeat-badge]][codebeat-badge-url] -->
 
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
 [![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
+
 
 [![npm][npm-badge-version]][npm-badge-url]
 [![npm][npm-badge-license]][npm-badge-url]
@@ -39,6 +42,9 @@ Allows us to check if an element is within the browsers visual viewport
 
 [codeclimate-coverage-badge]: https://img.shields.io/codeclimate/coverage/k3nsei/ng-in-viewport?logo=Code%20Climate&style=for-the-badge
 [codeclimate-coverage-badge-url]: https://codeclimate.com/github/k3nsei/ng-in-viewport/test_coverage
+
+[codacy-badge]: https://img.shields.io/codacy/grade/6fe02a88e70e4786a70ec2e94714794d?logo=codacy&style=for-the-badge
+[codacy-badge-url]: https://www.codacy.com/manual/k3nsei/ng-in-viewport?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=k3nsei/ng-in-viewport&amp;utm_campaign=Badge_Grade
 
 [codebeat-badge]: https://codebeat.co/badges/73e483ff-fb24-4ad1-9878-89aa1ed55192
 [codebeat-badge-url]: https://codebeat.co/projects/github-com-k3nsei-ng-in-viewport-develop
