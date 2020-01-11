@@ -6,9 +6,10 @@
 
 ![Maintainability][sonarcloud-badge]
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
+[![codebeat badge][codebeat-badge]][codebeat-badge-url]
+
 [![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
 [![codecov][codecov-badge]][codecov-badge-url]
-[![codebeat badge][codebeat-badge]][codebeat-badge-url]
 
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
