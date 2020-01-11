@@ -7,12 +7,12 @@
 ![Maintainability][sonarcloud-badge]
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
 [![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
-[![codebeat badge][codebeat-badge]][codebeat-badge-url]
 [![codecov][codecov-badge]][codecov-badge-url]
+[![codebeat badge][codebeat-badge]][codebeat-badge-url]
 
-[![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
+[![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 
 [![npm][npm-badge-version]][npm-badge-url]
 [![npm][npm-badge-license]][npm-badge-url]
@@ -57,7 +57,7 @@ Allows us to check if an element is within the browsers visual viewport
 [david-peer-badge]: https://img.shields.io/david/peer/k3nsei/ng-in-viewport?logo=node.js&path=projects%2Fng-in-viewport&style=for-the-badge
 [david-peer-badge-url]: https://david-dm.org/k3nsei/ng-in-viewport/develop?type=peer&path=projects/ng-in-viewport
 
-[npm-badge-version]: https://img.shields.io/npm/v/ng-in-viewport&style=for-the-badge
+[npm-badge-version]: https://img.shields.io/npm/v/ng-in-viewport?style=for-the-badge
 [npm-badge-license]: https://img.shields.io/npm/l/ng-in-viewport?style=for-the-badge
 [npm-badge-downloads]: https://img.shields.io/npm/dm/ng-in-viewport?style=for-the-badge
 [npm-badge-url]: https://www.npmjs.com/package/ng-in-viewport
