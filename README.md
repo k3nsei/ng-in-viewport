@@ -1,25 +1,29 @@
 # ng-in-viewport
 
 <!-- Badges section here. -->
-[![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
-[![Build Status][azure-devops-badge]][azure-devops-badge-url]
-
-
-![Maintainability][sonarcloud-badge]
-[![Codacy Badge][codacy-badge]][codacy-badge-url]
-[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
-[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
-[![codecov][codecov-badge]][codecov-badge-url]
-<!-- [![codebeat badge][codebeat-badge]][codebeat-badge-url] -->
+[![npm][npm-badge-version]][npm-badge-url]
+[![npm][npm-badge-license]][npm-badge-url]
+[![npm][npm-badge-downloads]][npm-badge-url]
 
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
 [![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
 
+[![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
+[![Build Status][azure-devops-badge]][azure-devops-badge-url]
 
-[![npm][npm-badge-version]][npm-badge-url]
-[![npm][npm-badge-license]][npm-badge-url]
-[![npm][npm-badge-downloads]][npm-badge-url]
+![Maintainability][sonarcloud-badge]
+[![Codacy Badge][codacy-badge]][codacy-badge-url]
+[![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
+<!-- [![codebeat badge][codebeat-badge]][codebeat-badge-url] -->
+
+[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
+[![codecov][codecov-badge]][codecov-badge-url]
+
+[![Dependency Status][david-badge]][david-badge-url]
+[![peerDependency Status][david-peer-badge]][david-peer-badge-url]
+[![Greenkeeper badge][greenkeeper-badge]][greenkeeper-badge-url]
+
 
 Allows us to check if an element is within the browsers visual viewport
 
