@@ -19,17 +19,16 @@
 
 Allows us to check if an element is within the browsers visual viewport
 
-  - 🤓 Learn about it on the [DOCS Site][lib-docs]
-  - 🚀 See it in action on [Stackblitz][example-app]
-  - 🎮 Play with it on [Stackblitz][example-app-embed]
+-   🤓 Learn about it on the [DOCS Site][lib-docs]
+-   🚀 See it in action on [Stackblitz][example-app]
+-   🎮 Play with it on [Stackblitz][example-app-embed]
 
 
 ## License
 
 [MIT](https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE)
 
-
-<!-- START: DEFINITIONS -->
+<!-- DEFINITIONS -->
 [circle-ci-badge]: https://img.shields.io/circleci/build/github/k3nsei/ng-in-viewport/master?logo=CircleCi&style=for-the-badge&token=1c961beeff7d2e03a4203efd1858081b9901caac
 [circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master
 
@@ -65,4 +64,3 @@ Allows us to check if an element is within the browsers visual viewport
 
 [example-app]: https://ng-in-viewport-example.stackblitz.io/
 [example-app-embed]: https://stackblitz.com/edit/ng-in-viewport-example?embed=1&file=src/main.ts
-<!-- END: DEFINITIONS -->
