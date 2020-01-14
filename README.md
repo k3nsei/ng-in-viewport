@@ -8,9 +8,10 @@
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
 
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
+[![GitHub Workflow][github-workflow-badge]][github-workflow-badge-url]
 [![Build Status][azure-devops-badge]][azure-devops-badge-url]
-[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
-[![codecov][codecov-badge]][codecov-badge-url]
+[![Codecov Coverage][codecov-badge]][codecov-badge-url]
+[![Codeclimate Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
 
 ![Maintainability][sonarcloud-badge]
 [![Codacy Badge][codacy-badge]][codacy-badge-url]
@@ -32,6 +33,9 @@ Allows us to check if an element is within the browsers visual viewport
 
 [azure-devops-badge]: https://img.shields.io/azure-devops/build/k3nsei/a2099adb-d5fb-4377-b950-042475976b1e/3?logo=Azure%20Pipelines&style=flat-square
 [azure-devops-badge-url]: https://k3nsei.visualstudio.com/ng-in-viewport/_build/latest?definitionId=3
+
+[github-workflow-badge]: https://img.shields.io/github/workflow/status/k3nsei/ng-in-viewport/Main?logo=GitHub&style=flat-square
+[github-workflow-badge-url]: https://github.com/k3nsei/ng-in-viewport/actions?query=workflow%3AMain
 
 [codeclimate-maintainability-badge]: https://img.shields.io/codeclimate/maintainability/k3nsei/ng-in-viewport?logo=Code%20Climate&style=flat-square
 [codeclimate-maintainability-badge-url]: https://codeclimate.com/github/k3nsei/ng-in-viewport/maintainability
