@@ -9,13 +9,12 @@
 
 [![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
 [![Build Status][azure-devops-badge]][azure-devops-badge-url]
+[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
+[![codecov][codecov-badge]][codecov-badge-url]
 
 ![Maintainability][sonarcloud-badge]
 [![Codacy Badge][codacy-badge]][codacy-badge-url]
 [![Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
-
-[![Test Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
-[![codecov][codecov-badge]][codecov-badge-url]
 
 Allows us to check if an element is within the browsers visual viewport
 
