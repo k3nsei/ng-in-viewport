@@ -513,10 +513,10 @@
     tree-kill "1.2.1"
     webpack-sources "1.3.0"
 
-"@nguniversal/common@^7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-7.0.2.tgz#86ccd25da0f02f7bd3285bcdce16fd26a1213326"
-  integrity sha512-0iNP1Tb4cPM8jwXmcn9SEI7Hq4r1bteyesiLuDllp79vuBhBO0TJoOqN1yI0BXCrx95TAzyMhEVTgLgVqT7qBg==
+"@nguniversal/common@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-9.0.0.tgz#11e8f050b4add11dc808d62726ce77b58e6a105b"
+  integrity sha512-tiTklXiXqRad2fvcH4Rar8AofHeiBNkYuwXobGxnC9Xzmc2gG9DaNF5hC8wxT2FkbYAS1+NA/bpS4R7t6DfYfw==
 
 "@nguniversal/express-engine@^7.0.2":
   version "7.0.2"
