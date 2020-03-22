@@ -59,7 +59,7 @@
     "intersection-observer": ">=0.5.1",
     "rxjs": "^6.2.1",
     "web-animations-js": "^2.3.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.1",
