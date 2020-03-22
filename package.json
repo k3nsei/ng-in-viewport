@@ -53,7 +53,7 @@
     "@angular/router": "^6.0.5",
     "@nguniversal/common": "^7.0.2",
     "@nguniversal/express-engine": "^7.0.2",
-    "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
+    "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.2",
     "intersection-observer": ">=0.5.1",
