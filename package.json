@@ -51,15 +51,15 @@
     "@angular/platform-browser-dynamic": "^6.0.5",
     "@angular/platform-server": "^6.0.5",
     "@angular/router": "^6.0.5",
-    "@nguniversal/common": "^7.0.2",
+    "@nguniversal/common": "^7.1.1",
     "@nguniversal/express-engine": "^7.1.1",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
     "classlist.js": "^1.1.20150312",
-    "core-js": "^2.6.2",
+    "core-js": "^2.6.11",
     "intersection-observer": ">=0.5.1",
     "rxjs": "^6.2.1",
     "web-animations-js": "^2.3.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.1",
@@ -91,7 +91,7 @@
     "reflect-metadata": "^0.1.12",
     "rimraf": "^3.0.1",
     "ts-loader": "^4.3.0",
-    "ts-node": "~8.7.0",
+    "ts-node": "~8.8.0",
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "~5.10.0",
