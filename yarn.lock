@@ -9249,7 +9249,7 @@ yn@3.1.1:
   resolved "https://registry.yarnpkg.com/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
   integrity sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 
-zone.js@^0.8.26:
-  version "0.8.26"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.26.tgz#7bdd72f7668c5a7ad6b118148b4ea39c59d08d2d"
-  integrity sha512-W9Nj+UmBJG251wkCacIkETgra4QgBo/vgoEkb4a2uoLzpQG7qF9nzwoLXWU5xj3Fg2mxGvEDh47mg24vXccYjA==
+zone.js@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.10.3.tgz#3e5e4da03c607c9dcd92e37dd35687a14a140c16"
+  integrity sha512-LXVLVEq0NNOqK/fLJo3d0kfzd4sxwn2/h67/02pjCjfKDxgx1i9QqpvtHD8CrBnSSwMw5+dy11O7FRX5mkO7Cg==
