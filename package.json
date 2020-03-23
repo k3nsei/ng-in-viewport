@@ -58,7 +58,7 @@
     "core-js": "^2.6.11",
     "intersection-observer": ">=0.5.1",
     "rxjs": "^6.2.1",
-    "web-animations-js": "^2.3.1",
+    "web-animations-js": "^2.3.2",
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
