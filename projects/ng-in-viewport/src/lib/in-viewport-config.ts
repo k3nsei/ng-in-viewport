@@ -23,15 +23,47 @@ export interface InViewportConfigOptions {
   checkFn?: InViewportConfigCheckFn;
 }
 
-const DEFAULT_THRESHOLD = [0, 1];
-
 export class InViewportConfig {
+  private static readonly DEFAULT_THRESHOLD = [0, 1];
+
+  private static readonly STRINGIFY_DELIMITER = '|';
+
   private _root: Element;
   private _rootMargin: string = '0px 0px 0px 0px';
-  private _threshold: number | number[] = [...DEFAULT_THRESHOLD];
+  private _threshold: number | number[] = [...InViewportConfig.DEFAULT_THRESHOLD];
   private _partial: boolean = true;
   private _direction: InViewportConfigDirection = InViewportConfigDirection.BOTH;
+  private _hash: string;
   private _checkFn: InViewportConfigCheckFn;
+
+  private static stringify(input: object): string {
+    if (Array.isArray(input)) {
+      const stringifiedArr = [];
+
+      for (const v of input) {
+        stringifiedArr.push(InViewportConfig.stringify(v));
+      }
+
+      return `[${stringifiedArr.join(',')}]`;
+    } else if (typeof input === 'object' && input !== null) {
+      const acc = [];
+      const sortedKeys = Object.keys(input).sort();
+
+      for (const k of sortedKeys) {
+        const v = InViewportConfig.stringify(input[k]);
+
+        acc.push(`${k}:${v}`);
+      }
+
+      return acc.join(InViewportConfig.STRINGIFY_DELIMITER);
+    }
+
+    return String(input);
+  }
+
+  private static hash(input: object): string {
+    return btoa(InViewportConfig.stringify(input));
+  }
 
   constructor(options?: InViewportConfigOptions) {
     if (Object.prototype.toString.call(options) === '[object Object]') {
@@ -41,6 +73,14 @@ export class InViewportConfig {
         }
       });
     }
+
+    this._hash = InViewportConfig.hash({
+      rootMargin: this.rootMargin,
+      threshold: this.threshold,
+      partial: this.partial,
+      direction: this.direction,
+      checkFn: String(this.checkFn)
+    });
   }
 
   public get root(): Element {
@@ -56,7 +96,24 @@ export class InViewportConfig {
   }
 
   public set rootMargin(value: string) {
-    this._rootMargin = value && typeof value === 'string' ? value : '0px 0px 0px 0px';
+    if (!value || typeof value !== 'string') {
+      this._rootMargin = '0px 0px 0px 0px';
+    } else {
+      const marginString: string = value || '0px';
+      const margins: string[] = marginString.split(new RegExp('\\s+')).map((margin) => {
+        const parts = /^(-?\d*\.?\d+)(px|%)$/.exec(margin);
+        if (!parts) {
+          throw new TypeError('rootMargin must be specified in pixels or percent');
+        }
+        return `${parts[1]}${parts[2]}`;
+      });
+
+      margins[1] = margins[1] || margins[0];
+      margins[2] = margins[2] || margins[0];
+      margins[3] = margins[3] || margins[1];
+
+      this._rootMargin = margins.join(' ');
+    }
   }
 
   public get threshold(): number | number[] {
@@ -72,7 +129,7 @@ export class InViewportConfig {
       threshold = value.filter((val) => isValidThreshold(val));
     }
     if (threshold.length === 0) {
-      threshold = [...DEFAULT_THRESHOLD];
+      threshold = [...InViewportConfig.DEFAULT_THRESHOLD];
     }
     this._threshold = threshold;
   }
@@ -100,6 +157,10 @@ export class InViewportConfig {
       );
     };
     this._direction = isValidValue(value) ? value : InViewportConfigDirection.BOTH;
+  }
+
+  public get hash(): string {
+    return this._hash;
   }
 
   public get checkFn(): InViewportConfigCheckFn {

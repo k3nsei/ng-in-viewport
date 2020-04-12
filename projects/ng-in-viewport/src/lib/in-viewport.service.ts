@@ -4,6 +4,7 @@ import { InViewportConfig } from './in-viewport-config';
 
 export interface InViewportRegistryEntry {
   root: Element;
+  configHash: string;
   targets: Set<Element>;
   observer: IntersectionObserver;
 }
@@ -26,28 +27,30 @@ export class InViewportService {
     }
   }
 
-  private getRootElement(element?: Element) {
-    return element && element.nodeType === Node.ELEMENT_NODE ? element : undefined;
+  private getRootElement(element?: Element): Element | null {
+    return element && element.nodeType === Node.ELEMENT_NODE ? element : null;
   }
 
-  private findEntry(root: Element) {
-    return this.registry.find((entry) => entry.root === this.getRootElement(root));
+  private findEntry(root: Element, configHash: string) {
+    return this.registry.find((entry) => entry.root === this.getRootElement(root) && entry.configHash === configHash);
   }
 
   public register(target: Element, config: InViewportConfig): void {
     this.ngZone.runOutsideAngular(() => {
-      const foundedEntry = this.findEntry(config.root);
+      const foundedEntry = this.findEntry(config.root, config.hash);
       if (foundedEntry && !foundedEntry.targets.has(target)) {
         foundedEntry.targets.add(target);
         foundedEntry.observer.observe(target);
       } else {
+        const root: Element | null = this.getRootElement(config.root);
         const options: any = {
-          root: this.getRootElement(config.root),
+          root: root !== null ? root : undefined,
           rootMargin: config.rootMargin,
           threshold: config.threshold
         };
         const entry: InViewportRegistryEntry = {
-          root: this.getRootElement(config.root),
+          root,
+          configHash: config.hash,
           targets: new Set([target]),
           observer: new IntersectionObserver(
             (entries: IntersectionObserverEntry[]) => this.ngZone.run(() => this.emitTrigger(entries)),
@@ -62,7 +65,7 @@ export class InViewportService {
 
   public unregister(target: Element, config: InViewportConfig): void {
     this.ngZone.runOutsideAngular(() => {
-      const foundedEntry = this.findEntry(config.root);
+      const foundedEntry = this.findEntry(config.root, config.hash);
       if (foundedEntry) {
         const { observer, targets } = foundedEntry;
         if (targets.has(target)) {
