@@ -100,7 +100,7 @@ export class InViewportConfig {
       this._rootMargin = '0px 0px 0px 0px';
     } else {
       const marginString: string = value || '0px';
-      const margins: Array<string> = marginString.split(new RegExp('\\s+')).map((margin) => {
+      const margins: string[] = marginString.split(new RegExp('\\s+')).map((margin) => {
         const parts = /^(-?\d*\.?\d+)(px|%)$/.exec(margin);
         if (!parts) {
           throw new TypeError('rootMargin must be specified in pixels or percent');
