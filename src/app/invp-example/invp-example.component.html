@@ -1,14 +1,14 @@
 <section #firstSection>
-  <ng-container *ngFor="let element of elements">
-    <div class="item" inViewport [inViewportOptions]="{ root: firstSection }" (inViewportAction)="handleAction($event)">
+  <ng-container *ngFor="let element of elements; odd as odd">
+    <div class="item" [class.is-odd]="odd" inViewport [inViewportOptions]="{ root: firstSection }" (inViewportAction)="handleAction($event)">
       {{ element }}
     </div>
   </ng-container>
 </section>
 
 <section>
-  <ng-container *ngFor="let element of elements">
-    <div class="item" inViewport (inViewportAction)="handleAction($event)">
+  <ng-container *ngFor="let element of elements; odd as odd">
+    <div class="item" [class.is-odd]="odd" inViewport (inViewportAction)="handleAction($event)">
       {{ element }}
     </div>
   </ng-container>
