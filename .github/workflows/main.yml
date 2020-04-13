@@ -23,7 +23,7 @@ jobs:
     - name: Setup Chrome
       run: |
         sudo wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+        sudo apt-get install -f --yes /tmp/google-chrome-stable_current_amd64.deb
 
     - name: Install dependencies
       run: yarn install
