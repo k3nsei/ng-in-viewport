@@ -1,0 +1,59 @@
+version: v1.0
+name: Build and test
+agent:
+  machine:
+    type: e1-standard-8
+    os_image: ubuntu1804
+blocks:
+  - name: Initialize
+    task:
+      jobs:
+        - name: Checkout
+          commands:
+            - checkout
+        - name: Prepare environment
+          commands:
+            - sem-version node 12
+        - name: Install dependencies
+          commands:
+            - cache restore
+            - yarn install
+            - cache store
+    skip:
+      when: branch != 'develop' OR branch != 'master'
+    dependencies: []
+  - name: Lint
+    dependencies:
+      - Initialize
+    task:
+      jobs:
+        - name: Lint library
+          commands:
+            - 'yarn run lint:lib'
+        - name: Lint application
+          commands:
+            - yarn run lint
+  - name: Build
+    dependencies:
+      - Initialize
+      - Lint
+    task:
+      jobs:
+        - name: Build library
+          commands:
+            - 'yarn run build:lib'
+        - name: Build application
+          commands:
+            - yarn run build --progress=false
+  - name: Test
+    dependencies:
+      - Build
+      - Initialize
+      - Lint
+    task:
+      jobs:
+        - name: Test library
+          commands:
+            - 'yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox'
+execution_time_limit:
+  minutes: 10
