@@ -8,18 +8,24 @@ import { InViewportDirective } from './in-viewport.directive';
 @Component({
   template: `
     <div class="list" #listElement>
-      <div class="item inactive" inViewport
-           [inViewportOptions]="{ partial: true, root: listElement }"
-           (inViewportAction)="handleAction($event)">
-      </div>
-      <div class="item inactive" inViewport
-           [inViewportOptions]="{ partial: true, root: listElement }"
-           (inViewportAction)="handleAction($event)">
-      </div>
-      <div class="item inactive" inViewport
-           [inViewportOptions]="{ partial: true, root: listElement }"
-           (inViewportAction)="handleAction($event)">
-      </div>
+      <div
+        class="item inactive"
+        inViewport
+        [inViewportOptions]="{ partial: true, root: listElement }"
+        (inViewportAction)="handleAction($event)"
+      ></div>
+      <div
+        class="item inactive"
+        inViewport
+        [inViewportOptions]="{ partial: true, root: listElement }"
+        (inViewportAction)="handleAction($event)"
+      ></div>
+      <div
+        class="item inactive"
+        inViewport
+        [inViewportOptions]="{ partial: true, root: listElement }"
+        (inViewportAction)="handleAction($event)"
+      ></div>
     </div>
   `,
   styles: [
