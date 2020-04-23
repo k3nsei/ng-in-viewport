@@ -1,0 +1,48 @@
+name: Main
+
+on:
+  push:
+    branches:
+    - master
+    - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        version: 10.x
+
+    - name: Setup Chrome
+      run: |
+        sudo wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt-get install -f --yes /tmp/google-chrome-stable_current_amd64.deb
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Lint
+      run: |
+        yarn run lint:lib
+        yarn run lint
+
+    - name: Build
+      run: |
+        yarn run build:lib
+        yarn run build --progress=false
+
+    - name: Test
+      run: yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+      
+    - name: Upload coverage
+      uses: codecov/codecov-action@v1.0.0
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        file: ./coverage/lcov.info

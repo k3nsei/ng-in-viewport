@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "6.0.3",
+  "version": "6.1.0",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "license": "MIT",
   "authors": [
@@ -22,8 +22,6 @@
     "url": "https://github.com/k3nsei/ng-in-viewport/issues"
   },
   "scripts": {
-    "commit": "git-cz",
-    "commitmsg": "commitlint -E GIT_PARAMS",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build in-viewport --prod --aot",
@@ -56,52 +54,52 @@
     "@angular/platform-browser-dynamic": "^6.0.5",
     "@angular/platform-server": "^6.0.5",
     "@angular/router": "^6.0.5",
-    "@nguniversal/common": "^7.0.2",
-    "@nguniversal/express-engine": "^7.0.2",
-    "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
+    "@nguniversal/common": "^7.1.1",
+    "@nguniversal/express-engine": "^7.1.1",
+    "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
     "classlist.js": "^1.1.20150312",
-    "core-js": "^2.5.7",
+    "core-js": "^2.6.11",
     "intersection-observer": ">=0.5.1",
     "rxjs": "^6.2.1",
-    "web-animations-js": "^2.3.1",
-    "zone.js": "^0.8.26"
+    "web-animations-js": "^2.3.2",
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.10.1",
-    "@angular-devkit/build-ng-packagr": "~0.10.1",
-    "@angular/cli": "~6.1.0-rc.0",
+    "@angular-devkit/build-angular": "~0.13.1",
+    "@angular-devkit/build-ng-packagr": "~0.13.8",
+    "@angular/cli": "~7.3.1",
     "@angular/compiler-cli": "^6.0.5",
     "@angular/language-service": "^6.0.5",
-    "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-conventional": "^7.0.1",
-    "@types/jasmine": "~2.8.6",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~10.12.0",
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@types/jasmine": "2.8.9",
+    "@types/jasminewd2": "~2.0.6",
+    "@types/node": "~13.7.0",
+    "codecov": "^3.1.0",
     "codelyzer": "~4.4.2",
-    "commitizen": "^3.0.1",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.1.0",
     "express": "^4.16.3",
     "http-server": "^0.11.1",
-    "husky": "^1.0.1",
-    "jasmine-core": "~3.3.0",
+    "husky": "^4.0.10",
+    "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~3.1.0",
+    "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~1.1.1",
+    "karma-jasmine": "~3.1.1",
     "karma-jasmine-html-reporter": "^1.1.0",
-    "ng-packagr": "^4.0.0",
-    "prettier": "1.14.3",
-    "protractor": "~5.4.0",
+    "ng-packagr": "^5.0.1",
+    "prettier": "2.0.1",
+    "protractor": "~6.0.0",
     "reflect-metadata": "^0.1.12",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.1",
     "ts-loader": "^4.3.0",
-    "ts-node": "~7.0.0",
+    "ts-node": "~8.8.0",
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "~5.10.0",
     "tslint-sonarts": "^1.8.0",
-    "typedoc": "~0.11.1",
+    "typedoc": "0.11.1",
     "typescript": "~2.7.2",
     "webpack-cli": "^3.0.8"
   },
@@ -110,33 +108,6 @@
     "typedoc": "0.11.1"
   },
   "engines": {
-    "yarn": ">=1.7.0"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "subject-case": [
-        2,
-        "always",
-        "sentence-case"
-      ],
-      "subject-min-length": [
-        1,
-        "always",
-        5
-      ],
-      "subject-max-length": [
-        1,
-        "always",
-        120
-      ]
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+    "yarn": ">=1.12.0"
   }
 }
