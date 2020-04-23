@@ -1,0 +1,59 @@
+version: v1.0
+name: Build and test
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: All
+          commands:
+            - checkout
+            - sem-version node 12
+            - cache restore
+            - yarn install
+            - cache store
+    dependencies: []
+  - name: Lint
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+      jobs:
+        - name: Library
+          commands:
+            - 'yarn run lint:lib'
+        - name: Demo
+          commands:
+            - yarn run lint
+    dependencies:
+      - Install dependencies
+  - name: Build
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+      jobs:
+        - name: All
+          commands:
+            - 'yarn run build:lib'
+            - yarn run build --progress=false
+            - artifact push job dist/ng-in-viewport
+    dependencies:
+      - Lint
+  - name: Test
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+      jobs:
+        - name: Library
+          commands:
+            - 'yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox'
+    dependencies:
+      - Build
