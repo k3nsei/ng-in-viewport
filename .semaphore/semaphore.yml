@@ -2,7 +2,7 @@ version: v1.0
 name: Build and test
 agent:
   machine:
-    type: e1-standard-8
+    type: e1-standard-2
     os_image: ubuntu1804
 blocks:
   - name: Initialize
@@ -33,6 +33,8 @@ blocks:
         - name: Lint application
           commands:
             - yarn run lint
+    skip:
+      when: branch != 'develop' OR branch != 'master'
   - name: Build
     dependencies:
       - Initialize
@@ -45,6 +47,8 @@ blocks:
         - name: Build application
           commands:
             - yarn run build --progress=false
+    skip:
+      when: branch != 'develop' OR branch != 'master'
   - name: Test
     dependencies:
       - Build
@@ -55,5 +59,7 @@ blocks:
         - name: Test library
           commands:
             - 'yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox'
+    skip:
+      when: branch != 'develop' OR branch != 'master'
 execution_time_limit:
   minutes: 10
