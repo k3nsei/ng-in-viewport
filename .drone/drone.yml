@@ -1,0 +1,16 @@
+kind: pipeline
+name: default
+
+steps:
+- name: Build and test
+  image: node:14
+  commands:
+  - wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - apt-get update
+  - apt-get install -f --yes /tmp/google-chrome-stable_current_amd64.deb
+  - yarn install
+  - 'yarn run lint:lib'
+  - yarn run lint
+  - 'yarn run build:lib'
+  - yarn run build --progress=false
+  - 'yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox'
