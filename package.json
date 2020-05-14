@@ -56,7 +56,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.11",
-    "intersection-observer": ">=0.5.1",
+    "intersection-observer": ">=0.10.0",
     "rxjs": "^6.2.1",
     "web-animations-js": "^2.3.2",
     "zone.js": "^0.10.3"
