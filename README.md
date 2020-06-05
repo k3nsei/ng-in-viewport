@@ -36,8 +36,16 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/piotrstepniewski/"><img src="https://avatars2.githubusercontent.com/u/190422?v=4" width="100px;" alt=""/><br /><sub><b>Piotr Stępniewski</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/commits?author=k3nsei" title="Code">💻</a></td>
-    <td align="center"><a href="https://www.jordanbenge.com"><img src="https://avatars3.githubusercontent.com/u/11723093?v=4" width="100px;" alt=""/><br /><sub><b>Jordan Benge</b></sub></a><br /><a href="#blog-Bengejd" title="Blogposts">📝</a></td>
+    <td align="center"><a href="https://github.com/k3nsei"><img src="https://avatars2.githubusercontent.com/u/190422?v=4" width="100px;" alt=""/><br /><sub><b>Piotr Stępniewski</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/commits?author=k3nsei" title="Code">💻</a> <a href="https://github.com/k3nsei/ng-in-viewport/commits?author=k3nsei" title="Documentation">📖</a> <a href="https://github.com/k3nsei/ng-in-viewport/pulls?q=is%3Apr+reviewed-by%3Ak3nsei" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/k3nsei/ng-in-viewport/commits?author=k3nsei" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Bengejd"><img src="https://avatars3.githubusercontent.com/u/11723093?v=4" width="100px;" alt=""/><br /><sub><b>Jordan Benge</b></sub></a><br /><a href="#blog-Bengejd" title="Blogposts">📝</a></td>
+    <td align="center"><a href="https://github.com/numerized"><img src="https://avatars1.githubusercontent.com/u/166829?v=4" width="100px;" alt=""/><br /><sub><b>Kévin Perrée</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Anumerized" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/OzoTek"><img src="https://avatars3.githubusercontent.com/u/6436053?v=4" width="100px;" alt=""/><br /><sub><b>Alexandre Couret</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3AOzoTek" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/anwar-elmawardy"><img src="https://avatars0.githubusercontent.com/u/23740710?v=4" width="100px;" alt=""/><br /><sub><b>anwar-elmawardy</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Aanwar-elmawardy" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/jwillebrands"><img src="https://avatars0.githubusercontent.com/u/8925?v=4" width="100px;" alt=""/><br /><sub><b>Jan-Willem Willebrands</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Ajwillebrands" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/CSchulz"><img src="https://avatars2.githubusercontent.com/u/1520593?v=4" width="100px;" alt=""/><br /><sub><b>CSchulz </b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3ACSchulz" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Silvest89"><img src="https://avatars2.githubusercontent.com/u/2388338?v=4" width="100px;" alt=""/><br /><sub><b>Johnnie Ho</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3ASilvest89" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
