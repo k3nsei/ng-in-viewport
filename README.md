@@ -38,6 +38,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/piotrstepniewski/"><img src="https://avatars2.githubusercontent.com/u/190422?v=4" width="100px;" alt=""/><br /><sub><b>Piotr Stępniewski</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/commits?author=k3nsei" title="Code">💻</a></td>
     <td align="center"><a href="https://www.jordanbenge.com"><img src="https://avatars3.githubusercontent.com/u/11723093?v=4" width="100px;" alt=""/><br /><sub><b>Jordan Benge</b></sub></a><br /><a href="#blog-Bengejd" title="Blogposts">📝</a></td>
+    <td align="center"><a href="https://github.com/anwar-elmawardy"><img src="https://avatars0.githubusercontent.com/u/23740710?v=4" width="100px;" alt=""/><br /><sub><b>anwar-elmawardy</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Aanwar-elmawardy" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
