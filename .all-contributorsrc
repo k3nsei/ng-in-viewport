@@ -27,7 +27,17 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "numerized",
+      "name": "Kévin Perrée",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/166829?v=4",
+      "profile": "https://github.com/numerized",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
