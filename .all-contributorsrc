@@ -27,7 +27,17 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "anwar-elmawardy",
+      "name": "anwar-elmawardy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/23740710?v=4",
+      "profile": "https://github.com/anwar-elmawardy",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
