@@ -14,20 +14,78 @@
       "login": "k3nsei",
       "name": "Piotr Stępniewski",
       "avatar_url": "https://avatars2.githubusercontent.com/u/190422?v=4",
-      "profile": "https://www.linkedin.com/in/piotrstepniewski/",
+      "profile": "https://github.com/k3nsei",
       "contributions": [
-        "code"
+        "code",
+        "doc",
+        "review",
+        "test"
       ]
     },
     {
       "login": "Bengejd",
       "name": "Jordan Benge",
       "avatar_url": "https://avatars3.githubusercontent.com/u/11723093?v=4",
-      "profile": "https://www.jordanbenge.com",
+      "profile": "https://github.com/Bengejd",
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "numerized",
+      "name": "Kévin Perrée",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/166829?v=4",
+      "profile": "https://github.com/numerized",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "OzoTek",
+      "name": "Alexandre Couret",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6436053?v=4",
+      "profile": "https://github.com/OzoTek",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "anwar-elmawardy",
+      "name": "anwar-elmawardy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/23740710?v=4",
+      "profile": "https://github.com/anwar-elmawardy",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "jwillebrands",
+      "name": "Jan-Willem Willebrands",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8925?v=4",
+      "profile": "https://github.com/jwillebrands",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "CSchulz",
+      "name": "CSchulz ",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1520593?v=4",
+      "profile": "https://github.com/CSchulz",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Silvest89",
+      "name": "Johnnie Ho",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2388338?v=4",
+      "profile": "https://github.com/Silvest89",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
