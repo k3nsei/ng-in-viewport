@@ -27,7 +27,17 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "OzoTek",
+      "name": "Alexandre Couret",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6436053?v=4",
+      "profile": "https://github.com/OzoTek",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
