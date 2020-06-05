@@ -1,0 +1,33 @@
+{
+  "projectName": "ng-in-viewport",
+  "projectOwner": "k3nsei",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "k3nsei",
+      "name": "Piotr Stępniewski",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/190422?v=4",
+      "profile": "https://www.linkedin.com/in/piotrstepniewski/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Bengejd",
+      "name": "Jordan Benge",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11723093?v=4",
+      "profile": "https://www.jordanbenge.com",
+      "contributions": [
+        "blog"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
