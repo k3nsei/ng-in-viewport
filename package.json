@@ -72,6 +72,7 @@
     "@types/jasmine": "2.8.9",
     "@types/jasminewd2": "~2.0.6",
     "@types/node": "~13.7.0",
+    "all-contributors-cli": "^6.15.0",
     "codecov": "^3.1.0",
     "codelyzer": "~4.4.2",
     "cz-conventional-changelog": "^3.1.0",
