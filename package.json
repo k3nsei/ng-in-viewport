@@ -55,7 +55,7 @@
     "@nguniversal/express-engine": "^7.1.1",
     "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
     "classlist.js": "^1.1.20150312",
-    "core-js": "^2.6.11",
+    "core-js": "^3.0.0",
     "intersection-observer": ">=0.10.0",
     "rxjs": "^6.2.1",
     "web-animations-js": "^2.3.2",
