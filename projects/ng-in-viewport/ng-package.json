@@ -2,12 +2,7 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ng-in-viewport",
   "deleteDestPath": false,
-  "whitelistedNonPeerDependencies": [
-    "@angular/common",
-    "@angular/core",
-    "rxjs",
-    "intersection-observer"
-  ],
+  "whitelistedNonPeerDependencies": ["@angular/common", "@angular/core", "rxjs", "intersection-observer", "js-base64"],
   "lib": {
     "entryFile": "src/public_api.ts"
   }

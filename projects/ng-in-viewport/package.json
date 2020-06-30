@@ -20,11 +20,15 @@
   },
   "dependencies": {
     "intersection-observer": ">=0.5.1",
-    "tslib": ">=1.9.0"
+    "tslib": ">=1.9.0",
+    "js-base64": "^2.6.2"
   },
   "peerDependencies": {
     "@angular/common": ">=6.0.0",
     "@angular/core": ">=6.0.0",
     "rxjs": ">=6.0.0"
+  },
+  "devDependencies": {
+    "@types/js-base64": "^2.3.2"
   }
 }

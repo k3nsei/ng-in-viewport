@@ -1,3 +1,5 @@
+import { Base64 } from 'js-base64';
+
 export enum InViewportConfigDirection {
   BOTH = 'both',
   VERTICAL = 'vertical',
@@ -62,7 +64,7 @@ export class InViewportConfig {
   }
 
   private static hash(input: object): string {
-    return btoa(InViewportConfig.stringify(input));
+    return Base64.encode(InViewportConfig.stringify(input));
   }
 
   constructor(options?: InViewportConfigOptions) {
