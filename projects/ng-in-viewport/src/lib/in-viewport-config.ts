@@ -61,8 +61,23 @@ export class InViewportConfig {
     return String(input);
   }
 
+  // tslint:disable-next-line:member-ordering
+  private static readonly isPlatformBrowser = new Function(`
+    try {
+      return typeof window !== 'undefined' && this === window;
+    } catch(e) {
+      return false;
+    }
+  `) as () => boolean;
+
+  private static toBase64(input: string): string {
+    return InViewportConfig.isPlatformBrowser()
+      ? window.btoa(input)
+      : require('buffer').Buffer.from(input).toString('base64');
+  }
+
   private static hash(input: object): string {
-    return btoa(InViewportConfig.stringify(input));
+    return InViewportConfig.toBase64(InViewportConfig.stringify(input));
   }
 
   constructor(options?: InViewportConfigOptions) {
