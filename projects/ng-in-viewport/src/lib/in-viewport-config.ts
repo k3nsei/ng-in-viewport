@@ -40,8 +40,9 @@ export class InViewportConfig {
     if (Array.isArray(input)) {
       const stringifiedArr = [];
 
-      for (const v of input) {
-        stringifiedArr.push(InViewportConfig.stringify(v));
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < input.length; i++) {
+        stringifiedArr.push(InViewportConfig.stringify(input[i]));
       }
 
       return `[${stringifiedArr.join(',')}]`;
