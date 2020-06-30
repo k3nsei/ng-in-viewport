@@ -46,6 +46,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Silvest89"><img src="https://avatars2.githubusercontent.com/u/2388338?v=4" width="100px;" alt=""/><br /><sub><b>Johnnie Ho</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3ASilvest89" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://hypeexperiences.com"><img src="https://avatars2.githubusercontent.com/u/1058469?v=4" width="100px;" alt=""/><br /><sub><b>Aleksandr Pasevin</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Apasevin" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
