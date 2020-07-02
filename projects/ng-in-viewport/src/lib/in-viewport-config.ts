@@ -23,6 +23,18 @@ export interface InViewportConfigOptions {
   checkFn?: InViewportConfigCheckFn;
 }
 
+const isPlatformBrowser = new Function(`
+  try {
+    return typeof window !== 'undefined' && this === window;
+  } catch(e) {
+    return false;
+  }
+`);
+
+const toBase64 = !isPlatformBrowser()
+  ? new Function('input', `return Buffer.from(input).toString('base64')`)
+  : new Function('input', 'return btoa(input)');
+
 export class InViewportConfig {
   private static readonly DEFAULT_THRESHOLD = [0, 1];
 
@@ -40,8 +52,9 @@ export class InViewportConfig {
     if (Array.isArray(input)) {
       const stringifiedArr = [];
 
-      for (const v of input) {
-        stringifiedArr.push(InViewportConfig.stringify(v));
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < input.length; i++) {
+        stringifiedArr.push(InViewportConfig.stringify(input[i]));
       }
 
       return `[${stringifiedArr.join(',')}]`;
@@ -62,7 +75,7 @@ export class InViewportConfig {
   }
 
   private static hash(input: object): string {
-    return btoa(InViewportConfig.stringify(input));
+    return toBase64(InViewportConfig.stringify(input));
   }
 
   constructor(options?: InViewportConfigOptions) {
