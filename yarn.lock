@@ -544,15 +544,25 @@
     tree-kill "1.2.1"
     webpack-sources "1.3.0"
 
+"@nguniversal/common@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-10.0.1.tgz#964b8cc7745db8f6c3c9f39bbaee401c6354fa4b"
+  integrity sha512-don1zW+ZOBQS1PTLg006L+Uqwk9fIVnq595196XpVFn/7x5h5vCQRElZsu9LdzwFPu5b1Mjz1/3X/D4Q4SFewg==
+  dependencies:
+    tslib "^2.0.0"
+
 "@nguniversal/common@^7.1.1":
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-7.1.1.tgz#6738e9debbe0ad75a3fb397b34702f6e48d321c3"
   integrity sha512-riqmrHGacd8xbaDiFmP77cpu/hfwNTo3MHIXOB0fiqxUWJXpdOm5dvJd/B+scsetv6/uMTF9MRd3tW68cN/xBg==
 
-"@nguniversal/express-engine@^7.1.1":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-7.1.1.tgz#9445ccb374dabdadccc8de98ca8a79b536ae14de"
-  integrity sha512-RJ2VATA6s48bYNrAfjnkjUCohpR7ehiOySwGA2vuUIWCWXKDIIPxgmET5ffVHy1a2XdMsOgrQ9Whth7+CxnUgw==
+"@nguniversal/express-engine@^10.0.0":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-10.0.1.tgz#ed2a37a382598b1f798470c2ed96b9f48d354806"
+  integrity sha512-Ie4q6WTMTV6iMaEofG1UO8xagCPUNTfIgAwuR+dcPCc5c8MYOKRi6EQ2X9fltUv0X92PFjI4dxi/DPa6f6AIeg==
+  dependencies:
+    "@nguniversal/common" "10.0.1"
+    tslib "^2.0.0"
 
 "@nguniversal/module-map-ngfactory-loader@^7.1.1":
   version "7.1.1"
