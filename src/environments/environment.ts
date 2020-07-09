@@ -1,3 +1,12 @@
+/*******************************************************************************
+ * @license
+ * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
+ * (https://www.linkedin.com/in/piotrstepniewski/)
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://opensource.org/licenses/MIT
+ */
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.

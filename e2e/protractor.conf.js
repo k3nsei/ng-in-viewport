@@ -1,3 +1,12 @@
+/*******************************************************************************
+ * @license
+ * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
+ * (https://www.linkedin.com/in/piotrstepniewski/)
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://opensource.org/licenses/MIT
+ */
+
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
