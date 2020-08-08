@@ -32,17 +32,35 @@ export interface InViewportConfigOptions {
   checkFn?: InViewportConfigCheckFn;
 }
 
-const isPlatformBrowser = new Function(`
+export function isPlatformBrowser() {
   try {
     return typeof window !== 'undefined' && this === window;
-  } catch(e) {
+  } catch (e) {
     return false;
   }
-`);
+}
 
-const toBase64 = !isPlatformBrowser()
-  ? new Function('input', `return Buffer.from(input).toString('base64')`)
-  : new Function('input', 'return btoa(input)');
+export function toBase64(input: string): string {
+  return !isPlatformBrowser()
+    ? toBase64Node(input)
+    : toBase64Browser(input);
+}
+
+export function toBase64Node(input: string): string {
+  try {
+    return typeof global !== 'undefined' && global.Buffer.from(input).toString('base64');
+  } catch (e) {
+    return input;
+  }
+}
+
+export function toBase64Browser(input: string): string {
+  try {
+    return typeof window !== 'undefined' && window.btoa(input);
+  } catch (e) {
+    return input;
+  }
+}
 
 export class InViewportConfig {
   private static readonly DEFAULT_THRESHOLD = [0, 1];
