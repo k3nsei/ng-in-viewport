@@ -95,11 +95,13 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external"><a href="_lib_in_viewport_config_.html#inviewportconfigcheckfn" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Check<wbr>Fn</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
-							<h3>Variables</h3>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_lib_in_viewport_config_.html#isplatformbrowser" class="tsd-kind-icon">is<wbr>Platform<wbr>Browser</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_lib_in_viewport_config_.html#tobase64" class="tsd-kind-icon">to<wbr>Base64</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_lib_in_viewport_config_.html#isplatformbrowser" class="tsd-kind-icon">is<wbr>Platform<wbr>Browser</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_lib_in_viewport_config_.html#tobase64" class="tsd-kind-icon">to<wbr>Base64</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_lib_in_viewport_config_.html#tobase64browser" class="tsd-kind-icon">to<wbr>Base64<wbr>Browser</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-external"><a href="_lib_in_viewport_config_.html#tobase64node" class="tsd-kind-icon">to<wbr>Base64<wbr>Node</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,7 +115,7 @@
 					<div class="tsd-signature tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Check<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/49ffe20/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L12">lib/in-viewport-config.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/a03c32b/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L21">lib/in-viewport-config.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -142,27 +144,93 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
 					<a name="isplatformbrowser" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Platform<wbr>Browser</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Platform<wbr>Browser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> =&nbsp;new Function(&#x60;try {return typeof window !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; this &#x3D;&#x3D;&#x3D; window;} catch(e) {return false;}&#x60;)</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/49ffe20/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L26">lib/in-viewport-config.ts:26</a></li>
-						</ul>
-					</aside>
+					<h3>is<wbr>Platform<wbr>Browser</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Platform<wbr>Browser<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/a03c32b/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L35">lib/in-viewport-config.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
 					<a name="tobase64" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>Base64</h3>
-					<div class="tsd-signature tsd-kind-icon">to<wbr>Base64<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> =&nbsp;!isPlatformBrowser()? new Function(&#x27;input&#x27;, &#x60;return Buffer.from(input).toString(&#x27;base64&#x27;)&#x60;): new Function(&#x27;input&#x27;, &#x27;return btoa(input)&#x27;)</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/49ffe20/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L34">lib/in-viewport-config.ts:34</a></li>
-						</ul>
-					</aside>
+					<h3>to<wbr>Base64</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Base64<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/a03c32b/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L43">lib/in-viewport-config.ts:43</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+					<a name="tobase64browser" class="tsd-anchor"></a>
+					<h3>to<wbr>Base64<wbr>Browser</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Base64<wbr>Browser<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/a03c32b/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L57">lib/in-viewport-config.ts:57</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+					<a name="tobase64node" class="tsd-anchor"></a>
+					<h3>to<wbr>Base64<wbr>Node</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Base64<wbr>Node<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/k3nsei/ng-in-viewport/blob/a03c32b/projects/ng-in-viewport/src/lib/in-viewport-config.ts#L49">lib/in-viewport-config.ts:49</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -212,11 +280,17 @@
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
 						<a href="_lib_in_viewport_config_.html#inviewportconfigcheckfn" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Check<wbr>Fn</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
 						<a href="_lib_in_viewport_config_.html#isplatformbrowser" class="tsd-kind-icon">is<wbr>Platform<wbr>Browser</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
 						<a href="_lib_in_viewport_config_.html#tobase64" class="tsd-kind-icon">to<wbr>Base64</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<a href="_lib_in_viewport_config_.html#tobase64browser" class="tsd-kind-icon">to<wbr>Base64<wbr>Browser</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-external">
+						<a href="_lib_in_viewport_config_.html#tobase64node" class="tsd-kind-icon">to<wbr>Base64<wbr>Node</a>
 					</li>
 				</ul>
 			</nav>
