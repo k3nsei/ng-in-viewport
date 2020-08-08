@@ -94,6 +94,15 @@
         "code",
         "bug"
       ]
+    },
+    {
+      "login": "wkurniawan07",
+      "name": "Wilson Kurniawan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7261051?v=4",
+      "profile": "https://github.com/wkurniawan07",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
