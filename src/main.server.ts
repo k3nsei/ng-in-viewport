@@ -1,4 +1,5 @@
-/*******************************************************************************
+/**********************************************************
+export { renderModule, renderModuleFactory } from '@angular/platform-server';*********************
  * @license
  * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
  * (https://www.linkedin.com/in/piotrstepniewski/)
