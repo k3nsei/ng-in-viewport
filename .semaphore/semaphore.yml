@@ -11,7 +11,7 @@ blocks:
         - name: All
           commands:
             - checkout
-            - sem-version node 12
+            - sem-version node 14.12.0
             - cache restore
             - yarn install
             - cache store
@@ -21,6 +21,7 @@ blocks:
       prologue:
         commands:
           - checkout
+          - sem-version node 14.12.0
           - cache restore
       jobs:
         - name: Library
@@ -36,6 +37,7 @@ blocks:
       prologue:
         commands:
           - checkout
+          - sem-version node 14.12.0
           - cache restore
       jobs:
         - name: All
@@ -50,6 +52,7 @@ blocks:
       prologue:
         commands:
           - checkout
+          - sem-version node 14.12.0
           - cache restore
       jobs:
         - name: Library
