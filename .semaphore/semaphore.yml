@@ -3,7 +3,7 @@ name: Build and test
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Install dependencies
     task:
@@ -11,7 +11,7 @@ blocks:
         - name: All
           commands:
             - checkout
-            - sem-version node 12
+            - sem-version node 14
             - cache restore
             - yarn install
             - cache store
