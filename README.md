@@ -48,6 +48,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Silvest89"><img src="https://avatars2.githubusercontent.com/u/2388338?v=4" width="100px;" alt=""/><br /><sub><b>Johnnie Ho</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3ASilvest89" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/pasevin"><img src="https://avatars2.githubusercontent.com/u/1058469?v=4" width="100px;" alt=""/><br /><sub><b>Aleksandr Pasevin</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/commits?author=pasevin" title="Code">💻</a> <a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Apasevin" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/wkurniawan07"><img src="https://avatars2.githubusercontent.com/u/7261051?v=4" width="100px;" alt=""/><br /><sub><b>Wilson Kurniawan</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Awkurniawan07" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/basters"><img src="https://avatars0.githubusercontent.com/u/17099950?v=4" width="100px;" alt=""/><br /><sub><b>Eugene</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/commits?author=basters" title="Code">💻</a></td>
   </tr>
 </table>
 
