@@ -100,10 +100,6 @@
     "typescript": "~4.0.3",
     "webpack-cli": "^3.0.8"
   },
-  "resolutions": {
-    "typescript": "~2.9.0",
-    "typedoc": "0.11.1"
-  },
   "engines": {
     "yarn": ">=1.12.0"
   }
