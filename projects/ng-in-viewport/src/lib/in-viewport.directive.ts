@@ -19,8 +19,8 @@ import {
   Output,
   PLATFORM_ID
 } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
 
 import { InViewportConfig, InViewportConfigOptions } from './in-viewport-config';
 import { InViewportService } from './in-viewport.service';
@@ -32,36 +32,44 @@ export const InViewportMetadata = Symbol('InViewportMetadata');
 })
 export class InViewportDirective implements AfterViewInit, OnDestroy {
   private config: InViewportConfig = new InViewportConfig();
-  private readonly subscription: Subscription = new Subscription();
+  private readonly destroyed$: Subject<void> = new Subject();
 
   @Input('inViewportOptions')
-  private set options(value: InViewportConfigOptions) {
+  public set options(value: InViewportConfigOptions) {
     this.config = new InViewportConfig(value);
   }
 
   @Output() public readonly inViewportAction: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object, // tslint:disable-line
-    private elementRef: ElementRef,
-    private inViewport: InViewportService
-  ) {}
+    @Inject(PLATFORM_ID) private readonly platformId: Object, // tslint:disable-line
+    private readonly elementRef: ElementRef,
+    private readonly inViewport: InViewportService
+  ) {
+  }
 
   public ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.inViewport.register(this.elementRef.nativeElement, this.config);
-      this.subscription.add(
-        this.inViewport.trigger$
-          .pipe(filter((entry: IntersectionObserverEntry) => entry && entry.target === this.elementRef.nativeElement))
-          .subscribe((entry: IntersectionObserverEntry) => this.emitAction(entry, false))
-      );
+      this.inViewport.trigger$
+        .pipe(
+          filter((entry: IntersectionObserverEntry): boolean => {
+            return entry && entry.target === this.elementRef.nativeElement;
+          }),
+          takeUntil(this.destroyed$)
+        )
+        .subscribe((entry: IntersectionObserverEntry): void => {
+          this.emitAction(entry, false);
+        });
     } else {
       this.emitAction(undefined, true);
     }
   }
 
   public ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.destroyed$.next();
+    this.destroyed$.complete();
+
     if (isPlatformBrowser(this.platformId)) {
       this.inViewport.unregister(this.elementRef.nativeElement, this.config);
     }
