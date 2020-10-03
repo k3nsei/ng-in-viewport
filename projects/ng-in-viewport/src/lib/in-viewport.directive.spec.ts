@@ -9,7 +9,7 @@
 
 import { CommonModule } from '@angular/common';
 import { Component, DebugElement, QueryList, Renderer2, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { InViewportDirective } from './in-viewport.directive';
@@ -96,7 +96,7 @@ describe('InViewportDirective', () => {
   let list: DebugElement;
   let items: DebugElement[];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [CommonModule],
       declarations: [TestInViewportComponent, InViewportDirective]
