@@ -8,6 +8,20 @@
 # dependencies
 /node_modules
 
+# NPM files
+package-lock.json
+npm-shrinkwrap.json
+npm-debug.log
+
+# Yarn files
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+!yarn.lock
+yarn-error.log
+
 # IDEs and editors
 /.idea
 .project
@@ -29,8 +43,6 @@
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
