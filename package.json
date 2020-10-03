@@ -30,7 +30,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:lib": "prettier --write \"projects/ng-in-viewport/src/**/*.ts\"",
     "predoc:lib": "rimraf ./docs",
-    "doc:lib": "yarn run typedoc --tsconfig ./projects/ng-in-viewport/tsconfig.lib.json --out ./docs/ ./projects/ng-in-viewport/src/public_api.ts",
+    "doc:lib": "yarn run typedoc --tsconfig ./projects/ng-in-viewport/tsconfig.lib.json --out ./docs/ ./projects/ng-in-viewport/src/public_api.ts && echo \"\" > ./docs/.nojekyll",
     "e2e": "ng e2e",
     "build:client-and-server-bundles": "ng build ng-in-viewport --prod && ng build in-viewport --prod --aot && ng run in-viewport:server:production",
     "build:prerender": "npm run build:client-and-server-bundles && npm run webpack:server && npm run generate:prerender",
