@@ -15,10 +15,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
+    - name: Read .nvmrc
+      id: nvm
+      run: echo "##[set-output name=NODE_VERSION;]$(cat .nvmrc)"
+
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2-beta
       with:
-        version: 10.x
+        node-version: '${{ steps.nvm.outputs.NODE_VERSION }}'
 
     - name: Setup Chrome
       run: |
