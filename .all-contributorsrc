@@ -112,6 +112,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "samizarraa",
+      "name": "Sami Zarraa",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/20872538?v=4",
+      "profile": "https://github.com/samizarraa",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
