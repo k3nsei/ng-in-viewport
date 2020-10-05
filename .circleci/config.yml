@@ -4,6 +4,9 @@ executors:
   node:
     docker:
       - image: circleci/node:12-browsers
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     working_directory: ~/ng-in-viewport
 
 anchor_1: &defaults
