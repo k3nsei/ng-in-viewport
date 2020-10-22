@@ -1,6 +1,5 @@
 {
-  "extends": [
-    "config:base"
-  ],
-  "rangeStrategy": "replace"
+  "extends": ["config:base"],
+  "rangeStrategy": "replace",
+  "schedule": ["every weekend"]
 }
