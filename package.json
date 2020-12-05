@@ -50,7 +50,7 @@
     "@angular/platform-browser-dynamic": "11.0.2",
     "@angular/platform-server": "11.0.2",
     "@angular/router": "11.0.2",
-    "@nguniversal/common": "11.0.0",
+    "@nguniversal/common": "11.0.1",
     "@nguniversal/express-engine": "11.0.0",
     "@nguniversal/module-map-ngfactory-loader": "8.2.6",
     "classlist.js": "1.1.20150312",

@@ -1268,6 +1268,13 @@
   dependencies:
     tslib "^2.0.0"
 
+"@nguniversal/common@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-11.0.1.tgz#61e5c1d4207b1bfa80dd038a7f0974c53cbebcaa"
+  integrity sha512-tfKlirW/NVyvLfw4X81lpfSesr/za+OBeBs4ZQOLe0VH9wU2MES849Agy6539Tbo+U1KsY0pNrukWqSEgUJ9fQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@nguniversal/express-engine@11.0.0":
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-11.0.0.tgz#48450e199695faab79078a397e6bc9936a986fb4"
