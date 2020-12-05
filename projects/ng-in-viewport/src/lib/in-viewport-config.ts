@@ -41,9 +41,7 @@ export function isPlatformBrowser() {
 }
 
 export function toBase64(input: string): string {
-  return !isPlatformBrowser()
-    ? toBase64Node(input)
-    : toBase64Browser(input);
+  return !isPlatformBrowser() ? toBase64Node(input) : toBase64Browser(input);
 }
 
 export function toBase64Node(input: string): string {

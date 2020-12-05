@@ -45,8 +45,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
     @Inject(PLATFORM_ID) private readonly platformId: Object, // tslint:disable-line
     private readonly elementRef: ElementRef,
     private readonly inViewport: InViewportService
-  ) {
-  }
+  ) {}
 
   public ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

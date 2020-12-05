@@ -96,12 +96,14 @@ describe('InViewportDirective', () => {
   let list: DebugElement;
   let items: DebugElement[];
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [CommonModule],
-      declarations: [TestInViewportComponent, InViewportDirective]
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [CommonModule],
+        declarations: [TestInViewportComponent, InViewportDirective]
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestInViewportComponent);

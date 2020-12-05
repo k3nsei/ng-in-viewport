@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node:
     docker:
-      - image: circleci/node:12-browsers
+      - image: circleci/node:15-browsers
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
@@ -29,9 +29,10 @@ jobs:
       - checkout
       - restore_cache:
           <<: *restore_cache_defaults
+      - run: xvfb-run -a git --version
       - run: xvfb-run -a node --version
       - run: xvfb-run -a yarn --version
-      - run: yarn install
+      - run: xvfb-run -a yarn install --frozen-lockfile
       - run: xvfb-run -a yarn run build:lib
       - run: xvfb-run -a yarn run build --progress=false
       - save_cache:
