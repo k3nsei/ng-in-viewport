@@ -1261,13 +1261,6 @@
     enhanced-resolve "5.3.1"
     webpack-sources "2.0.1"
 
-"@nguniversal/common@11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-11.0.0.tgz#1777e60b15b58d31a75de1c316db9cb0383ec408"
-  integrity sha512-trcOrxEt1LjH0bl+zcqbY2UEhThi1FkzOBr3ox8uXrp8BZh6/V3mVtO4nNkSh71yPXlBJ0/qlDEpyqV4jvkMGw==
-  dependencies:
-    tslib "^2.0.0"
-
 "@nguniversal/common@11.0.1":
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-11.0.1.tgz#61e5c1d4207b1bfa80dd038a7f0974c53cbebcaa"
