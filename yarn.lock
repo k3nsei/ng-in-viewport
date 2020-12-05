@@ -1268,12 +1268,19 @@
   dependencies:
     tslib "^2.0.0"
 
-"@nguniversal/express-engine@11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-11.0.0.tgz#48450e199695faab79078a397e6bc9936a986fb4"
-  integrity sha512-CUsXnFK/BIeyY/sKY8G03R0QyTxPWbilMcR9aX2TPguL7hPtLqz4Jq8kuL2qN1xBwChV5XvdEQ4xKSl+jTKfAQ==
+"@nguniversal/common@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@nguniversal/common/-/common-11.0.1.tgz#61e5c1d4207b1bfa80dd038a7f0974c53cbebcaa"
+  integrity sha512-tfKlirW/NVyvLfw4X81lpfSesr/za+OBeBs4ZQOLe0VH9wU2MES849Agy6539Tbo+U1KsY0pNrukWqSEgUJ9fQ==
   dependencies:
-    "@nguniversal/common" "11.0.0"
+    tslib "^2.0.0"
+
+"@nguniversal/express-engine@11.0.1":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-11.0.1.tgz#ab31e3ec1f264d759d7043f8224ff7d00d080697"
+  integrity sha512-foctmYXdu/hcmx4ivbg9Zy46f02PGMMdtXnmVGdopwjRkLtA6/QdavBGlkJRS3zvYHyPdmIOANlQGjfFtFOmgQ==
+  dependencies:
+    "@nguniversal/common" "11.0.1"
     tslib "^2.0.0"
 
 "@nguniversal/module-map-ngfactory-loader@8.2.6":
