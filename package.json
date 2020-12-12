@@ -55,7 +55,7 @@
     "@nguniversal/module-map-ngfactory-loader": "8.2.6",
     "classlist.js": "1.1.20150312",
     "core-js": "3.8.0",
-    "intersection-observer": "0.11.0",
+    "intersection-observer": "0.12.0",
     "rxjs": "6.6.3",
     "tslib": "2.0.3",
     "web-animations-js": "2.3.2",
