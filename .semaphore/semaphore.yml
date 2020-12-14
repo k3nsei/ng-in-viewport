@@ -11,9 +11,9 @@ blocks:
         - name: All
           commands:
             - checkout
-            - sem-version node 14.12.0
+            - sem-version node 14.15.1
             - cache restore
-            - yarn install
+            - yarn install --frozen-lockfile --silent
             - cache store
     dependencies: []
   - name: Lint
@@ -21,15 +21,14 @@ blocks:
       prologue:
         commands:
           - checkout
-          - sem-version node 14.12.0
+          - sem-version node 14.15.1
           - cache restore
       jobs:
-        - name: Library
+        - name: All
           commands:
             - 'yarn run lint:lib'
-        - name: Demo
-          commands:
-            - yarn run lint
+            - 'yarn run lint:demo'
+            - 'yarn run lint:demo-e2e'
     dependencies:
       - Install dependencies
   - name: Build
@@ -37,14 +36,15 @@ blocks:
       prologue:
         commands:
           - checkout
-          - sem-version node 14.12.0
+          - sem-version node 14.15.1
           - cache restore
       jobs:
         - name: All
           commands:
             - 'yarn run build:lib'
-            - yarn run build --progress=false
+            - 'yarn run build:demo --progress=false'
             - artifact push job dist/ng-in-viewport
+            - artifact push job dist/demo
     dependencies:
       - Lint
   - name: Test
@@ -52,11 +52,11 @@ blocks:
       prologue:
         commands:
           - checkout
-          - sem-version node 14.12.0
+          - sem-version node 14.15.1
           - cache restore
       jobs:
-        - name: Library
+        - name: All
           commands:
-            - 'yarn run test:lib --watch=false --progress=false --source-map --code-coverage=true --browsers=ChromeHeadlessNoSandbox'
+            - yarn run test --ci --coverage
     dependencies:
       - Build

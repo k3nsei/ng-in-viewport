@@ -1,211 +1,100 @@
-/*******************************************************************************
+/*!
  * @license
  * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
- * (https://www.linkedin.com/in/piotrstepniewski/)
  *
  * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://opensource.org/licenses/MIT
+ * found in the LICENSE file in the root directory of this source tree.
  */
 
-export enum InViewportConfigDirection {
-  BOTH = 'both',
-  VERTICAL = 'vertical',
-  HORIZONTAL = 'horizontal'
-}
-
-export interface InViewportConfigCheckFnOptions {
-  force: boolean;
-  config: InViewportConfig;
-}
-
-export type InViewportConfigCheckFn = (
-  entry: IntersectionObserverEntry,
-  options: InViewportConfigCheckFnOptions
-) => any;
-
-export interface InViewportConfigOptions {
-  root?: Element;
-  rootMargin?: string;
-  threshold?: number | number[];
-  partial?: boolean;
-  direction?: InViewportConfigDirection;
-  checkFn?: InViewportConfigCheckFn;
-}
-
-export function isPlatformBrowser() {
-  try {
-    return typeof window !== 'undefined' && this === window;
-  } catch (e) {
-    return false;
-  }
-}
-
-export function toBase64(input: string): string {
-  return !isPlatformBrowser() ? toBase64Node(input) : toBase64Browser(input);
-}
-
-export function toBase64Node(input: string): string {
-  try {
-    return typeof global !== 'undefined' && global.Buffer.from(input).toString('base64');
-  } catch (e) {
-    return input;
-  }
-}
-
-export function toBase64Browser(input: string): string {
-  try {
-    return typeof window !== 'undefined' && window.btoa(input);
-  } catch (e) {
-    return input;
-  }
-}
+import type { InViewportConfigCheckFn, InViewportConfigDirections, InViewportConfigOptions } from './types';
+import {
+  stringifyObject,
+  toBase64,
+  withCheckFn,
+  withDirection,
+  withPartial,
+  withRoot,
+  withRootMargin,
+  withThreshold
+} from './utils';
 
 export class InViewportConfig {
-  private static readonly DEFAULT_THRESHOLD = [0, 1];
+  #root?: Element;
 
-  private static readonly STRINGIFY_DELIMITER = '|';
+  #rootMargin: string;
 
-  private _root: Element;
-  private _rootMargin: string = '0px 0px 0px 0px';
-  private _threshold: number | number[] = [...InViewportConfig.DEFAULT_THRESHOLD];
-  private _partial: boolean = true;
-  private _direction: InViewportConfigDirection = InViewportConfigDirection.BOTH;
-  private _hash: string;
-  private _checkFn: InViewportConfigCheckFn;
+  #threshold: number | number[];
 
-  private static stringify(input: object): string {
-    if (Array.isArray(input)) {
-      const stringifiedArr = [];
+  #partial: boolean;
 
-      // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < input.length; i++) {
-        stringifiedArr.push(InViewportConfig.stringify(input[i]));
-      }
+  #direction: InViewportConfigDirections;
 
-      return `[${stringifiedArr.join(',')}]`;
-    } else if (typeof input === 'object' && input !== null) {
-      const acc = [];
-      const sortedKeys = Object.keys(input).sort();
+  #checkFn?: InViewportConfigCheckFn;
 
-      for (const k of sortedKeys) {
-        const v = InViewportConfig.stringify(input[k]);
+  #hash: string;
 
-        acc.push(`${k}:${v}`);
-      }
+  private constructor(
+    root: Element | undefined,
+    rootMargin: string,
+    threshold: number | number[],
+    partial: boolean,
+    direction: InViewportConfigDirections,
+    checkFn?: InViewportConfigCheckFn
+  ) {
+    this.#root = root;
+    this.#rootMargin = rootMargin;
+    this.#threshold = threshold;
+    this.#partial = partial;
+    this.#direction = direction;
+    this.#checkFn = checkFn;
 
-      return acc.join(InViewportConfig.STRINGIFY_DELIMITER);
-    }
-
-    return String(input);
+    this.#hash = toBase64(
+      stringifyObject({
+        rootMargin: this.rootMargin,
+        threshold: this.threshold,
+        partial: this.partial,
+        direction: this.direction,
+        checkFn: String(this.checkFn)
+      })
+    );
   }
 
-  private static hash(input: object): string {
-    return toBase64(InViewportConfig.stringify(input));
+  public static fromOptions(options: Partial<InViewportConfigOptions> = {}): InViewportConfig {
+    return new InViewportConfig(
+      withRoot(options.root),
+      withRootMargin(options.rootMargin),
+      withThreshold(options.threshold),
+      withPartial(options.partial),
+      withDirection(options.direction),
+      withCheckFn(options.checkFn)
+    );
   }
 
-  constructor(options?: InViewportConfigOptions) {
-    if (Object.prototype.toString.call(options) === '[object Object]') {
-      ['root', 'rootMargin', 'threshold', 'partial', 'direction', 'checkFn'].forEach((prop) => {
-        if (options.hasOwnProperty(prop)) {
-          this[prop] = options[prop];
-        }
-      });
-    }
-
-    this._hash = InViewportConfig.hash({
-      rootMargin: this.rootMargin,
-      threshold: this.threshold,
-      partial: this.partial,
-      direction: this.direction,
-      checkFn: String(this.checkFn)
-    });
-  }
-
-  public get root(): Element {
-    return this._root;
-  }
-
-  public set root(value: Element) {
-    this._root = value && value.nodeType === 1 ? value : undefined;
+  public get root(): Element | undefined {
+    return this.#root;
   }
 
   public get rootMargin(): string {
-    return this._rootMargin;
-  }
-
-  public set rootMargin(value: string) {
-    if (!value || typeof value !== 'string') {
-      this._rootMargin = '0px 0px 0px 0px';
-    } else {
-      const marginString: string = value || '0px';
-      const margins: string[] = marginString.split(new RegExp('\\s+')).map((margin) => {
-        const parts = /^(-?\d*\.?\d+)(px|%)$/.exec(margin);
-        if (!parts) {
-          throw new TypeError('rootMargin must be specified in pixels or percent');
-        }
-        return `${parts[1]}${parts[2]}`;
-      });
-
-      margins[1] = margins[1] || margins[0];
-      margins[2] = margins[2] || margins[0];
-      margins[3] = margins[3] || margins[1];
-
-      this._rootMargin = margins.join(' ');
-    }
+    return this.#rootMargin;
   }
 
   public get threshold(): number | number[] {
-    return this._threshold;
-  }
-
-  public set threshold(value: number | number[]) {
-    let threshold = [];
-    const isValidThreshold = (val: any) => typeof val === 'number' && val >= 0 && val <= 1;
-    if (isValidThreshold(value)) {
-      threshold = [value];
-    } else if (Array.isArray(value) && value.length) {
-      threshold = value.filter((val) => isValidThreshold(val));
-    }
-    if (threshold.length === 0) {
-      threshold = [...InViewportConfig.DEFAULT_THRESHOLD];
-    }
-    this._threshold = threshold;
+    return this.#threshold;
   }
 
   public get partial(): boolean {
-    return this._partial;
+    return this.#partial;
   }
 
-  public set partial(value: boolean) {
-    this._partial = !!value;
-  }
-
-  public get direction(): InViewportConfigDirection {
-    return this._direction;
-  }
-
-  public set direction(value: InViewportConfigDirection) {
-    const isValidValue = (val: any) => {
-      return (
-        [
-          InViewportConfigDirection.BOTH,
-          InViewportConfigDirection.HORIZONTAL,
-          InViewportConfigDirection.VERTICAL
-        ].indexOf(val) >= 0
-      );
-    };
-    this._direction = isValidValue(value) ? value : InViewportConfigDirection.BOTH;
+  public get direction(): InViewportConfigDirections {
+    return this.#direction;
   }
 
   public get hash(): string {
-    return this._hash;
+    return this.#hash;
   }
 
-  public get checkFn(): InViewportConfigCheckFn {
-    return this._checkFn;
-  }
-
-  public set checkFn(value: InViewportConfigCheckFn) {
-    this._checkFn = value;
+  public get checkFn(): InViewportConfigCheckFn | undefined {
+    return this.#checkFn;
   }
 }

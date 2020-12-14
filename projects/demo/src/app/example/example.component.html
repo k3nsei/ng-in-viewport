@@ -1,0 +1,28 @@
+<section class="example example--first">
+  <ng-container *ngFor="let element of elements; last as isLast; even as isEven">
+    <div
+      class="item"
+      [class.item--alt]="isEven"
+      [class.item--last]="isLast"
+      inViewport
+      (inViewportAction)="handleAction($event)"
+    >
+      {{ element }}
+    </div>
+  </ng-container>
+</section>
+
+<section class="example example--second" #secondSection>
+  <ng-container *ngFor="let element of elements; last as isLast; even as isEven">
+    <div
+      class="item"
+      [class.item--alt]="isEven"
+      [class.item--last]="isLast"
+      inViewport
+      [inViewportOptions]="{ root: secondSection }"
+      (inViewportAction)="handleAction($event)"
+    >
+      {{ element }}
+    </div>
+  </ng-container>
+</section>

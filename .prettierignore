@@ -1,0 +1,8 @@
+/.husky
+/.yarn
+/node_modules
+/dist
+/docs
+/out-tsc
+/tmp
+/coverage

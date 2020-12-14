@@ -2,44 +2,49 @@ pool:
   vmImage: 'ubuntu-latest'
 
 trigger:
-- master
-- develop
-- releases/*
+  - master
+  - develop
 
 steps:
-- task: NodeTool@0
-  displayName: 'Use Node 14.x'
-  inputs:
-    versionSpec: 14.x
+  - task: NodeTool@0
+    displayName: 'Use Node 15.x'
+    inputs:
+      versionSpec: 15.x
 
-- script: |
-    npm install --global npm@latest
-    npm install --global yarn@latest
-    npm install --global @angular/cli@latest
-  displayName: 'Install global dependencies'
+  - script: |
+      npm install --global npm@latest
+      npm install --global yarn@latest
+      npm install --global @angular/cli@latest
+    displayName: 'Install global dependencies'
 
-- script: 'yarn install'
-  displayName: 'Install local dependencies'
+  - script: 'yarn install --frozen-lockfile --silent'
+    displayName: 'Install local dependencies'
 
-- script: |
-    echo "
-    NodeJS: $(node --version)
-    NPM: v$(npm --version)
-    Yarn: v$(yarn --version)
-    "
-  displayName: 'Show tools versions'
+  - script: |
+      echo "
+      NodeJS: $(node --version)
+      NPM: v$(npm --version)
+      Yarn: v$(yarn --version)
+      "
+    displayName: 'Show tools versions'
 
-- script: 'yarn run lint:lib'
-  displayName: 'Lint library'
+  - script: 'yarn run format:check'
+    displayName: 'Check code format'
 
-- script: 'yarn run build:lib'
-  displayName: 'Build library'
+  - script: 'yarn run lint:lib'
+    displayName: 'Lint library'
 
-- script: 'yarn run test:lib --watch=false --progress=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox'
-  displayName: 'Test library'
+  - script: 'yarn run lint:demo'
+    displayName: 'Lint demo'
 
-- script: 'yarn run lint'
-  displayName: 'Lint demo application'
+  - script: 'yarn run lint:demo-e2e'
+    displayName: 'Lint demo e2e'
 
-- script: 'yarn run build --progress=false'
-  displayName: 'Build demo application'
+  - script: 'yarn run build:lib'
+    displayName: 'Build library'
+
+  - script: 'yarn run build:demo --progress=false'
+    displayName: 'Build demo'
+
+  - script: 'yarn run test --ci --coverage'
+    displayName: 'Run unit tests'

@@ -1,0 +1,10 @@
+name: 'CodeQL config'
+paths:
+  - projects
+paths-ignore:
+  - .yarn
+  - node_modules
+  - dist
+  - tmp
+  - out-tsc
+  - coverage

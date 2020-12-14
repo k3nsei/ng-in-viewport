@@ -1,11 +1,12 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
+# Compiled output
 /dist
 /tmp
 /out-tsc
 
-# dependencies
+# Only exists if Bazel was run
+/bazel-out
+
+# Dependencies
 /node_modules
 
 # NPM files
@@ -22,6 +23,9 @@ npm-debug.log
 !yarn.lock
 yarn-error.log
 
+# Husky
+/.husky/_/
+
 # IDEs and editors
 /.idea
 .project
@@ -37,6 +41,11 @@ yarn-error.log
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
+
+# Profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
 
 # misc
 /.sass-cache
