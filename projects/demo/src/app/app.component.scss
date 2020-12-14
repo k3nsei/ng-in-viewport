@@ -1,0 +1,19 @@
+%block {
+  margin: 0;
+  padding: 1rem 1rem 0;
+  display: block;
+}
+
+.app-header {
+  @extend %block;
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+}
+
+.app-content {
+  @extend %block;
+}

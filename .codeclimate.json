@@ -10,9 +10,8 @@
     "scss-lint": {
       "enabled": true
     },
-    "tslint": {
-      "enabled": true,
-      "config": "tslint.codeclimate.json"
+    "eslint": {
+      "enabled": true
     }
   },
   "exclude_patterns": [
@@ -21,6 +20,7 @@
     "docs/",
     "dist/",
     "features/",
+    ".yarn/",
     "**/node_modules/",
     "script/",
     "**/spec/",
@@ -29,6 +29,9 @@
     "Tests/",
     "**/vendor/",
     "**/*_test.go",
-    "**/*.d.ts"
+    "**/test/",
+    "**/mocks/",
+    "**/*.spec.ts",
+    "**/*.po.ts"
   ]
 }

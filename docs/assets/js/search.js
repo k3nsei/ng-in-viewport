@@ -1,3 +1,0 @@
-var typedoc = typedoc || {};
-            typedoc.search = typedoc.search || {};
-            typedoc.search.data = {"kinds":{"1":"External module","65536":"Type literal"},"rows":[{"id":0,"kind":65536,"name":"__type","url":"modules/_lib_in_viewport_config_.html#inviewportconfigcheckfn.__type","classes":"tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported","parent":"\"lib/in-viewport-config\".InViewportConfigCheckFn"},{"id":1,"kind":1,"name":"\"public_api\"","url":"modules/_public_api_.html","classes":"tsd-kind-external-module"}]};

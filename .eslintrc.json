@@ -1,0 +1,48 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "plugins": ["header"],
+  "rules": {
+    "header/header": [
+      2,
+      "block",
+      [
+        "!",
+        " * @license",
+        {
+          "pattern": " * Copyright \\(c\\) \\d{4} Piotr Stępniewski \\<k3nsei\\.pl@gmail\\.com\\>",
+          "template": " * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>"
+        },
+        " *",
+        " * Use of this source code is governed by an MIT-style license that can be",
+        " * found in the LICENSE file in the root directory of this source tree.",
+        " "
+      ],
+      2
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@typescript-eslint/no-inferrable-types": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "header/header": "off"
+      }
+    }
+  ]
+}

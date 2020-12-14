@@ -1,0 +1,60 @@
+name: Main
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [develop]
+jobs:
+  build:
+    name: Run build and unit tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: Checkout pull request
+        run: git checkout HEAD^2
+        if: ${{ github.event_name == 'pull_request' }}
+      - name: Read .nvmrc
+        id: nvm
+        run: echo "##[set-output name=NODE_VERSION;]$(cat .nvmrc)"
+      - name: Setup node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '${{ steps.nvm.outputs.NODE_VERSION }}'
+      - name: Restore dependencies cache
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --silent
+      - name: Check code format
+        run: yarn run format:check
+      - name: Lint
+        run: |
+          yarn run lint:lib
+          yarn run lint:demo
+          yarn run lint:demo-e2e
+      - name: Build
+        run: |
+          yarn run build:lib
+          yarn run build:demo --progress=false
+      - name: Upload library build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ng-in-viewport
+          path: dist/ng-in-viewport
+      - name: Upload demo build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ng-in-viewport-demo
+          path: dist/demo
+      - name: Test
+        run: yarn run test --ci --coverage
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1.0.15
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          file: coverage/all/lcov.info

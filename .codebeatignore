@@ -2,7 +2,5 @@ node_modules/**
 .yarn/**
 dist/**
 tmp/**
+coverage/**
 docs/**
-e2e/**
-projects/ng-in-viewport/karma.conf.js
-src/karma.conf.js

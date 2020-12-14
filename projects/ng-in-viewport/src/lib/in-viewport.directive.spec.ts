@@ -1,18 +1,31 @@
-/*******************************************************************************
+/*!
  * @license
  * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
- * (https://www.linkedin.com/in/piotrstepniewski/)
  *
  * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://opensource.org/licenses/MIT
+ * found in the LICENSE file in the root directory of this source tree.
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, DebugElement, QueryList, Renderer2, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DebugElement,
+  QueryList,
+  Renderer2,
+  ViewChildren,
+  ViewEncapsulation
+} from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
+import { Subject } from 'rxjs';
 import { InViewportDirective } from './in-viewport.directive';
+import { intersectionObserverFactory } from './mocks';
+
+jest.useFakeTimers();
+
+const trigger$: Subject<[Element, Partial<Omit<IntersectionObserverEntry, 'target'>>]> = new Subject();
+const delay = Math.floor(1000 / 60);
 
 @Component({
   template: `
@@ -73,14 +86,15 @@ import { InViewportDirective } from './in-viewport.directive';
       }
     `
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 class TestInViewportComponent {
-  @ViewChildren(InViewportDirective) invps: QueryList<InViewportDirective>;
+  @ViewChildren(InViewportDirective) invps!: QueryList<InViewportDirective>;
 
   constructor(private renderer: Renderer2) {}
 
-  handleAction({ target = null, visible = false }) {
+  handleAction({ target = null, visible = false }): void {
     const addClass = visible ? 'active' : 'inactive';
     this.renderer.addClass(target, addClass);
 
@@ -90,40 +104,64 @@ class TestInViewportComponent {
 }
 
 describe('InViewportDirective', () => {
-  const delay = Math.floor(1000 / 60);
-  let component: TestInViewportComponent;
   let fixture: ComponentFixture<TestInViewportComponent>;
-  let list: DebugElement;
-  let items: DebugElement[];
+  let component: TestInViewportComponent;
+  let destroyIntersectionObserver: () => void;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [CommonModule],
-        declarations: [TestInViewportComponent, InViewportDirective]
-      }).compileComponents();
-    })
-  );
+  beforeEach(async (done) => {
+    destroyIntersectionObserver = intersectionObserverFactory(trigger$);
 
-  beforeEach(() => {
+    await TestBed.configureTestingModule({
+      imports: [CommonModule],
+      declarations: [TestInViewportComponent, InViewportDirective]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(TestInViewportComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-    list = fixture.debugElement.query(By.css('.list'));
-    items = fixture.debugElement.queryAll(By.css('.item'));
-    list.nativeElement.scrollTo(0, 0);
+
+    done();
   });
 
-  it('should render', () => {
-    expect(component.invps.toArray().length).toBeGreaterThan(0);
+  afterEach(() => destroyIntersectionObserver());
+
+  it('should create component', () => {
+    expect(component instanceof TestInViewportComponent).toBe(true);
+  });
+
+  it('should have items', () => {
+    fixture.detectChanges();
+
+    expect(component.invps.toArray().length).toBe(3);
+  });
+
+  it('should render items', () => {
+    fixture.detectChanges();
+
+    const items: DebugElement[] = fixture.debugElement.queryAll(By.css('.list .item'));
+
+    expect(items.length).toBe(3);
   });
 
   it('should emit inViewportAction', (done) => {
-    spyOn(component, 'handleAction');
+    fixture.detectChanges();
+
+    const item: DebugElement = fixture.debugElement.query(By.css('.list .item'));
+
+    jest.spyOn(component, 'handleAction');
+
+    trigger$.next([
+      item.nativeElement,
+      {
+        isIntersecting: true,
+        intersectionRatio: 1
+      }
+    ]);
 
     setTimeout(() => {
       expect(component.handleAction).toHaveBeenCalled();
       done();
     }, delay);
+
+    jest.advanceTimersByTime(delay);
   });
 });
