@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "0.0.0",
+  "version": "11.0.0",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "homepage": "https://k3nsei.github.io/ng-in-viewport/",
   "bugs": {
