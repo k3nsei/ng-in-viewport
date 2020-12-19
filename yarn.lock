@@ -201,10 +201,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@angular/compiler-cli@11.0.4":
-  version "11.0.4"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-11.0.4.tgz#2cef7c1313538c4c29f867af2a39bc4f4796c7b0"
-  integrity sha512-FV010O6GAldRe5sr+qegHe7oLinTylES70NX+0PIp44/W4tPx75Zvop+FVT90I4xPcvFvteLemy8nFAnMK+x5g==
+"@angular/compiler-cli@11.0.5":
+  version "11.0.5"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-11.0.5.tgz#ef919d9a81e00b33e3e303db89b4d2af4ce7a169"
+  integrity sha512-1EbnDdK2Em9xpnbLCjw+9w2F0I6gl5AS6QAn03ztYX9ZooNzCeC6sT8qghzrNTFTV89nyIoAqyMtgcLS6udVkg==
   dependencies:
     "@babel/core" "^7.8.6"
     "@babel/types" "^7.8.6"
