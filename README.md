@@ -7,11 +7,15 @@
 [![Dependency Status][david-badge]][david-badge-url]
 [![peerDependency Status][david-peer-badge]][david-peer-badge-url]
 
-[![CircleCI Status][circle-ci-badge]][circle-ci-badge-url]
-[![GitHub Workflow][github-workflow-badge]][github-workflow-badge-url]
-[![Build Status][azure-devops-badge]][azure-devops-badge-url]
+[![GitHub Build][github-workflow-badge]][github-workflow-badge-url]
+[![CircleCI Build][circle-ci-badge]][circle-ci-badge-url]
+[![Azure DevOps Build][azure-devops-badge]][azure-devops-badge-url]
+
 [![Codecov Coverage][codecov-badge]][codecov-badge-url]
 [![Codeclimate Coverage][codeclimate-coverage-badge]][codeclimate-coverage-badge-url]
+
+[![Codacy Quality][codacy-badge]][codacy-badge-url]
+[![Codeclimate Maintainability][codeclimate-maintainability-badge]][codeclimate-maintainability-badge-url]
 
 Allows us to check if an element is within the browsers visual viewport
 
@@ -67,6 +71,10 @@ This project follows the [all-contributors][all-contributors-url] specification.
 [github-workflow-badge-url]: https://github.com/k3nsei/ng-in-viewport/actions?query=workflow%3AMain
 [codeclimate-coverage-badge]: https://img.shields.io/codeclimate/coverage/k3nsei/ng-in-viewport?logo=Code%20Climate&style=flat-square
 [codeclimate-coverage-badge-url]: https://codeclimate.com/github/k3nsei/ng-in-viewport/test_coverage
+[codeclimate-maintainability-badge]: https://img.shields.io/codeclimate/maintainability/k3nsei/ng-in-viewport?logo=Code%20Climate&style=flat-square
+[codeclimate-maintainability-badge-url]: https://codeclimate.com/github/k3nsei/ng-in-viewport/maintainability
+[codacy-badge]: https://img.shields.io/codacy/grade/ecdd996716754fa395314f98f60b0c2a?logo=codacy&style=flat-square
+[codacy-badge-url]: https://www.codacy.com/manual/k3nsei/ng-in-viewport?utm_source=github.com&utm_medium=referral&utm_content=k3nsei/ng-in-viewport&utm_campaign=Badge_Grade
 [codecov-badge]: https://img.shields.io/codecov/c/github/k3nsei/ng-in-viewport/develop?logo=codecov&style=flat-square
 [codecov-badge-url]: https://codecov.io/gh/k3nsei/ng-in-viewport
 [david-badge]: https://img.shields.io/david/k3nsei/ng-in-viewport?logo=node.js&path=projects%2Fng-in-viewport&style=flat-square
