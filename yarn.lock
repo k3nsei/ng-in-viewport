@@ -130,27 +130,42 @@
   resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-0.8.0-beta.5.tgz#e63fb249d12d32b99fd02be64c121ee41efdde85"
   integrity sha512-v1OR4gpzq0MuN4dSQQTJSl5rVKYTDqbkqFWQGnRx5wbsiPFM4SPLDKTppx338YuGD4SLSD57bsSVo8N0vrg6Cg==
 
-"@angular-eslint/eslint-plugin-template@0.8.0-beta.5", "@angular-eslint/eslint-plugin-template@^0.8.0-beta.5":
+"@angular-eslint/eslint-plugin-template@0.8.0-beta.5":
   version "0.8.0-beta.5"
   resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-0.8.0-beta.5.tgz#a884a6044ce88e40dd4239b7a1b0be98ef8e1143"
   integrity sha512-0sn+w2VVFSHS3zXMcYCkUjveuMQXO2Y4Gf8lq0YnmTcscynsLB3Nqj74hyQ+znE9LEciawt8fXtqY74oFpbQkA==
   dependencies:
     "@typescript-eslint/experimental-utils" "4.3.0"
 
-"@angular-eslint/eslint-plugin@0.8.0-beta.5", "@angular-eslint/eslint-plugin@^0.8.0-beta.5":
+"@angular-eslint/eslint-plugin-template@^0.8.0-beta.6":
+  version "0.8.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-0.8.0-beta.6.tgz#1a0925525681fd48470a3858a485acfc6e81c2c8"
+  integrity sha512-iC9YJSqeokMlFFLP0ZyWalzhVU++2bBdY9vfwrTaNC4JNLszAOOlkFRtPXZZQZpJ/3PM0FlVhD4OSZL36Gw6Iw==
+  dependencies:
+    "@typescript-eslint/experimental-utils" "4.3.0"
+    aria-query "^4.2.2"
+
+"@angular-eslint/eslint-plugin@0.8.0-beta.5":
   version "0.8.0-beta.5"
   resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-0.8.0-beta.5.tgz#c9617fcf74fdd7f840ac336b23af6731fb1f47bb"
   integrity sha512-S7fLcMNRasgUKyKO0o51OsQxddGh8FRCrxZ2CeyUF8f/Kk3Yh06cMgvoD2hYqmrk65oO2M6OdP2P9+1VXxX1gw==
   dependencies:
     "@typescript-eslint/experimental-utils" "4.3.0"
 
-"@angular-eslint/schematics@0.8.0-beta.5":
-  version "0.8.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/schematics/-/schematics-0.8.0-beta.5.tgz#97f77b3a6f135ae5dec20f87e094af1b0a6c9c47"
-  integrity sha512-4OxBm+RgP/2B0UM6tDEqkaC7EtM+xhKBWJ/zMli1CKoHOqmHsu0XJqqmTPCBDbh2vcFLQcXP8ymtT6kzl+bqdA==
+"@angular-eslint/eslint-plugin@^0.8.0-beta.6":
+  version "0.8.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-0.8.0-beta.6.tgz#42dd7cc9bede7289d91488a52bab6e40c71d8742"
+  integrity sha512-yXyNSTUA0Nosh1ZI/iJerbwqeakhI495P5O1luxE9Fw7Vcdmb+JdmE++6Ipq2oO7rEyv2rHpci84tqNTE3wr2g==
   dependencies:
-    "@angular-eslint/eslint-plugin" "^0.8.0-beta.5"
-    "@angular-eslint/eslint-plugin-template" "^0.8.0-beta.5"
+    "@typescript-eslint/experimental-utils" "4.3.0"
+
+"@angular-eslint/schematics@0.8.0-beta.6":
+  version "0.8.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/schematics/-/schematics-0.8.0-beta.6.tgz#8ac98e0cb1a786f7a13be537a6e227ac9272f3aa"
+  integrity sha512-LKQLQryq3oE/mIZNBqfXjtPEPmAr0+C55cd27tvfkMbDk0mfIfORWG7aSI5oLJYycV/30dqH6w31ClA1+BoEjA==
+  dependencies:
+    "@angular-eslint/eslint-plugin" "^0.8.0-beta.6"
+    "@angular-eslint/eslint-plugin-template" "^0.8.0-beta.6"
     strip-json-comments "3.1.1"
     tslint-to-eslint-config "2.0.1"
 
@@ -1127,6 +1142,14 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
+"@babel/runtime-corejs3@^7.10.2":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.12.5.tgz#ffee91da0eb4c6dae080774e94ba606368e414f4"
+  integrity sha512-roGr54CsTmNPPzZoCP1AmDXuBoNao7tnSA83TXTwt+UK5QVyh1DIJnrgYRPWKCF2flqZQXwa7Yr8v7VmLzF0YQ==
+  dependencies:
+    core-js-pure "^3.0.0"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@7.12.1":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.1.tgz#b4116a6b6711d010b2dad3b7b6e43bf1b9954740"
@@ -1134,7 +1157,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -2466,6 +2489,14 @@ argv@0.0.2:
   resolved "https://registry.yarnpkg.com/argv/-/argv-0.0.2.tgz#ecbd16f8949b157183711b1bda334f37840185ab"
   integrity sha1-7L0W+JSbFXGDcRsb2jNPN4QBhas=
 
+aria-query@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-4.2.2.tgz#0d2ca6c9aceb56b8977e9fed6aed7e15bbd2f83b"
+  integrity sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==
+  dependencies:
+    "@babel/runtime" "^7.10.2"
+    "@babel/runtime-corejs3" "^7.10.2"
+
 arity-n@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/arity-n/-/arity-n-1.0.4.tgz#d9e76b11733e08569c0847ae7b39b2860b30b745"
@@ -3720,6 +3751,11 @@ core-js-compat@^3.6.2:
   dependencies:
     browserslist "^4.14.7"
     semver "7.0.0"
+
+core-js-pure@^3.0.0:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.8.1.tgz#23f84048f366fdfcf52d3fd1c68fec349177d119"
+  integrity sha512-Se+LaxqXlVXGvmexKGPvnUIYC1jwXu1H6Pkyb3uBM5d8/NELMYCHs/4/roD7721NxrTLyv7e5nXd5/QLBO+10g==
 
 core-js@3.6.5:
   version "3.6.5"
