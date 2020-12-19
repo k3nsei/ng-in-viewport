@@ -1,5 +1,27 @@
 {
   "extends": ["config:base"],
   "rangeStrategy": "replace",
-  "schedule": ["every weekend"]
+  "schedule": ["every weekend"],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@angular-eslint", "@typescript-eslint", "^eslint"],
+      "groupName": "Eslint packages",
+      "groupSlug": "eslint"
+    },
+    {
+      "packagePatterns": ["^@commitlint"],
+      "groupName": "Commit Lint",
+      "groupSlug": "commitlint"
+    },
+    {
+      "packagePatterns": ["^jest"],
+      "groupName": "Jest packages",
+      "groupSlug": "jest"
+    },
+    {
+      "packagePatterns": ["^prettier"],
+      "groupName": "Prettier packages",
+      "groupSlug": "prettier"
+    }
+  ]
 }
