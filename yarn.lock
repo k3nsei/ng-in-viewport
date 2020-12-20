@@ -7898,19 +7898,19 @@ markdown-it@12.0.2:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
-markdownlint-cli2-formatter-default@~0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/markdownlint-cli2-formatter-default/-/markdownlint-cli2-formatter-default-0.0.1.tgz#05096cdae4cfbaa872b82cb6d87a97552faa9c04"
-  integrity sha512-JvWhlus5zR4cFywXB2RSPVX73YD9177xm9WkV/8CRPDS1MM/Fh6Ds0WnY67ZaiITavZ0H+Fgz1aVhUwrPNa7ug==
+markdownlint-cli2-formatter-default@~0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/markdownlint-cli2-formatter-default/-/markdownlint-cli2-formatter-default-0.0.2.tgz#76f1a064d70966178dfe3bb489af9423d830ca79"
+  integrity sha512-jIz1X3SIC8sX4NDFqQFUXL+JEtfnDoN4i+xocEu+etcxGX455pHb6sx86f/yVk4mKJ2o7aNe2ydSx9an22BfBg==
 
-markdownlint-cli2@0.0.12:
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/markdownlint-cli2/-/markdownlint-cli2-0.0.12.tgz#56f6c19d53238363d8b366faa1820de6f502bb4e"
-  integrity sha512-uSP5r31k49bsp5ou8N91lOobRWnp2N2JoiJ5IM6CAbcxDzjMQpPYlKKF1pLtZSNR7X7CJPmRn+rqvYTh+lBMww==
+markdownlint-cli2@0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/markdownlint-cli2/-/markdownlint-cli2-0.0.13.tgz#eba0f07b90b2cf63e9889bc0d6a41ab7e440ad9e"
+  integrity sha512-Fg4bIf70vPW9CHHBE6wkL5TYwOF/bQ7XQ+VGXLws5TTgP8voaeVmF085TkyWYOSippWRU+Ify1VkMw1S0VlbwA==
   dependencies:
     globby "~11.0.1"
     markdownlint "~0.22.0"
-    markdownlint-cli2-formatter-default "~0.0.1"
+    markdownlint-cli2-formatter-default "~0.0.2"
     markdownlint-rule-helpers "~0.13.0"
     micromatch "~4.0.2"
     strip-json-comments "~3.1.1"
