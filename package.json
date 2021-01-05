@@ -59,7 +59,7 @@
     "all-contributors-cli": "6.19.0",
     "codecov": "3.8.1",
     "conventional-changelog-cli": "2.1.1",
-    "cypress": "6.1.0",
+    "cypress": "6.2.1",
     "eslint": "7.17.0",
     "eslint-plugin-cypress": "2.11.2",
     "eslint-plugin-header": "3.1.0",
