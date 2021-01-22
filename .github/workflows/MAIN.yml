@@ -1,7 +1,7 @@
 name: Main
 on:
   push:
-    branches: [master, develop]
+    branches: [stable, develop]
   pull_request:
     branches: [develop]
 jobs:
