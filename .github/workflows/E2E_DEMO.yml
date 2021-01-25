@@ -27,10 +27,12 @@ jobs:
         run: yarn install --frozen-lockfile --silent
       - name: Build library
         run: yarn run build:lib
+      - name: Build demo app
+        run: yarn run build:demo
       - name: Run cypress
         uses: cypress-io/github-action@v2
         with:
-          start: yarn run start
+          start: yarn run serve -l 4200 ./dist/demo
           wait-on: 'http://localhost:4200'
           project: projects/demo-e2e
           browser: chrome
