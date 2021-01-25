@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for ng-in-viewport">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -40,8 +41,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -51,12 +50,7 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
-			<h1>ng-in-viewport</h1>
+			<h1>Project ng-in-viewport</h1>
 		</div>
 	</div>
 </header>
@@ -72,14 +66,13 @@
 				<a href="https://www.npmjs.com/package/ng-in-viewport"><img src="https://img.shields.io/npm/dm/ng-in-viewport?style=flat-square" alt="npm"></a></p>
 				<p><a href="https://david-dm.org/k3nsei/ng-in-viewport/develop?path=projects/ng-in-viewport"><img src="https://img.shields.io/david/k3nsei/ng-in-viewport?logo=node.js&path=projects%2Fng-in-viewport&style=flat-square" alt="Dependency Status"></a>
 				<a href="https://david-dm.org/k3nsei/ng-in-viewport/develop?type=peer&amp;path=projects/ng-in-viewport"><img src="https://img.shields.io/david/peer/k3nsei/ng-in-viewport?logo=node.js&path=projects%2Fng-in-viewport&style=flat-square" alt="peerDependency Status"></a></p>
-				<p><a href="https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master"><img src="https://img.shields.io/circleci/build/github/k3nsei/ng-in-viewport/master?logo=CircleCi&style=flat-square&token=1c961beeff7d2e03a4203efd1858081b9901caac" alt="CircleCI Status"></a>
-					<a href="https://github.com/k3nsei/ng-in-viewport/actions?query=workflow%3AMain"><img src="https://img.shields.io/github/workflow/status/k3nsei/ng-in-viewport/Main?logo=GitHub&style=flat-square" alt="GitHub Workflow"></a>
-					<a href="https://k3nsei.visualstudio.com/ng-in-viewport/_build/latest?definitionId=3"><img src="https://img.shields.io/azure-devops/build/k3nsei/a2099adb-d5fb-4377-b950-042475976b1e/3?logo=Azure%20Pipelines&style=flat-square" alt="Build Status"></a>
-					<a href="https://codecov.io/gh/k3nsei/ng-in-viewport"><img src="https://img.shields.io/codecov/c/github/k3nsei/ng-in-viewport/develop?logo=codecov&style=flat-square" alt="Codecov Coverage"></a>
+				<p><a href="https://github.com/k3nsei/ng-in-viewport/actions?query=workflow%3AMain"><img src="https://img.shields.io/github/workflow/status/k3nsei/ng-in-viewport/Main?logo=GitHub&style=flat-square" alt="GitHub Build"></a>
+					<a href="https://circleci.com/gh/k3nsei/ng-in-viewport/tree/stable"><img src="https://img.shields.io/circleci/build/github/k3nsei/ng-in-viewport/stable?logo=CircleCi&style=flat-square&token=1c961beeff7d2e03a4203efd1858081b9901caac" alt="CircleCI Build"></a>
+				<a href="https://k3nsei.visualstudio.com/ng-in-viewport/_build/latest?definitionId=3"><img src="https://img.shields.io/azure-devops/build/k3nsei/a2099adb-d5fb-4377-b950-042475976b1e/3?logo=Azure%20Pipelines&style=flat-square" alt="Azure DevOps Build"></a></p>
+				<p><a href="https://codecov.io/gh/k3nsei/ng-in-viewport"><img src="https://img.shields.io/codecov/c/github/k3nsei/ng-in-viewport/develop?logo=codecov&style=flat-square" alt="Codecov Coverage"></a>
 				<a href="https://codeclimate.com/github/k3nsei/ng-in-viewport/test_coverage"><img src="https://img.shields.io/codeclimate/coverage/k3nsei/ng-in-viewport?logo=Code%20Climate&style=flat-square" alt="Codeclimate Coverage"></a></p>
-				<p><img src="https://img.shields.io/sonar/quality_gate/ng-in-viewport?logo=SonarCloud&server=https%3A%2F%2Fsonarcloud.io&style=flat-square" alt="Maintainability">
-					<a href="https://www.codacy.com/manual/k3nsei/ng-in-viewport?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=k3nsei/ng-in-viewport&amp;utm_campaign=Badge_Grade"><img src="https://img.shields.io/codacy/grade/6fe02a88e70e4786a70ec2e94714794d?logo=codacy&style=flat-square" alt="Codacy Badge"></a>
-				<a href="https://codeclimate.com/github/k3nsei/ng-in-viewport/maintainability"><img src="https://img.shields.io/codeclimate/maintainability/k3nsei/ng-in-viewport?logo=Code%20Climate&style=flat-square" alt="Maintainability"></a></p>
+				<p><a href="https://www.codacy.com/manual/k3nsei/ng-in-viewport?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=k3nsei/ng-in-viewport&amp;utm_campaign=Badge_Grade"><img src="https://img.shields.io/codacy/grade/ecdd996716754fa395314f98f60b0c2a?logo=codacy&style=flat-square" alt="Codacy Quality"></a>
+				<a href="https://codeclimate.com/github/k3nsei/ng-in-viewport/maintainability"><img src="https://img.shields.io/codeclimate/maintainability/k3nsei/ng-in-viewport?logo=Code%20Climate&style=flat-square" alt="Codeclimate Maintainability"></a></p>
 				<p>Allows us to check if an element is within the browsers visual viewport</p>
 				<ul>
 					<li>🤓 Learn about it on the <a href="https://k3nsei.gitbook.io/ng-in-viewport/">DOCS Site</a></li>
@@ -89,7 +82,7 @@
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h2>License</h2>
 				</a>
-				<p><a href="https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE">MIT</a></p>
+				<p><a href="https://github.com/k3nsei/ng-in-viewport/blob/stable/LICENSE">MIT</a></p>
 				<a href="#contributors-✨" id="contributors-✨" style="color: inherit; text-decoration: none;">
 					<h2>Contributors ✨</h2>
 				</a>
@@ -130,58 +123,52 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
-					</li>
-					<li class="label tsd-is-external">
-						<span>Internals</span>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_projects_ng_in_viewport_src_index_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/index&quot;</a>
-					</li>
-					<li class="label tsd-is-external">
-						<span>Externals</span>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_in_viewport_config_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/in-<wbr>viewport-<wbr>config&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_in_viewport_config_direction_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/in-<wbr>viewport-<wbr>config-<wbr>direction&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_in_viewport_directive_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/in-<wbr>viewport.directive&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_in_viewport_module_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/in-<wbr>viewport.module&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_in_viewport_service_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/in-<wbr>viewport.service&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_types_in_viewport_config_check_fn_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/types/in-<wbr>viewport-<wbr>config-<wbr>check-<wbr>fn&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_types_in_viewport_config_directions_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/types/in-<wbr>viewport-<wbr>config-<wbr>directions&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_types_in_viewport_config_options_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/types/in-<wbr>viewport-<wbr>config-<wbr>options&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_types_in_viewport_registry_entry_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/types/in-<wbr>viewport-<wbr>registry-<wbr>entry&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_types_index_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/types/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_lib_utils_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/lib/utils&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_projects_ng_in_viewport_src_public_api_.html">&quot;projects/ng-<wbr>in-<wbr>viewport/src/public-<wbr>api&quot;</a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/inviewportconfig.html" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/inviewportdirective.html" class="tsd-kind-icon">In<wbr>Viewport<wbr>Directive</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/inviewportmodule.html" class="tsd-kind-icon">In<wbr>Viewport<wbr>Module</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/inviewportservice.html" class="tsd-kind-icon">In<wbr>Viewport<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/inviewportconfigcheckfnoptions.html" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Check<wbr>FnOptions</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/inviewportconfigoptions.html" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/inviewportregistryentry.html" class="tsd-kind-icon">In<wbr>Viewport<wbr>Registry<wbr>Entry</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#inviewportconfigcheckfn" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Check<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#inviewportconfigdirections" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Directions</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#inviewportregistryentries" class="tsd-kind-icon">In<wbr>Viewport<wbr>Registry<wbr>Entries</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#inviewporttrigger" class="tsd-kind-icon">In<wbr>Viewport<wbr>Trigger</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#inviewportconfigdirection" class="tsd-kind-icon">In<wbr>Viewport<wbr>Config<wbr>Direction</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#inviewportmetadata" class="tsd-kind-icon">In<wbr>Viewport<wbr>Metadata</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -191,6 +178,21 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
