@@ -114,5 +114,5 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - stable
                 - develop

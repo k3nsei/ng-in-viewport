@@ -25,7 +25,7 @@ Allows us to check if an element is within the browsers visual viewport
 
 ## License
 
-[MIT](https://github.com/k3nsei/angular2-in-viewport/blob/master/LICENSE)
+[MIT](https://github.com/k3nsei/ng-in-viewport/blob/stable/LICENSE)
 
 ## Contributors ✨
 
@@ -63,8 +63,8 @@ This project follows the [all-contributors][all-contributors-url] specification.
 <!-- LINKS-DEFINITIONS-LIST:START -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-[circle-ci-badge]: https://img.shields.io/circleci/build/github/k3nsei/ng-in-viewport/master?logo=CircleCi&style=flat-square&token=1c961beeff7d2e03a4203efd1858081b9901caac
-[circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/master
+[circle-ci-badge]: https://img.shields.io/circleci/build/github/k3nsei/ng-in-viewport/stable?logo=CircleCi&style=flat-square&token=1c961beeff7d2e03a4203efd1858081b9901caac
+[circle-ci-badge-url]: https://circleci.com/gh/k3nsei/ng-in-viewport/tree/stable
 [azure-devops-badge]: https://img.shields.io/azure-devops/build/k3nsei/a2099adb-d5fb-4377-b950-042475976b1e/3?logo=Azure%20Pipelines&style=flat-square
 [azure-devops-badge-url]: https://k3nsei.visualstudio.com/ng-in-viewport/_build/latest?definitionId=3
 [github-workflow-badge]: https://img.shields.io/github/workflow/status/k3nsei/ng-in-viewport/Main?logo=GitHub&style=flat-square
