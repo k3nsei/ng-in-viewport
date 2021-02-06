@@ -1,5 +1,5 @@
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-20.04'
 
 trigger:
   - stable
@@ -10,12 +10,6 @@ steps:
     displayName: 'Use Node 15.x'
     inputs:
       versionSpec: 15.x
-
-  - script: |
-      npm install --global npm@latest
-      npm install --global yarn@latest
-      npm install --global @angular/cli@latest
-    displayName: 'Install global dependencies'
 
   - script: 'yarn install --frozen-lockfile --silent'
     displayName: 'Install local dependencies'
