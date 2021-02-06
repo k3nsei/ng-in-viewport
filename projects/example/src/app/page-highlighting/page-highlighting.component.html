@@ -1,0 +1,12 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <ng-container *ngFor="let gridTile of gridTiles">
+    <mat-grid-tile
+      class="grid-tile inactive"
+      inViewport
+      [inViewportOptions]="{ partial: true, threshold: [0, 1] }"
+      (inViewportAction)="highlightTile($event)"
+    >
+      {{ gridTile }}
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
