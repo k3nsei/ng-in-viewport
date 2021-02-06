@@ -15,7 +15,7 @@
     "importHelpers": true,
     "target": "ES2015",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "lib": ["ES2018", "DOM", "DOM.Iterable"],
     "paths": {
       "ng-in-viewport": ["dist/ng-in-viewport"]
     }
