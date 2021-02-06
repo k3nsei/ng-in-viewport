@@ -2,12 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "es2015",
+    "target": "ES2015",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": ["node"],
-    "lib": ["dom", "es2018"]
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,

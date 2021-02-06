@@ -1,0 +1,38 @@
+<ng-container *ngFor="let card of cards | async">
+  <mat-card class="card" [ngClass]="{ odd: this.isOdd(card), even: isEven(card) }">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>{{ this.isOdd(card) ? 'Lego Builder' : 'Lego Doctor' }}</mat-card-title>
+      <mat-card-subtitle>{{ this.isOdd(card) ? 'Engineer' : 'Surgeon' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta lorem id nulla varius dictum.
+        Suspendisse ut ante ac odio finibus fringilla id quis nulla. Etiam sapien elit, facilisis ut mattis non, euismod
+        ac magna. Donec vehicula, mi ac bibendum finibus, mauris turpis malesuada tellus, accumsan feugiat felis mi in
+        velit. Donec vitae sollicitudin eros. Vestibulum hendrerit magna urna, ut malesuada sem fringilla sit amet. Cras
+        non tellus posuere nibh tincidunt pellentesque. Nunc mattis finibus accumsan. Aenean fringilla sapien ut quam
+        posuere tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        Pellentesque interdum sit amet dui id auctor. Donec in gravida ex. Duis convallis tellus at lacus euismod
+        suscipit sed quis risus. In varius urna ipsum, eget varius eros viverra in.
+      </p>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+<ng-container *ngIf="loading | async; else more">
+  <mat-spinner diameter="40"></mat-spinner>
+</ng-container>
+
+<ng-template #more>
+  <ng-container *ngIf="page < pages">
+    <button type="button" mat-raised-button color="primary" (click)="loadMore($event)">Load more</button>
+    <div
+      class="infinite-scroll-zone"
+      inViewport
+      [inViewportOptions]="{ threshold: 0 }"
+      (inViewportAction)="loadMore($event)"
+      >&#160;</div
+    >
+  </ng-container>
+</ng-template>

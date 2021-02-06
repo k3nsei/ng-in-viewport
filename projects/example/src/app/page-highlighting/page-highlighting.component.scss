@@ -1,0 +1,12 @@
+.grid-tile {
+  background-color: rgb(158, 158, 158);
+  font-size: 2em;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.87);
+  transition: background-color 0.25s ease-in, color 0.25s ease-in;
+
+  &.active {
+    background-color: #00c853;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
