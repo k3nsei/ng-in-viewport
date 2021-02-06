@@ -11,6 +11,8 @@ import 'jest-preset-angular/setup-jest';
 /**
  * Global mocks
  */
+Object.defineProperty(window, 'global', { value: undefined });
+
 Object.defineProperty(window, 'CSS', { value: null });
 
 Object.defineProperty(document, 'doctype', {
