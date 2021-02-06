@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.card {
+  width: 90vw;
+  max-width: 1200px;
+  margin: 0 5vw 12px;
+
+  &:first-of-type {
+    margin-top: 12px;
+  }
+}
+
+.header-image {
+  background-image: url('https://randomuser.me/api/portraits/lego/7.jpg');
+  background-size: cover;
+}
+
+.card.even .header-image {
+  background-image: url('https://randomuser.me/api/portraits/lego/3.jpg');
+}
+
+.mat-spinner {
+  margin: 0 0 12px;
+}
+
+.mat-raised-button {
+  width: 90vw;
+  max-width: 1200px;
+  margin: 0 5vw 8px;
+}
+
+.infinite-scroll-zone {
+  height: 2px;
+  margin: 0 0 2px;
+  overflow: hidden;
+}

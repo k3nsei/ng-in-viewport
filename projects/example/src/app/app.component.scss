@@ -1,0 +1,38 @@
+:host {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.mat-toolbar {
+  z-index: 9999999;
+
+  &-row:nth-child(1) {
+    height: 40px;
+  }
+
+  &-row:nth-child(2) {
+    height: 49px;
+    padding: 0;
+  }
+}
+
+.toolbar-label {
+  margin-left: 14px;
+  display: inline-block;
+  text-transform: lowercase;
+}
+
+.mat-tab-link {
+  text-transform: uppercase;
+}
+
+button[mat-mini-fab] {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  transform: translate3d(-100%, -50%, 0);
+  z-index: 9999999;
+}
