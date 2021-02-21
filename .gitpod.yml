@@ -1,0 +1,41 @@
+ide: code
+
+vscode:
+  extensions:
+    - 'donjayamanne.githistory'
+    - 'eamodio.gitlens'
+    - 'xyz.local-history'
+    - 'editorconfig.editorconfig'
+    - 'esbenp.prettier-vscode'
+    - 'dbaeumer.vscode-eslint'
+    - 'msjsdiag.debugger-for-chrome'
+    - 'eg2.vscode-npm-script'
+    - 'angular.ng-template'
+    - 'johnpapa.angular2'
+    - 'nrwl.angular-console'
+
+tasks:
+  - name: Auto build library
+    init: |
+      yarn install
+      npx ng build ng-in-viewport --prod
+      gp sync-done boot
+    command: echo 'Library build is done'
+
+  - name: Auto serve demo
+    init: |
+      gp sync-await boot
+    command: npx ng serve demo --port=4200
+    openMode: split-right
+
+  - name: Auto serve example
+    init: |
+      gp sync-await boot
+    command: npx ng serve example --port=4300
+    openMode: split-right
+
+ports:
+  - port: 4200
+    onOpen: open-preview
+  - port: 4300
+    onOpen: open-preview
