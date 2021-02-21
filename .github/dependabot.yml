@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      timezone: 'Europe/Warsaw'
+      day: 'saturday'
+      time: '06:00'
+    target-branch: 'develop'
+    open-pull-requests-limit: 10
+    assignees: ['k3nsei']
+    reviewers: ['k3nsei']
+
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      timezone: 'Europe/Warsaw'
+      day: 'saturday'
+      time: '06:00'
+    target-branch: 'develop'
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: 'deps'
+      include: 'scope'
+    assignees: ['k3nsei']
+    reviewers: ['k3nsei']
