@@ -10,7 +10,7 @@ updates:
     target-branch: 'develop'
     open-pull-requests-limit: 10
     commit-message:
-      prefix: 'gh-actions'
+      prefix: 'ci'
       include: 'scope'
     assignees: ['k3nsei']
     reviewers: ['k3nsei']
@@ -25,7 +25,8 @@ updates:
     target-branch: 'develop'
     open-pull-requests-limit: 20
     commit-message:
-      prefix: 'deps'
+      prefix: 'chore'
+      prefix-development: 'chore'
       include: 'scope'
     assignees: ['k3nsei']
     reviewers: ['k3nsei']
