@@ -7,16 +7,9 @@
  */
 
 module.exports = {
-  '.all-contributorsrc': function generateContributorsList() {
-    return 'yarn contributors:generate';
-  },
-  'projects/ng-in-viewport/src/**/*.{js,ts}': function lintNgInViewport() {
-    return 'yarn lint:lib';
-  },
-  'projects/demo/src/**/*.{js,ts}': function lintDemo() {
-    return 'yarn lint:demo';
-  },
-  'projects/demo-e2e/src/**/*.{js,ts}': function lintDemo() {
-    return 'yarn lint:demo-e2e';
-  }
+  '.all-contributorsrc': 'npx all-contributors generate',
+  'projects/ng-in-viewport/src/**/*.{js,ts}': 'npx ng lint ng-in-viewport',
+  'projects/demo/src/**/*.{js,ts}': 'npx ng lint demo',
+  'projects/demo-e2e/src/**/*.{js,ts}': 'npx eslint "projects/demo-e2e/src/**/*.{js,ts}"',
+  'projects/example/src/**/*.{js,ts}': 'npx ng lint example'
 };

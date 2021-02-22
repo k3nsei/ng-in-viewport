@@ -2,13 +2,15 @@
 include_paths:
   - 'projects/ng-in-viewport/src/**'
 exclude_paths:
-  - '.drone/**'
   - '.github/**'
-  - '.semaphore/**'
+  - '.husky/**'
+  - '.vscode/**'
   - '.yarn/**'
   - 'docs/**'
   - 'projects/demo/**'
   - 'projects/demo-e2e/**'
+  - 'projects/example/**'
+  - 'projects/example-e2e/**'
   - 'scripts/**'
   - 'CODE_OF_CONDUCT.md'
   - 'CHANGELOG.md'

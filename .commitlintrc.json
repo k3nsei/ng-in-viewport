@@ -1,7 +1,3 @@
 {
-  "extends": ["@commitlint/config-conventional"],
-  "rules": {
-    "subject-min-length": [1, "always", 5],
-    "subject-max-length": [1, "always", 120]
-  }
+  "extends": ["@commitlint/config-conventional"]
 }
