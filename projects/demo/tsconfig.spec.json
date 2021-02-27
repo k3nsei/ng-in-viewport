@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
     "module": "CommonJS",
-    "emitDecoratorMetadata": true,
     "types": ["node", "jest"]
   },
   "files": ["src/polyfills.ts"],
