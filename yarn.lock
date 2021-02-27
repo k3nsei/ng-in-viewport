@@ -7827,12 +7827,12 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@4.17.20, lodash@4.x, lodash@^4.11.2, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20:
+lodash@4.17.20:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
-lodash@^4.17.21:
+lodash@4.x, lodash@^4.11.2, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -11925,10 +11925,10 @@ trim-off-newlines@^1.0.0:
   resolved "https://registry.yarnpkg.com/trim-off-newlines/-/trim-off-newlines-1.0.1.tgz#9f9ba9d9efa8764c387698bcbfeb2c848f11adb3"
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
-ts-jest@27.0.0-next.6:
-  version "27.0.0-next.6"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-27.0.0-next.6.tgz#59c9392eff845e4ff90360938aa4d2b3a354a654"
-  integrity sha512-GCxbKghc6qlUnOLUMNan2inOcn+kHmVpHxWgAtsDhhxVNYmsOEK/lzK4XU6C2FDCThCKhBpZUT3sjIWNAvq3mQ==
+ts-jest@27.0.0-next.7:
+  version "27.0.0-next.7"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-27.0.0-next.7.tgz#dfc0117bdbb9daef4a536490fdaae37d82979135"
+  integrity sha512-g9RgCSx9sEyWE3onanpeBLQIFe2UAI/qNCrCZd7rNYE+8K/M7iq/Q9wsFgyOZ7QgLDyNjYbIxXsZ/xCkhgJJpA==
   dependencies:
     "@types/jest" "26.x"
     bs-logger "0.x"
