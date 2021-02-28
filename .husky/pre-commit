@@ -3,6 +3,7 @@
 
 [ -n "$CI" ] && exit 0
 
-yarn run format:check
-yarn markdownlint-cli2 "**/*.{md,markdown}" "#CHANGELOG.md" "#CODE_OF_CONDUCT.md" "#node_modules" "#.husky" "#.yarn" "#coverage" "#dist" "#docs" "#out-tsc" "#tmp"
-yarn lint-staged
+npx markdownlint-cli2 "**/*.{md,markdown}" "#CHANGELOG.md" "#CODE_OF_CONDUCT.md" "#node_modules" "#.husky" "#.yarn" "#coverage" "#dist" "#docs" "#out-tsc" "#tmp"
+npx lint-staged
+npx prettier --check .
+

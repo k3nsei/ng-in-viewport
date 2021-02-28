@@ -7,9 +7,16 @@
  */
 
 module.exports = {
-  '.all-contributorsrc': 'npx all-contributors generate',
-  'projects/ng-in-viewport/src/**/*.{js,ts}': 'npx ng lint ng-in-viewport',
-  'projects/demo/src/**/*.{js,ts}': 'npx ng lint demo',
-  'projects/demo-e2e/src/**/*.{js,ts}': 'npx eslint "projects/demo-e2e/src/**/*.{js,ts}"',
-  'projects/example/src/**/*.{js,ts}': 'npx ng lint example'
+  '.all-contributorsrc': () => 'npx all-contributors generate',
+  'yarn.lock': () => 'npm install --package-lock-only',
+  'projects/ng-in-viewport/src/**/*.{js,ts}': () => 'npx ng lint ng-in-viewport',
+  'projects/demo/src/**/*.{js,ts}': () => 'npx ng lint demo',
+  'projects/demo-e2e/src/**/*.{js,ts}': () => 'npx eslint "projects/demo-e2e/src/**/*.{js,ts}"',
+  'projects/example/src/**/*.{js,ts}': () => 'npx ng lint example',
+  '*.{js,jsx,ts,tsx,json,html,css,scss,sass,less,md,mdx,markdown,yml,yaml}': (files) => {
+    if (files.length <= 25) {
+      return `npx prettier --write ${files.join(' ')}`;
+    }
+    return 'npx prettier --write .';
+  }
 };

@@ -10,7 +10,7 @@ bazel-out/
 node_modules/
 
 # NPM files
-package-lock.json
+!package-lock.json
 npm-shrinkwrap.json
 npm-debug.log
 
