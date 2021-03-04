@@ -6373,7 +6373,7 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-jsonc-parser@3.0.0:
+jsonc-parser@3.0.0, jsonc-parser@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.0.0.tgz"
 
@@ -7236,9 +7236,9 @@ next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/next-tick/-/next-tick-1.0.0.tgz"
 
-ng-packagr@12.0.0-next.3:
-  version "12.0.0-next.3"
-  resolved "https://registry.npmjs.org/ng-packagr/-/ng-packagr-12.0.0-next.3.tgz"
+ng-packagr@12.0.0-next.4:
+  version "12.0.0-next.4"
+  resolved "https://registry.yarnpkg.com/ng-packagr/-/ng-packagr-12.0.0-next.4.tgz#a6107537a40ffda83dda434dc69b6a64ede68a0d"
   dependencies:
     "@rollup/plugin-commonjs" "^17.0.0"
     "@rollup/plugin-json" "^4.1.0"
@@ -7251,6 +7251,7 @@ ng-packagr@12.0.0-next.3:
     cssnano "^4.1.10"
     glob "^7.1.6"
     injection-js "^2.4.0"
+    jsonc-parser "^3.0.0"
     less "^4.1.0"
     node-sass-tilde-importer "^1.0.2"
     ora "^5.1.0"
