@@ -42,7 +42,7 @@
     "@angular/forms": "12.0.0-next.2",
     "@angular/material": "11.2.2",
     "@angular/platform-browser": "12.0.0-next.2",
-    "@angular/platform-browser-dynamic": "12.0.0-next.2",
+    "@angular/platform-browser-dynamic": "12.0.0-next.3",
     "@angular/router": "12.0.0-next.2",
     "intersection-observer": "0.12.0",
     "rxjs": "6.6.6",
