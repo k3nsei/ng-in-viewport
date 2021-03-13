@@ -8,7 +8,6 @@
 
 module.exports = {
   '.all-contributorsrc': () => 'npx all-contributors generate',
-  'yarn.lock': () => 'npm install --package-lock-only',
   'projects/ng-in-viewport/src/**/*.{js,ts}': () => 'npx ng lint ng-in-viewport',
   'projects/demo/src/**/*.{js,ts}': () => 'npx ng lint demo',
   'projects/demo-e2e/src/**/*.{js,ts}': () => 'npx eslint "projects/demo-e2e/src/**/*.{js,ts}"',
