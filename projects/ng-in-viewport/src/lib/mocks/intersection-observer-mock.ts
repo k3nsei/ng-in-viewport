@@ -16,7 +16,7 @@ export const intersectionObserverFactory = (
   const destroy$: Subject<void> = new Subject();
 
   class IntersectionObserverMock implements IntersectionObserver {
-    public readonly root: Element | null;
+    public readonly root: Element | Document | null;
 
     public readonly rootMargin: string;
 
