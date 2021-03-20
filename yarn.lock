@@ -10,6 +10,14 @@
     "@angular-devkit/core" "12.0.0-next.4"
     rxjs "6.6.6"
 
+"@angular-devkit/architect@0.1200.0-next.5":
+  version "0.1200.0-next.5"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1200.0-next.5.tgz#7e213bd2001a6ea5b78fb687dff0d5696a76fc3a"
+  integrity sha512-1s4fBijAyoymeYLgDJoVUPcSlWpBzEz85dVBQngEzkh/qhi81IixoTu5U6K9ti29wvuna0jEenSJaTYKxVN/jA==
+  dependencies:
+    "@angular-devkit/core" "12.0.0-next.5"
+    rxjs "6.6.6"
+
 "@angular-devkit/build-angular@0.1200.0-next.4":
   version "0.1200.0-next.4"
   resolved "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-0.1200.0-next.4.tgz"
@@ -116,13 +124,24 @@
     rxjs "6.6.6"
     source-map "0.7.3"
 
-"@angular-devkit/schematics@12.0.0-next.4":
-  version "12.0.0-next.4"
-  resolved "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-12.0.0-next.4.tgz"
-  integrity sha512-xqfnuhBRjWbE3gqlL124YqwZiVGq2B6IbCk8lHEHqeQ38ArgaDsR8htEHSRWupKjBd6h2eT4Lx8URL7C1IpADA==
+"@angular-devkit/core@12.0.0-next.5":
+  version "12.0.0-next.5"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-12.0.0-next.5.tgz#d553f35db6ccb1e1c75b67f6c478eb339f9a618b"
+  integrity sha512-Jo9aAhrnM4ZpUpW1y42O2FGZTPhLtW6KokGF1E6joBT4mj5JY9KXOIRh8nvvJ+gusiXsOFV4FW+gSJwAU26q4g==
   dependencies:
-    "@angular-devkit/core" "12.0.0-next.4"
-    ora "5.3.0"
+    ajv "6.12.6"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.6"
+    source-map "0.7.3"
+
+"@angular-devkit/schematics@12.0.0-next.5":
+  version "12.0.0-next.5"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-12.0.0-next.5.tgz#28280be3ab4eb39e1112b81c1939b43f45cd87a3"
+  integrity sha512-rXFy/0Apvh1Tiw0iR/CvIUHwQSdEzj6jS6IxFJDrEeJffeBAUAPPnogcZ2fZetVpU9XsurmkkhkAh8QzhJnTgw==
+  dependencies:
+    "@angular-devkit/core" "12.0.0-next.5"
+    ora "5.4.0"
     rxjs "6.6.6"
 
 "@angular-eslint/builder@2.0.1":
@@ -179,16 +198,16 @@
   optionalDependencies:
     parse5 "^5.0.0"
 
-"@angular/cli@12.0.0-next.4":
-  version "12.0.0-next.4"
-  resolved "https://registry.npmjs.org/@angular/cli/-/cli-12.0.0-next.4.tgz"
-  integrity sha512-VQjE9iEfAo9a08WTcme9ge8rog/02wnQJdje9W1B1rf+4QydefA2I1I6OMeiBzZbqU+3jdQFrP7GpN4b39VMxw==
+"@angular/cli@12.0.0-next.5":
+  version "12.0.0-next.5"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-12.0.0-next.5.tgz#dffcd163cfe1c7227bde1702a2a6db3a161d67f8"
+  integrity sha512-1098GO0Tpzu8efFMwEKtsiMGYX0ByygEKriM2LkaEN3Yy2q3Z7VBu7A1vhvOPmSqdNN89SX/rq9tjM+BYzSyaQ==
   dependencies:
-    "@angular-devkit/architect" "0.1200.0-next.4"
-    "@angular-devkit/core" "12.0.0-next.4"
-    "@angular-devkit/schematics" "12.0.0-next.4"
-    "@schematics/angular" "12.0.0-next.4"
-    "@schematics/update" "0.1200.0-next.4"
+    "@angular-devkit/architect" "0.1200.0-next.5"
+    "@angular-devkit/core" "12.0.0-next.5"
+    "@angular-devkit/schematics" "12.0.0-next.5"
+    "@schematics/angular" "12.0.0-next.5"
+    "@schematics/update" "0.1200.0-next.5"
     "@yarnpkg/lockfile" "1.1.0"
     ansi-colors "4.1.1"
     debug "4.3.1"
@@ -198,7 +217,7 @@
     npm-package-arg "8.1.1"
     npm-pick-manifest "6.1.0"
     open "8.0.2"
-    ora "5.3.0"
+    ora "5.4.0"
     pacote "11.3.0"
     resolve "1.20.0"
     rimraf "3.0.2"
@@ -1707,22 +1726,22 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@schematics/angular@12.0.0-next.4":
-  version "12.0.0-next.4"
-  resolved "https://registry.npmjs.org/@schematics/angular/-/angular-12.0.0-next.4.tgz"
-  integrity sha512-zz16yD7+NAH6Q8BEMG5To6ckUzpN7C4i96HuxY/QCvLjD9zK3LnCAUge9qX0qjCaKdM+KKwbouZ1bEjXXS/WhA==
+"@schematics/angular@12.0.0-next.5":
+  version "12.0.0-next.5"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-12.0.0-next.5.tgz#ee970aa0a757c6c80a4320ddb6cb30ad6923645d"
+  integrity sha512-MdKZFBwIJ6iW4LZQWpJhLV30k2lFk9s+OqMX6x/V7I7W6VxBYK8tvKZzZo7xAAzEWLv/w/UOxHXv/91CpNBN2g==
   dependencies:
-    "@angular-devkit/core" "12.0.0-next.4"
-    "@angular-devkit/schematics" "12.0.0-next.4"
+    "@angular-devkit/core" "12.0.0-next.5"
+    "@angular-devkit/schematics" "12.0.0-next.5"
     jsonc-parser "3.0.0"
 
-"@schematics/update@0.1200.0-next.4":
-  version "0.1200.0-next.4"
-  resolved "https://registry.npmjs.org/@schematics/update/-/update-0.1200.0-next.4.tgz"
-  integrity sha512-GUniNFKEPyPrlsDn3MZkcgz7W6XobKI5lDI5XgEjpaCI+AokxigyAjQ/TZdNFbPQWQ53/vh2PtfCGcF5wF2tXw==
+"@schematics/update@0.1200.0-next.5":
+  version "0.1200.0-next.5"
+  resolved "https://registry.yarnpkg.com/@schematics/update/-/update-0.1200.0-next.5.tgz#6d3a3be85b73c51794665ee9d863a87ade7d54a9"
+  integrity sha512-1yzuTNEQ/ilOR7pxTbKxxRKt9bwi8/OUJSSf42Wql6NgpZB6pnJB8+XReRU0L3OBEB9pIGeQ61LJbRu0IVFp4A==
   dependencies:
-    "@angular-devkit/core" "12.0.0-next.4"
-    "@angular-devkit/schematics" "12.0.0-next.4"
+    "@angular-devkit/core" "12.0.0-next.5"
+    "@angular-devkit/schematics" "12.0.0-next.5"
     "@yarnpkg/lockfile" "1.1.0"
     ini "2.0.0"
     npm-package-arg "^8.0.0"
@@ -2861,7 +2880,7 @@ bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-bl@^4.0.3:
+bl@^4.0.3, bl@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/bl/-/bl-4.1.0.tgz"
   integrity sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==
@@ -4299,17 +4318,17 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@4, debug@4.3.1, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.2.0, debug@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.npmjs.org/debug/-/debug-4.3.1.tgz"
-  integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
-  dependencies:
-    ms "2.1.2"
-
-debug@4.3.2:
+debug@4, debug@4.3.2, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.2.0, debug@^4.3.1:
   version "4.3.2"
   resolved "https://registry.npmjs.org/debug/-/debug-4.3.2.tgz"
   integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
+  dependencies:
+    ms "2.1.2"
+
+debug@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/debug/-/debug-4.3.1.tgz"
+  integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
   dependencies:
     ms "2.1.2"
 
@@ -6655,6 +6674,11 @@ is-typedarray@^1.0.0, is-typedarray@~1.0.0:
   resolved "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
+is-unicode-supported@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/is-unicode-supported/-/is-unicode-supported-0.1.0.tgz#3f26c76a809593b52bfa2ecb5710ed2779b522a7"
+  integrity sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==
+
 is-utf8@^0.2.0:
   version "0.2.1"
   resolved "https://registry.npmjs.org/is-utf8/-/is-utf8-0.2.1.tgz"
@@ -7678,6 +7702,14 @@ log-symbols@^4.0.0:
   dependencies:
     chalk "^4.0.0"
 
+log-symbols@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-4.1.0.tgz#3fbdbb95b4683ac9fc785111e792e558d4abd503"
+  integrity sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==
+  dependencies:
+    chalk "^4.1.0"
+    is-unicode-supported "^0.1.0"
+
 log-update@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/log-update/-/log-update-2.3.0.tgz"
@@ -8699,7 +8731,7 @@ optionator@^0.9.1:
     type-check "^0.4.0"
     word-wrap "^1.2.3"
 
-ora@5.3.0, ora@^5.1.0:
+ora@5.3.0:
   version "5.3.0"
   resolved "https://registry.npmjs.org/ora/-/ora-5.3.0.tgz"
   integrity sha512-zAKMgGXUim0Jyd6CXK9lraBnD3H5yPGBPPOkC23a2BG6hsm4Zu6OQSjQuEtV0BHDf4aKHcUFvJiGRrFuW3MG8g==
@@ -8710,6 +8742,21 @@ ora@5.3.0, ora@^5.1.0:
     cli-spinners "^2.5.0"
     is-interactive "^1.0.0"
     log-symbols "^4.0.0"
+    strip-ansi "^6.0.0"
+    wcwidth "^1.0.1"
+
+ora@5.4.0, ora@^5.1.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/ora/-/ora-5.4.0.tgz#42eda4855835b9cd14d33864c97a3c95a3f56bf4"
+  integrity sha512-1StwyXQGoU6gdjYkyVcqOLnVlbKj+6yPNNOxJVgpt9t4eksKjiriiHuxktLYkgllwk+D6MbC4ihH84L1udRXPg==
+  dependencies:
+    bl "^4.1.0"
+    chalk "^4.1.0"
+    cli-cursor "^3.1.0"
+    cli-spinners "^2.5.0"
+    is-interactive "^1.0.0"
+    is-unicode-supported "^0.1.0"
+    log-symbols "^4.1.0"
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
