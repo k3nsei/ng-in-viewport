@@ -7,7 +7,7 @@
  */
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, of, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, of } from 'rxjs';
 import { delay, take, takeUntil, tap } from 'rxjs/operators';
 
 const ELEMENTS_PER_PAGE = 5;

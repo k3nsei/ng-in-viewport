@@ -6,7 +6,7 @@
  * found in the LICENSE file in the root directory of this source tree.
  */
 
-import type { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 export interface InViewportRegistryEntry {
   root: Element | null;

@@ -8,8 +8,9 @@
 
 import { Injectable, NgZone } from '@angular/core';
 import { Subject } from 'rxjs';
+
 import { InViewportConfig } from './in-viewport-config';
-import type { InViewportRegistryEntries, InViewportRegistryEntry, InViewportTrigger } from './types';
+import { InViewportRegistryEntries, InViewportRegistryEntry, InViewportTrigger } from './types';
 
 @Injectable({ providedIn: 'root' })
 export class InViewportService {

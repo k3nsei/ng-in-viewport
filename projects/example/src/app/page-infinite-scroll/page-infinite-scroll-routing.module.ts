@@ -8,6 +8,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { PageInfiniteScrollComponent } from './page-infinite-scroll.component';
 
 const routes: Routes = [

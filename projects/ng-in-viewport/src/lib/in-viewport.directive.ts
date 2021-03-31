@@ -20,9 +20,10 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+
 import { InViewportConfig } from './in-viewport-config';
 import { InViewportService } from './in-viewport.service';
-import type { InViewportConfigOptions } from './types';
+import { InViewportConfigOptions } from './types';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const InViewportMetadata = Symbol('InViewportMetadata');

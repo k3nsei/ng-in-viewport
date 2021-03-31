@@ -8,6 +8,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { PageLazyImagesComponent } from './page-lazy-images.component';
 
 const routes: Routes = [

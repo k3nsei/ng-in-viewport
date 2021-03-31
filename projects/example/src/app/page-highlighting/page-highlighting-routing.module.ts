@@ -8,6 +8,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { PageHighlightingComponent } from './page-highlighting.component';
 
 const routes: Routes = [

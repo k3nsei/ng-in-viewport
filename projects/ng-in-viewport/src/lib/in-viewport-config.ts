@@ -6,7 +6,7 @@
  * found in the LICENSE file in the root directory of this source tree.
  */
 
-import type { InViewportConfigCheckFn, InViewportConfigDirections, InViewportConfigOptions } from './types';
+import { InViewportConfigCheckFn, InViewportConfigDirections, InViewportConfigOptions } from './types';
 import {
   stringifyObject,
   toBase64,
@@ -19,19 +19,19 @@ import {
 } from './utils';
 
 export class InViewportConfig {
-  #root?: Element;
+  private readonly _root?: Element;
 
-  #rootMargin: string;
+  private readonly _rootMargin: string;
 
-  #threshold: number | number[];
+  private readonly _threshold: number | number[];
 
-  #partial: boolean;
+  private readonly _partial: boolean;
 
-  #direction: InViewportConfigDirections;
+  private readonly _direction: InViewportConfigDirections;
 
-  #checkFn?: InViewportConfigCheckFn;
+  private readonly _checkFn?: InViewportConfigCheckFn;
 
-  #hash: string;
+  private readonly _hash: string;
 
   private constructor(
     root: Element | undefined,
@@ -41,14 +41,14 @@ export class InViewportConfig {
     direction: InViewportConfigDirections,
     checkFn?: InViewportConfigCheckFn
   ) {
-    this.#root = root;
-    this.#rootMargin = rootMargin;
-    this.#threshold = threshold;
-    this.#partial = partial;
-    this.#direction = direction;
-    this.#checkFn = checkFn;
+    this._root = root;
+    this._rootMargin = rootMargin;
+    this._threshold = threshold;
+    this._partial = partial;
+    this._direction = direction;
+    this._checkFn = checkFn;
 
-    this.#hash = toBase64(
+    this._hash = toBase64(
       stringifyObject({
         rootMargin: this.rootMargin,
         threshold: this.threshold,
@@ -71,30 +71,30 @@ export class InViewportConfig {
   }
 
   public get root(): Element | undefined {
-    return this.#root;
+    return this._root;
   }
 
   public get rootMargin(): string {
-    return this.#rootMargin;
+    return this._rootMargin;
   }
 
   public get threshold(): number | number[] {
-    return this.#threshold;
+    return this._threshold;
   }
 
   public get partial(): boolean {
-    return this.#partial;
+    return this._partial;
   }
 
   public get direction(): InViewportConfigDirections {
-    return this.#direction;
+    return this._direction;
   }
 
   public get hash(): string {
-    return this.#hash;
+    return this._hash;
   }
 
   public get checkFn(): InViewportConfigCheckFn | undefined {
-    return this.#checkFn;
+    return this._checkFn;
   }
 }

@@ -8,6 +8,7 @@
 
 import { TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
+
 import { InViewportService } from './in-viewport.service';
 import { intersectionObserverFactory } from './mocks';
 

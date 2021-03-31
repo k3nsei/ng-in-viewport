@@ -6,8 +6,8 @@
  * found in the LICENSE file in the root directory of this source tree.
  */
 
-import type { InViewportConfigCheckFn } from './in-viewport-config-check-fn';
-import type { InViewportConfigDirections } from './in-viewport-config-directions';
+import { InViewportConfigCheckFn } from './in-viewport-config-check-fn';
+import { InViewportConfigDirections } from './in-viewport-config-directions';
 
 export interface InViewportConfigOptions {
   root: Element;

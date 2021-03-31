@@ -6,7 +6,7 @@
  * found in the LICENSE file in the root directory of this source tree.
  */
 
-import type { ExampleSectionId } from '../support/example.po';
+import { ExampleSectionId } from '../support/example.po';
 import { getExampleComponent, getSection, getSectionItem } from '../support/example.po';
 
 describe('ExampleComponent', () => {

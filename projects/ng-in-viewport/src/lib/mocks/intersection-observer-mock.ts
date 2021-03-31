@@ -8,6 +8,7 @@
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 import { domRectFactory } from './dom-rect-mock';
 
 export const intersectionObserverFactory = (

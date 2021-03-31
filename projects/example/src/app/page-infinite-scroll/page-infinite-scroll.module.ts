@@ -8,6 +8,7 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
 import { SharedModule } from '../shared';
 import { PageInfiniteScrollRoutingModule } from './page-infinite-scroll-routing.module';
 import { PageInfiniteScrollComponent } from './page-infinite-scroll.component';

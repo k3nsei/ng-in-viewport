@@ -7,7 +7,7 @@
  */
 
 import { InViewportConfigDirection } from './in-viewport-config-direction';
-import type { InViewportConfigCheckFn, InViewportConfigDirections } from './types';
+import { InViewportConfigCheckFn, InViewportConfigDirections } from './types';
 
 export const isObject = (value: unknown): value is Record<string | number | symbol, any> =>
   !!value && Object.prototype.toString.call(value) === '[object Object]';

@@ -6,9 +6,8 @@
  * found in the LICENSE file in the root directory of this source tree.
  */
 
-/* eslint-disable @typescript-eslint/naming-convention */
-export const InViewportConfigDirection = {
-  BOTH: 'both',
-  VERTICAL: 'vertical',
-  HORIZONTAL: 'horizontal'
-} as const;
+export enum InViewportConfigDirection {
+  BOTH = 'both',
+  VERTICAL = 'vertical',
+  HORIZONTAL = 'horizontal'
+}

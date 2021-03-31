@@ -8,6 +8,7 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
 import { SharedModule } from '../shared';
 import { PageHighlightingRoutingModule } from './page-highlighting-routing.module';
 import { PageHighlightingComponent } from './page-highlighting.component';
