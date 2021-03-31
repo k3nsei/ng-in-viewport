@@ -65,3 +65,25 @@ jobs:
         with:
           token: ${{secrets.CODECOV_TOKEN}}
           file: coverage/all/lcov.info
+
+  legacy-build:
+    runs-on: ${{ matrix.os || 'ubuntu-latest' }}
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        ng: ['7', '8', '9', '10', '11']
+        include:
+          - ng: '7'
+            node: '10'
+          - ng: '8'
+            os: 'windows-latest'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node || '12' }}
+      - uses: k3nsei/build-ng-in-viewport-action@main
+        with:
+          version: ${{ matrix.ng }}
+          sourceDir: 'projects/ng-in-viewport'
