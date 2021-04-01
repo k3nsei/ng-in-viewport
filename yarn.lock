@@ -7255,10 +7255,10 @@ jest-snapshot@^26.6.2:
     pretty-format "^26.6.2"
     semver "^7.3.2"
 
-jest-util@27.0.0-next.3:
-  version "27.0.0-next.3"
-  resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-27.0.0-next.3.tgz#096e4badb4def7cd748ab17bf72cec82144ab385"
-  integrity sha512-vjHPCxbp880wPXMLXgN5+KuYs1eLMEnANCtoDVUIBWGeLU+1V8TcnXPO8OiCNoamYA24LJfgHE1zoWnF3r6qOg==
+jest-util@27.0.0-next.6:
+  version "27.0.0-next.6"
+  resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-27.0.0-next.6.tgz#639cc0b026a4a8e61ce15a8ff549db5c1a873831"
+  integrity sha512-qC0W3xOJZbgH3mpeaGDo0FnLYmIqPiPjwSucJSGCHRyemXlYwdnOdBTZlioU9YqcELLzDOEYvEKQYiH3+zMZ3A==
   dependencies:
     "@jest/types" "^27.0.0-next.3"
     "@types/node" "*"
@@ -11881,15 +11881,15 @@ trim-off-newlines@^1.0.0:
   resolved "https://registry.npmjs.org/trim-off-newlines/-/trim-off-newlines-1.0.1.tgz"
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
-ts-jest@27.0.0-next.9:
-  version "27.0.0-next.9"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-27.0.0-next.9.tgz#04457b664829b7c8fb55defe4e0681420c3389fb"
-  integrity sha512-cBPbeOeenjtupe2Vcbb3vKqE7VED23jfGagDu6l3QjZCbx03pedqOrl02ajBKy/tT2B3TIFQt4BtwQRxig9eyw==
+ts-jest@27.0.0-next.10:
+  version "27.0.0-next.10"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-27.0.0-next.10.tgz#23a848388c0c4765d8a736ff4020eb2ebec9af4c"
+  integrity sha512-fC1NSewNCnJQM7xz4TxG9PKRSXIajkc5ZaML6I75ig3vwHxZs4UC84qLAm4IBxelWSCKYTIQobOioT3fcXj1jQ==
   dependencies:
     bs-logger "0.x"
     buffer-from "1.x"
     fast-json-stable-stringify "2.x"
-    jest-util "27.0.0-next.3"
+    jest-util "27.0.0-next.6"
     json5 "2.x"
     lodash "4.x"
     make-error "1.x"
