@@ -58,8 +58,8 @@ jobs:
         with:
           name: ng-in-viewport-example
           path: dist/example
-      - name: Test
-        run: yarn run test --ci --coverage
+      # - name: Test
+      #   run: yarn run test --ci --coverage
       - name: Upload coverage
         uses: codecov/codecov-action@v1.3.2
         with:
