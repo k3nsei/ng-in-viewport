@@ -9,6 +9,7 @@
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { describe, expect, it } from '@jest/globals';
 import { ExampleComponent } from './example.component';
 
 describe('ExampleComponent', () => {

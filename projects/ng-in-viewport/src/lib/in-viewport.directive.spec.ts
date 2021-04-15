@@ -18,6 +18,7 @@ import {
 } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { describe, expect, it } from '@jest/globals';
 import { Subject } from 'rxjs';
 import { InViewportDirective } from './in-viewport.directive';
 import { intersectionObserverFactory } from './mocks';

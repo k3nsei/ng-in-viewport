@@ -7,6 +7,7 @@
  */
 
 import { TestBed } from '@angular/core/testing';
+import { describe, expect, it } from '@jest/globals';
 import { Subject } from 'rxjs';
 import { InViewportService } from './in-viewport.service';
 import { intersectionObserverFactory } from './mocks';
