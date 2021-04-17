@@ -7389,7 +7389,7 @@ jest-util@27.0.0-next.6:
     is-ci "^3.0.0"
     micromatch "^4.0.2"
 
-jest-util@^27.0.0-next.6, jest-util@^27.0.0-next.8:
+jest-util@27.0.0-next.8, jest-util@^27.0.0-next.6, jest-util@^27.0.0-next.8:
   version "27.0.0-next.8"
   resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-27.0.0-next.8.tgz#3372df3779b16192fcaf7afdb0a88a07ef6abaf4"
   integrity sha512-yL+OHfe0uyjofzTwkSPyzJ4mihhMJsTAEp0OcvBP23V9IjKFvt76aV2+iab+wlGZP+K4lpjkr1vd7JK9+Kc6Ew==
@@ -11950,6 +11950,22 @@ ts-jest@27.0.0-next.10:
     buffer-from "1.x"
     fast-json-stable-stringify "2.x"
     jest-util "27.0.0-next.6"
+    json5 "2.x"
+    lodash "4.x"
+    make-error "1.x"
+    mkdirp "1.x"
+    semver "7.x"
+    yargs-parser "20.x"
+
+ts-jest@27.0.0-next.11:
+  version "27.0.0-next.11"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-27.0.0-next.11.tgz#6845dda6525ca7d94ea3517b4f7813c0fb93d0b1"
+  integrity sha512-MdlskBkkYy2/Q47Wlilf0ZJhRe1kZdP9ul7vOwsICUtS+47aCv47nRMrueDg1VCcOcWT3ZgwZ3XaYXcGFEhcHA==
+  dependencies:
+    bs-logger "0.x"
+    buffer-from "1.x"
+    fast-json-stable-stringify "2.x"
+    jest-util "27.0.0-next.8"
     json5 "2.x"
     lodash "4.x"
     make-error "1.x"
