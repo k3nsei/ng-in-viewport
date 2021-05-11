@@ -56,7 +56,7 @@
     "@angular-eslint/eslint-plugin-template": "4.0.0",
     "@angular-eslint/schematics": "4.0.0",
     "@angular-eslint/template-parser": "4.0.0",
-    "@angular/cli": "12.0.0-next.9",
+    "@angular/cli": "12.0.0-rc.3",
     "@angular/compiler-cli": "12.0.0-next.9",
     "@commitlint/cli": "12.1.1",
     "@commitlint/config-conventional": "12.1.1",
