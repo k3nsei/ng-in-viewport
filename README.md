@@ -16,8 +16,8 @@
 
 Allows us to check if an element is within the browsers visual viewport
 
-- 🤓 Learn about it on the [DOCS Site][lib-docs]
-- 🚀 See it in action on [Stackblitz][example-app]
+- 🤓 Learn about it on the [Docs Site][lib-docs]
+- 🚀 See it in action on the [Examples Site][example-app]
 - 🎮 Play with it on [Stackblitz][example-app-embed]
 
 ## License
@@ -79,7 +79,7 @@ This project follows the [all-contributors][all-contributors-url] specification.
 [npm-badge-downloads]: https://img.shields.io/npm/dm/ng-in-viewport?style=flat-square
 [npm-badge-url]: https://www.npmjs.com/package/ng-in-viewport
 [lib-docs]: https://k3nsei.gitbook.io/ng-in-viewport/
-[example-app]: https://ng-in-viewport-example.stackblitz.io/
+[example-app]: https://ng-in-viewport-k3nsei.vercel.app/
 [example-app-embed]: https://stackblitz.com/edit/ng-in-viewport-example?embed=1&file=src/main.ts
 [all-contributors-url]: https://github.com/all-contributors/all-contributors
 <!-- markdownlint-restore -->
