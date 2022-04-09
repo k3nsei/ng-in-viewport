@@ -43,13 +43,13 @@ jobs:
           browser: chrome
           headless: true
       - name: Upload videos
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: demo-e2e-videos
           path: dist/cypress/demo/videos
       - name: Upload screenshots
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: demo-e2e-screenshots

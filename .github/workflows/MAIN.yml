@@ -44,17 +44,17 @@ jobs:
           yarn run build:demo --progress=false
           yarn run build:example --progress=false
       - name: Upload library build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ng-in-viewport
           path: dist/ng-in-viewport
       - name: Upload demo build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ng-in-viewport-demo
           path: dist/demo
       - name: Upload example build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ng-in-viewport-example
           path: dist/example
