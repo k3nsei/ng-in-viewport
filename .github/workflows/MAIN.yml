@@ -61,7 +61,7 @@ jobs:
       # - name: Test
       #   run: yarn run test --ci --coverage
       - name: Upload coverage
-        uses: codecov/codecov-action@v1.5.0
+        uses: codecov/codecov-action@v3.1.0
         with:
           token: ${{secrets.CODECOV_TOKEN}}
           file: coverage/all/lcov.info
