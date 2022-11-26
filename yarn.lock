@@ -121,10 +121,10 @@
     ora "5.4.0"
     rxjs "6.6.7"
 
-"@angular-eslint/builder@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-12.0.0.tgz#b6cf118b8918fd6440599b1765f2bd5d90bbc6e7"
-  integrity sha512-gvvXQDXXi0gsWZ25KyMqF/1b3AaX+CJbpVgTPqxJdEx4euvmG/m3993ynmpf+Kc+F+aI2O9W4TUbDbbLWoCjIA==
+"@angular-eslint/builder@15.1.0":
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-15.1.0.tgz#8175dbb3daa637fbd643c3a1db55e49e5341e1e2"
+  integrity sha512-MoPeJv4a1wSoFj8fVA01hFb+QQke2t74CSVuc6o4EqkWI0tYMM1Wg19fPtTZnj4spkGA82j2mf/tazKGRe/nrw==
 
 "@angular-eslint/eslint-plugin-template@12.0.0":
   version "12.0.0"
