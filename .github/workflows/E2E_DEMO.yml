@@ -35,7 +35,7 @@ jobs:
       - name: Build demo app
         run: yarn run build:demo
       - name: Run cypress
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
           start: yarn run serve -l 4200 ./dist/demo
           wait-on: 'http://localhost:4200'
