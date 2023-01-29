@@ -39,6 +39,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/wkurniawan07"><img src="https://avatars2.githubusercontent.com/u/7261051?v=4?s=100" width="100px;" alt="Wilson Kurniawan"/><br /><sub><b>Wilson Kurniawan</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Awkurniawan07" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/basters"><img src="https://avatars0.githubusercontent.com/u/17099950?v=4?s=100" width="100px;" alt="Eugene"/><br /><sub><b>Eugene</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/commits?author=basters" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/samizarraa"><img src="https://avatars3.githubusercontent.com/u/20872538?v=4?s=100" width="100px;" alt="Sami Zarraa"/><br /><sub><b>Sami Zarraa</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Asamizarraa" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Jonnyprof"><img src="https://avatars.githubusercontent.com/u/9952131?v=4?s=100" width="100px;" alt="JordiJS"/><br /><sub><b>JordiJS</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3AJonnyprof" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
