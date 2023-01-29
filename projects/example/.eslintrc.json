@@ -5,14 +5,6 @@
     {
       "files": ["*.ts"],
       "rules": {
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "invp-ex",
-            "style": "kebab-case"
-          }
-        ],
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -20,8 +12,20 @@
             "prefix": "invpEx",
             "style": "camelCase"
           }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "invp-ex",
+            "style": "kebab-case"
+          }
         ]
       }
+    },
+    {
+      "files": ["*.html"],
+      "rules": {}
     }
   ]
 }

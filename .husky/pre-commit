@@ -1,9 +1,6 @@
-#!/bin/sh
-. "$(dirname $0)/_/husky.sh"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
 [ -n "$CI" ] && exit 0
 
-npx markdownlint-cli2 "**/*.{md,markdown}" "#CHANGELOG.md" "#CODE_OF_CONDUCT.md" "#node_modules" "#.husky" "#.yarn" "#coverage" "#dist" "#docs" "#out-tsc" "#tmp"
-npx lint-staged
-npx prettier --check .
-
+npx --no -- lint-staged

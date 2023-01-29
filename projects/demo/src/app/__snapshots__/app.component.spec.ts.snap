@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should create component 1`] = `
+<div
+  id="root0"
+>
+  <header
+    class="app-header"
+  >
+    <h1
+      class="app-header__title"
+    >
+      ng-in-viewport demo
+    </h1>
+  </header>
+  <main
+    class="app-content"
+  >
+    <invp-example />
+  </main>
+</div>
+`;

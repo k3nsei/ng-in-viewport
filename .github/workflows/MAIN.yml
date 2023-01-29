@@ -1,67 +1,192 @@
 name: Main
+
 on:
   push:
     branches: [stable, develop]
-  pull_request:
-    branches: [develop]
+
 jobs:
   build:
     name: Run build and unit tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Read .nvmrc
-        id: nvm
-        run: echo "##[set-output name=NODE_VERSION;]$(cat .nvmrc)"
+        uses: actions/checkout@v3
+
       - name: Setup node.js
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v3
         with:
-          node-version: '${{ steps.nvm.outputs.NODE_VERSION }}'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+          node-version: 'lts/*'
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
       - name: Restore dependencies cache
-        uses: actions/cache@v2.1.5
+        id: npm-cache
+        uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-dependencies-
+            ${{ runner.os }}-node-
+
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --silent
+        run: npm ci
+
       - name: Check code format
-        run: yarn run format:check
+        run: npm run format
+
       - name: Lint
         run: |
-          yarn run lint:demo
-          yarn run lint:demo-e2e
-          yarn run lint:example
-          yarn run lint:lib
+          npm run lint
+
       - name: Build
         run: |
-          yarn run build:lib
-          yarn run build:demo --progress=false
-          yarn run build:example --progress=false
+          npm run build:lib
+          npm run build:demo -- --progress=false
+          npm run build:example -- --progress=false
+
+      - name: Test
+        run: |
+          npm run test:lib
+          npm run test:demo
+          npm run test:example
+
       - name: Upload library build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ng-in-viewport
           path: dist/ng-in-viewport
-      - name: Upload demo build artifact
-        uses: actions/upload-artifact@v2
+
+      - name: Upload demo application build artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: ng-in-viewport-demo
+          name: demo-application
           path: dist/demo
-      - name: Upload example build artifact
-        uses: actions/upload-artifact@v2
+
+      - name: Upload example application build artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: ng-in-viewport-example
+          name: example-application
           path: dist/example
-      # - name: Test
-      #   run: yarn run test --ci --coverage
-      - name: Upload coverage
-        uses: codecov/codecov-action@v1.5.0
+
+      - uses: codecov/codecov-action@v3
         with:
-          token: ${{secrets.CODECOV_TOKEN}}
-          file: coverage/all/lcov.info
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage/ng-in-viewport/lcov.info
+          flags: unittests
+
+  e2e-demo:
+    name: Run E2E test against Demo Application
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Restore dependencies cache
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: demo-application
+          path: dist/demo
+
+      - name: Run cypress
+        uses: cypress-io/github-action@v5
+        with:
+          project: projects/demo-e2e
+          browser: chrome
+          headless: true
+
+      - name: Upload failed screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: failed-demo-e2e-screenshots
+          path: projects/demo-e2e/artifacts/screenshots
+
+      - name: Upload failed videos
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: failed-demo-e2e-videos
+          path: projects/demo-e2e/artifacts/videos
+
+  e2e-example:
+    name: Run E2E test against Example Application
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Restore dependencies cache
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: example-application
+          path: dist/example
+
+      - name: Run cypress
+        uses: cypress-io/github-action@v5
+        with:
+          project: projects/example-e2e
+          browser: chrome
+          headless: true
+
+      - name: Upload failed screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: failed-example-e2e-screenshots
+          path: projects/example-e2e/artifacts/screenshots
+
+      - name: Upload failed videos
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: failed-example-e2e-videos
+          path: projects/example-e2e/artifacts/videos

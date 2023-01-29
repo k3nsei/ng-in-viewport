@@ -1,0 +1,186 @@
+name: PR
+
+on:
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build:
+    name: Run build and unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Restore dependencies cache
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-pr-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-pr-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check code format
+        run: npm run format
+
+      - name: Lint
+        run: |
+          npm run lint
+
+      - name: Build
+        run: |
+          npm run build:lib
+          npm run build:demo -- --progress=false
+          npm run build:example -- --progress=false
+
+      - name: Test
+        run: |
+          npm run test:lib
+          npm run test:demo
+          npm run test:example
+
+      - name: Upload library build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr-ng-in-viewport
+          path: dist/ng-in-viewport
+
+      - name: Upload demo application build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr-demo-application
+          path: dist/demo
+
+      - name: Upload example application build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr-example-application
+          path: dist/example
+
+  e2e-demo:
+    name: Run E2E test against Demo Application
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Restore dependencies cache
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-pr-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-pr-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: pr-demo-application
+          path: dist/demo
+
+      - name: Run cypress
+        uses: cypress-io/github-action@v5
+        with:
+          project: projects/demo-e2e
+          browser: chrome
+          headless: true
+
+      - name: Upload failed screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: pr-failed-demo-e2e-screenshots
+          path: projects/demo-e2e/artifacts/screenshots
+
+      - name: Upload failed videos
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: pr-failed-demo-e2e-videos
+          path: projects/demo-e2e/artifacts/videos
+
+  e2e-example:
+    name: Run E2E test against Example Application
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Restore dependencies cache
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-pr-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-pr-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: pr-example-application
+          path: dist/example
+
+      - name: Run cypress
+        uses: cypress-io/github-action@v5
+        with:
+          project: projects/example-e2e
+          browser: chrome
+          headless: true
+
+      - name: Upload failed screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: pr-failed-example-e2e-screenshots
+          path: projects/example-e2e/artifacts/screenshots
+
+      - name: Upload failed videos
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: pr-failed-example-e2e-videos
+          path: projects/example-e2e/artifacts/videos
