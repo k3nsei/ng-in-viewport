@@ -18,7 +18,7 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
       timezone: 'Europe/Warsaw'
       day: 'saturday'
       time: '06:00'

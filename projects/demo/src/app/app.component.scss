@@ -1,19 +1,18 @@
-%block {
-  margin: 0;
-  padding: 1rem 1rem 0;
-  display: block;
+:host {
+  display: contents;
+}
+
+:is(.app-header, .app-content) {
+  padding: 1rem;
 }
 
 .app-header {
-  @extend %block;
-
-  &__title {
-    margin: 0;
-    font-size: 2rem;
-    text-transform: uppercase;
-  }
+  block-size: 4rem;
+  padding-block-end: 0;
 }
 
-.app-content {
-  @extend %block;
+.app-header__title {
+  margin: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
 }

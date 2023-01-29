@@ -1,72 +1,76 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
-  "plugins": ["header"],
+  "settings": {
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    }
+  },
   "overrides": [
     {
       "files": ["*.ts"],
-      "parserOptions": {
-        "project": ["./tsconfig.json", "./tsconfig.*?.json"]
-      },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended"
       ],
       "rules": {
-        "header/header": [
-          2,
-          "block",
-          [
-            "!",
-            " * @license",
-            {
-              "pattern": " * Copyright \\(c\\) \\d{4} Piotr Stępniewski \\<k3nsei\\.pl@gmail\\.com\\>",
-              "template": " * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>"
-            },
-            " *",
-            " * Use of this source code is governed by an MIT-style license that can be",
-            " * found in the LICENSE file in the root directory of this source tree.",
-            " "
-          ],
-          2
-        ],
-        "@typescript-eslint/no-inferrable-types": "off",
-        "@typescript-eslint/naming-convention": [
+        "sort-imports": [
           "error",
           {
-            "selector": "default",
-            "format": ["camelCase"],
-            "leadingUnderscore": "allow",
-            "trailingUnderscore": "allow"
-          },
+            "ignoreDeclarationSort": true,
+            "allowSeparatedGroups": true
+          }
+        ],
+        "import/first": "error",
+        "import/order": [
+          "error",
           {
-            "selector": "variable",
-            "format": ["camelCase", "UPPER_CASE"],
-            "leadingUnderscore": "allow",
-            "trailingUnderscore": "allow"
-          },
+            "alphabetize": { "order": "asc", "caseInsensitive": true },
+            "newlines-between": "always",
+            "groups": [
+              ["builtin", "external"],
+              "internal",
+              "parent",
+              ["sibling", "index"],
+              "object",
+              "type"
+            ]
+          }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
           {
-            "selector": "typeLike",
-            "format": ["PascalCase"]
-          },
+            "argsIgnorePattern": "^_",
+            "caughtErrors": "all",
+            "caughtErrorsIgnorePattern": "^(_|ignore)",
+            "destructuredArrayIgnorePattern": "^_",
+            "ignoreRestSiblings": true
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
           {
-            "selector": "enum",
-            "format": ["PascalCase", "UPPER_CASE"]
-          },
-          {
-            "selector": "memberLike",
-            "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+            "accessibility": "explicit",
+            "overrides": {
+              "constructors": "no-public"
+            }
           }
         ]
       }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {
-        "header/header": "off"
-      }
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {}
     }
   ]
 }

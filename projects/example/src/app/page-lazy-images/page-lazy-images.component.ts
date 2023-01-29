@@ -1,33 +1,38 @@
-/*!
- * @license
- * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file in the root directory of this source tree.
- */
+import { NgForOf, NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { Component, OnInit } from '@angular/core';
+import { LazyImageSkeletonComponent } from './lazy-image-skeleton';
+import { LazyImageDirective } from './lazy-image.directive';
 
 @Component({
+  standalone: true,
   selector: 'invp-ex-page-lazy-images',
   templateUrl: './page-lazy-images.component.html',
-  styleUrls: ['./page-lazy-images.component.scss']
+  styleUrls: ['./page-lazy-images.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgForOf, NgIf, MatGridListModule, MatSnackBarModule, LazyImageSkeletonComponent, LazyImageDirective],
 })
-export class PageLazyImagesComponent implements OnInit {
-  private static IMAGES_COUNT: number = 100;
+export class PageLazyImagesComponent {
+  public dimensions: [number, number] = [640, 360];
 
-  public imageDimensions: [number, number] = [640, 360];
-  public gridTiles: Array<string> = [];
+  public items: Array<string> = Array.from({ length: 100 }, (_, i) => this.getImageUrl(i + 1));
 
-  public ngOnInit(): void {
-    this.gridTiles = Array(PageLazyImagesComponent.IMAGES_COUNT)
-      .fill(1)
-      .map((v, k) => this.getImageUrl(v + k));
+  protected itemTrackBy(index: number, item: string): string {
+    return item;
   }
 
-  public getImageUrl(num: number = 1): string {
-    const [width, height]: [number, number] = this.imageDimensions;
-    const gravity: string = 'center';
-    return `https://picsum.photos/${width}/${height}?random&gravity=${gravity}&${num}`;
+  private getImageUrl(number = 1): string {
+    const [width, height]: [number, number] = this.dimensions;
+    const searchParams = new URLSearchParams({
+      random: '',
+      gravity: 'center',
+      number: `${number}`,
+    });
+
+    return `https://picsum.photos/${width}/${height}?${searchParams}`;
   }
 }
+
+export default PageLazyImagesComponent;

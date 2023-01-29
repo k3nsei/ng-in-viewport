@@ -1,34 +1,40 @@
-/*!
- * @license
- * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file in the root directory of this source tree.
- */
+import { ChangeDetectionStrategy, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
-import { ChangeDetectionStrategy, Component, Renderer2, ViewEncapsulation } from '@angular/core';
+import { InViewportAction } from 'ng-in-viewport';
 
 @Component({
   selector: 'invp-example',
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
 })
 export class ExampleComponent {
   public elements: number[] = Array(100)
     .fill(null)
     .map((_, idx: number) => idx + 1);
 
-  readonly #activeClassName: string = 'item--active';
+  private readonly activeClassName: string = 'item--active';
+
+  @ViewChild('secondSection', { static: true })
+  private readonly secondSection!: ElementRef<HTMLSelectElement>;
 
   constructor(private readonly renderer: Renderer2) {}
 
-  handleAction({ target = null, visible = false }: { target: HTMLElement | null; visible: boolean }): void {
+  public handleAction({ target, visible }: InViewportAction): void {
     if (visible) {
-      this.renderer.addClass(target, this.#activeClassName);
+      this.renderer.addClass(target, this.activeClassName);
     } else {
-      this.renderer.removeClass(target, this.#activeClassName);
+      this.renderer.removeClass(target, this.activeClassName);
     }
+  }
+
+  protected getOptions(section: 'first' | 'second', isEven: boolean) {
+    const isSecond = section === 'second';
+
+    return {
+      root: isSecond ? this.secondSection.nativeElement : undefined,
+      threshold: isEven ? [0, 0.5, 1] : [0, 1],
+      partial: !isSecond,
+    };
   }
 }
