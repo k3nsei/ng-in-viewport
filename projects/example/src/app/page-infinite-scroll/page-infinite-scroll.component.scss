@@ -5,12 +5,12 @@
 }
 
 .card {
-  width: 90vw;
-  max-width: 1200px;
-  margin: 0 5vw 12px;
+  inline-size: clamp(240px, calc(100% - 24px), 1200px);
+  margin-inline: 24px;
+  margin-block: 0 12px;
 
   &:first-of-type {
-    margin-top: 12px;
+    margin-block-start: 24px;
   }
 }
 
@@ -24,17 +24,17 @@
 }
 
 .mat-spinner {
-  margin: 0 0 12px;
+  margin: 0;
+  margin-block-end: 12px;
 }
 
-.mat-raised-button {
-  width: 90vw;
-  max-width: 1200px;
-  margin: 0 5vw 8px;
+[mat-raised-button] {
+  inline-size: clamp(240px, calc(100% - 24px), 1200px);
+  margin-block: 0 8px;
 }
 
 .infinite-scroll-zone {
-  height: 2px;
-  margin: 0 0 2px;
+  block-size: 2px;
+  margin-block-end: 2px;
   overflow: hidden;
 }

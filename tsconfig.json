@@ -5,22 +5,26 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "ng-in-viewport": ["projects/ng-in-viewport/src/public-api"]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2015",
-    "module": "ESNext",
-    "lib": ["ES2018", "DOM", "DOM.Iterable"],
-    "paths": {
-      "ng-in-viewport": ["dist/ng-in-viewport"]
-    }
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": ["ES2022", "DOM"]
   },
   "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true

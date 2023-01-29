@@ -1,9 +1,9 @@
-/.history
-/.husky
-/.yarn
-/node_modules
+/.angular
+/.husky/_
+/coverage
 /dist
 /docs
 /out-tsc
 /tmp
-/coverage
+
+*.snap

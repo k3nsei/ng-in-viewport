@@ -1,6 +1,3 @@
-# Encrypt the repository
-# Remove/modify this line if the repository is meant to be open-source
-# *.* filter=git-crypt diff=git-crypt
 .gitattributes !filter !diff
 
 # Source code

@@ -1,18 +1,16 @@
-invp-example {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .example {
   padding: 1rem;
   display: block;
-  flex: 1 0 auto;
   border: 0.4rem dashed var(--br-c);
 
   &--second {
-    margin-left: 1rem;
-    height: calc(100vh - 5rem);
+    block-size: calc(100dvh - 6rem);
     overflow: auto;
   }
 }
@@ -24,21 +22,25 @@ invp-example {
   --st-c: var(--item-sh-c);
   --st-c2: var(--item-sh-c2);
 
-  width: 100%;
-  height: 10vh;
-  margin: 0 0 1rem;
+  block-size: 10dvh;
+  margin-block-end: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-c);
+  background-color: var(--bg-c);
   font-size: 2.4rem;
   font-weight: bold;
-  text-shadow: 0.1rem 0.1rem 0 var(--st-c), 0 0.1rem 0 var(--st-c), -0.1rem -0.1rem 0 var(--st-c),
-    -0.1rem -0.1rem 0 var(--st-c), -0.1rem 0.1rem 0 var(--st-c), 0.1rem -0.1rem 0 var(--st-c),
-    0.03535533906rem 0.03535533906rem 0 var(--st-c2), 0.07071067812rem 0.07071067812rem 0 var(--st-c2),
-    0.10606601718rem 0.10606601718rem 0 var(--st-c2), 0.14142135624rem 0.14142135624rem 0 var(--st-c2),
-    0.1767766953rem 0.1767766953rem 0 var(--st-c2), 0.21213203436rem 0.21213203436rem 0 var(--st-c2),
-    0.24748737342rem 0.24748737342rem 0 var(--st-c2), 0.28284271247rem 0.28284271247rem 0 var(--st-c2);
+  text-shadow: 0.1rem 0.1rem 0 var(--st-c), 0 0.1rem 0 var(--st-c),
+    -0.1rem -0.1rem 0 var(--st-c), -0.1rem -0.1rem 0 var(--st-c),
+    -0.1rem 0.1rem 0 var(--st-c), 0.1rem -0.1rem 0 var(--st-c),
+    0.03535533906rem 0.03535533906rem 0 var(--st-c2),
+    0.07071067812rem 0.07071067812rem 0 var(--st-c2),
+    0.10606601718rem 0.10606601718rem 0 var(--st-c2),
+    0.14142135624rem 0.14142135624rem 0 var(--st-c2),
+    0.1767766953rem 0.1767766953rem 0 var(--st-c2),
+    0.21213203436rem 0.21213203436rem 0 var(--st-c2),
+    0.24748737342rem 0.24748737342rem 0 var(--st-c2),
+    0.28284271247rem 0.28284271247rem 0 var(--st-c2);
   transition: background-color 250ms linear;
 
   &--last {

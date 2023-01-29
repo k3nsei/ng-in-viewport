@@ -1,20 +1,20 @@
-/*!
- * @license
- * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file in the root directory of this source tree.
- */
+import { APP_BASE_HREF } from '@angular/common';
+import { provideHttpClient } from '@angular/common/http';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import { AppComponent } from './app/app.component';
+import { APP_ROUTES } from './app/app.routes';
 
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideAnimations(),
+    provideHttpClient(),
+    provideRouter(
+      APP_ROUTES,
+      withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' })
+    ),
+    { provide: APP_BASE_HREF, useValue: '/' },
+  ],
+}).catch((err) => console.error(err));

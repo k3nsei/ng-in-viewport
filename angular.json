@@ -1,20 +1,46 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "cli": {
-    "analytics": false,
-    "packageManager": "yarn"
-  },
   "newProjectRoot": "projects",
+  "defaultProject": "demo",
   "projects": {
+    "ng-in-viewport": {
+      "projectType": "library",
+      "root": "projects/ng-in-viewport",
+      "sourceRoot": "projects/ng-in-viewport/src",
+      "prefix": "in-viewport",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-in-viewport/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-in-viewport/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-in-viewport/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-in-viewport/**/*.ts",
+              "projects/ng-in-viewport/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "projects/demo",
@@ -27,33 +53,18 @@
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
             "main": "projects/demo/src/main.ts",
-            "polyfills": "projects/demo/src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/demo/tsconfig.app.json",
-            "assets": ["projects/demo/src/favicon.ico", "projects/demo/src/assets"],
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/demo/src/favicon.ico",
+              "projects/demo/src/assets"
+            ],
             "styles": ["projects/demo/src/styles.scss"],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": true,
-            "buildOptimizer": true,
-            "sourceMap": true,
-            "optimization": true,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/demo/src/environments/environment.ts",
-                  "with": "projects/demo/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -65,20 +76,31 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "demo:build"
-          },
           "configurations": {
             "production": {
               "browserTarget": "demo:build:production"
+            },
+            "development": {
+              "browserTarget": "demo:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -89,7 +111,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/demo/**/*.ts", "projects/demo/**/*.html"]
+            "lintFilePatterns": [
+              "projects/demo/**/*.ts",
+              "projects/demo/**/*.html"
+            ]
           }
         }
       }
@@ -98,34 +123,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "inlineTemplate": true,
-          "inlineStyle": true,
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:interceptor": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        },
-        "@schematics/angular:application": {
-          "strict": true
+          "style": "scss"
         }
       },
       "root": "projects/example",
@@ -138,33 +136,21 @@
             "outputPath": "dist/example",
             "index": "projects/example/src/index.html",
             "main": "projects/example/src/main.ts",
-            "polyfills": "projects/example/src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/example/tsconfig.app.json",
-            "assets": ["projects/example/src/favicon.ico", "projects/example/src/assets"],
-            "styles": ["projects/example/src/styles.scss"],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": true,
-            "buildOptimizer": true,
-            "sourceMap": true,
-            "optimization": true,
-            "namedChunks": true
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/example/src/favicon.ico",
+              "projects/example/src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/example/src/styles.scss"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/example/src/environments/environment.ts",
-                  "with": "projects/example/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -176,19 +162,33 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "example:build"
-          },
           "configurations": {
             "production": {
               "browserTarget": "example:build:production"
+            },
+            "development": {
+              "browserTarget": "example:build:development"
             }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4300
           }
         },
         "extract-i18n": {
@@ -200,37 +200,23 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/example/**/*.ts", "projects/example/**/*.html"]
-          }
-        }
-      }
-    },
-    "ng-in-viewport": {
-      "projectType": "library",
-      "root": "projects/ng-in-viewport",
-      "sourceRoot": "projects/ng-in-viewport/src",
-      "prefix": "inViewport",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/ng-in-viewport/tsconfig.lib.json",
-            "project": "projects/ng-in-viewport/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-in-viewport/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": ["projects/ng-in-viewport/**/*.ts", "projects/ng-in-viewport/**/*.html"]
+            "lintFilePatterns": [
+              "projects/example/**/*.ts",
+              "projects/example/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "demo"
+  "cli": {
+    "packageManager": "npm",
+    "defaultCollection": "@ngneat/spectator",
+    "schematicCollections": ["@ngneat/spectator", "@angular-eslint/schematics"]
+  },
+  "schematics": {
+    "@ngneat/spectator:spectator-component": {
+      "style": "scss"
+    }
+  }
 }

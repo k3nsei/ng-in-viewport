@@ -1,43 +1,35 @@
-/*!
- * @license
- * Copyright (c) 2020 Piotr Stępniewski <k3nsei.pl@gmail.com>
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file in the root directory of this source tree.
- */
+import { NgForOf } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Renderer2 } from '@angular/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 
-import { Component, Renderer2 } from '@angular/core';
-import { InViewportMetadata } from 'ng-in-viewport';
+import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
 
 @Component({
+  standalone: true,
   selector: 'invp-ex-page-highlighting',
   templateUrl: './page-highlighting.component.html',
-  styleUrls: ['./page-highlighting.component.scss']
+  styleUrls: ['./page-highlighting.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgForOf, MatGridListModule, InViewportDirective],
 })
 export class PageHighlightingComponent {
-  private static ELEMENTS = 100;
+  public items: { value: number }[] = Array.from({ length: 100 }, (_, i) => ({ value: i + 1 }));
 
-  public gridTiles: Array<number> = Array(PageHighlightingComponent.ELEMENTS)
-    .fill(1)
-    .map((v, k) => v + k);
+  constructor(private readonly renderer: Renderer2) {}
 
-  constructor(private renderer: Renderer2) {}
+  public highlight(event: InViewportAction) {
+    const { target, visible } = event;
 
-  highlightTile(event: {
-    [InViewportMetadata]: { entry: IntersectionObserverEntry };
-    target: HTMLElement;
-    visible: boolean;
-  }) {
-    const {
-      [InViewportMetadata]: { entry },
-      target,
-      visible
-    } = event;
+    const newClassname = visible ? 'active' : 'inactive';
+    this.renderer.addClass(target, newClassname);
 
-    const addClass = visible ? 'active' : 'inactive';
-    this.renderer.addClass(target, addClass);
+    const oldClassname = visible ? 'inactive' : 'active';
+    this.renderer.removeClass(target, oldClassname);
+  }
 
-    const rmClass = visible ? 'inactive' : 'active';
-    this.renderer.removeClass(target, rmClass);
+  protected itemTrackBy(index: number, item: { value: number }): number {
+    return item.value;
   }
 }
+
+export default PageHighlightingComponent;

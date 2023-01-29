@@ -4,29 +4,25 @@
   "overrides": [
     {
       "files": ["*.ts"],
-      "parserOptions": {
-        "project": ["projects/ng-in-viewport/tsconfig.lib.json", "projects/ng-in-viewport/tsconfig.spec.json"],
-        "createDefaultProgram": true
-      },
       "rules": {
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "",
-            "style": "kebab-case"
-          }
-        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "",
+            "prefix": "inViewport",
             "style": "camelCase"
           }
         ],
-        "@angular-eslint/no-input-rename": "off",
-        "@angular-eslint/no-output-rename": "off"
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "in-viewport",
+            "style": "kebab-case"
+          }
+        ]
       }
     },
     {

@@ -1,9 +1,9 @@
-<ng-container *ngFor="let card of cards | async">
-  <mat-card class="card" [ngClass]="{ odd: this.isOdd(card), even: isEven(card) }">
+<ng-container *ngFor="let card of cards; odd as isOdd; even as isEven">
+  <mat-card class="card" [ngClass]="{ odd: isOdd, even: isEven }">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>{{ this.isOdd(card) ? 'Lego Builder' : 'Lego Doctor' }}</mat-card-title>
-      <mat-card-subtitle>{{ this.isOdd(card) ? 'Engineer' : 'Surgeon' }}</mat-card-subtitle>
+      <mat-card-title>{{ isOdd ? 'Lego Builder' : 'Lego Doctor' }}</mat-card-title>
+      <mat-card-subtitle>{{ isOdd ? 'Engineer' : 'Surgeon' }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
@@ -20,7 +20,7 @@
   </mat-card>
 </ng-container>
 
-<ng-container *ngIf="loading | async; else more">
+<ng-container *ngIf="loading; else more">
   <mat-spinner diameter="40"></mat-spinner>
 </ng-container>
 

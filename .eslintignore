@@ -1,8 +1,4 @@
-.husky/
-.yarn/
-.vscode/
-node_modules/
-dist/
-out-tsc/
-tmp/
-coverage/
+/dist
+/out-tsc
+/tmp
+/coverage
