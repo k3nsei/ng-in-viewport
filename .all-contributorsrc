@@ -91,6 +91,20 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/20872538?v=4",
       "profile": "https://github.com/samizarraa",
       "contributions": ["bug"]
+    },
+    {
+      "login": "Jonnyprof",
+      "name": "JordiJS",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9952131?v=4",
+      "profile": "https://github.com/Jonnyprof",
+      "contributions": ["bug"]
+    },
+    {
+      "login": "mpschaeuble",
+      "name": "mpschaeuble",
+      "avatar_url": "https://avatars.githubusercontent.com/u/18322360?v=4",
+      "profile": "https://github.com/mpschaeuble",
+      "contributions": ["bug"]
     }
   ],
   "contributorsPerLine": 7,
