@@ -1,0 +1,63 @@
+on:
+  push:
+    branches: [develop]
+
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare release PR or move on with release when PR was accepted
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: ng-in-viewport
+
+      - name: Checkout repository
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Get npm cache directory
+        if: ${{ steps.release.outputs.release_created }}
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+
+      - name: Restore dependencies cache
+        if: ${{ steps.release.outputs.release_created }}
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm ci
+
+      - name: Build library
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm run build:lib
+
+      - name: Copy license and readme files
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          cp LICENSE dist/ng-in-viewport/LICENSE
+          cp README.md dist/ng-in-viewport/README.md
+
+      - name: Publish library package
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          cd dist/ng-in-viewport
+          npm publish
