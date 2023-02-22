@@ -14,11 +14,7 @@ export class InViewportService {
 
   constructor(private readonly zone: NgZone) {
     this.zone.runOutsideAngular(() => {
-      this.#cache = new ObserverCache((entries) => {
-        if (Array.isArray(entries) && entries.length) {
-          entries.forEach((entry) => this.#trigger$.next(entry));
-        }
-      });
+      this.#cache = new ObserverCache((entries) => this.onIntersectionEvent(entries));
     });
   }
 
@@ -32,5 +28,9 @@ export class InViewportService {
     this.zone.runOutsideAngular(() => {
       this.#cache.deleteNode(node, config);
     });
+  }
+
+  private onIntersectionEvent(entries: IntersectionObserverEntry[] = []): void {
+    this.zone.run(() => entries.forEach((entry) => this.#trigger$.next(entry)));
   }
 }

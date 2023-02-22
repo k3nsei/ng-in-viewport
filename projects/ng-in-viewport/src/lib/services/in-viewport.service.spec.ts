@@ -1,5 +1,7 @@
+import { NgZone } from '@angular/core';
 import { SpectatorService, createServiceFactory } from '@ngneat/spectator/jest';
 import { uniqueId } from 'lodash';
+import { Subscription } from 'rxjs';
 
 import { ObserverCache } from '../utils';
 import { Config } from '../values';
@@ -51,12 +53,29 @@ describe('GIVEN InViewportService', () => {
       const node = createNode();
       const config = new Config();
 
+      let triggerCallback: (...args: any[]) => boolean;
+      let triggerSubscription$: Subscription;
+
       beforeEach(() => {
+        triggerCallback = jest.fn().mockImplementation(() => NgZone.isInAngularZone());
+
+        triggerSubscription$ = service.trigger$.subscribe((...args) => triggerCallback(...args));
+
         service.register(node, config);
       });
 
+      afterEach(() => triggerSubscription$.unsubscribe());
+
       it('THEN `addNode` from cache should by called by service', () => {
         expect(mockAddNode).toHaveBeenCalledWith(node, config);
+      });
+
+      it('THEN intersection event should be handled in NgZone', () => {
+        expect(triggerCallback).toHaveReturnedWith(true);
+      });
+
+      it('THEN `trigger$` should emit initial event', () => {
+        expect(triggerCallback).toHaveBeenCalledWith({ target: node });
       });
     });
 
