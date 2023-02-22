@@ -12,6 +12,8 @@ jobs:
         with:
           release-type: node
           package-name: ng-in-viewport
+          extra-files: |
+            projects/ng-in-viewport/package.json
 
       - name: Checkout repository
         if: ${{ steps.release.outputs.release_created }}
