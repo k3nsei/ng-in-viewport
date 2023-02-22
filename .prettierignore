@@ -6,4 +6,6 @@
 /out-tsc
 /tmp
 
+.all-contributorsrc
+CHANGELOG.md
 *.snap
