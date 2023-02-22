@@ -3,6 +3,12 @@ name: Main
 on:
   push:
     branches: [stable, develop]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Why was the workflow started manually?'
+        required: true
+        type: boolean
 
 jobs:
   build:
