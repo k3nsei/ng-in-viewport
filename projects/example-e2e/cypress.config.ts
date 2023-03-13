@@ -13,7 +13,7 @@ export default defineConfig({
     videosFolder: 'artifacts/videos',
     viewportWidth: 800,
     viewportHeight: 600,
-    setupNodeEvents(on, config) {
+    setupNodeEvents(_on, _config) {
       // implement node event listeners here
     },
   },

@@ -28,7 +28,7 @@ import { DestroyableDirective, InViewportAction, InViewportDirective } from 'ng-
   ],
 })
 export class PageInfiniteScrollComponent {
-  public cards = this.generateCards();
+  public cards = PageInfiniteScrollComponent.generateCards();
 
   public loading = false;
 
@@ -41,6 +41,10 @@ export class PageInfiniteScrollComponent {
     @Self() private readonly destroyable: DestroyableDirective
   ) {}
 
+  private static generateCards(): number[] {
+    return Array.from({ length: 5 }, (_, i) => i + 1);
+  }
+
   public loadMore(event: InViewportAction | MouseEvent): void {
     if (this.page >= this.pages || ('visible' in event && !event.visible)) {
       return;
@@ -49,7 +53,7 @@ export class PageInfiniteScrollComponent {
     this.loading = true;
     this.changeDetectorRef.detectChanges();
 
-    of([...this.cards, ...this.generateCards()])
+    of([...this.cards, ...PageInfiniteScrollComponent.generateCards()])
       .pipe(delay(1000), takeUntil(this.destroyable.destroyed$))
       .subscribe((cards) => {
         this.page += 1;
@@ -57,10 +61,6 @@ export class PageInfiniteScrollComponent {
         this.cards = cards;
         this.changeDetectorRef.detectChanges();
       });
-  }
-
-  private generateCards(): number[] {
-    return Array.from({ length: 5 }, (_, i) => i + 1);
   }
 }
 
