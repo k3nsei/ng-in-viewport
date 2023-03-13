@@ -18,7 +18,7 @@ export class RootMargin {
     const values = strValue.split(/\s+/);
 
     if (values.length <= 4 && values.every((val) => /^-?\d*\.?\d+(px|%)$/.test(val))) {
-      const [top, right = top, bottom = top, left = right] = values as Value[];
+      const [top, right = top!, bottom = top!, left = right!] = values as Value[];
 
       return `${top} ${right} ${bottom} ${left}`;
     }
