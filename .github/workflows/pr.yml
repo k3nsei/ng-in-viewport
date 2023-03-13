@@ -1,4 +1,4 @@
-name: PR
+name: pull-request
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -100,7 +100,7 @@ jobs:
           path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-node-pr-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-pr-
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm ci
