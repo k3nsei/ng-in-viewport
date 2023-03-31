@@ -1,0 +1,42 @@
+name: Setup Node.js and install NPM dependencies
+description: Install Node.js and NPM, then install NPM dependencies
+
+inputs:
+  node-version:
+    description: 'Which version of Node.js to install'
+    required: false
+    default: 'lts/*'
+  registry-url:
+    description: 'Which NPM registry url to use'
+    required: false
+    default: 'https://registry.npmjs.org'
+  npm-cache-key:
+    description: 'Key for naming NPM cache'
+    required: false
+    default: npm-cache
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js and NPM
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        registry-url: ${{ inputs.registry-url }}
+
+    - name: Get NPM cache directory
+      id: npm-cache-dir
+      shell: bash
+      run: echo "dir=$(npm config get cache --global)" >> ${GITHUB_OUTPUT}
+
+    - name: Restore NPM cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.npm-cache-dir.outputs.dir }}
+        key: ${{ runner.os }}-${{ inputs.npm-cache-key }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ inputs.npm-cache-key }}
+
+    - name: Install NPM dependencies
+      shell: bash
+      run: npm ci

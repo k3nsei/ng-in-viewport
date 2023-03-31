@@ -40,3 +40,15 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# GitHub
+/.github/*
+/.github/actions/*
+/.github/workflows/*
+!/.github/dependabot.yml
+!/.github/funding.yml
+!/.github/actions/install-npm-deps/action.yml
+!/.github/workflows/main.yml
+!/.github/workflows/pr.yml
+!/.github/workflows/qodana-scan.yml
+!/.github/workflows/release-please.yml
