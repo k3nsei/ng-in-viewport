@@ -18,8 +18,6 @@ jobs:
 
       - name: Setup Node.js and install NPM dependencies
         uses: ./.github/actions/install-npm-deps
-        with:
-          npm-cache-key: 'npm-cache-pr'
 
       - name: Check code format
         run: npm run format
@@ -71,8 +69,6 @@ jobs:
 
       - name: Setup Node.js and install NPM dependencies
         uses: ./.github/actions/install-npm-deps
-        with:
-          npm-cache-key: 'npm-cache-pr'
 
       - name: Download build artifacts
         uses: actions/download-artifact@v3

@@ -10,10 +10,6 @@ inputs:
     description: 'Which NPM registry url to use'
     required: false
     default: 'https://registry.npmjs.org'
-  npm-cache-key:
-    description: 'Key for naming NPM cache'
-    required: false
-    default: npm-cache
 
 runs:
   using: composite
@@ -23,19 +19,8 @@ runs:
       with:
         node-version: ${{ inputs.node-version }}
         registry-url: ${{ inputs.registry-url }}
-
-    - name: Get NPM cache directory
-      id: npm-cache-dir
-      shell: bash
-      run: echo "dir=$(npm config get cache --global)" >> ${GITHUB_OUTPUT}
-
-    - name: Restore NPM cache
-      uses: actions/cache@v3
-      with:
-        path: ${{ steps.npm-cache-dir.outputs.dir }}
-        key: ${{ runner.os }}-${{ inputs.npm-cache-key }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-${{ inputs.npm-cache-key }}
+        cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
 
     - name: Install NPM dependencies
       shell: bash
