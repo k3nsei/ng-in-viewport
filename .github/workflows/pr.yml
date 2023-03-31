@@ -40,27 +40,30 @@ jobs:
           npm run test:demo
           npm run test:example
 
-      - name: Upload library build artifact
+      - name: Upload library build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: pr-ng-in-viewport
+          name: pr-artifacts-ng-in-viewport
           path: dist/ng-in-viewport
 
-      - name: Upload demo application build artifact
+      - name: Upload demo application build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: pr-demo-application
+          name: pr-artifacts-demo
           path: dist/demo
 
-      - name: Upload example application build artifact
+      - name: Upload example application build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: pr-example-application
+          name: pr-artifacts-example
           path: dist/example
 
-  e2e-demo:
-    name: Run E2E test against Demo Application
+  e2e:
+    name: Run E2E tests
     needs: build
+    strategy:
+      matrix:
+        project: ['demo', 'example']
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -71,16 +74,16 @@ jobs:
         with:
           npm-cache-key: 'npm-cache-pr'
 
-      - name: Download build artifact
+      - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
-          name: pr-demo-application
-          path: dist/demo
+          name: pr-artifacts-${{ matrix.project }}
+          path: dist/${{ matrix.project }}
 
       - name: Run cypress
         uses: cypress-io/github-action@v5
         with:
-          project: projects/demo-e2e
+          project: projects/${{ matrix.project }}-e2e
           browser: chrome
           headless: true
 
@@ -88,52 +91,12 @@ jobs:
         uses: actions/upload-artifact@v3
         if: failure()
         with:
-          name: pr-failed-demo-e2e-screenshots
-          path: projects/demo-e2e/artifacts/screenshots
+          name: pr-failed-e2e-${{ matrix.project }}-screenshots
+          path: projects/${{ matrix.project }}-e2e/artifacts/screenshots
 
       - name: Upload failed videos
         uses: actions/upload-artifact@v3
         if: failure()
         with:
-          name: pr-failed-demo-e2e-videos
-          path: projects/demo-e2e/artifacts/videos
-
-  e2e-example:
-    name: Run E2E test against Example Application
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js and install NPM dependencies
-        uses: ./.github/actions/install-npm-deps
-        with:
-          npm-cache-key: 'npm-cache-pr'
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: pr-example-application
-          path: dist/example
-
-      - name: Run cypress
-        uses: cypress-io/github-action@v5
-        with:
-          project: projects/example-e2e
-          browser: chrome
-          headless: true
-
-      - name: Upload failed screenshots
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: pr-failed-example-e2e-screenshots
-          path: projects/example-e2e/artifacts/screenshots
-
-      - name: Upload failed videos
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: pr-failed-example-e2e-videos
-          path: projects/example-e2e/artifacts/videos
+          name: pr-failed-e2e-${{ matrix.project }}-videos
+          path: projects/${{ matrix.project }}-e2e/artifacts/videos
