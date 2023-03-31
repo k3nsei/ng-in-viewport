@@ -16,27 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js and install NPM dependencies
+        uses: ./.github/actions/install-npm-deps
         with:
-          node-version: 'lts/*'
-
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        shell: bash
-        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
-
-      - name: Restore dependencies cache
-        id: npm-cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-pr-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm ci
+          npm-cache-key: 'npm-cache-pr'
 
       - name: Check code format
         run: npm run format
@@ -83,27 +66,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js and install NPM dependencies
+        uses: ./.github/actions/install-npm-deps
         with:
-          node-version: 'lts/*'
-
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        shell: bash
-        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
-
-      - name: Restore dependencies cache
-        id: npm-cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-pr-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm ci
+          npm-cache-key: 'npm-cache-pr'
 
       - name: Download build artifact
         uses: actions/download-artifact@v3
@@ -140,27 +106,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js and install NPM dependencies
+        uses: ./.github/actions/install-npm-deps
         with:
-          node-version: 'lts/*'
-
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        shell: bash
-        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
-
-      - name: Restore dependencies cache
-        id: npm-cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-pr-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm ci
+          npm-cache-key: 'npm-cache-pr'
 
       - name: Download build artifact
         uses: actions/download-artifact@v3
