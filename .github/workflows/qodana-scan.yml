@@ -23,8 +23,6 @@ jobs:
 
       - name: Setup Node.js and install NPM dependencies
         uses: ./.github/actions/install-npm-deps
-        with:
-          npm-cache-key: 'npm-cache-qodana'
 
       - name: Qodana Scan
         uses: JetBrains/qodana-action@v2022.3.4
