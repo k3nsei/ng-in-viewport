@@ -10,6 +10,11 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -51,4 +56,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd dist/ng-in-viewport
-          npm publish
+          npm publish --provenance --access public
