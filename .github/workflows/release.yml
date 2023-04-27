@@ -1,0 +1,50 @@
+name: release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Why was the workflow triggered manually?
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  publish-to-github:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js and install NPM dependencies
+        uses: ./.github/actions/install-npm-deps
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@k3nsei'
+
+      - name: Build library
+        run: npm run build:lib
+
+      - name: Copy license and readme files
+        run: |
+          cp LICENSE dist/ng-in-viewport/LICENSE
+          cp README.md dist/ng-in-viewport/README.md
+
+      - name: Publish library package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd dist/ng-in-viewport
+          jq '.name="@k3nsei/ng-in-viewport"' ./package.json > /tmp/package.json
+          mv /tmp/package.json ./package.json
+          jq 'del(.publishConfig)' ./package.json > /tmp/package.json
+          mv /tmp/package.json ./package.json
+          cat ./package.json
+          npm publish --registry="https://npm.pkg.github.com" --scope="@k3nsei"
