@@ -5,6 +5,8 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  pull_request:
+    branches: [develop]
   push:
     branches: [stable, develop]
   workflow_dispatch:
@@ -62,7 +64,9 @@ jobs:
           name: artifacts-example
           path: dist/example
 
-      - uses: codecov/codecov-action@v3
+      - name: Upload code coverage report to Codecov
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/ng-in-viewport/lcov.info
