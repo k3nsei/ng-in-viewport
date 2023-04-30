@@ -1,5 +1,5 @@
 version: 1.0
-linter: jetbrains/qodana-js:2022.3-eap
+linter: jetbrains/qodana-js:2023.1-eap
 failThreshold: 0
 profile:
   name: qodana.recommended
@@ -8,3 +8,5 @@ exclude:
     paths:
       - projects/demo-e2e
       - projects/example-e2e
+include:
+  - name: CheckDependencyLicenses
