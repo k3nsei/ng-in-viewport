@@ -26,7 +26,7 @@ export interface InViewportAction {
   visible: boolean;
 }
 
-export type InViewportOptions = ConstructorParameters<typeof Config>[0];
+export type InViewportOptions = Partial<ConstructorParameters<typeof Config>[0]>;
 
 @Directive({
   standalone: true,

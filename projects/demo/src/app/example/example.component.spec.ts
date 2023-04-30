@@ -1,3 +1,4 @@
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -51,7 +52,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el.nativeElement, visible: false } as InViewportAction);
       fixture.detectChanges();
 
-      const actual = !!el.classes[activeClassName];
+      const actual = coerceBooleanProperty(el.classes[activeClassName]);
       const expected = false;
 
       expect(actual).toBe(expected);
@@ -63,7 +64,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el.nativeElement, visible: true } as InViewportAction);
       fixture.detectChanges();
 
-      const actual: boolean = el.classes[activeClassName];
+      const actual: boolean = coerceBooleanProperty(el.classes[activeClassName]);
       const expected = true;
 
       expect(actual).toBe(expected);
@@ -84,7 +85,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el.nativeElement, visible: false } as InViewportAction);
       fixture.detectChanges();
 
-      const actual = !!el.classes[activeClassName];
+      const actual = coerceBooleanProperty(el.classes[activeClassName]);
       const expected = false;
 
       expect(actual).toBe(expected);
@@ -96,7 +97,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el.nativeElement, visible: true } as InViewportAction);
       fixture.detectChanges();
 
-      const actual: boolean = el.classes[activeClassName];
+      const actual: boolean = coerceBooleanProperty(el.classes[activeClassName]);
       const expected = true;
 
       expect(actual).toBe(expected);

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
-import { InViewportAction } from 'ng-in-viewport';
+import { InViewportAction, InViewportOptions } from 'ng-in-viewport';
 
 @Component({
   selector: 'invp-example',
@@ -16,7 +16,7 @@ export class ExampleComponent {
   private readonly activeClassName: string = 'item--active';
 
   @ViewChild('secondSection', { static: true })
-  private readonly secondSection!: ElementRef<HTMLSelectElement>;
+  private readonly secondSection!: ElementRef<Element>;
 
   constructor(private readonly renderer: Renderer2) {}
 
@@ -28,7 +28,7 @@ export class ExampleComponent {
     }
   }
 
-  protected getOptions(section: 'first' | 'second', isEven: boolean) {
+  protected getOptions(section: 'first' | 'second', isEven: boolean): InViewportOptions {
     const isSecond = section === 'second';
 
     return {
