@@ -5,11 +5,19 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  workflow_dispatch:
   pull_request:
     branches: [develop]
   push:
-    branches: [develop]
+    branches: [stable, develop]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Why was the workflow triggered manually?
+        required: true
+        type: string
+
+permissions:
+  contents: read
 
 jobs:
   qodana:
