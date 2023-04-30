@@ -16,7 +16,7 @@ export class ExampleComponent {
   private readonly activeClassName: string = 'item--active';
 
   @ViewChild('secondSection', { static: true })
-  private readonly secondSection!: ElementRef<HTMLSelectElement>;
+  private readonly secondSection!: ElementRef<HTMLElement>;
 
   constructor(private readonly renderer: Renderer2) {}
 
