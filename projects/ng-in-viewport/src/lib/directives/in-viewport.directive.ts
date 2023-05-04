@@ -5,11 +5,11 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  Inject,
   Input,
   OnDestroy,
   Output,
   PLATFORM_ID,
+  inject,
 } from '@angular/core';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -41,38 +41,41 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
 
   @Output() public readonly inViewportAction = new EventEmitter<InViewportAction>();
 
-  @Output() public readonly inViewportCustomCheck = new EventEmitter<unknown>();
+  @Output() public readonly inViewportCustomCheck = new EventEmitter<any>();
 
   private config = new Config({});
+
+  protected readonly platformId = inject<string>(PLATFORM_ID);
+
+  protected readonly changeDetectorRef = inject(ChangeDetectorRef);
+
+  protected readonly elementRef = inject<ElementRef<Element>>(ElementRef);
+
+  protected readonly destroyable = inject(DestroyableDirective, { self: true });
+
+  protected readonly inViewportService = inject(InViewportService);
 
   private get nativeElement(): Element {
     return this.elementRef.nativeElement;
   }
 
-  constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: string,
-    private readonly changeDetectorRef: ChangeDetectorRef,
-    private readonly elementRef: ElementRef<Element>,
-    private readonly inViewportService: InViewportService,
-    private readonly destroyable: DestroyableDirective
-  ) {}
-
   public ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.inViewportService.trigger$
-        .pipe(
-          filter((entry) => entry.target === this.nativeElement),
-          takeUntil(this.destroyable.destroyed$)
-        )
-        .subscribe((entry) => {
-          this.emit(entry, false);
-          this.changeDetectorRef.markForCheck();
-        });
-
-      this.inViewportService.register(this.nativeElement, this.config);
-    } else {
+    if (!isPlatformBrowser(this.platformId)) {
       this.emit(undefined, true);
+      return;
     }
+
+    this.inViewportService.trigger$
+      .pipe(
+        filter((entry) => entry.target === this.nativeElement),
+        takeUntil(this.destroyable.destroyed$)
+      )
+      .subscribe((entry) => {
+        this.emit(entry, false);
+        this.changeDetectorRef.markForCheck();
+      });
+
+    this.inViewportService.register(this.nativeElement, this.config);
   }
 
   public ngOnDestroy(): void {

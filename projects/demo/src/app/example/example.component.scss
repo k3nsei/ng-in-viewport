@@ -10,6 +10,7 @@
   border: 0.4rem dashed var(--br-c);
 
   &--second {
+    block-size: calc(100vh - 6rem);
     block-size: calc(100dvh - 6rem);
     overflow: auto;
   }
@@ -22,6 +23,7 @@
   --st-c: var(--item-sh-c);
   --st-c2: var(--item-sh-c2);
 
+  block-size: 10vh;
   block-size: 10dvh;
   margin-block-end: 1rem;
   display: flex;

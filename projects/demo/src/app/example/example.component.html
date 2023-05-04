@@ -1,27 +1,27 @@
-<section class="example example--first">
-  <ng-container *ngFor="let element of elements; last as isLast; even as isEven">
+<section #firstSection class="example example--first">
+  <ng-container *ngFor="let item of items; trackBy: trackByItem; last as isLast; even as isEven">
     <div
       class="first-section-child item"
       [class.item--alt]="isEven"
       [class.item--last]="isLast"
       inViewport
-      [inViewportOptions]="getOptions('first', isEven)"
+      [inViewportOptions]="firstSection | options : 'first' : isEven"
       (inViewportAction)="handleAction($event)">
-      {{ element }}
+      {{ item.value }}
     </div>
   </ng-container>
 </section>
 
-<section class="example example--second" #secondSection>
-  <ng-container *ngFor="let element of elements; last as isLast; even as isEven">
+<section #secondSection class="example example--second">
+  <ng-container *ngFor="let item of items; trackBy: trackByItem; last as isLast; even as isEven">
     <div
       class="second-section-child item"
       [class.item--alt]="isEven"
       [class.item--last]="isLast"
       inViewport
-      [inViewportOptions]="getOptions('second', isEven)"
+      [inViewportOptions]="secondSection | options : 'second' : isEven"
       (inViewportAction)="handleAction($event)">
-      {{ element }}
+      {{ item.value }}
     </div>
   </ng-container>
 </section>

@@ -1,22 +1,22 @@
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { MockProvider } from 'ng-mocks';
+import { EMPTY } from 'rxjs';
+
+import { InViewportService } from 'ng-in-viewport';
 
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+    providers: [MockProvider(InViewportService, { trigger$: EMPTY })],
+  });
+  let spectator: Spectator<AppComponent>;
   let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      schemas: [NO_ERRORS_SCHEMA],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(() => {
+    spectator = createComponent();
+    component = spectator.component;
   });
 
   it('should create component', () => {
@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     const expected = true;
 
     expect(actual).toBe(expected);
-    expect(fixture.nativeElement).toMatchSnapshot();
+    expect(spectator.debugElement.nativeElement).toMatchSnapshot();
   });
 
   it(`should have title`, () => {
@@ -35,10 +35,9 @@ describe('AppComponent', () => {
   });
 
   it('should render title', () => {
-    const el: DebugElement = fixture.debugElement.query(By.css('header h1'));
-    const actual: string = el.nativeElement.textContent;
+    const actual = spectator.query('header h1');
     const expected = 'ng-in-viewport demo';
 
-    expect(actual).toContain(expected);
+    expect(actual).toHaveText(expected);
   });
 });

@@ -1,5 +1,5 @@
 <mat-grid-list cols="2" rowHeight="2:1">
-  <ng-container *ngFor="let item of items; trackBy: itemTrackBy">
+  <ng-container *ngFor="let item of items; trackBy: trackByItem">
     <mat-grid-tile class="grid-tile inactive" inViewport (inViewportAction)="highlight($event)">
       {{ item.value }}
     </mat-grid-tile>

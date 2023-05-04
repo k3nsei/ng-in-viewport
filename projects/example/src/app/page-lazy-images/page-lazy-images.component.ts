@@ -3,8 +3,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { LazyImageSkeletonComponent } from './lazy-image-skeleton';
+import { LazyImageSkeletonComponent } from './lazy-image-skeleton/lazy-image-skeleton.component';
 import { LazyImageDirective } from './lazy-image.directive';
+
+interface ImageItem {
+  id: string;
+  imageUrl: string;
+}
 
 @Component({
   standalone: true,
@@ -15,12 +20,15 @@ import { LazyImageDirective } from './lazy-image.directive';
   imports: [NgForOf, NgIf, MatGridListModule, MatSnackBarModule, LazyImageSkeletonComponent, LazyImageDirective],
 })
 export class PageLazyImagesComponent {
-  public dimensions: [number, number] = [640, 360];
+  public readonly dimensions: [number, number] = [640, 360];
 
-  public items: Array<string> = Array.from({ length: 100 }, (_, i) => this.getImageUrl(i + 1));
+  public readonly items: ReadonlyArray<ImageItem> = Array.from({ length: 100 }, (_, i) => ({
+    id: crypto.randomUUID(),
+    imageUrl: this.getImageUrl(i + 1),
+  }));
 
-  protected itemTrackBy(index: number, item: string): string {
-    return item;
+  public trackByItem(index: number, { id }: ImageItem): string {
+    return id;
   }
 
   private getImageUrl(number = 1): string {

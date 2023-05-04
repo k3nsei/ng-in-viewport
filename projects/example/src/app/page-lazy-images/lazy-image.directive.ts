@@ -1,10 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, ChangeDetectorRef, Directive, ElementRef, Input, OnInit, Renderer2, Self } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, Input, OnInit, Renderer2, effect, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BehaviorSubject, throwError } from 'rxjs';
-import { catchError, delay, filter, take, takeUntil, tap } from 'rxjs/operators';
+import { animationFrameScheduler, throwError } from 'rxjs';
+import { catchError, delay, filter, take, tap } from 'rxjs/operators';
 
-import { DestroyableDirective, InViewportDirective } from 'ng-in-viewport';
+import { InViewportDirective } from 'ng-in-viewport';
+
+export const enum LazyImageClassname {
+  Loading = 'loading',
+  Loaded = 'loaded',
+}
 
 @Directive({
   standalone: true,
@@ -12,74 +18,58 @@ import { DestroyableDirective, InViewportDirective } from 'ng-in-viewport';
   hostDirectives: [InViewportDirective],
   exportAs: 'invp-ex-lazy-image',
 })
-export class LazyImageDirective implements OnInit, AfterViewInit {
-  private static LOADING_CLASS_NAME = 'loading';
-
-  private static LOADED_CLASS_NAME = 'loaded';
-
+export class LazyImageDirective implements OnInit {
   @Input('invpExLazyImage')
-  public src!: string;
+  public src: string | null = null;
 
-  public get loading(): boolean {
-    return this.loading$.getValue();
+  public readonly loading = signal(false);
+
+  public readonly loaded = signal(false);
+
+  private readonly destroyRef = inject(DestroyRef);
+
+  private readonly elementRef = inject(ElementRef);
+
+  private readonly renderer = inject(Renderer2);
+
+  private readonly httpClient = inject(HttpClient);
+
+  private readonly snackBar = inject(MatSnackBar);
+
+  private readonly inViewport = inject(InViewportDirective, { self: true });
+
+  constructor() {
+    effect(() => {
+      this.loading()
+        ? this.renderer.addClass(this.elementRef.nativeElement, LazyImageClassname.Loading)
+        : this.renderer.removeClass(this.elementRef.nativeElement, LazyImageClassname.Loading);
+    });
+
+    effect(() => {
+      this.loaded()
+        ? this.renderer.addClass(this.elementRef.nativeElement, LazyImageClassname.Loaded)
+        : this.renderer.removeClass(this.elementRef.nativeElement, LazyImageClassname.Loaded);
+    });
   }
-
-  public set loading(value: boolean) {
-    this.loading$.next(value);
-    this.changeDetectorRef.markForCheck();
-
-    if (value) {
-      this.renderer.addClass(this.elementRef.nativeElement, LazyImageDirective.LOADING_CLASS_NAME);
-    } else {
-      this.renderer.removeClass(this.elementRef.nativeElement, LazyImageDirective.LOADING_CLASS_NAME);
-    }
-  }
-
-  public get loaded(): boolean {
-    return this.loaded$.getValue();
-  }
-
-  public set loaded(value: boolean) {
-    this.loaded$.next(value);
-    this.changeDetectorRef.markForCheck();
-
-    if (value) {
-      this.renderer.addClass(this.elementRef.nativeElement, LazyImageDirective.LOADED_CLASS_NAME);
-    } else {
-      this.renderer.removeClass(this.elementRef.nativeElement, LazyImageDirective.LOADED_CLASS_NAME);
-    }
-  }
-
-  private readonly loading$ = new BehaviorSubject<boolean>(false);
-
-  private readonly loaded$ = new BehaviorSubject<boolean>(false);
-
-  constructor(
-    private readonly changeDetectorRef: ChangeDetectorRef,
-    private readonly elementRef: ElementRef,
-    private readonly httpClient: HttpClient,
-    private readonly renderer: Renderer2,
-    private readonly snackBar: MatSnackBar,
-    @Self() private readonly destroyable: DestroyableDirective,
-    @Self() private readonly inViewport: InViewportDirective
-  ) {}
 
   public ngOnInit(): void {
     this.inViewport.options = { threshold: 0.0001 };
-  }
 
-  public ngAfterViewInit(): void {
     this.inViewport.inViewportAction
       .pipe(
         filter(({ visible }) => visible),
         take(1),
-        takeUntil(this.destroyable.destroyed$)
+        takeUntilDestroyed(this.destroyRef)
       )
       .subscribe(() => this.load());
   }
 
-  public load(): void {
-    this.loading = true;
+  private load(): void {
+    if (this.src == null) {
+      return;
+    }
+
+    this.loading.set(true);
 
     this.httpClient
       .get(this.src, { responseType: 'blob' })
@@ -88,22 +78,21 @@ export class LazyImageDirective implements OnInit, AfterViewInit {
         tap((data: Blob) =>
           this.renderer.setAttribute(this.elementRef.nativeElement, 'src', URL.createObjectURL(data))
         ),
-        delay(10),
-        takeUntil(this.destroyable.destroyed$)
+        delay(0, animationFrameScheduler),
+        takeUntilDestroyed(this.destroyRef)
       )
       .subscribe({
         next: () => {
-          this.loading = false;
-          this.loaded = true;
+          this.loaded.set(true);
         },
         error: (error) => {
-          this.loading = false;
+          this.loading.set(false);
           this.snackBar.open(error, undefined, {
             duration: 3000,
             panelClass: 'error-snackbar',
           });
         },
-        complete: () => this.changeDetectorRef.detectChanges(),
+        complete: () => this.loading.set(false),
       });
   }
 }
