@@ -1,5 +1,17 @@
 # Changelog
 
+## [16.0.0-rc.0](https://github.com/k3nsei/ng-in-viewport/compare/v15.0.2...v16.0.0-rc.0) (2023-05-06)
+
+
+### Features
+
+* add support for angular v16 ([#1346](https://github.com/k3nsei/ng-in-viewport/issues/1346)) ([79039bd](https://github.com/k3nsei/ng-in-viewport/commit/79039bdce9c3dfa2a43d7f08ea57c7e9491882b3))
+
+
+### Miscellaneous Chores
+
+* **qodana:** update baseline file ([7a210dd](https://github.com/k3nsei/ng-in-viewport/commit/7a210dd2dcdbe3fe7918e5ccc16b3a73e682b42d))
+
 ## [15.0.2](https://github.com/k3nsei/ng-in-viewport/compare/v15.0.1...v15.0.2) (2023-04-27)
 
 
