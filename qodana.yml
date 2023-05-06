@@ -8,5 +8,4 @@ exclude:
     paths:
       - projects/demo-e2e
       - projects/example-e2e
-include:
   - name: CheckDependencyLicenses
