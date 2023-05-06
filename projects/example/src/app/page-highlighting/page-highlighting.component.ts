@@ -1,8 +1,13 @@
 import { NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Renderer2, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 
 import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
+
+interface HighlightingItem {
+  id: string;
+  value: number;
+}
 
 @Component({
   standalone: true,
@@ -13,22 +18,24 @@ import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
   imports: [NgForOf, MatGridListModule, InViewportDirective],
 })
 export class PageHighlightingComponent {
-  public items: { value: number }[] = Array.from({ length: 100 }, (_, i) => ({ value: i + 1 }));
+  public readonly items: HighlightingItem[] = Array.from({ length: 100 }, (_, i) => ({
+    id: crypto.randomUUID(),
+    value: i + 1,
+  }));
 
-  constructor(private readonly renderer: Renderer2) {}
+  private readonly renderer = inject(Renderer2);
 
-  public highlight(event: InViewportAction) {
+  public highlight(event: InViewportAction): void {
     const { target, visible } = event;
+    const classnames = ['active', 'inactive'];
+    const [toAdd, toRemove] = visible ? classnames : classnames.reverse();
 
-    const newClassname = visible ? 'active' : 'inactive';
-    this.renderer.addClass(target, newClassname);
-
-    const oldClassname = visible ? 'inactive' : 'active';
-    this.renderer.removeClass(target, oldClassname);
+    this.renderer.addClass(target, toAdd);
+    this.renderer.removeClass(target, toRemove);
   }
 
-  protected itemTrackBy(index: number, item: { value: number }): number {
-    return item.value;
+  public trackByItem(index: number, { id }: HighlightingItem): string {
+    return id;
   }
 }
 

@@ -1,40 +1,41 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { NgForOf } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Renderer2, inject } from '@angular/core';
 
-import { InViewportAction, InViewportOptions } from 'ng-in-viewport';
+import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
 
+import { SectionOptionsPipe } from './section-options.pipe';
+
+interface Item {
+  id: string;
+  value: number;
+}
 @Component({
+  standalone: true,
   selector: 'invp-example',
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgForOf, InViewportDirective, SectionOptionsPipe],
 })
 export class ExampleComponent {
-  public elements: number[] = Array(100)
-    .fill(null)
-    .map((_, idx: number) => idx + 1);
+  public readonly items: Item[] = Array.from({ length: 100 }, (_, idx: number) => ({
+    id: globalThis.crypto.randomUUID(),
+    value: idx + 1,
+  }));
 
-  private readonly activeClassName: string = 'item--active';
-
-  @ViewChild('secondSection', { static: true })
-  private readonly secondSection!: ElementRef<Element>;
-
-  constructor(private readonly renderer: Renderer2) {}
+  private readonly renderer = inject(Renderer2);
 
   public handleAction({ target, visible }: InViewportAction): void {
+    const activeClassname = 'item--active';
+
     if (visible) {
-      this.renderer.addClass(target, this.activeClassName);
+      this.renderer.addClass(target, activeClassname);
     } else {
-      this.renderer.removeClass(target, this.activeClassName);
+      this.renderer.removeClass(target, activeClassname);
     }
   }
 
-  protected getOptions(section: 'first' | 'second', isEven: boolean): InViewportOptions {
-    const isSecond = section === 'second';
-
-    return {
-      root: isSecond ? this.secondSection.nativeElement : undefined,
-      threshold: isEven ? [0, 0.5, 1] : [0, 1],
-      partial: !isSecond,
-    };
+  public trackByItem(index: number, { id }: Item): string {
+    return id;
   }
 }

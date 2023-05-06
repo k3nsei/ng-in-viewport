@@ -1,7 +1,23 @@
 {
   "name": "ng-in-viewport",
-  "version": "15.0.2",
+  "version": "16.0.0-rc.0",
   "description": "Allows us to check if an element is within the browsers visual viewport",
+  "keywords": [
+    "angular",
+    "ng",
+    "IntersectionObserver",
+    "intersection-observer",
+    "viewport",
+    "visibility",
+    "infinite-scroll",
+    "lazy-loading",
+    "lazyload",
+    "lazy-loading-images",
+    "lazyload-images",
+    "angular-14",
+    "angular-15",
+    "angular-16"
+  ],
   "homepage": "https://k3nsei.github.io/ng-in-viewport/",
   "bugs": {
     "url": "https://github.com/k3nsei/ng-in-viewport/issues"
@@ -21,8 +37,8 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": "^14.0.0 || >=15.0.0",
-    "@angular/core": "^14.0.0 || >=15.0.0"
+    "@angular/common": "^14.0.0 || ^15.0.0 || >=16.0.0",
+    "@angular/core": "^14.0.0 || ^15.0.0 || >=16.0.0"
   },
   "publishConfig": {
     "provenance": true

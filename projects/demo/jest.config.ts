@@ -3,7 +3,7 @@ import type { Config } from 'jest';
 const jestConfig = {
   displayName: 'demo',
   preset: 'jest-preset-angular',
-  globalSetup: 'jest-preset-angular/global-setup',
+  // globalSetup: 'jest-preset-angular/global-setup',
   moduleNameMapper: {
     'ng-in-viewport': '<rootDir>/../ng-in-viewport/src/public-api.ts',
     '^lodash-es$': 'lodash',

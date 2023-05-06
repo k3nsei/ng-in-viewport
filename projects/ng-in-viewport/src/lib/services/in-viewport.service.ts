@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, inject } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { ObserverCache } from '../utils';
@@ -12,7 +12,9 @@ export class InViewportService {
 
   public readonly trigger$ = this.#trigger$.asObservable();
 
-  constructor(private readonly zone: NgZone) {
+  private readonly zone = inject(NgZone);
+
+  constructor() {
     this.zone.runOutsideAngular(() => {
       this.#cache = new ObserverCache((entries) => this.onIntersectionEvent(entries));
     });

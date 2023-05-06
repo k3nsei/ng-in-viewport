@@ -2,9 +2,6 @@
   <mat-drawer #drawer mode="side">
     <mat-list>
       <mat-list-item>
-        <a href="https://k3nsei.github.io/ng-in-viewport/" target="_blank" mat-button>API</a>
-      </mat-list-item>
-      <mat-list-item>
         <a href="https://github.com/k3nsei/ng-in-viewport" target="_blank" mat-button>GitHub</a>
       </mat-list-item>
       <mat-list-item>
@@ -37,7 +34,7 @@
       </mat-toolbar-row>
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
+    <router-outlet />
 
     <button mat-mini-fab color="primary" (click)="scrollTop()">
       <mat-icon aria-label="Scroll back to top">keyboard_arrow_up</mat-icon>

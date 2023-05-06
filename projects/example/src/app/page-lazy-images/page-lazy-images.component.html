@@ -1,8 +1,13 @@
 <mat-grid-list cols="2" rowHeight="2:1">
-  <ng-container *ngFor="let item of items; trackBy: itemTrackBy; index as i">
+  <ng-container *ngFor="let item of items; trackBy: trackByItem; index as i">
     <mat-grid-tile class="grid-tile">
-      <img #image="invp-ex-lazy-image" [invpExLazyImage]="item" [attr.alt]="'Image #' + (i + 1)" />
-      <invp-ex-lazy-image-skeleton *ngIf="image.loading"></invp-ex-lazy-image-skeleton>
+      <img
+        #image="invp-ex-lazy-image"
+        [invpExLazyImage]="item.imageUrl"
+        [width]="dimensions[0]"
+        [height]="dimensions[1]"
+        [attr.alt]="'Image #' + (i + 1)" />
+      <invp-ex-lazy-image-skeleton *ngIf="image.loading()" />
     </mat-grid-tile>
   </ng-container>
 </mat-grid-list>
