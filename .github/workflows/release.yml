@@ -1,8 +1,9 @@
 name: release
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
   workflow_dispatch:
     inputs:
       reason:
@@ -27,7 +28,6 @@ jobs:
         with:
           node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@k3nsei'
 
       - name: Build library
         run: npm run build:lib
