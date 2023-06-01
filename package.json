@@ -39,7 +39,7 @@
     "@angular/forms": "^16.0.0",
     "@angular/material": "^16.0.0",
     "@angular/platform-browser": "^16.0.0",
-    "@angular/platform-browser-dynamic": "^16.0.0",
+    "@angular/platform-browser-dynamic": "^16.0.3",
     "@angular/router": "^16.0.0",
     "lodash-es": "^4.17.21",
     "rxjs": "^7.8.1",
