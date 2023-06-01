@@ -31,7 +31,7 @@
     "watch:lib": "ng build ng-in-viewport --watch --configuration=development"
   },
   "dependencies": {
-    "@angular/animations": "^16.0.0",
+    "@angular/animations": "^16.0.3",
     "@angular/cdk": "^16.0.0",
     "@angular/common": "^16.0.0",
     "@angular/compiler": "^16.0.0",
