@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "16.0.0-rc.0",
+  "version": "16.0.0",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "keywords": [
     "angular",
