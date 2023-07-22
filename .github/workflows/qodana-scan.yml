@@ -35,7 +35,7 @@ jobs:
       - name: Qodana Scan
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
-        uses: JetBrains/qodana-action@v2023.1.5
+        uses: JetBrains/qodana-action@v2023.2.1
         with:
           args: --baseline,qodana.sarif.json
           cache-default-branch-only: true
