@@ -59,7 +59,7 @@
     "@commitlint/config-conventional": "^17.6.6",
     "@ngneat/spectator": "^15.0.1",
     "@types/jest": "^29.5.2",
-    "@types/lodash-es": "^4.17.7",
+    "@types/lodash-es": "^4.17.8",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "all-contributors-cli": "^6.26.0",
