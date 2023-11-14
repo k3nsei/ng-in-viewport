@@ -148,9 +148,19 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "tinesoft",
+      "name": "Tine Kondo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4053092?v=4",
+      "profile": "https://www.tinesoft.com",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "linkToUsage": false,
-  "skipCi": true
+  "skipCi": true,
+  "commitType": "docs"
 }
