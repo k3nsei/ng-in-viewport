@@ -1,6 +1,6 @@
 {
   "name": "ng-in-viewport",
-  "version": "16.0.0",
+  "version": "16.1.0",
   "description": "Allows us to check if an element is within the browsers visual viewport",
   "keywords": [
     "angular",
@@ -37,8 +37,8 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": "^14.0.0 || ^15.0.0 || >=16.0.0",
-    "@angular/core": "^14.0.0 || ^15.0.0 || >=16.0.0"
+    "@angular/common": "^14.0.0 || ^15.0.0 || ^16.0.0 || >=17.0.0",
+    "@angular/core": "^14.0.0 || ^15.0.0 || ^16.0.0 || >=17.0.0"
   },
   "publishConfig": {
     "provenance": true

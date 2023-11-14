@@ -144,13 +144,23 @@
       "login": "karptonite",
       "name": "Daniel Karp",
       "avatar_url": "https://avatars.githubusercontent.com/u/132278?v=4",
-      "profile": "https://twitter.com/karptonite",
+      "profile": "https://github.com/karptonite",
       "contributions": [
         "bug"
+      ]
+    },
+    {
+      "login": "tinesoft",
+      "name": "Tine Kondo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4053092?v=4",
+      "profile": "https://github.com/tinesoft",
+      "contributions": [
+        "ideas", "review"
       ]
     }
   ],
   "contributorsPerLine": 7,
   "linkToUsage": false,
-  "skipCi": true
+  "skipCi": true,
+  "commitType": "docs"
 }

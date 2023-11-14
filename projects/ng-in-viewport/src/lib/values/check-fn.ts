@@ -3,7 +3,17 @@ import { isFunction, isNil, uniqueId } from 'lodash-es';
 import { Config } from './config';
 
 export interface InViewportCheckFnOptions {
+  /**
+   *  Whether action was triggered programmatically.
+   */
   force: boolean;
+  /**
+   *  When an action is triggered programmatically, this property will hold a simulated visibility state.
+   */
+  forcedValue?: boolean;
+  /**
+   *  Instance of a configuration object.
+   */
   config: Config;
 }
 
