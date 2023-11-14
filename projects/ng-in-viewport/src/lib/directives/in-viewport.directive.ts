@@ -61,7 +61,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
 
   public ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
-      this.emit(undefined, true);
+      this.emit(undefined, true, true);
       return;
     }
 
@@ -81,6 +81,8 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   public ngOnDestroy(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.inViewportService.unregister(this.nativeElement, this.config);
+
+      this.emit(undefined, true, false);
     }
   }
 
@@ -89,16 +91,22 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
   }
 
   private emit(entry: IntersectionObserverEntry, force: false): void;
-  private emit(entry: undefined, force: true): void;
-  private emit(entry: IntersectionObserverEntry | undefined, force: boolean): void {
+  private emit(entry: undefined, force: true, forcedValue: boolean): void;
+  private emit(entry: IntersectionObserverEntry | undefined, force: boolean, forcedValue?: boolean): void {
     this.inViewportAction.emit({
       [InViewportMetadata]: { entry },
       target: this.nativeElement,
-      visible: force || !entry || this.isVisible(entry),
+      visible: force ? !!forcedValue : !entry || this.isVisible(entry),
     });
 
     if (this.config.checkFn) {
-      this.inViewportCustomCheck.emit(this.config.checkFn(entry, { force, config: this.config }));
+      this.inViewportCustomCheck.emit(
+        this.config.checkFn(entry, {
+          force,
+          forcedValue: force ? !!forcedValue : undefined,
+          config: this.config,
+        })
+      );
     }
   }
 }

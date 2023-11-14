@@ -112,6 +112,14 @@ describe('GIVEN InViewportDirective', () => {
       it('THEN `unregister` methods from service should be called', () => {
         expect(service.unregister).toHaveBeenCalledWith(node, config);
       });
+
+      it('THEN `action` method from host component should be called by action output', () => {
+        expect(host.action).toHaveBeenCalledWith({
+          [InViewportMetadata]: { entry: undefined },
+          target: node,
+          visible: false,
+        });
+      });
     });
   });
 
@@ -168,6 +176,14 @@ describe('GIVEN InViewportDirective', () => {
 
       it('THEN `unregister` methods from service should be called', () => {
         expect(service.unregister).not.toHaveBeenCalled();
+      });
+
+      it('THEN `action` method from host component should be called by action output', () => {
+        expect(host.action).not.toHaveBeenCalledWith({
+          [InViewportMetadata]: { entry: undefined },
+          target: node,
+          visible: false,
+        });
       });
     });
   });
