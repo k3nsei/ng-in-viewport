@@ -1,5 +1,12 @@
 # Changelog
 
+## [16.1.0](https://github.com/k3nsei/ng-in-viewport/compare/v16.0.0...v16.1.0) (2023-11-14)
+
+
+### Features
+
+* emit action before directive destroy ([ec25af9](https://github.com/k3nsei/ng-in-viewport/commit/ec25af968fffa2e081a5c0558056734642a91c2b)), closes [#1418](https://github.com/k3nsei/ng-in-viewport/issues/1418)
+
 ## [16.0.0](https://github.com/k3nsei/ng-in-viewport/compare/v16.0.0-rc.0...v16.0.0) (2023-06-30)
 
 As no issues were reported during the release candidate period. We are releasing it as stable.
