@@ -76,7 +76,7 @@
     "jest-preset-angular": "^13.1.1",
     "lint-staged": "^13.2.3",
     "ng-mocks": "^14.11.0",
-    "ng-packagr": "^16.0.1",
+    "ng-packagr": "^17.0.2",
     "prettier": "2.8.8",
     "prettier-plugin-packagejson": "^2.4.3",
     "ts-jest": "^29.1.1",
