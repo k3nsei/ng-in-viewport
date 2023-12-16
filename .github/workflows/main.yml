@@ -90,7 +90,7 @@ jobs:
         uses: ./.github/actions/install-npm-deps
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifacts-${{ matrix.project }}
           path: dist/${{ matrix.project }}
