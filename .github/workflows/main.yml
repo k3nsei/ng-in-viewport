@@ -50,19 +50,19 @@ jobs:
           npm run test:example
 
       - name: Upload library build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts-ng-in-viewport
           path: dist/ng-in-viewport
 
       - name: Upload demo application build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts-demo
           path: dist/demo
 
       - name: Upload example application build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts-example
           path: dist/example
@@ -103,14 +103,14 @@ jobs:
           headless: true
 
       - name: Upload failed screenshots
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: failed-e2e-${{ matrix.project }}-screenshots
           path: projects/${{ matrix.project }}-e2e/artifacts/screenshots
 
       - name: Upload failed videos
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: failed-e2e-${{ matrix.project }}-videos
