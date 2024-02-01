@@ -15,7 +15,7 @@
 
 [MIT](https://github.com/k3nsei/ng-in-viewport/blob/stable/LICENSE)
 
-## <a name="angular-versions"></a>Angular version compatibility
+## Angular version compatibility
 
 | `ng-in-viewport` version   | Supported Angular versions                           |
 | -------------------------- | ---------------------------------------------------- |
