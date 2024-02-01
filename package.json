@@ -62,7 +62,7 @@
     "@types/lodash-es": "^4.17.7",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
-    "all-contributors-cli": "^6.26.0",
+    "all-contributors-cli": "^6.26.1",
     "cypress": "^12.16.0",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
@@ -87,7 +87,7 @@
     "npm": ">=9.5.0"
   },
   "volta": {
-    "node": "18.16.1",
-    "npm": "9.7.2"
+    "node": "20.11.0",
+    "npm": "10.4.0"
   }
 }

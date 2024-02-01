@@ -157,7 +157,16 @@
       "contributions": [
         "ideas", "review"
       ]
-    }
+    },
+    {
+      "login": "BojanKogoj",
+      "name": "Bojan Kogoj",
+      "avatar_url": "https://avatars.githubusercontent.com/u/634075?v=4",
+      "profile": "https://github.com/BojanKogoj",
+      "contributions": [
+        "doc"
+      ]
+   }
   ],
   "contributorsPerLine": 7,
   "linkToUsage": false,

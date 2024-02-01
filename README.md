@@ -11,6 +11,14 @@
 - 🚀 See it in action on the [Examples Site][example-app]
 - 🎮 Play with it on [Stackblitz][example-app-embed]
 
+## Compatibility matrix 🔢
+
+| **ng-in-viewport** | **Angular**             |
+| ------------------ | ----------------------- |
+| `16.1.x`           | `>= 17.x.y \|\| 16.x.y` |
+| `16.0.x`           | `16.x.y \|\| 15.x.y`    |
+| `15.0.x`           | `15.x.y \|\| 14.x.y`    |
+
 ## License 📝
 
 [MIT](https://github.com/k3nsei/ng-in-viewport/blob/stable/LICENSE)
@@ -45,6 +53,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/karptonite"><img src="https://avatars.githubusercontent.com/u/132278?v=4?s=100" width="100px;" alt="Daniel Karp"/><br /><sub><b>Daniel Karp</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/issues?q=author%3Akarptonite" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tinesoft"><img src="https://avatars.githubusercontent.com/u/4053092?v=4?s=100" width="100px;" alt="Tine Kondo"/><br /><sub><b>Tine Kondo</b></sub></a><br /><a href="#ideas-tinesoft" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/k3nsei/ng-in-viewport/pulls?q=is%3Apr+reviewed-by%3Atinesoft" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/BojanKogoj"><img src="https://avatars.githubusercontent.com/u/634075?v=4?s=100" width="100px;" alt="Bojan Kogoj"/><br /><sub><b>Bojan Kogoj</b></sub></a><br /><a href="https://github.com/k3nsei/ng-in-viewport/commits?author=BojanKogoj" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
