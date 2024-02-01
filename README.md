@@ -15,6 +15,14 @@
 
 [MIT](https://github.com/k3nsei/ng-in-viewport/blob/stable/LICENSE)
 
+## <a name="angular-versions"></a>Angular version compatibility
+
+| `ng-in-viewport` version   | Supported Angular versions                           |
+| -------------------------- | ---------------------------------------------------- |
+| `16.1.x`                    | `^14.0.0 \|\| ^15.0.0 \|\| ^16.0.0 \|\| >=17.0.0`    |
+| `16.0.x`                    | `^14.0.0 \|\| ^15.0.0 \|\| >=16.0.0`                 |
+| `15.0.x`                    | `^14.0.0 \|\| >=15.0.0`                              |
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
