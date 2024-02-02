@@ -2,7 +2,7 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    fileServerFolder: '../../dist/demo',
+    fileServerFolder: '../../dist/demo/browser',
     fixturesFolder: 'src/fixtures',
     supportFolder: 'src/support',
     supportFile: 'src/support/e2e.ts',
