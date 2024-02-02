@@ -5,7 +5,7 @@
       [class.item--alt]="isEven"
       [class.item--last]="isLast"
       inViewport
-      [inViewportOptions]="firstSection | options : 'first' : isEven"
+      [inViewportOptions]="firstSection | options: 'first' : isEven"
       (inViewportAction)="handleAction($event)">
       {{ item.value }}
     </div>
@@ -19,7 +19,7 @@
       [class.item--alt]="isEven"
       [class.item--last]="isLast"
       inViewport
-      [inViewportOptions]="secondSection | options : 'second' : isEven"
+      [inViewportOptions]="secondSection | options: 'second' : isEven"
       (inViewportAction)="handleAction($event)">
       {{ item.value }}
     </div>

@@ -50,5 +50,4 @@ Thumbs.db
 !/.github/actions/install-npm-deps/action.yml
 !/.github/workflows/main.yml
 !/.github/workflows/pr.yml
-!/.github/workflows/qodana-scan.yml
 !/.github/workflows/release-please.yml

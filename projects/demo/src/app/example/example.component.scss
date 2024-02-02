@@ -32,9 +32,13 @@
   background-color: var(--bg-c);
   font-size: 2.4rem;
   font-weight: bold;
-  text-shadow: 0.1rem 0.1rem 0 var(--st-c), 0 0.1rem 0 var(--st-c),
-    -0.1rem -0.1rem 0 var(--st-c), -0.1rem -0.1rem 0 var(--st-c),
-    -0.1rem 0.1rem 0 var(--st-c), 0.1rem -0.1rem 0 var(--st-c),
+  text-shadow:
+    0.1rem 0.1rem 0 var(--st-c),
+    0 0.1rem 0 var(--st-c),
+    -0.1rem -0.1rem 0 var(--st-c),
+    -0.1rem -0.1rem 0 var(--st-c),
+    -0.1rem 0.1rem 0 var(--st-c),
+    0.1rem -0.1rem 0 var(--st-c),
     0.03535533906rem 0.03535533906rem 0 var(--st-c2),
     0.07071067812rem 0.07071067812rem 0 var(--st-c2),
     0.10606601718rem 0.10606601718rem 0 var(--st-c2),
