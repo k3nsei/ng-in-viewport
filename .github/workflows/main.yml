@@ -69,7 +69,7 @@ jobs:
 
       - name: Upload code coverage report to Codecov
         if: ${{ github.event_name != 'pull_request' }}
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/ng-in-viewport/lcov.info
