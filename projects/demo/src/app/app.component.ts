@@ -6,7 +6,7 @@ import { ExampleComponent } from './example/example.component';
   standalone: true,
   selector: 'invp-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ExampleComponent],
 })

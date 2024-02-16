@@ -13,700 +13,600 @@ exports[`ExampleComponent should create component 1`] = `
     >
        1 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        2 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        3 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        4 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        5 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        6 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        7 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        8 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        9 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        10 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        11 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        12 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        13 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        14 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        15 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        16 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        17 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        18 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        19 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        20 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        21 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        22 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        23 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        24 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        25 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        26 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        27 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        28 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        29 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        30 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        31 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        32 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        33 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        34 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        35 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        36 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        37 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        38 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        39 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        40 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        41 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        42 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        43 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        44 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        45 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        46 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        47 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        48 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        49 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        50 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        51 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        52 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        53 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        54 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        55 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        56 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        57 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        58 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        59 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        60 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        61 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        62 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        63 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        64 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        65 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        66 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        67 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        68 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        69 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        70 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        71 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        72 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        73 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        74 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        75 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        76 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        77 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        78 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        79 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        80 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        81 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        82 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        83 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        84 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        85 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        86 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        87 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        88 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        89 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        90 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        91 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        92 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        93 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        94 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        95 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        96 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        97 
     </div>
-    
     <div
       class="first-section-child item"
       inviewport=""
     >
        98 
     </div>
-    
     <div
       class="first-section-child item item--alt"
       inviewport=""
     >
        99 
     </div>
-    
     <div
       class="first-section-child item item--last"
       inviewport=""
     >
        100 
     </div>
-    
     
   </section>
   <section
@@ -718,700 +618,600 @@ exports[`ExampleComponent should create component 1`] = `
     >
        1 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        2 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        3 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        4 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        5 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        6 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        7 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        8 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        9 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        10 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        11 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        12 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        13 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        14 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        15 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        16 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        17 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        18 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        19 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        20 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        21 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        22 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        23 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        24 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        25 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        26 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        27 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        28 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        29 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        30 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        31 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        32 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        33 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        34 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        35 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        36 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        37 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        38 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        39 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        40 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        41 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        42 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        43 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        44 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        45 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        46 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        47 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        48 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        49 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        50 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        51 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        52 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        53 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        54 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        55 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        56 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        57 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        58 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        59 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        60 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        61 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        62 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        63 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        64 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        65 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        66 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        67 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        68 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        69 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        70 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        71 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        72 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        73 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        74 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        75 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        76 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        77 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        78 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        79 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        80 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        81 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        82 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        83 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        84 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        85 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        86 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        87 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        88 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        89 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        90 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        91 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        92 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        93 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        94 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        95 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        96 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        97 
     </div>
-    
     <div
       class="second-section-child item"
       inviewport=""
     >
        98 
     </div>
-    
     <div
       class="second-section-child item item--alt"
       inviewport=""
     >
        99 
     </div>
-    
     <div
       class="second-section-child item item--last"
       inviewport=""
     >
        100 
     </div>
-    
     
   </section>
 </div>

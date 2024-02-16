@@ -1,4 +1,3 @@
-import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Renderer2, inject } from '@angular/core';
 
 import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
@@ -13,9 +12,9 @@ interface Item {
   standalone: true,
   selector: 'invp-example',
   templateUrl: './example.component.html',
-  styleUrls: ['./example.component.scss'],
+  styleUrl: './example.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgForOf, InViewportDirective, SectionOptionsPipe],
+  imports: [InViewportDirective, SectionOptionsPipe],
 })
 export class ExampleComponent {
   public readonly items: Item[] = Array.from({ length: 100 }, (_, idx: number) => ({
@@ -33,9 +32,5 @@ export class ExampleComponent {
     } else {
       this.renderer.removeClass(target, activeClassname);
     }
-  }
-
-  public trackByItem(index: number, { id }: Item): string {
-    return id;
   }
 }

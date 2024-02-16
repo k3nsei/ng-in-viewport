@@ -1,4 +1,4 @@
-import { NgClass, NgForOf, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DestroyRef, effect, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,9 +14,9 @@ import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
   standalone: true,
   selector: 'invp-ex-page-infinite-scroll',
   templateUrl: './page-infinite-scroll.component.html',
-  styleUrls: ['./page-infinite-scroll.component.scss'],
+  styleUrl: './page-infinite-scroll.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, NgForOf, NgIf, MatButtonModule, MatCardModule, MatProgressSpinnerModule, InViewportDirective],
+  imports: [NgClass, MatButtonModule, MatCardModule, MatProgressSpinnerModule, InViewportDirective],
 })
 export class PageInfiniteScrollComponent {
   public page = signal<number>(1);
@@ -63,10 +63,6 @@ export class PageInfiniteScrollComponent {
         this.page.update((page) => page + 1);
         this.cards.update((prevCards) => [...prevCards, ...cards]);
       });
-  }
-
-  public trackByItem(index: number, item: string): string {
-    return item;
   }
 }
 

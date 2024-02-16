@@ -22,13 +22,13 @@
     "useDefineForClassFields": false,
     "lib": ["ESNext", "DOM"],
     "paths": {
-      "ng-in-viewport": ["projects/ng-in-viewport/src/public-api"],
-    },
+      "ng-in-viewport": ["projects/ng-in-viewport/src/public-api"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-  },
+    "strictTemplates": true
+  }
 }

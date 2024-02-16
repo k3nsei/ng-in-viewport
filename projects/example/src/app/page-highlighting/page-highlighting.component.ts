@@ -1,4 +1,3 @@
-import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Renderer2, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 
@@ -13,9 +12,9 @@ interface HighlightingItem {
   standalone: true,
   selector: 'invp-ex-page-highlighting',
   templateUrl: './page-highlighting.component.html',
-  styleUrls: ['./page-highlighting.component.scss'],
+  styleUrl: './page-highlighting.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgForOf, MatGridListModule, InViewportDirective],
+  imports: [MatGridListModule, InViewportDirective],
 })
 export class PageHighlightingComponent {
   public readonly items: HighlightingItem[] = Array.from({ length: 100 }, (_, i) => ({
@@ -32,10 +31,6 @@ export class PageHighlightingComponent {
 
     this.renderer.addClass(target, toAdd);
     this.renderer.removeClass(target, toRemove);
-  }
-
-  public trackByItem(index: number, { id }: HighlightingItem): string {
-    return id;
   }
 }
 

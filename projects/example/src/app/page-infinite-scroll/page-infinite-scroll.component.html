@@ -1,4 +1,4 @@
-<ng-container *ngFor="let card of cards(); trackBy: trackByItem; odd as isOdd; even as isEven">
+@for (card of cards(); track card; let isOdd = $odd; let isEven = $even) {
   <mat-card class="card" [ngClass]="{ odd: isOdd, even: isEven }">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
@@ -18,21 +18,17 @@
       </p>
     </mat-card-content>
   </mat-card>
-</ng-container>
+}
 
-<ng-container *ngIf="loading(); else more">
+@if (loading()) {
   <mat-spinner diameter="40" />
-</ng-container>
-
-<ng-template #more>
-  <ng-container *ngIf="page() < pages()">
-    <button type="button" mat-raised-button color="primary" (click)="loadMore($event)">Load more</button>
-    <div
-      class="infinite-scroll-zone"
-      inViewport
-      [inViewportOptions]="{ threshold: 0 }"
-      (inViewportAction)="loadMore($event)"
-      >&#160;</div
-    >
-  </ng-container>
-</ng-template>
+} @else if (page() < pages()) {
+  <button type="button" mat-raised-button color="primary" (click)="loadMore($event)">Load more</button>
+  <div
+    class="infinite-scroll-zone"
+    inViewport
+    [inViewportOptions]="{ threshold: 0 }"
+    (inViewportAction)="loadMore($event)"
+    >&#160;</div
+  >
+}

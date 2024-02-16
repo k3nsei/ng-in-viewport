@@ -1,5 +1,4 @@
-import { NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -12,10 +11,9 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   standalone: true,
   selector: 'invp-ex-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    NgForOf,
     RouterLink,
     RouterLinkActive,
     RouterOutlet,
@@ -28,8 +26,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   ],
 })
 export class AppComponent {
-  @ViewChild(MatDrawerContent, { read: ElementRef, static: true })
-  public readonly drawerContent!: ElementRef;
+  public readonly drawerContent = viewChild(MatDrawerContent, { read: ElementRef });
 
   public readonly labels = {
     toolbar: 'Example of ng-in-viewport',
@@ -54,8 +51,10 @@ export class AppComponent {
   ] as const;
 
   public scrollTop(): void {
-    if (this.drawerContent) {
-      this.drawerContent.nativeElement.scrollTop = 0;
+    const ref = this.drawerContent();
+
+    if (ref) {
+      ref.nativeElement.scrollTop = 0;
     }
   }
 }

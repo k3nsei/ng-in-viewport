@@ -1,5 +1,5 @@
 <section #firstSection class="example example--first">
-  <ng-container *ngFor="let item of items; trackBy: trackByItem; last as isLast; even as isEven">
+  @for (item of items; track item.id; let isLast = $last; let isEven = $even) {
     <div
       class="first-section-child item"
       [class.item--alt]="isEven"
@@ -9,11 +9,11 @@
       (inViewportAction)="handleAction($event)">
       {{ item.value }}
     </div>
-  </ng-container>
+  }
 </section>
 
 <section #secondSection class="example example--second">
-  <ng-container *ngFor="let item of items; trackBy: trackByItem; last as isLast; even as isEven">
+  @for (item of items; track item.id; let isLast = $last; let isEven = $even) {
     <div
       class="second-section-child item"
       [class.item--alt]="isEven"
@@ -23,5 +23,5 @@
       (inViewportAction)="handleAction($event)">
       {{ item.value }}
     </div>
-  </ng-container>
+  }
 </section>

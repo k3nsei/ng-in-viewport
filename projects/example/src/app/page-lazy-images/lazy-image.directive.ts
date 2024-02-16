@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { DestroyRef, Directive, ElementRef, Input, OnInit, Renderer2, effect, inject, signal } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, OnInit, Renderer2, effect, inject, input, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { animationFrameScheduler, throwError } from 'rxjs';
@@ -19,8 +19,7 @@ export const enum LazyImageClassname {
   exportAs: 'invp-ex-lazy-image',
 })
 export class LazyImageDirective implements OnInit {
-  @Input('invpExLazyImage')
-  public src: string | null = null;
+  public readonly src = input.required<string>({ alias: 'invpExLazyImage' });
 
   public readonly loading = signal(false);
 
@@ -65,14 +64,14 @@ export class LazyImageDirective implements OnInit {
   }
 
   private load(): void {
-    if (this.src == null) {
+    if (this.src() == null) {
       return;
     }
 
     this.loading.set(true);
 
     this.httpClient
-      .get(this.src, { responseType: 'blob' })
+      .get(this.src(), { responseType: 'blob' })
       .pipe(
         catchError((_error) => throwError(() => new Error(`Error during fetching image from: ${this.src}`))),
         tap((data: Blob) =>

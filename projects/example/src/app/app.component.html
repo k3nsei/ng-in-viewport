@@ -14,23 +14,26 @@
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <button mat-icon-button (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
+          <mat-icon fontIcon="menu" />
         </button>
-        <span class="toolbar-label">{{ labels.toolbar }}</span>
+        <span class="toolbar-label">
+          {{ labels.toolbar }}
+        </span>
       </mat-toolbar-row>
       <mat-toolbar-row>
         <nav mat-tab-nav-bar color="primary" backgroundColor="primary" [tabPanel]="tabPanel">
-          <a
-            mat-tab-link
-            *ngFor="let navLink of navLinks"
-            [routerLink]="navLink.path"
-            routerLinkActive="is-active"
-            #activeNavLink="routerLinkActive"
-            [active]="activeNavLink.isActive">
-            {{ navLink.label }}
-          </a>
+          @for (navLink of navLinks; track navLink.path) {
+            <a
+              mat-tab-link
+              [routerLink]="navLink.path"
+              routerLinkActive="is-active"
+              #activeNavLink="routerLinkActive"
+              [active]="activeNavLink.isActive">
+              {{ navLink.label }}
+            </a>
+          }
         </nav>
-        <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+        <mat-tab-nav-panel #tabPanel />
       </mat-toolbar-row>
     </mat-toolbar>
 
