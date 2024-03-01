@@ -54,7 +54,7 @@
     "@angular-eslint/schematics": "~17.2.1",
     "@angular-eslint/template-parser": "~17.2.1",
     "@angular/cli": "~17.2.0",
-    "@angular/compiler-cli": "~17.2.1",
+    "@angular/compiler-cli": "~17.2.3",
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.2",
     "@ngneat/spectator": "^16.0.0",
