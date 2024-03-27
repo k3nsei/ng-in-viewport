@@ -1,5 +1,3 @@
-import { isNumber } from 'lodash-es';
-
 import { InvalidThresholdException } from '../exceptions';
 
 export class Threshold {
@@ -26,6 +24,6 @@ export class Threshold {
   }
 
   private static isValid(value: unknown): value is number {
-    return isNumber(value) && value >= 0 && value <= 1;
+    return typeof value === 'number' && value >= 0 && value <= 1;
   }
 }

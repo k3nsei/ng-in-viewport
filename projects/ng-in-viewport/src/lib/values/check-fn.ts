@@ -1,4 +1,4 @@
-import { isFunction, isNil, uniqueId } from 'lodash-es';
+import { generateRandomUID } from '../utils/generate-random-uid';
 
 import { Config } from './config';
 
@@ -38,12 +38,12 @@ export class CheckFn<T = any> {
   }
 
   constructor(value: InViewportCheckFn<T> | null | undefined) {
-    this.#value = isFunction(value) ? value : undefined;
+    this.#value = typeof value === 'function' ? value : undefined;
 
     let id = ids.get(value!) ?? fallbackId;
 
-    if (!isNil(value) && !ids.has(value)) {
-      ids.set(value, (id = uniqueId('in-viewport-check-fn-')));
+    if (value !== null && value !== undefined && !ids.has(value)) {
+      ids.set(value, (id = generateRandomUID('in-viewport-check-fn-')));
     }
 
     this.#id = id;

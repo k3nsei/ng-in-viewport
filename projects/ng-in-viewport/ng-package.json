@@ -3,6 +3,5 @@
   "dest": "../../dist/ng-in-viewport",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "allowedNonPeerDependencies": ["lodash-es"]
+  }
 }

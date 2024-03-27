@@ -4,7 +4,6 @@ const jestConfig: Config = {
   displayName: 'ng-in-viewport',
   preset: 'jest-preset-angular',
   // globalSetup: 'jest-preset-angular/global-setup',
-  moduleNameMapper: { '^lodash-es$': 'lodash' },
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
   coverageDirectory: '<rootDir>/../../coverage/ng-in-viewport',
   coverageProvider: 'v8',
