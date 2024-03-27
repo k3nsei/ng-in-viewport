@@ -1,16 +1,16 @@
 import { NgZone } from '@angular/core';
 import { SpectatorService, createServiceFactory } from '@ngneat/spectator/jest';
-import { uniqueId } from 'lodash';
 import { Subscription } from 'rxjs';
 
 import { ObserverCache } from '../utils';
+import { generateRandomUID } from '../utils/generate-random-uid';
 import { Config } from '../values';
 
 import { InViewportService } from './in-viewport.service';
 
 const createNode = (): HTMLDivElement => {
   return Object.assign(document.createElement('div'), {
-    className: uniqueId('c-'),
+    className: generateRandomUID('c-'),
   });
 };
 

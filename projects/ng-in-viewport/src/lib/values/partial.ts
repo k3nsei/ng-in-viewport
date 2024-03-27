@@ -1,5 +1,3 @@
-import { isBoolean } from 'lodash-es';
-
 export class Partial {
   readonly #value: boolean;
 
@@ -8,6 +6,6 @@ export class Partial {
   }
 
   constructor(value: boolean | null | undefined) {
-    this.#value = isBoolean(value) ? value : true;
+    this.#value = typeof value === 'boolean' ? value : true;
   }
 }

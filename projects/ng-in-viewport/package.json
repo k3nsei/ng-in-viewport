@@ -33,7 +33,6 @@
     "url": "https://github.com/k3nsei"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

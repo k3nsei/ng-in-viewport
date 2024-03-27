@@ -1,5 +1,3 @@
-import { isNil } from 'lodash-es';
-
 import { InvalidRootNodeException } from '../exceptions';
 
 export class RootNode {
@@ -14,7 +12,7 @@ export class RootNode {
   }
 
   private static validate(node: unknown): Element | null {
-    if (isNil(node)) {
+    if (node === null || node === undefined) {
       return null;
     }
 
