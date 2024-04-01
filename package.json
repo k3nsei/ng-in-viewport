@@ -60,7 +60,7 @@
     "@ngneat/spectator": "^16.0.0",
     "@types/jest": "^29.5.12",
     "@types/lodash-es": "^4.17.12",
-    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.0.1",
     "all-contributors-cli": "^6.26.1",
     "cypress": "^13.6.4",
