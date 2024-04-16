@@ -28,6 +28,7 @@ updates:
         applies-to: 'version-updates'
         patterns:
           - '@angular/*'
+          - '@angular-devkit/*'
           - 'ng-packagr'
           - 'zone.js'
         exclude-patterns:
