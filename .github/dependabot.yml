@@ -23,6 +23,40 @@ updates:
       day: 'saturday'
       time: '06:00'
     target-branch: 'develop'
+    groups:
+      angular:
+        applies-to: 'version-updates'
+        patterns:
+          - '@angular/*'
+          - 'ng-packagr'
+          - 'zone.js'
+        exclude-patterns:
+          - '@angular/cdk'
+          - '@angular/material'
+          - '@angular/material-*'
+      angular-material:
+        applies-to: 'version-updates'
+        patterns:
+          - '@angular/cdk'
+          - '@angular/material'
+          - '@angular/material-*'
+      angular-eslint:
+        applies-to: 'version-updates'
+        patterns:
+          - '@angular-eslint/*'
+      eslint:
+        applies-to: 'version-updates'
+        patterns:
+          - '@typescript-eslint/*'
+          - 'eslint'
+          - 'eslint-*'
+      jest:
+        applies-to: 'version-updates'
+        patterns:
+          - '@types/jest'
+          - 'jest'
+          - 'jest-*'
+          - 'ts-jest'
     open-pull-requests-limit: 20
     commit-message:
       prefix: 'chore'
