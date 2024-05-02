@@ -76,7 +76,7 @@ This project follows the [all-contributors][all-contributors-url] specification.
 [codecov-badge]: https://img.shields.io/codecov/c/github/k3nsei/ng-in-viewport/develop?logo=codecov&style=flat-square
 [codecov-badge-url]: https://codecov.io/gh/k3nsei/ng-in-viewport
 [lib-docs]: https://k3nsei.gitbook.io/ng-in-viewport/
-[example-app]: https://ng-in-viewport-k3nsei.vercel.app/
+[example-app]: https://ng-in-viewport.vercel.app/
 [example-app-embed]: https://stackblitz.com/edit/ng-in-viewport-example?embed=1&file=src/main.ts
 [all-contributors-url]: https://github.com/all-contributors/all-contributors
 
