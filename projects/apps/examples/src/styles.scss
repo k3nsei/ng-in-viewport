@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+
+@use './styles/theme' as *;
+
+html {
+  color-scheme: light dark;
+}
+
+html,
+body {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@include mat.core();
+
+:root {
+  @include mat.core-theme($light-theme);
+  @include mat.button-theme($light-theme);
+  @include mat.fab-theme($light-theme);
+  @include mat.card-theme($light-theme);
+  @include mat.grid-list-theme($light-theme);
+  @include mat.list-theme($light-theme);
+  @include mat.icon-theme($light-theme);
+  @include mat.icon-button-theme($light-theme);
+  @include mat.progress-spinner-theme($light-theme);
+  @include mat.ripple-theme($light-theme);
+  @include mat.sidenav-theme($light-theme);
+  @include mat.snack-bar-theme($light-theme);
+  @include mat.tabs-theme($light-theme);
+  @include mat.toolbar-theme($light-theme);
+
+  @media (prefers-color-scheme: dark) {
+    @include mat.core-color($dark-theme);
+    @include mat.button-color($dark-theme);
+    @include mat.fab-color($dark-theme);
+    @include mat.card-color($dark-theme);
+    @include mat.grid-list-color($dark-theme);
+    @include mat.list-color($dark-theme);
+    @include mat.icon-color($dark-theme);
+    @include mat.icon-button-color($dark-theme);
+    @include mat.progress-spinner-color($dark-theme);
+    @include mat.ripple-color($dark-theme);
+    @include mat.sidenav-color($dark-theme);
+    @include mat.snack-bar-color($dark-theme);
+    @include mat.tabs-color($dark-theme);
+    @include mat.toolbar-color($dark-theme);
+  }
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: light-dark(
+    #{mat.get-theme-color($light-theme, error)},
+    #{mat.get-theme-color($dark-theme, error)}
+  );
+  --mdc-snackbar-supporting-text-color: light-dark(
+    #{mat.get-theme-color($light-theme, on-error)},
+    #{mat.get-theme-color($dark-theme, on-error)}
+  );
+}

@@ -1,7 +1,0 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-  @for (item of items; track item.id) {
-    <mat-grid-tile class="grid-tile inactive" inViewport (inViewportAction)="highlight($event)">
-      {{ item.value }}
-    </mat-grid-tile>
-  }
-</mat-grid-list>

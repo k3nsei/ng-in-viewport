@@ -1,0 +1,16 @@
+{
+  "name": "@ngx-intersection/eslint-plugin",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/index.js",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-playwright": "^1.6.1",
+    "jsonc-eslint-parser": "^2.4.0"
+  }
+}

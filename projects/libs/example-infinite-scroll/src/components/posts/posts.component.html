@@ -1,0 +1,10 @@
+<section class="post-list">
+  @defer (when data().length  > 0) {
+    @for (person of data(); track person; let idx = $index) {
+      <ngi-ex-infinite-scroll-post
+        [avatar]="'/assets/avatars/' + (idx % 10) + '.jpg'"
+        [title]="'User № ' + ((pageNumber() - 1) * 10 + idx + 1)"
+        [subtitle]="person.name" />
+    }
+  }
+</section>

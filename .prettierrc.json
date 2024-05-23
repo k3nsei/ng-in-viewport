@@ -1,29 +1,17 @@
 {
-  "printWidth": 80,
+  "printWidth": 120,
   "tabWidth": 2,
   "useTabs": false,
   "semi": true,
   "singleQuote": true,
   "quoteProps": "as-needed",
-  "trailingComma": "es5",
+  "trailingComma": "all",
   "bracketSpacing": true,
   "bracketSameLine": true,
   "arrowParens": "always",
-  "proseWrap": "preserve",
   "htmlWhitespaceSensitivity": "strict",
   "endOfLine": "lf",
-  "overrides": [
-    {
-      "files": "*.{js,ts,html}",
-      "options": {
-        "printWidth": 120
-      }
-    },
-    {
-      "files": "*.html",
-      "options": {
-        "parser": "angular"
-      }
-    }
-  ]
+  "embeddedLanguageFormatting": "auto",
+  "singleAttributePerLine": false,
+  "plugins": ["prettier-plugin-packagejson", "prettier-plugin-sh"]
 }

@@ -1,0 +1,28 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row class="row first">
+    <button mat-icon-button class="menu-trigger" (click)="toggleMenu()">
+      <mat-icon fontIcon="menu" />
+    </button>
+
+    <h2 class="title" data-testid="title">
+      {{ title() }}
+    </h2>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="row second">
+    <nav class="navigation" mat-tab-nav-bar [tabPanel]="tabPanel">
+      @for (link of links(); track link.path) {
+        <a
+          #activeNavLink="routerLinkActive"
+          mat-tab-link
+          class="link"
+          [routerLink]="link.path"
+          [routerLinkActive]="'is-active'"
+          [active]="activeNavLink.isActive">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+    <mat-tab-nav-panel #tabPanel />
+  </mat-toolbar-row>
+</mat-toolbar>

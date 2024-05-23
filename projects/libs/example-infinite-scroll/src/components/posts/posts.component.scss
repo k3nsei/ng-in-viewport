@@ -1,0 +1,21 @@
+:host {
+  display: contents;
+
+  &:first-child :is(.post-list) {
+    padding-block-start: var(--ngi-ex-infinite-scroll-gap);
+  }
+}
+
+.post-list {
+  inline-size: var(--ngi-ex-infinite-scroll-size-x);
+  min-block-size: 63rem;
+  margin-inline: auto;
+  padding-block: 0 var(--ngi-ex-infinite-scroll-gap);
+  display: grid;
+  justify-items: center;
+  gap: var(--ngi-ex-infinite-scroll-gap);
+
+  // DOM rendering optimization
+  content-visibility: auto;
+  contain-intrinsic-size: 0.0625rem 134.5rem;
+}

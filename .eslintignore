@@ -1,4 +1,5 @@
-/dist
-/out-tsc
-/tmp
+.angular
 /coverage
+/dist
+/tmp
+/out-tsc

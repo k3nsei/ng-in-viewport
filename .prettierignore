@@ -1,11 +1,8 @@
-/.angular
+# Add files here to ignore them from prettier formatting
 /.husky/_
+/.angular
 /coverage
 /dist
-/docs
-/out-tsc
 /tmp
-
-.all-contributorsrc
-CHANGELOG.md
+/out-tsc
 *.snap

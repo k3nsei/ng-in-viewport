@@ -1,0 +1,11 @@
+<mat-card class="post">
+  <mat-card-header>
+    <img mat-card-avatar loading="lazy" alt="Avatar" [ngSrc]="avatar()" [width]="40" [height]="40" [priority]="false" />
+
+    <mat-card-title>{{ title() }}</mat-card-title>
+
+    <mat-card-subtitle>{{ subtitle() }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>{{ body() }}</mat-card-content>
+</mat-card>

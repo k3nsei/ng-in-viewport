@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+
+@use 'theme' as *;
+
+:host {
+  --ngi-ex-sidebar-size-x: 6.25rem;
+
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 100%;
+  position: relative;
+  display: block;
+}
+
+.app-container,
+.app-content {
+  background-color: inherit;
+}
+
+.app-content {
+  scroll-timeline: --ngi-ex-app-scroll-progress block;
+}
+
+.app-sidebar {
+  --mat-sidenav-container-width: var(--ngi-ex-sidebar-size-x);
+}
+
+.app-header {
+  inset: 0 0 auto;
+  position: sticky;
+  display: block;
+  z-index: 10;
+
+  &::after {
+    inline-size: 100%;
+    block-size: 0.125rem;
+    inset-block-start: 0;
+    position: absolute;
+    content: '';
+    background: light-dark(
+      #{mat.get-theme-color($light-theme, primary, 50)},
+      #{mat.get-theme-color($dark-theme, primary, 50)}
+    );
+    transform-origin: 0 50%;
+    animation: scroll-progress linear;
+    animation-timeline: --ngi-ex-app-scroll-progress;
+  }
+}
+
+.scroll-top {
+  inset: auto 2rem 1rem auto;
+  position: fixed;
+  z-index: 100;
+}
+
+@keyframes scroll-progress {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}

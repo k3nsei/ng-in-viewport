@@ -1,0 +1,27 @@
+@use '@angular/material' as mat;
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$chartreuse-palette,
+    ),
+    density: (
+      scale: -1,
+    ),
+  )
+);
+
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$azure-palette,
+      tertiary: mat.$chartreuse-palette,
+    ),
+    density: (
+      scale: -1,
+    ),
+  )
+);

@@ -1,0 +1,13 @@
+@for (people of data(); track people; let idx = $index) {
+  <ngi-ex-infinite-scroll-posts [data]="people" [pageNumber]="idx + 1" />
+}
+
+@if (loading()) {
+  <mat-spinner class="loading-spinner" diameter="40" />
+}
+
+@if (!loading() && loadedCount() > 0 && loadedCount() < 10) {
+  <button mat-raised-button class="load-more" type="button" (click)="loadMore()">Load more</button>
+
+  <div ngi-exp-auto-loader class="auto-loader" (load)="loadMore()">&#160;</div>
+}

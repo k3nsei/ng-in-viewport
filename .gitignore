@@ -1,4 +1,4 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
 /dist
@@ -40,14 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-# GitHub
-/.github/*
-/.github/actions/*
-/.github/workflows/*
-!/.github/dependabot.yml
-!/.github/funding.yml
-!/.github/actions/install-npm-deps/action.yml
-!/.github/workflows/main.yml
-!/.github/workflows/pr.yml
-!/.github/workflows/release-please.yml

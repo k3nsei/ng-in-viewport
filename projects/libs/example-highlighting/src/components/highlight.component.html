@@ -1,0 +1,7 @@
+<mat-grid-list class="list" cols="2" rowHeight="2:1">
+  @for (item of items; track item.id) {
+    <mat-grid-tile class="list-item" ngiExHighlight>
+      {{ item.value }}
+    </mat-grid-tile>
+  }
+</mat-grid-list>

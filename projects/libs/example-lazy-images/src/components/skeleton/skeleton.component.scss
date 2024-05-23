@@ -1,0 +1,51 @@
+@use '@angular/material' as mat;
+
+@use 'theme' as *;
+
+:host {
+  --ngi-ex-skeleton-animation-duration: 1.25s;
+  --ngi-ex-skeleton-surface-high: light-dark(
+    #{mat.get-theme-color($light-theme, surface-container)},
+    #{mat.get-theme-color($dark-theme, surface-container-high)}
+  );
+  --ngi-ex-skeleton-surface-highest: light-dark(
+    #{mat.get-theme-color($light-theme, surface-container-highest)},
+    #{mat.get-theme-color($dark-theme, surface-container-highest)}
+  );
+
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+  inset: 0;
+  position: absolute;
+  display: block;
+  align-content: center;
+}
+
+.skeleton {
+  inline-size: 100%;
+  block-size: 100%;
+  display: block;
+  overflow: clip;
+  background-image: linear-gradient(
+    90deg,
+    var(--ngi-ex-skeleton-surface-highest) 0%,
+    var(--ngi-ex-skeleton-surface-high) 40%,
+    var(--ngi-ex-skeleton-surface-highest) 80%
+  );
+  background-size: 80dvw;
+  animation: move var(--ngi-ex-skeleton-animation-duration) infinite linear;
+}
+
+@keyframes move {
+  0% {
+    background-position: -20dvw;
+  }
+  40% {
+    background-position: 40dvw;
+  }
+  100% {
+    background-position: 60dvw;
+  }
+}

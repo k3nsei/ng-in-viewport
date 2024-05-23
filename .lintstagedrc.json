@@ -1,5 +1,0 @@
-{
-  "**/*": "prettier --write --ignore-unknown",
-  "projects/**/*.{js,ts,html}": "eslint",
-  ".all-contributorsrc": "prettier --write --parser=json"
-}

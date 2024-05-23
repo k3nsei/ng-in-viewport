@@ -1,0 +1,35 @@
+<mat-sidenav-container fullscreen class="app-container">
+  <mat-sidenav-content class="app-content" data-testid="content">
+    <ngi-ex-header
+      class="app-header"
+      data-testid="header"
+      title="ng-in-viewport examples"
+      [links]="links"
+      [sidebarRef]="sidebar" />
+
+    <router-outlet />
+
+    <button mat-mini-fab class="scroll-top" aria-label="Scroll back to top" (click)="scrollTop()">
+      <mat-icon fontIcon="keyboard_arrow_up" />
+    </button>
+  </mat-sidenav-content>
+
+  <mat-sidenav
+    #sidebar="matSidenav"
+    class="app-sidebar"
+    data-testid="sidebar"
+    position="start"
+    [mode]="isSmallDevice() ? 'over' : 'side'">
+    @defer (on idle) {
+      <mat-list>
+        <mat-list-item>
+          <a mat-button href="https://github.com/k3nsei/ng-in-viewport" target="_blank"> GitHub </a>
+        </mat-list-item>
+
+        <mat-list-item>
+          <a mat-button href="https://www.npmjs.com/package/ng-in-viewport" target="_blank"> NPM </a>
+        </mat-list-item>
+      </mat-list>
+    }
+  </mat-sidenav>
+</mat-sidenav-container>

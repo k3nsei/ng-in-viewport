@@ -1,75 +1,26 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
-  "settings": {
-    "import/resolver": {
-      "typescript": true,
-      "node": true
-    }
-  },
+  "ignorePatterns": ["projects/apps/**/*", "projects/libs/**/*"],
+  "plugins": ["@ngx-intersection"],
   "overrides": [
     {
-      "files": ["*.ts"],
-      "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-        "plugin:prettier/recommended"
-      ],
-      "rules": {
-        "sort-imports": [
-          "error",
-          {
-            "ignoreDeclarationSort": true,
-            "allowSeparatedGroups": true
-          }
-        ],
-        "import/first": "error",
-        "import/order": [
-          "error",
-          {
-            "alphabetize": { "order": "asc", "caseInsensitive": true },
-            "newlines-between": "always",
-            "groups": [
-              ["builtin", "external"],
-              "internal",
-              "parent",
-              ["sibling", "index"],
-              "object",
-              "type"
-            ]
-          }
-        ],
-        "@typescript-eslint/no-unused-vars": [
-          "error",
-          {
-            "argsIgnorePattern": "^_",
-            "caughtErrors": "all",
-            "caughtErrorsIgnorePattern": "^(_|ignore)",
-            "destructuredArrayIgnorePattern": "^_",
-            "ignoreRestSiblings": true
-          }
-        ],
-        "@typescript-eslint/explicit-member-accessibility": [
-          "error",
-          {
-            "accessibility": "explicit",
-            "overrides": {
-              "constructors": "no-public"
-            }
-          }
-        ]
-      }
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx", "*.cjs", "*.mjs"],
+      "extends": ["plugin:@ngx-intersection/imports"],
+      "rules": {}
     },
     {
-      "files": ["*.html"],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:prettier/recommended"
-      ],
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@ngx-intersection/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx", "*.cjs", "*.mjs"],
+      "extends": ["plugin:@ngx-intersection/javascript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.json"],
+      "parser": "jsonc-eslint-parser",
       "rules": {}
     }
   ]

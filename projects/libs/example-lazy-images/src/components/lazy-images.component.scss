@@ -1,0 +1,20 @@
+:host {
+  display: contents;
+}
+
+.tile {
+  pointer-events: none;
+  user-select: none;
+}
+
+.cover-image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+
+  &:is([data-loaded='true']) {
+    opacity: 1;
+  }
+}

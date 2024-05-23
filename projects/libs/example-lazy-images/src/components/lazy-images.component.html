@@ -1,0 +1,18 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  @for (item of items; track item.id; let idx = $index) {
+    <mat-grid-tile class="tile">
+      <img
+        #image="lazyImage"
+        class="cover-image"
+        [ngiExLazyImage]="item.imageUrl"
+        [width]="dimensions[0]"
+        [height]="dimensions[1]"
+        [attr.alt]="'Image #' + (idx + 1)"
+        [attr.data-testid]="'image-' + idx" />
+
+      @if (image.loading()) {
+        <ngi-ex-skeleton [attr.data-testid]="'skeleton-' + idx" />
+      }
+    </mat-grid-tile>
+  }
+</mat-grid-list>

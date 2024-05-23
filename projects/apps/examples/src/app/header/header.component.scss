@@ -1,0 +1,50 @@
+@use '@angular/material' as mat;
+
+@use 'theme' as *;
+
+@mixin ngi-ex-header-theme($theme) {
+  --ngi-ex-header-surface-color: #{mat.get-theme-color($theme, primary, 30)};
+  --ngi-ex-header-text-color: #{mat.get-theme-color($theme, primary, 100)};
+
+  @include mat.icon-button-color($dark-theme);
+  @include mat.tabs-color($dark-theme);
+  @include mat.toolbar-color($dark-theme);
+}
+
+:host {
+  --ngi-ex-header-row-height: 2.5rem;
+  --ngi-ex-header-nav-row-height: 2.8125rem;
+
+  @include ngi-ex-header-theme($dark-theme);
+
+  display: contents;
+}
+
+.header {
+  background-color: var(--ngi-ex-header-surface-color);
+  color: var(--ngi-ex-header-text-color);
+}
+
+.row {
+  padding: 0;
+  --mat-toolbar-standard-height: var(--ngi-ex-header-row-height);
+  --mat-toolbar-mobile-height: var(--ngi-ex-header-row-height);
+
+  &.first {
+    padding-inline-start: 1rem;
+  }
+
+  &.second {
+    --ngi-ex-header-row-height: var(--ngi-ex-header-nav-row-height);
+  }
+}
+
+.title {
+  margin-inline-start: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.navigation {
+  --mat-tab-header-divider-height: 0;
+}

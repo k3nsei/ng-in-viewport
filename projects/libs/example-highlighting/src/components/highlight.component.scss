@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+
+@use 'theme' as *;
+
+:host {
+  --ngi-ex-highlighting-surface: light-dark(
+    #{mat.get-theme-color($light-theme, surface-container-high)},
+    #{mat.get-theme-color($dark-theme, surface-container)}
+  );
+  --ngi-ex-highlighting-on-surface: light-dark(
+    #{mat.get-theme-color($light-theme, on-surface)},
+    #{mat.get-theme-color($dark-theme, on-surface)}
+  );
+
+  display: contents;
+}
+
+.list-item {
+  background-color: var(--ngi-ex-highlighting-surface);
+  font-size: 2em;
+  font-weight: 500;
+  color: var(--ngi-ex-highlighting-on-surface);
+  transition:
+    background-color 0.2s 0.2s ease-in,
+    color 0.1s 0.1s ease-in;
+  pointer-events: none;
+  user-select: none;
+
+  &:is(.active) {
+    --ngi-ex-highlighting-surface: var(--ngi-ex-highlighting-active, #00c853);
+    --ngi-ex-highlighting-on-surface: var(--ngi-ex-highlighting-on-active, #ffffffde);
+  }
+}
