@@ -10,6 +10,8 @@ import { MatSidenavContent, MatSidenavModule } from '@angular/material/sidenav';
 
 import { map } from 'rxjs/operators';
 
+import { NgxIntersectionDirective } from '@ngx-intersection/core';
+
 import { HeaderComponent, HeaderLink } from './header/header.component';
 
 @Component({
@@ -17,12 +19,20 @@ import { HeaderComponent, HeaderLink } from './header/header.component';
   selector: 'ngi-ex-app',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterModule, MatButtonModule, MatIconModule, MatSidenavModule, HeaderComponent, MatListModule],
+  imports: [
+    RouterModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    HeaderComponent,
+    MatListModule,
+    NgxIntersectionDirective,
+  ],
 })
 export class AppComponent {
   private readonly breakpointObserver = inject(BreakpointObserver);
 
-  protected readonly links = [
+  protected readonly headerLinks = [
     {
       path: '/highlighting',
       label: 'Highlighting',
@@ -34,6 +44,17 @@ export class AppComponent {
     {
       path: '/infinite-scroll',
       label: 'Infinite scroll',
+    },
+  ] satisfies HeaderLink[];
+
+  protected readonly sidebarLinks = [
+    {
+      path: 'https://github.com/k3nsei/ng-in-viewport',
+      label: 'GitHub',
+    },
+    {
+      path: 'https://www.npmjs.com/package/ng-in-viewport',
+      label: 'NPM',
     },
   ] satisfies HeaderLink[];
 
@@ -50,6 +71,13 @@ export class AppComponent {
       left: 0,
       top: 0,
       behavior: 'smooth',
+    });
+  }
+
+  public checkVisibility(entry: IntersectionObserverEntry & { isVisible?: boolean }): void {
+    console.log({
+      entry,
+      isVisible: entry?.isVisible || entry.intersectionRatio >= 1,
     });
   }
 }

@@ -1,0 +1,13 @@
+{
+  "name": "@ngx-intersection/core",
+  "version": "0.1.0",
+  "sideEffects": false,
+  "dependencies": {
+    "@ngx-intersection/utils": "^0.1.0",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0"
+  }
+}

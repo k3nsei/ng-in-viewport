@@ -230,6 +230,78 @@
           }
         }
       }
+    },
+    "core": {
+      "projectType": "library",
+      "root": "projects/libs/core",
+      "sourceRoot": "projects/libs/core/src",
+      "prefix": "ngi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/libs/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/libs/core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/libs/core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/libs/core/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/libs/core/**/*.ts", "projects/libs/core/**/*.html"]
+          }
+        }
+      }
+    },
+    "utils": {
+      "projectType": "library",
+      "root": "projects/libs/utils",
+      "sourceRoot": "projects/libs/utils/src",
+      "prefix": "ngi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/libs/utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/libs/utils/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/libs/utils/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/libs/utils/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/libs/utils/**/*.ts", "projects/libs/utils/**/*.html"]
+          }
+        }
+      }
     }
   }
 }

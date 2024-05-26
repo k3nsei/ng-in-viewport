@@ -18,11 +18,22 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "DOM"],
+    "lib": ["ES2023", "DOM"],
     "paths": {
-      "@ngx-intersection/example-highlighting": ["./projects/libs/example-highlighting/src/public-api"],
-      "@ngx-intersection/example-infinite-scroll": ["./projects/libs/example-infinite-scroll/src/public-api"],
-      "@ngx-intersection/example-lazy-images": ["./projects/libs/example-lazy-images/src/public-api"]
+      "@ngx-intersection/core": ["./dist/libs/core", "./projects/libs/core/src/public-api"],
+      "@ngx-intersection/example-highlighting": [
+        "./dist/libs/example-highlighting",
+        "./projects/libs/example-highlighting/src/public-api"
+      ],
+      "@ngx-intersection/example-infinite-scroll": [
+        "./dist/libs/example-infinite-scroll",
+        "./projects/libs/example-infinite-scroll/src/public-api"
+      ],
+      "@ngx-intersection/example-lazy-images": [
+        "./dist/libs/example-lazy-images",
+        "./projects/libs/example-lazy-images/src/public-api"
+      ],
+      "@ngx-intersection/utils": ["./dist/libs/utils", "./projects/libs/utils/src/public-api"]
     }
   },
   "angularCompilerOptions": {
