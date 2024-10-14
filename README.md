@@ -19,6 +19,18 @@
 | `16.0.x`           | `16.x.y \|\| 15.x.y`    |
 | `15.0.x`           | `15.x.y \|\| 14.x.y`    |
 
+## Support the Project 💖
+
+Maintaining `ng-in-viewport` is a labor of love, developed mostly during spare time by its maintainers. If you find this library helpful, consider sponsoring—whether it's the cost of a coffee, a beer, or more. Your support helps keep the project alive and evolving.
+
+By sponsoring, you'll help to:
+
+- Add new features
+- Ensure long-term support
+- Improve compatibility with future Angular versions
+
+Every contribution makes a difference, and even a small gesture goes a long way in keeping `ng-in-viewport` up to date for the community.
+
 ## License 📝
 
 [MIT](https://github.com/k3nsei/ng-in-viewport/blob/stable/LICENSE)
