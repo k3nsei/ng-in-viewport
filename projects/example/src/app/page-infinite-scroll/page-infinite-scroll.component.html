@@ -1,5 +1,5 @@
 @for (card of cards(); track card; let isOdd = $odd; let isEven = $even) {
-  <mat-card class="card" [ngClass]="{ odd: isOdd, even: isEven }">
+  <mat-card class="card" [class.odd]="isOdd" [class.even]="isEven">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
       <mat-card-title>{{ isOdd ? 'Lego Builder' : 'Lego Doctor' }}</mat-card-title>

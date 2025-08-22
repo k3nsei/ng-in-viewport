@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DestroyRef, effect, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,7 +15,7 @@ import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
   templateUrl: './page-infinite-scroll.component.html',
   styleUrl: './page-infinite-scroll.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgClass, MatButtonModule, MatCardModule, MatProgressSpinnerModule, InViewportDirective],
+  imports: [MatButtonModule, MatCardModule, MatProgressSpinnerModule, InViewportDirective],
 })
 export class PageInfiniteScrollComponent {
   public page = signal<number>(1);
