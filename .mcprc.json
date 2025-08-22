@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.modelcontextprotocol.org/v1/mcp-config.schema.json",
+  "description": "MCP configuration for ng-in-viewport Angular library project",
+  "servers": {
+    "angular-cli": {
+      "command": "npx",
+      "args": ["-y", "@angular/cli", "mcp"],
+      "description": "Angular CLI MCP for Angular development assistance, project management, and code generation"
+    },
+    "github-mcp-server": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "description": "GitHub MCP for repository management, issues, PRs, and code review",
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      }
+    },
+    "playwright-mcp": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-playwright"],
+      "description": "Playwright MCP for browser automation, E2E testing, and web page interaction"
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/runner/work/ng-in-viewport/ng-in-viewport"
+      ],
+      "description": "File system access for reading and writing project files"
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "description": "Web search capabilities for documentation and troubleshooting",
+      "env": {
+        "BRAVE_API_KEY": ""
+      }
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git",
+        "/home/runner/work/ng-in-viewport/ng-in-viewport"
+      ],
+      "description": "Git operations and repository management"
+    }
+  },
+  "globalSettings": {
+    "logLevel": "info",
+    "timeout": 30000,
+    "retries": 3
+  }
+}

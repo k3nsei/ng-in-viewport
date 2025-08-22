@@ -10,6 +10,7 @@
 - 🤓 Learn about it on the [Docs Site][lib-docs]
 - 🚀 See it in action on the [Examples Site][example-app]
 - 🎮 Play with it on [Stackblitz][example-app-embed]
+- 🤖 Enhanced with [MCP Support][mcp-docs] for AI-powered development
 
 ## Compatibility matrix 🔢
 
@@ -90,6 +91,7 @@ This project follows the [all-contributors][all-contributors-url] specification.
 [lib-docs]: https://k3nsei.gitbook.io/ng-in-viewport/
 [example-app]: https://ng-in-viewport.vercel.app/
 [example-app-embed]: https://stackblitz.com/edit/ng-in-viewport-example?embed=1&file=src/main.ts
+[mcp-docs]: docs/MCP_SETUP.md
 [all-contributors-url]: https://github.com/all-contributors/all-contributors
 
 <!-- markdownlint-restore -->
