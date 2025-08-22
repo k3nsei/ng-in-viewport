@@ -17,14 +17,14 @@ export interface InViewportCheckFnOptions {
   config: Config;
 }
 
-export interface InViewportCheckFn<T = any> {
+export interface InViewportCheckFn<T = unknown> {
   (entry: IntersectionObserverEntry | undefined, options: InViewportCheckFnOptions): T;
 }
 
 const ids = new WeakMap<InViewportCheckFn<unknown>, string>();
 const fallbackId = 'in-viewport-empty-check-fn';
 
-export class CheckFn<T = any> {
+export class CheckFn<T = unknown> {
   readonly #value: InViewportCheckFn<T> | undefined;
 
   readonly #id: string;

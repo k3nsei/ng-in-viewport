@@ -53,7 +53,7 @@ describe('GIVEN InViewportService', () => {
       const node = createNode();
       const config = new Config();
 
-      let triggerCallback: (...args: any[]) => boolean;
+      let triggerCallback: (...args: unknown[]) => boolean;
       let triggerSubscription$: Subscription;
 
       beforeEach(() => {

@@ -69,6 +69,7 @@
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.3.0",
     "husky": "^9.1.7",
     "is-ci": "^4.1.0",
     "jest": "^30.0.5",

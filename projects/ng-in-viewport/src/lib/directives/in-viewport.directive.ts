@@ -41,7 +41,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
 
   @Output() public readonly inViewportAction = new EventEmitter<InViewportAction>();
 
-  @Output() public readonly inViewportCustomCheck = new EventEmitter<any>();
+  @Output() public readonly inViewportCustomCheck = new EventEmitter<unknown>();
 
   private config = new Config({});
 
