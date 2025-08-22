@@ -87,7 +87,7 @@ describe('GIVEN InViewportDirective', () => {
       beforeEach(() => {
         mockCheckFn = jest.fn();
 
-        spectator.setInput('options', { partial: true, checkFn: mockCheckFn });
+        spectator.setHostInput('options', { partial: true, checkFn: mockCheckFn });
         spectator.detectChanges();
 
         trigger$.next({
