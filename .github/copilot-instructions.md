@@ -1,11 +1,11 @@
 # GitHub Copilot Instructions for ng-in-viewport
 
-**Angular v20.2.1 Development Guidelines**  
+**Angular Development Guidelines**  
 *Ignore current project patterns - use only latest Angular v20+ standards and best practices*
 
 ## Project Overview
 
-This is an Angular library for viewport detection using modern Angular v20.2.1 patterns. The repository contains:
+This is an Angular library for viewport detection using modern Angular v20+ patterns. The repository contains:
 
 - **Core library**: `projects/ng-in-viewport` - Signal-based viewport detection with Intersection Observer
 - **Demo application**: `projects/demo` - Documentation and interactive examples
@@ -63,7 +63,7 @@ npm run serve:demo     # Demo app - localhost:4200
 npm run serve:example  # Example app - localhost:4300
 ```
 
-## Angular v20.2.1 Development Standards
+## Angular v20+ Development Standards
 
 ### Core Principles
 
@@ -581,4 +581,4 @@ private readonly debouncedUpdate = computed(() => {
 });
 ```
 
-This guide ensures all Angular v20.2.1 development follows the latest standards and patterns, ignoring outdated practices from earlier versions.
+This guide ensures all Angular v20+ development follows the latest standards and patterns, ignoring outdated practices from earlier versions.
