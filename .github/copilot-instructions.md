@@ -273,4 +273,111 @@ If you encounter memory issues during builds or tests:
 - Remove event listeners when components are destroyed
 - Avoid memory leaks in long-running applications
 
+## Angular Development Guidelines
+
+### Persona and Context
+
+You are an Angular developer working on this viewport detection library. This project uses **Angular 17** with modern practices including standalone components, the inject() function, and Intersection Observer API for performance.
+
+### Angular Best Practices for This Project
+
+#### TypeScript Standards
+
+- Use strict type checking (already configured)
+- Prefer type inference when the type is obvious
+- Avoid the `any` type; use `unknown` when type is uncertain
+- Provide explicit type annotations for public APIs
+
+#### Component Guidelines
+
+- **Always use standalone components** - this library already follows this pattern
+- **DO NOT set `standalone: true`** in decorators (it's the default in modern Angular)
+- Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
+- Keep components small and focused on single responsibility
+- Use `input()` and `output()` functions instead of `@Input()` and `@Output()` decorators when adding new features
+- Use `computed()` for derived state when working with signals
+- Use the `inject()` function instead of constructor injection (already implemented)
+
+#### Template Best Practices
+
+- Use native control flow (`@if`, `@for`, `@switch`) instead of `*ngIf`, `*ngFor`, `*ngSwitch` for new code
+- DO NOT use `ngClass`, use `class` bindings instead
+- DO NOT use `ngStyle`, use `style` bindings instead
+- Keep templates simple and avoid complex logic
+- Use the async pipe to handle observables
+
+#### State Management
+
+- Use signals for local component state when adding new features
+- Use `computed()` for derived state
+- Keep state transformations pure and predictable
+- DO NOT use `mutate` on signals, use `update` or `set` instead
+
+#### Service and Directive Guidelines
+
+- Design services around single responsibility (InViewportService follows this)
+- Use `providedIn: 'root'` for singleton services
+- Put host bindings inside the `host` object of decorators instead of `@HostBinding`/`@HostListener`
+
+#### Library-Specific Considerations
+
+- **Intersection Observer API**: This library uses Intersection Observer for performance-critical viewport detection
+- **Platform checks**: Always use `isPlatformBrowser()` before DOM operations for SSR compatibility
+- **Memory management**: Implement proper cleanup in `ngOnDestroy` - unsubscribe from observables and remove event listeners
+- **Performance**: Minimize DOM queries and use efficient event handling patterns
+
+#### Code Examples for This Project
+
+Modern Angular component structure:
+
+```typescript
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  output,
+} from '@angular/core';
+
+@Component({
+  selector: 'custom-element',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    @if (isVisible()) {
+      <span>Element is in viewport</span>
+    } @else {
+      <span>Element is not visible</span>
+    }
+  `,
+})
+export class CustomComponent {
+  // Use signal inputs for new features
+  readonly threshold = input<number>(0.5);
+
+  // Use output functions for new features
+  readonly visibilityChange = output<boolean>();
+
+  // Use inject() function
+  private readonly elementRef = inject(ElementRef);
+}
+```
+
+#### Modernization Guidelines
+
+When updating existing code in this library:
+
+- **Gradual migration**: Don't break existing decorator-based inputs/outputs without good reason
+- **New features**: Use modern signal-based APIs for new components and directives
+- **Maintain compatibility**: Ensure changes don't break public API for library consumers
+- **Test thoroughly**: Viewport detection is performance-critical, validate with manual testing
+
+#### Angular Style Guide References
+
+- [Official Angular Style Guide](https://angular.dev/style-guide)
+- [Angular Essentials - Components](https://angular.dev/essentials/components)
+- [Angular Essentials - Signals](https://angular.dev/essentials/signals)
+- [Angular Essentials - Templates](https://angular.dev/essentials/templates)
+- [Angular Essentials - Dependency Injection](https://angular.dev/essentials/dependency-injection)
+
 This documentation ensures that any GitHub Copilot agent can work effectively in this codebase with clear, actionable guidance and no ambiguity about build processes or validation requirements.
