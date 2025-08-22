@@ -13,11 +13,11 @@
 
 ## Compatibility matrix 🔢
 
-| **ng-in-viewport** | **Angular**                                      |
-| ------------------ | ------------------------------------------------ |
+| **ng-in-viewport** | **Angular**                                     |
+| ------------------ | ----------------------------------------------- |
 | `16.1.x`           | `>= 17.x.y \|\| 18.x.y \|\| 19.x.y \|\| 20.x.y` |
-| `16.0.x`           | `16.x.y \|\| 15.x.y`                             |
-| `15.0.x`           | `15.x.y \|\| 14.x.y`                             |
+| `16.0.x`           | `16.x.y \|\| 15.x.y`                            |
+| `15.0.x`           | `15.x.y \|\| 14.x.y`                            |
 
 ## Support the Project 💖
 
@@ -30,6 +30,25 @@ By sponsoring, you'll help to:
 - Improve compatibility with future Angular versions
 
 Every contribution makes a difference, and even a small gesture goes a long way in keeping `ng-in-viewport` up to date for the community.
+
+## Development 🛠️
+
+### Angular MCP Integration
+
+This project includes Model Context Protocol (MCP) integration for enhanced AI development assistance. The MCP configuration can be found in `mcp-config.json`:
+
+```json
+{
+  "servers": {
+    "angular-cli": {
+      "command": "npx",
+      "args": ["-y", "@angular/cli", "mcp"]
+    }
+  }
+}
+```
+
+This configuration enables AI tools like Claude Desktop to interact with Angular CLI commands through the MCP protocol. For more information about Angular MCP, visit the [official documentation](https://angular.dev/ai/mcp).
 
 ## License 📝
 

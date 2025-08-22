@@ -28,7 +28,9 @@ export class InViewportService {
 
   #getCache(): ObserverCache {
     if (!this.#cache) {
-      this.#cache = this.zone.runOutsideAngular(() => new ObserverCache((entries) => this.#onIntersectionEvent(entries)));
+      this.#cache = this.zone.runOutsideAngular(
+        () => new ObserverCache((entries) => this.#onIntersectionEvent(entries))
+      );
     }
     return this.#cache;
   }

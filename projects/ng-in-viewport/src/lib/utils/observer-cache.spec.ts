@@ -38,16 +38,12 @@ vi.mock('./observer-cache-item', () => ({
 
 // Helper functions to check if any mock instance was called with the node
 function expectAnyAddNodeCalledWith(node: Element) {
-  const wasCalled = mockInstances.some(instance => 
-    instance.addNode.mock.calls.some(call => call[0] === node)
-  );
+  const wasCalled = mockInstances.some((instance) => instance.addNode.mock.calls.some((call) => call[0] === node));
   expect(wasCalled).toBe(true);
 }
 
 function expectAnyDeleteNodeCalledWith(node: Element) {
-  const wasCalled = mockInstances.some(instance => 
-    instance.deleteNode.mock.calls.some(call => call[0] === node)
-  );
+  const wasCalled = mockInstances.some((instance) => instance.deleteNode.mock.calls.some((call) => call[0] === node));
   expect(wasCalled).toBe(true);
 }
 

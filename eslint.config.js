@@ -12,12 +12,7 @@ const globals = require('globals');
 
 module.exports = [
   {
-    ignores: [
-      'dist/**',
-      'node_modules/**',
-      'coverage/**',
-      '*.d.ts',
-    ],
+    ignores: ['dist/**', 'node_modules/**', 'coverage/**', '*.d.ts'],
   },
   // Base config for TypeScript files
   {
@@ -37,37 +32,30 @@ module.exports = [
     plugins: {
       '@typescript-eslint': tseslint,
       '@angular-eslint': angular,
-      'import': importPlugin,
-      'prettier': prettier,
+      import: importPlugin,
+      prettier: prettier,
     },
     rules: {
       ...eslint.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
       ...angular.configs.recommended.rules,
       ...prettierConfig.rules,
-      
+
       // Import rules
       'sort-imports': [
         'error',
         {
-          'ignoreDeclarationSort': true,
-          'allowSeparatedGroups': true,
+          ignoreDeclarationSort: true,
+          allowSeparatedGroups: true,
         },
       ],
       'import/first': 'error',
       'import/order': [
         'error',
         {
-          'alphabetize': { 'order': 'asc', 'caseInsensitive': true },
+          alphabetize: { order: 'asc', caseInsensitive: true },
           'newlines-between': 'always',
-          'groups': [
-            ['builtin', 'external'],
-            'internal',
-            'parent',
-            ['sibling', 'index'],
-            'object',
-            'type',
-          ],
+          groups: [['builtin', 'external'], 'internal', 'parent', ['sibling', 'index'], 'object', 'type'],
         },
       ],
 
@@ -75,19 +63,19 @@ module.exports = [
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
-          'argsIgnorePattern': '^_',
-          'caughtErrors': 'all',
-          'caughtErrorsIgnorePattern': '^(_|ignore)',
-          'destructuredArrayIgnorePattern': '^_',
-          'ignoreRestSiblings': true,
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^(_|ignore)',
+          destructuredArrayIgnorePattern: '^_',
+          ignoreRestSiblings: true,
         },
       ],
       '@typescript-eslint/explicit-member-accessibility': [
         'error',
         {
-          'accessibility': 'explicit',
-          'overrides': {
-            'constructors': 'no-public',
+          accessibility: 'explicit',
+          overrides: {
+            constructors: 'no-public',
           },
         },
       ],
@@ -110,7 +98,7 @@ module.exports = [
     },
     plugins: {
       '@angular-eslint/template': angularTemplate,
-      'prettier': prettier,
+      prettier: prettier,
     },
     rules: {
       ...angularTemplate.configs.recommended.rules,

@@ -69,11 +69,11 @@ test.describe('GIVEN: Demo Application', () => {
 async function assertColumnItems(page: any, column: 'first' | 'second', start: number, end?: number): Promise<void> {
   const items = page.locator(`.example--${column} .item`);
   const itemCount = await items.count();
-  
+
   for (let i = 0; i < itemCount; i++) {
     const item = items.nth(i);
     const number = i + 1;
-    
+
     if (inRange(number, start, end)) {
       await expect(item).toHaveClass(/item--active/);
     } else {
