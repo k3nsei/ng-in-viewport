@@ -47,6 +47,7 @@ Thumbs.db
 /.github/workflows/*
 !/.github/dependabot.yml
 !/.github/funding.yml
+!/.github/copilot-instructions.md
 !/.github/actions/install-npm-deps/action.yml
 !/.github/workflows/main.yml
 !/.github/workflows/pr.yml
