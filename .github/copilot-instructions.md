@@ -1,7 +1,7 @@
 # GitHub Copilot Instructions for ng-in-viewport
 
 **Angular Development Guidelines**  
-*Ignore current project patterns - use only latest Angular v20+ standards and best practices*
+_Ignore current project patterns - use only latest Angular v20+ standards and best practices_
 
 ## Project Overview
 
@@ -89,6 +89,7 @@ npm run serve:example  # Example app - localhost:4300
 ```
 
 **Type Standards**:
+
 - NEVER use `any` - use `unknown` for uncertain types
 - Use `satisfies` operator for type checking with inference
 - Prefer `readonly` for all data that shouldn't be mutated
@@ -147,12 +148,12 @@ export class ViewportElementComponent {
   protected readonly isInViewport = signal<boolean>(false);
   protected readonly visibilityRatio = signal<number>(0);
   private readonly lastEntry = signal<IntersectionObserverEntry | null>(null);
-  
+
   // Computed values - derived state
-  protected readonly opacity = computed(() => 
-    this.visibilityRatio() * 0.8 + 0.2
+  protected readonly opacity = computed(
+    () => this.visibilityRatio() * 0.8 + 0.2
   );
-  
+
   protected readonly viewportState = computed(() =>
     this.isInViewport() ? 'visible' : 'hidden'
   );
@@ -179,18 +180,15 @@ export class ViewportElementComponent {
 
   private setupViewportObserver(): void {
     // Implementation with Intersection Observer
-    this.viewportService.observe(
-      this.elementRef.nativeElement,
-      {
-        threshold: this.threshold(),
-        rootMargin: this.rootMargin(),
-        callback: (entry) => {
-          this.isInViewport.set(entry.isIntersecting);
-          this.visibilityRatio.set(entry.intersectionRatio * 100);
-          this.lastEntry.set(entry);
-        },
-      }
-    );
+    this.viewportService.observe(this.elementRef.nativeElement, {
+      threshold: this.threshold(),
+      rootMargin: this.rootMargin(),
+      callback: (entry) => {
+        this.isInViewport.set(entry.isIntersecting);
+        this.visibilityRatio.set(entry.intersectionRatio * 100);
+        this.lastEntry.set(entry);
+      },
+    });
   }
 }
 ```
@@ -218,7 +216,7 @@ interface ViewportGlobalConfig {
 export class ViewportService {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
-  
+
   // Signal-based state management
   private readonly _elements = signal<Map<Element, ViewportConfig>>(new Map());
   private readonly _globalConfig = signal<ViewportGlobalConfig>({
@@ -246,8 +244,8 @@ export class ViewportService {
     }
 
     const fullConfig = { ...this._globalConfig(), ...config } as ViewportConfig;
-    
-    this._elements.update(elements => {
+
+    this._elements.update((elements) => {
       const newElements = new Map(elements);
       newElements.set(element, fullConfig);
       return newElements;
@@ -260,7 +258,7 @@ export class ViewportService {
   }
 
   unobserve(element: Element): void {
-    this._elements.update(elements => {
+    this._elements.update((elements) => {
       const newElements = new Map(elements);
       newElements.delete(element);
       return newElements;
@@ -283,8 +281,8 @@ export class ViewportService {
 
   private handleIntersection(entries: IntersectionObserverEntry[]): void {
     const elements = this._elements();
-    
-    entries.forEach(entry => {
+
+    entries.forEach((entry) => {
       const config = elements.get(entry.target);
       if (config?.callback) {
         config.callback(entry);
@@ -301,70 +299,65 @@ export class ViewportService {
 ```html
 <!-- Conditional rendering -->
 @if (isLoading()) {
-  <loading-spinner />
+<loading-spinner />
 } @else if (hasError()) {
-  <error-message [error]="error()" />
+<error-message [error]="error()" />
 } @else {
-  <content-display [data]="data()" />
+<content-display [data]="data()" />
 }
 
 <!-- Iteration -->
 @for (item of items(); track item.id) {
-  <item-card 
-    [item]="item" 
-    [index]="$index"
-    [isLast]="$last"
-    (action)="handleAction($event, item)" />
+<item-card
+  [item]="item"
+  [index]="$index"
+  [isLast]="$last"
+  (action)="handleAction($event, item)" />
 } @empty {
-  <empty-state message="No items found" />
+<empty-state message="No items found" />
 }
 
 <!-- Switch statements -->
-@switch (status()) {
-  @case ('loading') { <loading-state /> }
-  @case ('error') { <error-state [error]="error()" /> }
-  @case ('success') { <success-state [data]="data()" /> }
-  @default { <unknown-state /> }
-}
+@switch (status()) { @case ('loading') { <loading-state /> } @case ('error') {
+<error-state [error]="error()" /> } @case ('success') {
+<success-state [data]="data()" /> } @default { <unknown-state /> } }
 ```
 
 **Binding Patterns**: Use direct property and class bindings:
 
 ```html
 <!-- Property bindings -->
-<div 
+<div
   [class.active]="isActive()"
   [class.disabled]="isDisabled()"
   [attr.aria-expanded]="isExpanded()"
   [style.opacity]="opacity()"
   [style.transform]="transform()">
+  <!-- Event bindings with proper typing -->
+  <button
+    (click)="handleClick($event)"
+    (keydown.enter)="handleEnter()"
+    (keydown.space)="handleSpace()">
+    {{ buttonText() }}
+  </button>
 
-<!-- Event bindings with proper typing -->
-<button 
-  (click)="handleClick($event)"
-  (keydown.enter)="handleEnter()"
-  (keydown.space)="handleSpace()">
-  {{ buttonText() }}
-</button>
-
-<!-- Signal-based input binding -->
-<input 
-  [value]="searchTerm()" 
-  (input)="searchTerm.set($event.target.value)" />
+  <!-- Signal-based input binding -->
+  <input [value]="searchTerm()" (input)="searchTerm.set($event.target.value)"
+/></div>
 ```
 
 ### Directive Patterns
 
 ```typescript
-import { 
-  Directive, 
-  effect, 
-  inject, 
-  input, 
+import {
+  Directive,
+  effect,
+  inject,
+  input,
   output,
   signal,
   ElementRef,
-  OnDestroy 
+  OnDestroy,
 } from '@angular/core';
 
 @Directive({
@@ -414,18 +407,15 @@ export class ViewportObserverDirective implements OnDestroy {
 
   private setupObserver(): void {
     this.cleanup?.();
-    
-    this.cleanup = this.viewportService.observe(
-      this.elementRef.nativeElement,
-      {
-        threshold: this.threshold(),
-        rootMargin: this.rootMargin(),
-        callback: (entry) => {
-          this.isInViewport.set(entry.isIntersecting);
-          this.lastEntry.set(entry);
-        },
-      }
-    );
+
+    this.cleanup = this.viewportService.observe(this.elementRef.nativeElement, {
+      threshold: this.threshold(),
+      rootMargin: this.rootMargin(),
+      callback: (entry) => {
+        this.isInViewport.set(entry.isIntersecting);
+        this.lastEntry.set(entry);
+      },
+    });
   }
 
   private readonly lastEntry = signal<IntersectionObserverEntry | null>(null);
@@ -456,15 +446,15 @@ describe('ViewportElementComponent', () => {
 
   it('should emit visibility changes when signal updates', () => {
     const emitSpy = jest.spyOn(component.visibilityChange, 'emit');
-    
+
     // Update signal inputs directly
     fixture.componentRef.setInput('threshold', 0.8);
     fixture.detectChanges();
-    
+
     // Test signal-based state changes
     component['isInViewport'].set(true);
     component['visibilityRatio'].set(75);
-    
+
     expect(component['opacity']()).toBe(0.8); // 0.75 * 0.8 + 0.2
   });
 
@@ -472,7 +462,7 @@ describe('ViewportElementComponent', () => {
     // Test computed signals
     component['visibilityRatio'].set(50);
     expect(component['opacity']()).toBe(0.6); // 0.5 * 0.8 + 0.2
-    
+
     component['visibilityRatio'].set(100);
     expect(component['opacity']()).toBe(1.0); // 1.0 * 0.8 + 0.2
   });
@@ -480,7 +470,7 @@ describe('ViewportElementComponent', () => {
   it('should update viewport state based on visibility', () => {
     component['isInViewport'].set(true);
     expect(component['viewportState']()).toBe('visible');
-    
+
     component['isInViewport'].set(false);
     expect(component['viewportState']()).toBe('hidden');
   });
@@ -500,9 +490,7 @@ describe('ViewportService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        { provide: PLATFORM_ID, useValue: 'browser' },
-      ],
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
     });
     service = TestBed.inject(ViewportService);
     mockElement = document.createElement('div');
@@ -511,11 +499,11 @@ describe('ViewportService', () => {
   it('should track elements correctly', () => {
     expect(service.trackedElementsCount()).toBe(0);
     expect(service.isActive()).toBe(false);
-    
+
     const cleanup = service.observe(mockElement);
     expect(service.trackedElementsCount()).toBe(1);
     expect(service.isActive()).toBe(true);
-    
+
     cleanup();
     expect(service.trackedElementsCount()).toBe(0);
     expect(service.isActive()).toBe(false);
@@ -524,14 +512,12 @@ describe('ViewportService', () => {
   it('should handle SSR gracefully', () => {
     TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      providers: [
-        { provide: PLATFORM_ID, useValue: 'server' },
-      ],
+      providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
     });
-    
+
     const ssrService = TestBed.inject(ViewportService);
     const cleanup = ssrService.observe(mockElement);
-    
+
     // Should return no-op cleanup function
     expect(typeof cleanup).toBe('function');
     expect(ssrService.trackedElementsCount()).toBe(0);
@@ -542,11 +528,13 @@ describe('ViewportService', () => {
 ### Performance Optimization
 
 **Signal Optimization**:
+
 - Use `computed()` for derived state - automatically optimized
 - Prefer `effect()` over manual subscriptions
 - Use `untracked()` to break signal dependencies when needed
 
 **Intersection Observer Optimization**:
+
 ```typescript
 // Efficient observer configuration
 private readonly observerConfig = computed(() => ({
@@ -562,11 +550,12 @@ effect(() => {
 ```
 
 **Memory Management**:
+
 ```typescript
 // Automatic cleanup with effect cleanup
 effect((onCleanup) => {
   const cleanup = this.setupObserver();
-  
+
   onCleanup(() => {
     cleanup();
   });
@@ -581,14 +570,14 @@ private readonly error = signal<Error | null>(null);
 private readonly isLoading = signal<boolean>(false);
 
 protected readonly hasError = computed(() => this.error() !== null);
-protected readonly canRetry = computed(() => 
+protected readonly canRetry = computed(() =>
   this.hasError() && !this.isLoading()
 );
 
 async performOperation(): Promise<void> {
   this.isLoading.set(true);
   this.error.set(null);
-  
+
   try {
     await this.operation();
   } catch (error) {
@@ -620,7 +609,7 @@ import { PLATFORM_ID, inject } from '@angular/core';
 
 constructor() {
   const platformId = inject(PLATFORM_ID);
-  
+
   if (isPlatformBrowser(platformId)) {
     this.initializeObserver();
   }
@@ -630,6 +619,7 @@ constructor() {
 ### Migration Strategy
 
 **From Angular 17 to v20+**:
+
 1. Replace all `@Input()` with `input()`
 2. Replace all `@Output()` with `output()`
 3. Convert component state to signals
@@ -639,6 +629,7 @@ constructor() {
 7. Replace manual subscriptions with `effect()`
 
 **Breaking Changes to Expect**:
+
 - Remove all structural directives (`*ngIf`, `*ngFor`)
 - Remove `ngClass` and `ngStyle` - use direct bindings
 - Remove `async` pipe for signals (not needed)
@@ -649,7 +640,7 @@ constructor() {
 ### Manual Testing Protocol
 
 1. **Demo App**: Verify all examples work with signal-based updates
-2. **Example App**: Test performance with rapid viewport changes  
+2. **Example App**: Test performance with rapid viewport changes
 3. **Responsive Testing**: Validate across viewport sizes
 4. **Memory Testing**: Check for leaks during rapid scroll/resize
 
