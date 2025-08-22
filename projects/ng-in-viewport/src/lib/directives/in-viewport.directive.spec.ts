@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { PLATFORM_ID } from '@angular/core';
 import { HostComponent } from '@ngneat/spectator';
 import { SpectatorDirective, createDirectiveFactory } from '@ngneat/spectator';
@@ -27,12 +28,12 @@ describe('GIVEN InViewportDirective', () => {
       spectator = createDirective(
         `<div inViewport [inViewportOptions]='options' (inViewportAction)='action($event)'>Testing InViewportDirective</div>`,
         {
-          hostProps: { options: { threshold: [0, 0.5, 1], partial: false }, action: jest.fn() },
+          hostProps: { options: { threshold: [0, 0.5, 1], partial: false }, action: vi.fn() },
           providers: [
             MockProvider(InViewportService, {
               trigger$: trigger$.asObservable(),
-              register: jest.fn(),
-              unregister: jest.fn(),
+              register: vi.fn(),
+              unregister: vi.fn(),
             }),
           ],
         }
@@ -85,7 +86,7 @@ describe('GIVEN InViewportDirective', () => {
       let mockCheckFn: () => void;
 
       beforeEach(() => {
-        mockCheckFn = jest.fn();
+        mockCheckFn = vi.fn();
 
         spectator.setHostInput('options', { partial: true, checkFn: mockCheckFn });
         spectator.detectChanges();
@@ -130,13 +131,13 @@ describe('GIVEN InViewportDirective', () => {
       spectator = createDirective(
         `<div inViewport [inViewportOptions]='options' (inViewportAction)='action($event)'>Testing InViewportDirective</div>`,
         {
-          hostProps: { options: { threshold: [0, 0.5, 1] }, action: jest.fn() },
+          hostProps: { options: { threshold: [0, 0.5, 1] }, action: vi.fn() },
           providers: [
             { provide: PLATFORM_ID, useValue: 'server' },
             MockProvider(InViewportService, {
               trigger$: trigger$.asObservable(),
-              register: jest.fn(),
-              unregister: jest.fn(),
+              register: vi.fn(),
+              unregister: vi.fn(),
             }),
           ],
         }

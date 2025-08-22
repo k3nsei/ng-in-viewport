@@ -1,6 +1,7 @@
 import { SpectatorDirective, createDirectiveFactory } from '@ngneat/spectator';
 import { interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { vi } from 'vitest';
 
 import { DestroyableDirective } from './destroyable.directive';
 
@@ -18,7 +19,7 @@ describe('GIVEN DestroyableDirective', () => {
     let complete: () => void;
 
     beforeEach(() => {
-      complete = jest.fn();
+      complete = vi.fn();
       interval(1).pipe(takeUntil(directive.destroyed$)).subscribe({ complete });
     });
 

@@ -21,12 +21,12 @@
     "prepare": "npx --no -- is-ci || npx --no -- husky || true",
     "serve:demo": "ng serve demo",
     "serve:example": "ng serve example",
-    "test": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "test:watch": "vitest",
-    "test:demo": "vitest run --config projects/demo/vitest.config.ts --coverage",
-    "test:example": "vitest run --config projects/example/vitest.config.ts --coverage",
-    "test:lib": "vitest run --config projects/ng-in-viewport/vitest.config.ts --coverage",
+    "test": "ng test ng-in-viewport",
+    "test:ui": "ng test ng-in-viewport --watch",
+    "test:watch": "ng test ng-in-viewport --watch",
+    "test:demo": "ng test demo",
+    "test:example": "ng test example",
+    "test:lib": "ng test ng-in-viewport",
     "watch:demo": "ng build demo --watch --configuration=development",
     "watch:example": "ng build example --watch --configuration=development",
     "watch:lib": "ng build ng-in-viewport --watch --configuration=development"
@@ -82,7 +82,8 @@
     "prettier-plugin-packagejson": "^2.5.19",
     "ts-node": "^10.9.2",
     "typescript": "~5.9.2",
-    "vitest": "^3.0.0"
+    "vitest": "^3.0.0",
+    "vitest-dom": "^0.1.1"
   },
   "engines": {
     "node": "18.x || >=20.10.0",

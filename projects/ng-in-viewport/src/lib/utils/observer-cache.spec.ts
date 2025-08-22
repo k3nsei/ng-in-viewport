@@ -5,20 +5,20 @@ import { Config } from '../values';
 import { ObserverCache } from './observer-cache';
 import { ObserverCacheItem } from './observer-cache-item';
 
-let mockAddNode: (node: Element) => void;
-let mockDeleteNode: (node: Element) => void;
+let mockAddNode = vi.fn();
+let mockDeleteNode = vi.fn();
 
 vi.mock('./observer-cache-item', () => ({
   ObserverCacheItem: vi.fn().mockImplementation((...args: ConstructorParameters<typeof ObserverCacheItem>) => {
     const { next, complete } = args[1];
     const nodes = new Set<Element>();
 
-    mockAddNode = vi.fn().mockImplementation((node: Element) => {
+    mockAddNode.mockImplementation((node: Element) => {
       nodes.add(node);
       next([{ target: node } as IntersectionObserverEntry], {} as IntersectionObserver);
     });
 
-    mockDeleteNode = vi.fn().mockImplementation((node: Element) => {
+    mockDeleteNode.mockImplementation((node: Element) => {
       nodes.delete(node);
       complete();
     });
@@ -36,7 +36,7 @@ describe('GIVEN ObserverCache', () => {
     let instance: ObserverCache;
 
     beforeEach(() => {
-      callback = jest.fn();
+      callback = vi.fn();
       instance = new ObserverCache(callback);
     });
 

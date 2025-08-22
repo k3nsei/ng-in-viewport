@@ -58,7 +58,7 @@ describe('GIVEN InViewportService', () => {
       let triggerSubscription$: Subscription;
 
       beforeEach(() => {
-        triggerCallback = jest.fn().mockImplementation(() => NgZone.isInAngularZone());
+        triggerCallback = vi.fn().mockImplementation(() => NgZone.isInAngularZone());
 
         triggerSubscription$ = service.trigger$.subscribe((...args) => triggerCallback(...args));
 
