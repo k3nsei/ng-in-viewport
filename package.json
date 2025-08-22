@@ -19,6 +19,7 @@
     "lint:demo": "ng lint demo",
     "lint:example": "ng lint example",
     "lint:lib": "ng lint ng-in-viewport",
+    "mcp:validate": "node scripts/validate-mcp.js",
     "prepare": "npx --no -- is-ci || npx --no -- husky || true",
     "serve:demo": "ng serve demo",
     "serve:example": "ng serve example",
