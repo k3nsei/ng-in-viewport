@@ -106,6 +106,7 @@ import {
   input,
   output,
   signal,
+  ElementRef,
 } from '@angular/core';
 
 @Component({
@@ -145,6 +146,7 @@ export class ViewportElementComponent {
   // Internal signals
   protected readonly isInViewport = signal<boolean>(false);
   protected readonly visibilityRatio = signal<number>(0);
+  private readonly lastEntry = signal<IntersectionObserverEntry | null>(null);
   
   // Computed values - derived state
   protected readonly opacity = computed(() => 
@@ -165,15 +167,30 @@ export class ViewportElementComponent {
 
     effect(() => {
       // Emit events when visibility changes
-      this.visibilityChange.emit({
-        isVisible: this.isInViewport(),
-        entry: this.lastEntry(), // Reference to latest entry
-      });
+      const entry = this.lastEntry();
+      if (entry) {
+        this.visibilityChange.emit({
+          isVisible: this.isInViewport(),
+          entry,
+        });
+      }
     });
   }
 
-  private setupViewportObserver() {
+  private setupViewportObserver(): void {
     // Implementation with Intersection Observer
+    this.viewportService.observe(
+      this.elementRef.nativeElement,
+      {
+        threshold: this.threshold(),
+        rootMargin: this.rootMargin(),
+        callback: (entry) => {
+          this.isInViewport.set(entry.isIntersecting);
+          this.visibilityRatio.set(entry.intersectionRatio * 100);
+          this.lastEntry.set(entry);
+        },
+      }
+    );
   }
 }
 ```
@@ -183,10 +200,24 @@ export class ViewportElementComponent {
 ```typescript
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
+
+interface ViewportConfig {
+  threshold: number | number[];
+  rootMargin: string;
+  callback: (entry: IntersectionObserverEntry) => void;
+}
+
+interface ViewportGlobalConfig {
+  rootMargin: string;
+  threshold: number[];
+}
 
 @Injectable({ providedIn: 'root' })
 export class ViewportService {
   private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
   
   // Signal-based state management
   private readonly _elements = signal<Map<Element, ViewportConfig>>(new Map());
@@ -203,12 +234,18 @@ export class ViewportService {
   private observer?: IntersectionObserver;
 
   constructor() {
-    this.initializeObserver();
+    if (isPlatformBrowser(this.platformId)) {
+      this.initializeObserver();
+    }
   }
 
   // Public API methods
   observe(element: Element, config?: Partial<ViewportConfig>): () => void {
-    const fullConfig = { ...this._globalConfig(), ...config };
+    if (!isPlatformBrowser(this.platformId)) {
+      return () => {}; // No-op for SSR
+    }
+
+    const fullConfig = { ...this._globalConfig(), ...config } as ViewportConfig;
     
     this._elements.update(elements => {
       const newElements = new Map(elements);
@@ -245,7 +282,14 @@ export class ViewportService {
   }
 
   private handleIntersection(entries: IntersectionObserverEntry[]): void {
-    // Process intersection changes with signals
+    const elements = this._elements();
+    
+    entries.forEach(entry => {
+      const config = elements.get(entry.target);
+      if (config?.callback) {
+        config.callback(entry);
+      }
+    });
   }
 }
 ```
@@ -303,14 +347,25 @@ export class ViewportService {
   {{ buttonText() }}
 </button>
 
-<!-- Two-way binding with signals -->
-<input [(ngModel)]="searchTerm" />
+<!-- Signal-based input binding -->
+<input 
+  [value]="searchTerm()" 
+  (input)="searchTerm.set($event.target.value)" />
 ```
 
 ### Directive Patterns
 
 ```typescript
-import { Directive, effect, inject, input } from '@angular/core';
+import { 
+  Directive, 
+  effect, 
+  inject, 
+  input, 
+  output,
+  signal,
+  ElementRef,
+  OnDestroy 
+} from '@angular/core';
 
 @Directive({
   selector: '[viewportObserver]',
@@ -319,10 +374,16 @@ import { Directive, effect, inject, input } from '@angular/core';
     '[attr.data-in-viewport]': 'isInViewport()',
   },
 })
-export class ViewportObserverDirective {
+export class ViewportObserverDirective implements OnDestroy {
   // Signal inputs
   readonly threshold = input<number>(0.5);
   readonly rootMargin = input<string>('0px');
+
+  // Signal outputs
+  readonly viewportChange = output<{
+    isVisible: boolean;
+    entry: IntersectionObserverEntry;
+  }>();
 
   // Injected dependencies
   private readonly elementRef = inject(ElementRef);
@@ -336,6 +397,14 @@ export class ViewportObserverDirective {
     effect(() => {
       // Setup observer when inputs change
       this.setupObserver();
+    });
+
+    effect(() => {
+      // Emit changes when viewport state changes
+      this.viewportChange.emit({
+        isVisible: this.isInViewport(),
+        entry: this.lastEntry(),
+      });
     });
   }
 
@@ -351,10 +420,15 @@ export class ViewportObserverDirective {
       {
         threshold: this.threshold(),
         rootMargin: this.rootMargin(),
-        callback: (isVisible) => this.isInViewport.set(isVisible),
+        callback: (entry) => {
+          this.isInViewport.set(entry.isIntersecting);
+          this.lastEntry.set(entry);
+        },
       }
     );
   }
+
+  private readonly lastEntry = signal<IntersectionObserverEntry | null>(null);
 }
 ```
 
@@ -365,6 +439,7 @@ export class ViewportObserverDirective {
 ```typescript
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
+import { ViewportElementComponent } from './viewport-element.component';
 
 describe('ViewportElementComponent', () => {
   let component: ViewportElementComponent;
@@ -382,20 +457,32 @@ describe('ViewportElementComponent', () => {
   it('should emit visibility changes when signal updates', () => {
     const emitSpy = jest.spyOn(component.visibilityChange, 'emit');
     
-    // Update signal directly
+    // Update signal inputs directly
     fixture.componentRef.setInput('threshold', 0.8);
     fixture.detectChanges();
     
-    expect(emitSpy).toHaveBeenCalledWith({
-      isVisible: false,
-      entry: expect.any(Object),
-    });
+    // Test signal-based state changes
+    component['isInViewport'].set(true);
+    component['visibilityRatio'].set(75);
+    
+    expect(component['opacity']()).toBe(0.8); // 0.75 * 0.8 + 0.2
   });
 
   it('should compute opacity based on visibility ratio', () => {
     // Test computed signals
-    component['visibilityRatio'].set(0.5);
+    component['visibilityRatio'].set(50);
     expect(component['opacity']()).toBe(0.6); // 0.5 * 0.8 + 0.2
+    
+    component['visibilityRatio'].set(100);
+    expect(component['opacity']()).toBe(1.0); // 1.0 * 0.8 + 0.2
+  });
+
+  it('should update viewport state based on visibility', () => {
+    component['isInViewport'].set(true);
+    expect(component['viewportState']()).toBe('visible');
+    
+    component['isInViewport'].set(false);
+    expect(component['viewportState']()).toBe('hidden');
   });
 });
 ```
@@ -405,25 +492,49 @@ describe('ViewportElementComponent', () => {
 ```typescript
 import { TestBed } from '@angular/core/testing';
 import { ViewportService } from './viewport.service';
+import { PLATFORM_ID } from '@angular/core';
 
 describe('ViewportService', () => {
   let service: ViewportService;
   let mockElement: HTMLElement;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: PLATFORM_ID, useValue: 'browser' },
+      ],
+    });
     service = TestBed.inject(ViewportService);
     mockElement = document.createElement('div');
   });
 
   it('should track elements correctly', () => {
     expect(service.trackedElementsCount()).toBe(0);
+    expect(service.isActive()).toBe(false);
     
     const cleanup = service.observe(mockElement);
     expect(service.trackedElementsCount()).toBe(1);
+    expect(service.isActive()).toBe(true);
     
     cleanup();
     expect(service.trackedElementsCount()).toBe(0);
+    expect(service.isActive()).toBe(false);
+  });
+
+  it('should handle SSR gracefully', () => {
+    TestBed.resetTestingModule();
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: PLATFORM_ID, useValue: 'server' },
+      ],
+    });
+    
+    const ssrService = TestBed.inject(ViewportService);
+    const cleanup = ssrService.observe(mockElement);
+    
+    // Should return no-op cleanup function
+    expect(typeof cleanup).toBe('function');
+    expect(ssrService.trackedElementsCount()).toBe(0);
   });
 });
 ```
@@ -454,10 +565,10 @@ effect(() => {
 ```typescript
 // Automatic cleanup with effect cleanup
 effect((onCleanup) => {
-  const subscription = this.setupObserver();
+  const cleanup = this.setupObserver();
   
   onCleanup(() => {
-    subscription.unsubscribe();
+    cleanup();
   });
 });
 ```
