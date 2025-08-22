@@ -17,6 +17,7 @@
     "**/.DS_Store": true,
     "**/node_modules": true,
     "**/dist": true,
+    "**/coverage": true,
     "**/.angular": true
   }
 }
