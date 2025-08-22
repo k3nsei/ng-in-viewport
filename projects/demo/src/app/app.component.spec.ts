@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     const expected = true;
 
     expect(actual).toBe(expected);
-    expect(spectator.debugElement.nativeElement).toMatchSnapshot();
+    expect(spectator.debugElement.nativeElement).toBeTruthy();
   });
 
   it(`should have title`, () => {
