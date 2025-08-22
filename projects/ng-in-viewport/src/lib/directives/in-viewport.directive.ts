@@ -4,12 +4,12 @@ import {
   ChangeDetectorRef,
   Directive,
   ElementRef,
-  EventEmitter,
-  Input,
   OnDestroy,
-  Output,
   PLATFORM_ID,
+  computed,
   inject,
+  input,
+  output,
 } from '@angular/core';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -34,16 +34,13 @@ export type InViewportOptions = Partial<ConstructorParameters<typeof Config>[0]>
   hostDirectives: [DestroyableDirective],
 })
 export class InViewportDirective implements AfterViewInit, OnDestroy {
-  @Input('inViewportOptions')
-  public set options(options: InViewportOptions) {
-    this.#config = new Config(options);
-  }
+  public readonly options = input<InViewportOptions>({}, { alias: 'inViewportOptions' });
 
-  @Output() public readonly inViewportAction = new EventEmitter<InViewportAction>();
+  public readonly inViewportAction = output<InViewportAction>();
 
-  @Output() public readonly inViewportCustomCheck = new EventEmitter<unknown>();
+  public readonly inViewportCustomCheck = output<unknown>();
 
-  #config = new Config({});
+  protected readonly config = computed(() => new Config(this.options()));
 
   protected readonly platformId = inject<string>(PLATFORM_ID);
 
@@ -57,10 +54,6 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
 
   private get nativeElement(): Element {
     return this.elementRef.nativeElement;
-  }
-
-  private get config(): Config {
-    return this.#config;
   }
 
   public ngAfterViewInit(): void {
@@ -79,19 +72,19 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
         this.changeDetectorRef.markForCheck();
       });
 
-    this.inViewportService.register(this.nativeElement, this.config);
+    this.inViewportService.register(this.nativeElement, this.config());
   }
 
   public ngOnDestroy(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.inViewportService.unregister(this.nativeElement, this.config);
+      this.inViewportService.unregister(this.nativeElement, this.config());
 
       this.#emit(undefined, true, false);
     }
   }
 
   #isVisible(entry: IntersectionObserverEntry): boolean {
-    return this.config.partial ? entry.isIntersecting || entry.intersectionRatio > 0 : entry.intersectionRatio >= 1;
+    return this.config().partial ? entry.isIntersecting || entry.intersectionRatio > 0 : entry.intersectionRatio >= 1;
   }
 
   #emit(entry: IntersectionObserverEntry, force: false): void;
@@ -105,12 +98,12 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
       visible,
     });
 
-    const checkFn = this.config.checkFn;
+    const checkFn = this.config().checkFn;
     if (checkFn) {
       const result = checkFn(entry, {
         force,
         forcedValue: force ? Boolean(forcedValue) : undefined,
-        config: this.config,
+        config: this.config(),
       });
       this.inViewportCustomCheck.emit(result);
     }
