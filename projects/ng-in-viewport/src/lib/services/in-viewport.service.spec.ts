@@ -1,7 +1,8 @@
 import { NgZone } from '@angular/core';
-import { SpectatorService, createServiceFactory } from '@ngneat/spectator/jest';
+import { SpectatorService, createServiceFactory } from '@ngneat/spectator';
 import { uniqueId } from 'lodash';
 import { Subscription } from 'rxjs';
+import { vi } from 'vitest';
 
 import { ObserverCache } from '../utils';
 import { Config } from '../values';
@@ -17,14 +18,14 @@ const createNode = (): HTMLDivElement => {
 let mockAddNode: (node: Element, config: Config) => void;
 let mockDeleteNode: (node: Element, config: Config) => void;
 
-jest.mock('../utils/observer-cache', () => ({
-  ObserverCache: jest.fn().mockImplementation((...args: ConstructorParameters<typeof ObserverCache>) => {
+vi.mock('../utils/observer-cache', () => ({
+  ObserverCache: vi.fn().mockImplementation((...args: ConstructorParameters<typeof ObserverCache>) => {
     const callback = args[0];
 
-    mockAddNode = jest.fn().mockImplementation((node) => {
+    mockAddNode = vi.fn().mockImplementation((node) => {
       callback([{ target: node } as IntersectionObserverEntry], {} as IntersectionObserver);
     });
-    mockDeleteNode = jest.fn();
+    mockDeleteNode = vi.fn();
 
     return {
       addNode: mockAddNode,

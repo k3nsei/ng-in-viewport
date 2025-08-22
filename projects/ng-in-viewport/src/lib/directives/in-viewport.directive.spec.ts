@@ -1,6 +1,6 @@
 import { PLATFORM_ID } from '@angular/core';
 import { HostComponent } from '@ngneat/spectator';
-import { SpectatorDirective, createDirectiveFactory } from '@ngneat/spectator/jest';
+import { SpectatorDirective, createDirectiveFactory } from '@ngneat/spectator';
 import { MockProvider } from 'ng-mocks';
 import { ReplaySubject } from 'rxjs';
 

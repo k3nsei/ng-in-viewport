@@ -1,4 +1,4 @@
-import { SpectatorDirective, createDirectiveFactory } from '@ngneat/spectator/jest';
+import { SpectatorDirective, createDirectiveFactory } from '@ngneat/spectator';
 import { interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

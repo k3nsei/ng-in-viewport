@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { Config } from '../values';
 
 import { ObserverCache } from './observer-cache';
@@ -6,17 +8,17 @@ import { ObserverCacheItem } from './observer-cache-item';
 let mockAddNode: (node: Element) => void;
 let mockDeleteNode: (node: Element) => void;
 
-jest.mock('./observer-cache-item', () => ({
-  ObserverCacheItem: jest.fn().mockImplementation((...args: ConstructorParameters<typeof ObserverCacheItem>) => {
+vi.mock('./observer-cache-item', () => ({
+  ObserverCacheItem: vi.fn().mockImplementation((...args: ConstructorParameters<typeof ObserverCacheItem>) => {
     const { next, complete } = args[1];
     const nodes = new Set<Element>();
 
-    mockAddNode = jest.fn().mockImplementation((node: Element) => {
+    mockAddNode = vi.fn().mockImplementation((node: Element) => {
       nodes.add(node);
       next([{ target: node } as IntersectionObserverEntry], {} as IntersectionObserver);
     });
 
-    mockDeleteNode = jest.fn().mockImplementation((node: Element) => {
+    mockDeleteNode = vi.fn().mockImplementation((node: Element) => {
       nodes.delete(node);
       complete();
     });

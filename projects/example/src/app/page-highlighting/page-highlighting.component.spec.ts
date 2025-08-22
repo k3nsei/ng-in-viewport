@@ -1,4 +1,4 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { MockDirective } from 'ng-mocks';
 
 import { InViewportAction, InViewportDirective } from 'ng-in-viewport';

@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 Object.defineProperty(window, 'crypto', {
   value: {
     randomUUID: () => {
@@ -37,4 +39,25 @@ Object.defineProperty(document.body.style, 'transform', {
       configurable: true,
     };
   },
+});
+
+/**
+ * Mock IntersectionObserver for testing
+ */
+class MockIntersectionObserver {
+  observe = vi.fn();
+  disconnect = vi.fn();
+  unobserve = vi.fn();
+}
+
+Object.defineProperty(window, 'IntersectionObserver', {
+  writable: true,
+  configurable: true,
+  value: MockIntersectionObserver,
+});
+
+Object.defineProperty(global, 'IntersectionObserver', {
+  writable: true,
+  configurable: true,
+  value: MockIntersectionObserver,
 });

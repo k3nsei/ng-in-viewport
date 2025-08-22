@@ -1,4 +1,4 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { MockProvider } from 'ng-mocks';
 import { EMPTY } from 'rxjs';
 

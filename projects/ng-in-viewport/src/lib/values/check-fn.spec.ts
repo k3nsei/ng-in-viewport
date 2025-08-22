@@ -1,9 +1,11 @@
+import { vi } from 'vitest';
+
 import { CheckFn } from './check-fn';
 
 describe('GIVEN CheckFn', () => {
   describe('WHEN created with non-nullable value', () => {
     let instance: CheckFn;
-    const fn = jest.fn();
+    const fn = vi.fn();
 
     beforeEach(() => {
       instance = new CheckFn(fn);
