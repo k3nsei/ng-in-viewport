@@ -5,30 +5,51 @@ import { Config } from '../values';
 import { ObserverCache } from './observer-cache';
 import { ObserverCacheItem } from './observer-cache-item';
 
-let mockAddNode = vi.fn();
-let mockDeleteNode = vi.fn();
+// Global mock instances to track all calls
+const mockInstances: Array<{
+  addNode: ReturnType<typeof vi.fn>;
+  deleteNode: ReturnType<typeof vi.fn>;
+}> = [];
 
 vi.mock('./observer-cache-item', () => ({
   ObserverCacheItem: vi.fn().mockImplementation((...args: ConstructorParameters<typeof ObserverCacheItem>) => {
     const { next, complete } = args[1];
     const nodes = new Set<Element>();
 
-    mockAddNode.mockImplementation((node: Element) => {
+    const addNodeMock = vi.fn().mockImplementation((node: Element) => {
       nodes.add(node);
       next([{ target: node } as IntersectionObserverEntry], {} as IntersectionObserver);
     });
 
-    mockDeleteNode.mockImplementation((node: Element) => {
+    const deleteNodeMock = vi.fn().mockImplementation((node: Element) => {
       nodes.delete(node);
       complete();
     });
 
-    return {
-      addNode: mockAddNode,
-      deleteNode: mockDeleteNode,
+    const instance = {
+      addNode: addNodeMock,
+      deleteNode: deleteNodeMock,
     };
+
+    mockInstances.push(instance);
+    return instance;
   }),
 }));
+
+// Helper functions to check if any mock instance was called with the node
+function expectAnyAddNodeCalledWith(node: Element) {
+  const wasCalled = mockInstances.some(instance => 
+    instance.addNode.mock.calls.some(call => call[0] === node)
+  );
+  expect(wasCalled).toBe(true);
+}
+
+function expectAnyDeleteNodeCalledWith(node: Element) {
+  const wasCalled = mockInstances.some(instance => 
+    instance.deleteNode.mock.calls.some(call => call[0] === node)
+  );
+  expect(wasCalled).toBe(true);
+}
 
 describe('GIVEN ObserverCache', () => {
   describe('WHEN instance was created', () => {
@@ -36,6 +57,8 @@ describe('GIVEN ObserverCache', () => {
     let instance: ObserverCache;
 
     beforeEach(() => {
+      // Clear all mock instances
+      mockInstances.length = 0;
       callback = vi.fn();
       instance = new ObserverCache(callback);
     });
@@ -53,7 +76,7 @@ describe('GIVEN ObserverCache', () => {
       });
 
       it('THEN `addNode` from ObserverCacheItem should be called', () => {
-        expect(mockAddNode).toHaveBeenCalledWith(node);
+        expectAnyAddNodeCalledWith(node);
       });
 
       describe('AND `addNode` with another config was called', () => {
@@ -66,11 +89,11 @@ describe('GIVEN ObserverCache', () => {
         });
 
         it('THEN `addNode` from ObserverCacheItem should be called', () => {
-          expect(mockAddNode).toHaveBeenCalledWith(nextNode);
+          expectAnyAddNodeCalledWith(nextNode);
         });
 
         it('THEN `deleteNode` from ObserverCacheItem should be called', () => {
-          expect(mockDeleteNode).toHaveBeenCalledWith(nextNode);
+          expectAnyDeleteNodeCalledWith(nextNode);
         });
       });
 
@@ -78,7 +101,7 @@ describe('GIVEN ObserverCache', () => {
         it('THEN `deleteNode` from ObserverCacheItem should be called', () => {
           instance.deleteNode(node, config);
 
-          expect(mockDeleteNode).toHaveBeenCalledWith(node);
+          expectAnyDeleteNodeCalledWith(node);
         });
       });
     });
@@ -94,11 +117,11 @@ describe('GIVEN ObserverCache', () => {
       });
 
       it('THEN `addNode` from ObserverCacheItem should be called', () => {
-        expect(mockAddNode).toHaveBeenCalledWith(node);
+        expectAnyAddNodeCalledWith(node);
       });
 
       it('THEN `deleteNode` from ObserverCacheItem should be called', () => {
-        expect(mockDeleteNode).toHaveBeenCalledWith(node);
+        expectAnyDeleteNodeCalledWith(node);
       });
     });
   });

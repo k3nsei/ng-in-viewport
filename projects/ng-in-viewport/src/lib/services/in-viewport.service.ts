@@ -8,7 +8,7 @@ import { Config } from '../values';
 export class InViewportService {
   readonly #trigger$ = new Subject<IntersectionObserverEntry>();
 
-  #cache = this.#initializeCache();
+  #cache?: ObserverCache;
 
   public readonly trigger$ = this.#trigger$.asObservable();
 
@@ -16,18 +16,21 @@ export class InViewportService {
 
   public register(node: Element, config: Config): void {
     this.zone.runOutsideAngular(() => {
-      this.#cache.addNode(node, config);
+      this.#getCache().addNode(node, config);
     });
   }
 
   public unregister(node: Element, config: Config): void {
     this.zone.runOutsideAngular(() => {
-      this.#cache.deleteNode(node, config);
+      this.#getCache().deleteNode(node, config);
     });
   }
 
-  #initializeCache(): ObserverCache {
-    return this.zone.runOutsideAngular(() => new ObserverCache((entries) => this.#onIntersectionEvent(entries)));
+  #getCache(): ObserverCache {
+    if (!this.#cache) {
+      this.#cache = this.zone.runOutsideAngular(() => new ObserverCache((entries) => this.#onIntersectionEvent(entries)));
+    }
+    return this.#cache;
   }
 
   #onIntersectionEvent(entries: IntersectionObserverEntry[] = []): void {

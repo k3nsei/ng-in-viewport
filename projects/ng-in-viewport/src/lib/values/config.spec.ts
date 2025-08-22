@@ -1,4 +1,5 @@
 import { vi } from 'vitest';
+
 import { InViewportDirection } from '../enums';
 
 import { Config, checkFnId, configHash } from './config';
