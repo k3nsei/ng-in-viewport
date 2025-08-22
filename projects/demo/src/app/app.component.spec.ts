@@ -38,6 +38,6 @@ describe('AppComponent', () => {
     const actual = spectator.query('header h1');
     const expected = 'ng-in-viewport demo';
 
-    expect(actual).toHaveText(expected);
+    expect(actual?.textContent?.trim()).toBe(expected);
   });
 });

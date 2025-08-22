@@ -49,7 +49,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el, visible: false } as InViewportAction);
       spectator.detectChanges();
 
-      expect(el).not.toHaveClass(activeClassName);
+      expect(el?.classList.contains(activeClassName)).toBe(false);
     });
 
     it('should be active item', () => {
@@ -58,7 +58,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el, visible: true } as InViewportAction);
       spectator.detectChanges();
 
-      expect(el).toHaveClass(activeClassName);
+      expect(el?.classList.contains(activeClassName)).toBe(true);
     });
   });
 
@@ -76,7 +76,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el, visible: false } as InViewportAction);
       spectator.detectChanges();
 
-      expect(el).not.toHaveClass(activeClassName);
+      expect(el?.classList.contains(activeClassName)).toBe(false);
     });
 
     it('should be active item', () => {
@@ -85,7 +85,7 @@ describe('ExampleComponent', () => {
       component.handleAction({ target: el, visible: true } as InViewportAction);
       spectator.detectChanges();
 
-      expect(el).toHaveClass(activeClassName);
+      expect(el?.classList.contains(activeClassName)).toBe(true);
     });
   });
 });
