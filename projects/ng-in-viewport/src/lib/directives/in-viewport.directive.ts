@@ -36,14 +36,14 @@ export type InViewportOptions = Partial<ConstructorParameters<typeof Config>[0]>
 export class InViewportDirective implements AfterViewInit, OnDestroy {
   @Input('inViewportOptions')
   public set options(options: InViewportOptions) {
-    this.config = new Config(options);
+    this.#config = new Config(options);
   }
 
   @Output() public readonly inViewportAction = new EventEmitter<InViewportAction>();
 
   @Output() public readonly inViewportCustomCheck = new EventEmitter<unknown>();
 
-  private config = new Config({});
+  #config = new Config({});
 
   protected readonly platformId = inject<string>(PLATFORM_ID);
 
@@ -59,9 +59,13 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
     return this.elementRef.nativeElement;
   }
 
+  private get config(): Config {
+    return this.#config;
+  }
+
   public ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
-      this.emit(undefined, true, true);
+      this.#emit(undefined, true, true);
       return;
     }
 
@@ -71,7 +75,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
         takeUntil(this.destroyable.destroyed$)
       )
       .subscribe((entry) => {
-        this.emit(entry, false);
+        this.#emit(entry, false);
         this.changeDetectorRef.markForCheck();
       });
 
@@ -82,31 +86,33 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       this.inViewportService.unregister(this.nativeElement, this.config);
 
-      this.emit(undefined, true, false);
+      this.#emit(undefined, true, false);
     }
   }
 
-  private isVisible(entry: IntersectionObserverEntry): boolean {
+  #isVisible(entry: IntersectionObserverEntry): boolean {
     return this.config.partial ? entry.isIntersecting || entry.intersectionRatio > 0 : entry.intersectionRatio >= 1;
   }
 
-  private emit(entry: IntersectionObserverEntry, force: false): void;
-  private emit(entry: undefined, force: true, forcedValue: boolean): void;
-  private emit(entry: IntersectionObserverEntry | undefined, force: boolean, forcedValue?: boolean): void {
+  #emit(entry: IntersectionObserverEntry, force: false): void;
+  #emit(entry: undefined, force: true, forcedValue: boolean): void;
+  #emit(entry: IntersectionObserverEntry | undefined, force: boolean, forcedValue?: boolean): void {
+    const visible = force ? Boolean(forcedValue) : entry ? this.#isVisible(entry) : true;
+
     this.inViewportAction.emit({
       [InViewportMetadata]: { entry },
       target: this.nativeElement,
-      visible: force ? !!forcedValue : !entry || this.isVisible(entry),
+      visible,
     });
 
-    if (this.config.checkFn) {
-      this.inViewportCustomCheck.emit(
-        this.config.checkFn(entry, {
-          force,
-          forcedValue: force ? !!forcedValue : undefined,
-          config: this.config,
-        })
-      );
+    const checkFn = this.config.checkFn;
+    if (checkFn) {
+      const result = checkFn(entry, {
+        force,
+        forcedValue: force ? Boolean(forcedValue) : undefined,
+        config: this.config,
+      });
+      this.inViewportCustomCheck.emit(result);
     }
   }
 }
