@@ -4,12 +4,12 @@ import {
   ChangeDetectorRef,
   Directive,
   ElementRef,
-  EventEmitter,
-  Input,
   OnDestroy,
-  Output,
   PLATFORM_ID,
+  computed,
   inject,
+  input,
+  output,
 } from '@angular/core';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -34,16 +34,13 @@ export type InViewportOptions = Partial<ConstructorParameters<typeof Config>[0]>
   hostDirectives: [DestroyableDirective],
 })
 export class InViewportDirective implements AfterViewInit, OnDestroy {
-  @Input('inViewportOptions')
-  public set options(options: InViewportOptions) {
-    this.config = new Config(options);
-  }
+  public readonly options = input<InViewportOptions>({}, { alias: 'inViewportOptions' });
 
-  @Output() public readonly inViewportAction = new EventEmitter<InViewportAction>();
+  public readonly inViewportAction = output<InViewportAction>();
 
-  @Output() public readonly inViewportCustomCheck = new EventEmitter<any>();
+  public readonly inViewportCustomCheck = output<unknown>();
 
-  private config = new Config({});
+  protected readonly config = computed(() => new Config(this.options()));
 
   protected readonly platformId = inject<string>(PLATFORM_ID);
 
@@ -61,7 +58,7 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
 
   public ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
-      this.emit(undefined, true, true);
+      this.#emit(undefined, true, true);
       return;
     }
 
@@ -71,42 +68,44 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
         takeUntil(this.destroyable.destroyed$)
       )
       .subscribe((entry) => {
-        this.emit(entry, false);
+        this.#emit(entry, false);
         this.changeDetectorRef.markForCheck();
       });
 
-    this.inViewportService.register(this.nativeElement, this.config);
+    this.inViewportService.register(this.nativeElement, this.config());
   }
 
   public ngOnDestroy(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.inViewportService.unregister(this.nativeElement, this.config);
+      this.inViewportService.unregister(this.nativeElement, this.config());
 
-      this.emit(undefined, true, false);
+      this.#emit(undefined, true, false);
     }
   }
 
-  private isVisible(entry: IntersectionObserverEntry): boolean {
-    return this.config.partial ? entry.isIntersecting || entry.intersectionRatio > 0 : entry.intersectionRatio >= 1;
+  #isVisible(entry: IntersectionObserverEntry): boolean {
+    return this.config().partial ? entry.isIntersecting || entry.intersectionRatio > 0 : entry.intersectionRatio >= 1;
   }
 
-  private emit(entry: IntersectionObserverEntry, force: false): void;
-  private emit(entry: undefined, force: true, forcedValue: boolean): void;
-  private emit(entry: IntersectionObserverEntry | undefined, force: boolean, forcedValue?: boolean): void {
+  #emit(entry: IntersectionObserverEntry, force: false): void;
+  #emit(entry: undefined, force: true, forcedValue: boolean): void;
+  #emit(entry: IntersectionObserverEntry | undefined, force: boolean, forcedValue?: boolean): void {
+    const visible = force ? Boolean(forcedValue) : entry ? this.#isVisible(entry) : true;
+
     this.inViewportAction.emit({
       [InViewportMetadata]: { entry },
       target: this.nativeElement,
-      visible: force ? !!forcedValue : !entry || this.isVisible(entry),
+      visible,
     });
 
-    if (this.config.checkFn) {
-      this.inViewportCustomCheck.emit(
-        this.config.checkFn(entry, {
-          force,
-          forcedValue: force ? !!forcedValue : undefined,
-          config: this.config,
-        })
-      );
+    const checkFn = this.config().checkFn;
+    if (checkFn) {
+      const result = checkFn(entry, {
+        force,
+        forcedValue: force ? Boolean(forcedValue) : undefined,
+        config: this.config(),
+      });
+      this.inViewportCustomCheck.emit(result);
     }
   }
 }

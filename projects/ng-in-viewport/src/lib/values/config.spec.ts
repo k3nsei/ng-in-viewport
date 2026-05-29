@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { InViewportDirection } from '../enums';
 
 import { Config, checkFnId, configHash } from './config';
@@ -77,7 +79,7 @@ describe('GIVEN Config', () => {
         threshold: [0, 0.24, 0.5, 0.75, 1],
         partial: false,
         direction: InViewportDirection.HORIZONTAL,
-        checkFn: jest.fn(),
+        checkFn: vi.fn(),
       });
     });
 

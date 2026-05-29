@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+
 import { Config } from '../values';
 
 import { ObserverCacheItem } from './observer-cache-item';
@@ -10,12 +12,12 @@ describe('GIVEN ObserverCacheItem', () => {
   let mockDisconnect: typeof IntersectionObserver.prototype.disconnect;
 
   beforeEach(() => {
-    globalThis.IntersectionObserver = jest.fn().mockImplementation((callback: IntersectionObserverCallback) => {
-      mockObserve = jest.fn().mockImplementation((node: Element) => {
+    globalThis.IntersectionObserver = vi.fn().mockImplementation((callback: IntersectionObserverCallback) => {
+      mockObserve = vi.fn().mockImplementation((node: Element) => {
         callback([{ target: node } as IntersectionObserverEntry], {} as IntersectionObserver);
       });
-      mockUnobserve = jest.fn();
-      mockDisconnect = jest.fn();
+      mockUnobserve = vi.fn();
+      mockDisconnect = vi.fn();
 
       return {
         observe: mockObserve,
@@ -35,8 +37,8 @@ describe('GIVEN ObserverCacheItem', () => {
     let mockComplete: () => void;
 
     beforeEach(() => {
-      mockNext = jest.fn();
-      mockComplete = jest.fn();
+      mockNext = vi.fn();
+      mockComplete = vi.fn();
 
       instance = new ObserverCacheItem(new Config(), { next: mockNext, complete: mockComplete });
     });

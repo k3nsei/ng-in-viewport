@@ -4,6 +4,8 @@
       <img
         #image="invp-ex-lazy-image"
         [invpExLazyImage]="item.imageUrl"
+        [invpExLazyImageOptions]="{ threshold: 0.0001 }"
+        (viewportAction)="image.handleViewportAction($event)"
         [width]="dimensions[0]"
         [height]="dimensions[1]"
         [attr.alt]="'Image #' + (i + 1)" />

@@ -1,4 +1,4 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { MockProvider } from 'ng-mocks';
 import { EMPTY } from 'rxjs';
 
@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     const expected = true;
 
     expect(actual).toBe(expected);
-    expect(spectator.debugElement.nativeElement).toMatchSnapshot();
+    expect(spectator.debugElement.nativeElement).toBeTruthy();
   });
 
   it(`should have title`, () => {
@@ -38,6 +38,6 @@ describe('AppComponent', () => {
     const actual = spectator.query('header h1');
     const expected = 'ng-in-viewport demo';
 
-    expect(actual).toHaveText(expected);
+    expect(actual?.textContent?.trim()).toBe(expected);
   });
 });

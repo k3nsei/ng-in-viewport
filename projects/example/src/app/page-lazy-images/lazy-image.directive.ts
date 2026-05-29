@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { DestroyRef, Directive, ElementRef, OnInit, Renderer2, effect, inject, input, signal } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, Renderer2, effect, inject, input, output, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { animationFrameScheduler, throwError } from 'rxjs';
-import { catchError, delay, filter, take, tap } from 'rxjs/operators';
+import { catchError, delay, tap } from 'rxjs/operators';
 
-import { InViewportDirective } from 'ng-in-viewport';
+import { InViewportAction, InViewportDirective } from 'ng-in-viewport';
 
 export const enum LazyImageClassname {
   Loading = 'loading',
@@ -15,11 +15,19 @@ export const enum LazyImageClassname {
 @Directive({
   standalone: true,
   selector: '[invpExLazyImage]',
-  hostDirectives: [InViewportDirective],
+  hostDirectives: [
+    {
+      directive: InViewportDirective,
+      inputs: ['inViewportOptions: invpExLazyImageOptions'],
+      outputs: ['inViewportAction: viewportAction'],
+    },
+  ],
   exportAs: 'invp-ex-lazy-image',
 })
-export class LazyImageDirective implements OnInit {
+export class LazyImageDirective {
   public readonly src = input.required<string>({ alias: 'invpExLazyImage' });
+
+  public readonly viewportAction = output<InViewportAction>();
 
   public readonly loading = signal(false);
 
@@ -39,28 +47,26 @@ export class LazyImageDirective implements OnInit {
 
   constructor() {
     effect(() => {
-      this.loading()
-        ? this.renderer.addClass(this.elementRef.nativeElement, LazyImageClassname.Loading)
-        : this.renderer.removeClass(this.elementRef.nativeElement, LazyImageClassname.Loading);
+      if (this.loading()) {
+        this.renderer.addClass(this.elementRef.nativeElement, LazyImageClassname.Loading);
+      } else {
+        this.renderer.removeClass(this.elementRef.nativeElement, LazyImageClassname.Loading);
+      }
     });
 
     effect(() => {
-      this.loaded()
-        ? this.renderer.addClass(this.elementRef.nativeElement, LazyImageClassname.Loaded)
-        : this.renderer.removeClass(this.elementRef.nativeElement, LazyImageClassname.Loaded);
+      if (this.loaded()) {
+        this.renderer.addClass(this.elementRef.nativeElement, LazyImageClassname.Loaded);
+      } else {
+        this.renderer.removeClass(this.elementRef.nativeElement, LazyImageClassname.Loaded);
+      }
     });
   }
 
-  public ngOnInit(): void {
-    this.inViewport.options = { threshold: 0.0001 };
-
-    this.inViewport.inViewportAction
-      .pipe(
-        filter(({ visible }) => visible),
-        take(1),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe(() => this.load());
+  public handleViewportAction(action: InViewportAction): void {
+    if (action.visible) {
+      this.load();
+    }
   }
 
   private load(): void {

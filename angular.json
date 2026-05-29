@@ -24,6 +24,15 @@
           },
           "defaultConfiguration": "production"
         },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ng-in-viewport/tsconfig.spec.json",
+            "runner": "vitest",
+            "buildTarget": "::development",
+            "setupFiles": ["projects/ng-in-viewport/vitest-setup.ts"]
+          }
+        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -97,6 +106,15 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "buildTarget": "demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/demo/tsconfig.spec.json",
+            "runner": "vitest",
+            "buildTarget": "::development",
+            "setupFiles": ["projects/demo/vitest-setup.ts"]
           }
         },
         "lint": {
@@ -178,6 +196,15 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "buildTarget": "example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/example/tsconfig.spec.json",
+            "runner": "vitest",
+            "buildTarget": "::development",
+            "setupFiles": ["projects/example/vitest-setup.ts"]
           }
         },
         "lint": {

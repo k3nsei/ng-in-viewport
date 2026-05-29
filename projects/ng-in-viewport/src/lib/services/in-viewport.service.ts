@@ -8,31 +8,34 @@ import { Config } from '../values';
 export class InViewportService {
   readonly #trigger$ = new Subject<IntersectionObserverEntry>();
 
-  #cache!: ObserverCache;
+  #cache?: ObserverCache;
 
   public readonly trigger$ = this.#trigger$.asObservable();
 
   private readonly zone = inject(NgZone);
 
-  constructor() {
-    this.zone.runOutsideAngular(() => {
-      this.#cache = new ObserverCache((entries) => this.onIntersectionEvent(entries));
-    });
-  }
-
   public register(node: Element, config: Config): void {
     this.zone.runOutsideAngular(() => {
-      this.#cache.addNode(node, config);
+      this.#getCache().addNode(node, config);
     });
   }
 
   public unregister(node: Element, config: Config): void {
     this.zone.runOutsideAngular(() => {
-      this.#cache.deleteNode(node, config);
+      this.#getCache().deleteNode(node, config);
     });
   }
 
-  private onIntersectionEvent(entries: IntersectionObserverEntry[] = []): void {
+  #getCache(): ObserverCache {
+    if (!this.#cache) {
+      this.#cache = this.zone.runOutsideAngular(
+        () => new ObserverCache((entries) => this.#onIntersectionEvent(entries))
+      );
+    }
+    return this.#cache;
+  }
+
+  #onIntersectionEvent(entries: IntersectionObserverEntry[] = []): void {
     this.zone.run(() => entries.forEach((entry) => this.#trigger$.next(entry)));
   }
 }

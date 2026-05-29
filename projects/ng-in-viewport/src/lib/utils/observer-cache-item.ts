@@ -32,6 +32,10 @@ export class ObserverCacheItem {
 
   public deleteNode(node: Element): void {
     this.#nodes.delete(node);
-    this.#nodes.size ? this.#observer.unobserve(node) : this.#destroy();
+    if (this.#nodes.size) {
+      this.#observer.unobserve(node);
+    } else {
+      this.#destroy();
+    }
   }
 }
