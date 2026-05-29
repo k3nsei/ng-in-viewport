@@ -56,4 +56,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd dist/ng-in-viewport
-          npm publish --provenance --access public
+          npm stage publish --provenance --access=public
