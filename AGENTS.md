@@ -9,8 +9,8 @@ This is an Angular library for viewport detection using modern Angular v20+ patt
 - `projects/ng-in-viewport/` - Core library source code
 - `projects/demo/` - Demo application for documentation
 - `projects/example/` - Example application showing real-world usage
-- `e2e/` - End-to-end tests
-- `docs/` - Documentation files
+- `projects/demo-e2e/` - Cypress end-to-end tests for the demo app
+- `projects/example-e2e/` - Cypress end-to-end tests for the example app
 
 ## Development Guidelines
 
@@ -27,7 +27,7 @@ This is an Angular library for viewport detection using modern Angular v20+ patt
 - TypeScript strict mode enabled
 - ESLint and Prettier configured
 - Jest for unit testing
-- Playwright for E2E testing
+- Cypress for E2E testing
 - 100% code coverage expected for library code
 
 ### Key Commands
@@ -43,8 +43,10 @@ npm run serve:example    # Run example app (port 4300)
 
 # Testing
 npm run test             # All tests with coverage
-npm run e2e:run          # E2E tests headless
-npm run e2e:open         # E2E tests with UI
+npm run e2e:run:demo     # Demo E2E tests headless
+npm run e2e:run:example  # Example E2E tests headless
+npm run e2e:open:demo    # Demo E2E tests with UI
+npm run e2e:open:example # Example E2E tests with UI
 ```
 
 ## Library Architecture
